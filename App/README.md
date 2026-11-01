@@ -11,6 +11,12 @@ npm run dev
 
 Build web assets with `npm run build`. The native Android project is in `android/`; update it with `npm run android:sync` and build/open it using Android Studio or Gradle.
 
+## Source structure
+
+- `src/features/`: feature pages and their own data logic (`plants`, `scan`, `blog`, `menu`, `tools`).
+- `src/shared/`: app-wide layout, navigation helpers, persisted state, cross-feature scan draft, image utility and global styles.
+- `src/router/`: Vue Router routes using history mode, so URLs have paths such as `/search` without `/#/`. When hosting the web build, configure the server to serve `index.html` for unknown paths so direct links and refreshes work.
+
 ## Included flows
 
 - My Plants: create, edit, delete, room, notes, photo, watering schedule and mark watered.
