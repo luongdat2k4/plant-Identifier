@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.vite/
+*.log
+
+.env.local
+.env.*.local
+
+android/.gradle/
+android/.idea/
+android/local.properties
+android/**/build/
+android/captures/
+android/*.iml
+android/**/*.keystore
+android/**/*.jks
+node_modules/

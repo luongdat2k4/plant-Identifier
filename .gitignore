@@ -1,0 +1,5 @@
+apk/
+.npm-cache/
+.rea-temp/
+toolkit/rea/
+scraping-app/

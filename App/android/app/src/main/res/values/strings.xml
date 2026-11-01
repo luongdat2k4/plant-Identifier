@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">PlantIn</string>
+    <string name="title_activity_main">PlantIn</string>
+    <string name="package_name">com.plantin.recreated</string>
+    <string name="custom_url_scheme">com.plantin.recreated</string>
+</resources>
