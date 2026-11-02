@@ -142,3 +142,71 @@ button.pill-tag{cursor:pointer}
 .search-empty{color:var(--green)}
 .toast{bottom:100px;background:#22372a}
 @media(min-width:600px){body{background:#e4e9e6}}
+
+/* ===== Theme v3: white canvas, deep forest-green panels, yellow accent ===== */
+:root{--bg:#ffffff;--tint:#f3f5ee;--green:#4f7a3d;--green-deep:#3f6431;--green-soft:#e8f0e2;--yellow:#ffc91a;--yellow-deep:#e8b100;--ink:#13214a;--muted:#8d948c;--card-shadow:0 4px 18px #2b3a2410;--panel:#4f7a3d}
+:root,body{background:#fff}
+.app-shell{background:#fff}
+.eyebrow{color:var(--muted)}
+.topbar h1,.sheet-title,.home-greeting b{color:var(--ink)}
+
+/* buttons: yellow primary with dark text */
+.dark-button{background:var(--yellow);color:#1c2a10;box-shadow:none;border-radius:16px;font-weight:700}
+.dark-button:hover{background:var(--yellow-deep)}
+.outline-button{border:1.5px solid var(--green);color:var(--green-deep);border-radius:16px}
+.round-btn,.page-header button,.hero-bar .round-btn{background:#f2f3f1;box-shadow:none;border-radius:14px;color:var(--ink)}
+.count-badge,.pill-tag{background:var(--yellow);color:#1c2a10;box-shadow:none}
+.plus-btn{border-color:var(--yellow-deep);color:#8a6600}
+.plus-btn:hover:not(:disabled){background:#fff4c9}
+
+/* floating nav */
+.bottom-nav{background:#fff;border:1px solid #eef0ec;box-shadow:0 10px 30px #2b3a2418;border-radius:34px}
+.bottom-nav button{background:none;color:#a9b0a8}
+.bottom-nav button.active{background:var(--yellow);color:#1c2a10;box-shadow:0 6px 14px #ffc91a55}
+
+/* tabs and chips */
+.pill-tabs{background:none;box-shadow:none;padding:0;gap:6px;overflow-x:auto}
+.pill-tabs button{flex:none;padding:9px 16px;color:#7d857b;background:none}
+.pill-tabs button.active{background:var(--yellow);color:#1c2a10}
+
+/* cards */
+.pot-card,.list-row,.species-card,.collection-summary>div,.soft-empty,.settings-list{background:#fff;border:1px solid #eef0ec;box-shadow:var(--card-shadow)}
+.pot-card .pot-photo,.species-image{background:#f3f5ee}
+.mini-ic.nutrition{background:#e8f0e2;color:#4f7a3d}
+.care-btn{background:var(--green);color:#fff}
+.collection-summary b{color:var(--green)}
+
+/* detail pages: hero on white, green bottom panel */
+.hero{background:#fff}
+.hero::before{background:#f3f5ee}
+.hero-img{border-radius:0 0 54px 0;box-shadow:none}
+.hero-meta dd{color:var(--ink)}
+.sheet{background:var(--panel);color:#fff;border-radius:40px 40px 0 0;margin-top:-30px;min-height:calc(100vh - 300px);padding-bottom:120px}
+.sheet .sheet-title,.sheet h3,.sheet b,.sheet .eyebrow,.sheet .scientific{color:#fff}
+.sheet .eyebrow,.sheet .scientific,.sheet p,.sheet li,.sheet span{color:#e2ecd9}
+.sheet .mastered-inline{color:var(--yellow)}
+.sheet .care-card,.sheet .growth-card,.sheet .info-block{background:#ffffff1f;color:#fff}
+.sheet .info-block.locked{background:#ffffff14;border:1.5px dashed #ffffff55;color:#d3e0c8}
+.sheet .stat-bar-track{background:#ffffff33}
+.sheet .stat-bar-fill.growth{background:var(--yellow)}
+.sheet .stage-steps span.done{background:#ffffff33}
+.sheet .stage-steps span.current{box-shadow:0 0 0 2px var(--yellow)}
+.sheet .pill-tag,.sheet .count-badge{background:#ffffff26;color:#fff}
+.sheet .dark-button{background:var(--yellow);color:#1c2a10}
+.sheet .outline-button{background:none;border-color:#ffffff88;color:#fff}
+.sheet .segmented{background:#ffffff26}
+.sheet .segmented .active{background:#fff;color:var(--green-deep)}
+
+/* scan: white canvas + green bottom sheet */
+.scan-screen{background:#fff}
+.vf-corner{border-color:#1c2a10}
+.vf-hint{color:var(--green)}
+.scan-sheet{background:var(--panel);border-radius:40px 40px 0 0;color:#fff}
+.scan-sheet .sheet-title,.scan-sheet .scientific,.scan-sheet .result-note,.scan-sheet .scan-note,.scan-sheet .rolling-text{color:#fff}
+.option-card{background:#ffffff1f;border:0;color:#fff;border-radius:22px}
+.option-card.primary{background:var(--yellow);color:#1c2a10;box-shadow:none}
+.option-ic{background:#fff;color:var(--green)}
+.option-ic.soft{background:#ffffff40;color:#fff}
+.scan-sheet .outline-button{background:none;border-color:#ffffff88;color:#fff}
+.new-tag{background:var(--yellow);color:#1c2a10}
+.toast{background:#2c4421}
