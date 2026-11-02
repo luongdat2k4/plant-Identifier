@@ -1,0 +1,144 @@
+/* Visual theme: soft grey-green canvas, lime accent, white rounded cards, floating pill nav.
+   Loaded after global.css so these rules override the base styles. */
+:root{--bg:#ebf1ee;--tint:#e1eae5;--green:#6f9e22;--green-deep:#587f18;--green-soft:#e6efd3;--ink:#1d2b22;--muted:#8a9a93;--card-shadow:0 6px 22px #1c3b2110}
+:root{background:var(--bg)}
+body{background:#eef0ef}
+.app-shell{background:var(--bg);box-shadow:none;padding-bottom:0;overflow-x:clip}
+.app-shell.has-nav{padding-bottom:112px}
+.eyebrow{color:var(--muted)}
+.leaf-dot{color:var(--green)}
+.round-btn,.page-header button,.hero-bar .round-btn{width:46px;height:46px;background:white;box-shadow:var(--card-shadow);color:var(--ink)}
+
+/* buttons */
+.dark-button{background:var(--green);border-radius:30px;min-height:50px;padding:12px 22px;box-shadow:0 8px 18px #6f9e2230}
+.dark-button:hover{background:var(--green-deep)}
+.outline-button{background:white;border:1.5px solid var(--green);color:var(--green-deep);border-radius:30px;min-height:48px}
+.text-action{color:var(--green-deep)}
+.count-badge,.pill-tag{background:white;color:var(--ink);border:0;border-radius:30px;padding:8px 14px;font-size:12px;font-weight:600;box-shadow:0 2px 10px #1c3b2108}
+button.pill-tag{cursor:pointer}
+
+/* floating bottom nav */
+.bottom-nav{bottom:calc(14px + env(safe-area-inset-bottom));width:calc(min(520px,100%) - 36px);height:68px;padding:8px;border:0;border-radius:40px;background:white;box-shadow:0 12px 32px #1c3b2124;justify-content:space-between}
+.bottom-nav button{width:52px;height:52px;flex:none;border-radius:50%;background:#eef2ef;color:#7d8f86;display:grid;place-items:center;transition:background .2s,color .2s}
+.bottom-nav button.active{background:var(--green);color:white}
+
+/* home header and tabs */
+.home-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 23px 6px}
+.home-greeting{flex:1;display:flex;flex-direction:column;gap:2px}
+.home-greeting b{font-size:17px}
+.home-greeting span{font-size:12px;color:var(--muted)}
+.pill-tabs{display:flex;background:white;border-radius:40px;padding:4px;gap:2px;box-shadow:0 2px 10px #1c3b2108}
+.pill-tabs button{flex:1;border:0;background:none;border-radius:30px;padding:12px 4px;font-size:13px;font-weight:600;color:#3b4a41}
+.pill-tabs button.active{background:var(--green);color:white}
+.pill-tabs+.species-grid,.collection-summary+.pill-tabs{margin-top:16px}
+.pill-tabs+.species-grid{margin-top:18px}
+.garden-note{font-size:12px;line-height:1.5;color:var(--muted);margin:14px 2px 0}
+.block-head{display:flex;align-items:center;justify-content:space-between;margin:26px 0 12px}
+.block-head h2{font-size:17px;margin:0;letter-spacing:-.3px}
+
+/* plant cards */
+.pot-card{padding:6px;border:0;border-radius:24px;box-shadow:var(--card-shadow)}
+.pot-card.wilting{box-shadow:0 0 0 2px #f2c7c1,var(--card-shadow)}
+.pot-card.needs-care{box-shadow:0 0 0 2px #f3e0b0,var(--card-shadow)}
+.pot-card-main{gap:10px;padding:0}
+.pot-card .pot-photo{height:128px;border-radius:18px;overflow:hidden}
+.pot-name{font-size:15px;padding:0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mini-stats{display:flex;justify-content:space-between;padding:0 6px 2px}
+.mini-stats>div{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0}
+.mini-stats span{font-size:10.5px;font-weight:600;color:#3b4a41}
+.mini-ic{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.mini-ic.water{background:#e3f0f7;color:#3c88a2}
+.mini-ic.nutrition{background:#ecf4dc;color:#79a334}
+.mini-ic.low{background:#fcefd0;color:#c58a1b}
+.mini-ic.state.happy{background:#fde6e9;color:#e0587a}
+.mini-ic.state.needs-care{background:#fcefd0;color:#c58a1b}
+.mini-ic.state.wilting{background:#fbe0dc;color:#c9473c}
+.pot-actions{padding:8px 4px 4px}
+.care-btn{background:var(--green-soft);color:var(--green-deep);border-radius:30px;padding:10px 4px}
+.soft-empty{display:flex;flex-direction:column;align-items:center;gap:6px;background:white;border-radius:24px;padding:30px 20px;color:var(--green);text-align:center;box-shadow:var(--card-shadow)}
+.soft-empty b{color:var(--ink);font-size:14px}
+.soft-empty span{font-size:12px;color:var(--muted)}
+
+/* list rows (seeds) */
+.list-stack{display:grid;gap:10px}
+.list-row{display:flex;align-items:center;gap:14px;background:white;border-radius:24px;padding:10px 14px 10px 10px;box-shadow:var(--card-shadow)}
+.list-row>img,.list-row-icon{width:60px;height:60px;flex:none;border-radius:16px;object-fit:cover;background:var(--tint)}
+.list-row-icon{display:grid;place-items:center;color:var(--green)}
+.list-row-text{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.list-row-text b{font-size:16px;letter-spacing:-.3px}
+.list-row-text span{font-size:12px;color:var(--muted)}
+.plus-btn{flex:none;width:42px;height:42px;display:grid;place-items:center;border-radius:50%;border:1.5px solid var(--green);background:none;color:var(--green)}
+.plus-btn:hover:not(:disabled){background:var(--green-soft)}
+.plain-icon{flex:none;border:0;background:none;padding:6px;display:grid;place-items:center}
+
+/* hero + sheet (detail pages) */
+.hero{position:relative;background:var(--tint);min-height:340px;overflow:hidden;margin-top:calc(-1 * max(env(safe-area-inset-top),15px))}
+.hero::before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:#ffffff66;right:-90px;top:-70px}
+.hero-bar{position:absolute;z-index:2;top:max(env(safe-area-inset-top),15px);left:18px;right:18px;margin-top:14px;display:flex;justify-content:space-between}
+.hero-img{position:absolute;left:0;top:0;width:58%;height:330px;object-fit:cover;border-radius:0 0 54px 0;box-shadow:0 14px 34px #1c3b2118}
+.hero-img.contain{object-fit:contain;background:none;box-shadow:none;padding:70px 10px 30px 0}
+.hero-meta{position:absolute;right:22px;top:104px;width:34%;margin:0;display:grid;gap:22px}
+.hero-meta dt{font-size:12px;color:var(--muted)}
+.hero-meta dd{margin:3px 0 0;font-size:16px;font-weight:700;color:var(--green)}
+.sheet{position:relative;background:white;border-radius:36px 36px 0 0;margin-top:-34px;padding:26px 24px 30px;min-height:520px}
+.sheet-title{font-size:28px;line-height:1.1;letter-spacing:-1px;margin:6px 0 14px;font-weight:800}
+.sheet .scientific{margin:0 0 16px}
+.sheet-cta{position:sticky;bottom:calc(16px + env(safe-area-inset-bottom));display:flex;gap:10px;margin-top:18px}
+.sheet-cta .dark-button{flex:1;min-height:54px;padding:12px 6px}
+.care-card,.growth-card{background:#f4f7f5;border:0;border-radius:22px}
+.care-buttons{display:none}
+.stage-steps span.done{background:var(--green-soft)}
+.stage-steps span.current{box-shadow:0 0 0 2px var(--green)}
+.stat-bar-fill.growth{background:var(--green)}
+.stat-bar-track{background:#e3e9e5}
+.info-block{background:#f4f7f5;border:0;border-radius:20px}
+.info-block.locked{background:#f4f7f5;border:1.5px dashed #d3ddd7}
+.segmented{background:#eef2ef;border-radius:30px}
+.segmented button{border-radius:30px}
+.segmented .active{color:var(--green-deep)}
+.field input:not([type=range]),.field textarea,.field select{background:#f4f7f5;border:0;border-radius:16px}
+.status-banner{border-radius:20px}
+.mastered-inline{color:#9a6c0d}
+
+/* scan */
+.scan-screen{position:relative;min-height:100vh;display:flex;flex-direction:column;background:var(--tint);margin-top:calc(-1 * max(env(safe-area-inset-top),15px))}
+.scan-bar{z-index:3}
+.viewfinder{position:relative;height:380px;display:grid;place-items:center;overflow:hidden}
+.viewfinder>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.viewfinder>img.result-img{object-fit:contain;padding:70px 40px 50px}
+.vf-hint{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--green);font-size:13px;font-weight:600;text-align:center}
+.vf-corner{position:absolute;z-index:1;width:56px;height:56px;border:4px solid var(--green);pointer-events:none}
+.vf-corner.tl{top:92px;left:36px;border-right:0;border-bottom:0;border-top-left-radius:32px}
+.vf-corner.tr{top:92px;right:36px;border-left:0;border-bottom:0;border-top-right-radius:32px}
+.vf-corner.bl{bottom:64px;left:36px;border-right:0;border-top:0;border-bottom-left-radius:32px}
+.vf-corner.br{bottom:64px;right:36px;border-left:0;border-top:0;border-bottom-right-radius:32px}
+.reel{animation:reel-pulse .22s ease-in-out infinite alternate;object-fit:contain!important;padding:90px 70px 70px}
+.scan-sheet{position:relative;flex:1;background:white;border-radius:36px 36px 0 0;margin-top:-36px;padding:26px 22px 40px;display:flex;flex-direction:column;gap:12px}
+.scan-sheet .sheet-title{margin:0 0 4px}
+.option-card{display:flex;align-items:center;gap:14px;width:100%;padding:11px 18px 11px 11px;border-radius:40px;border:1.5px solid #e1e9e4;background:white;text-align:left;color:var(--ink)}
+.option-card.primary{background:var(--green);border-color:var(--green);color:white;box-shadow:0 10px 22px #6f9e2238}
+.option-card.disabled{opacity:.45;pointer-events:none}
+.option-ic{width:52px;height:52px;flex:none;border-radius:50%;display:grid;place-items:center;background:white;color:var(--green)}
+.option-ic.soft{background:var(--green-soft)}
+.option-text{display:flex;flex-direction:column;gap:3px}
+.option-text b{font-size:16px}
+.option-text small{font-size:11.5px;opacity:.75}
+.result-head{display:flex;align-items:center;gap:8px}
+.new-tag{position:static;background:#e0584c;color:white;font-size:10px;font-weight:800;letter-spacing:1px;border-radius:30px;padding:4px 10px}
+.scan-sheet .result-note{font-size:12.5px;color:#5f7a62;margin:0 0 6px}
+.scan-sheet .scan-actions{margin-top:0}
+.scan-sheet .scan-note{margin:2px 0 0;text-align:center}
+.rolling-text{margin:0;text-align:left}
+
+/* collection, menu, misc */
+.collection-summary>div{border:0;border-radius:24px;box-shadow:var(--card-shadow)}
+.collection-summary b{color:var(--green-deep)}
+.species-card{border:0;border-radius:24px;box-shadow:var(--card-shadow);padding:8px 8px 12px}
+.species-image{border-radius:18px;background:var(--tint)}
+.species-card b,.species-card .rarity{margin-left:6px}
+.settings-list{border-radius:24px;box-shadow:var(--card-shadow)}
+.settings-list button>svg:first-child{color:var(--green)}
+.slot-warning{border-radius:20px}
+.search-empty{color:var(--green)}
+.toast{bottom:100px;background:#22372a}
+@media(min-width:600px){body{background:#e4e9e6}}

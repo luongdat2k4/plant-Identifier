@@ -1,12 +1,22 @@
 import { ref, watch } from 'vue'
-import type { Plant } from '../features/plants/model'
-import type { Scan } from '../features/scan/model'
+import type { Pot } from '../features/garden/model'
+import type { Discovery } from '../features/collection/model'
+import type { Seed } from '../features/scan/model'
+import { createDemoState, USE_DEMO_DATA } from '../mock-data/demo-state'
 
-interface State { plants: Plant[]; scans: Scan[]; notifications: boolean; onboardingSeen: boolean }
-const key = 'plantin-recreated-v1'
-const initial: State = { plants: [], scans: [], notifications: true, onboardingSeen: false }
+export interface State { pots: Pot[]; seeds: Seed[]; discoveries: Discovery[]; potSlots: number; notifications: boolean }
+const key = 'plantin-recreated-v2'
+function emptyState(): State { return { pots: [], seeds: [], discoveries: [], potSlots: 6, notifications: true } }
 function read(): State {
-  try { return { ...initial, ...JSON.parse(localStorage.getItem(key) || '{}') } } catch { return initial }
+  try {
+    const saved = localStorage.getItem(key)
+    if (saved) return { ...emptyState(), ...JSON.parse(saved) }
+  } catch { /* fall through to a fresh state */ }
+  return USE_DEMO_DATA ? createDemoState() : emptyState()
 }
 export const state = ref<State>(read())
-watch(state, value => localStorage.setItem(key, JSON.stringify(value)), { deep: true })
+watch(state, value => {
+  try { localStorage.setItem(key, JSON.stringify(value)) } catch { /* storage full or unavailable */ }
+}, { deep: true })
+
+export function resetState(withDemo: boolean) { state.value = withDemo ? createDemoState() : emptyState() }

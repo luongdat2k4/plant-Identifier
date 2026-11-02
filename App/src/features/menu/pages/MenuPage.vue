@@ -1,12 +1,41 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
-import { state } from '../../../shared/store'
+import { resetState, state } from '../../../shared/store'
+import { allSpecies } from '../../collection/model'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
 import { useToast } from '../../../shared/composables/useToast'
 const { go } = useAppNavigation()
 const { notify } = useToast()
+const mastered = computed(() => state.value.discoveries.filter(d => d.mastered).length)
+function reset(withDemo: boolean) {
+  const message = withDemo ? 'Nạp lại dữ liệu mẫu? Dữ liệu hiện tại sẽ bị thay thế.' : 'Xóa toàn bộ vườn và bộ sưu tập?'
+  if (!confirm(message)) return
+  resetState(withDemo); notify(withDemo ? 'Đã nạp dữ liệu mẫu' : 'Đã xóa dữ liệu'); go('garden')
+}
 </script>
 
 <template>
-<header class="topbar"><div><p class="eyebrow">EVERYTHING FOR YOUR PLANTS</p><h1>Explore</h1></div></header><main class="content"><div class="menu-banner"><div><span>PLANTIN TOOLS</span><h2>Care for every leaf.</h2><p>Helpful tools for your daily routine.</p></div><img src="/assets/ic_scroll_card_3.png" alt=""/></div><div class="section-heading"><div><p class="eyebrow">TOOLS</p><h2>Plant care</h2></div></div><div class="tool-grid"><button @click="go('diagnosis')"><img src="/assets/ic_fhl3_diseases_treatment.png" alt=""/><b>Diagnosis</b><span>Check symptoms</span></button><button @click="go('light')"><img src="/assets/ic_fhl3_light_meter.png" alt=""/><b>Light meter</b><span>Find the right spot</span></button><button @click="go('water')"><img src="/assets/ic_fhl3_watering_calculator.png" alt=""/><b>Watering calculator</b><span>Plan your routine</span></button><button @click="go('botanist')"><img src="/assets/ic_fhl3_ai_botanist.png" alt=""/><b>Botanist help</b><span>Care suggestions</span></button></div><div class="section-heading"><div><p class="eyebrow">ACCOUNT</p><h2>Settings</h2></div></div><div class="settings-list"><button @click="go('history')"><Icon icon="solar:history-linear"/> Scan history <Icon icon="solar:alt-arrow-right-linear"/></button><button @click="state.notifications = !state.notifications"><Icon icon="solar:bell-linear"/> Care reminders <span>{{ state.notifications ? 'On' : 'Off' }}</span></button><button @click="notify('PlantIn recreation • v1.0')"><Icon icon="solar:info-circle-linear"/> About <Icon icon="solar:alt-arrow-right-linear"/></button></div></main>
+  <header class="topbar"><div><p class="eyebrow">TÀI KHOẢN CỦA BẠN</p><h1>Menu</h1></div></header>
+  <main class="content">
+    <div class="collection-summary">
+      <div><b>{{ state.pots.length }}</b><span>Cây đang nuôi</span></div>
+      <div><b>{{ state.discoveries.length }}<small>/{{ allSpecies.length }}</small></b><span>Đã gặp</span></div>
+      <div><b>{{ mastered }}</b><span>Đã thuần</span></div>
+    </div>
+
+    <div class="section-heading"><div><p class="eyebrow">CÀI ĐẶT</p><h2>Tùy chọn</h2></div></div>
+    <div class="settings-list">
+      <button @click="go('seeds')"><Icon icon="solar:box-linear"/> Túi hạt giống <span>{{ state.seeds.length }}</span></button>
+      <button @click="state.notifications = !state.notifications"><Icon icon="solar:bell-linear"/> Nhắc chăm cây <span>{{ state.notifications ? 'Bật' : 'Tắt' }}</span></button>
+      <button @click="notify('PlantIn · bản thử giao diện v2')"><Icon icon="solar:info-circle-linear"/> Giới thiệu <Icon icon="solar:alt-arrow-right-linear"/></button>
+    </div>
+
+    <div class="section-heading"><div><p class="eyebrow">DỮ LIỆU</p><h2>Dữ liệu thử</h2></div></div>
+    <div class="settings-list">
+      <button @click="reset(true)"><Icon icon="solar:refresh-linear"/> Nạp lại dữ liệu mẫu <Icon icon="solar:alt-arrow-right-linear"/></button>
+      <button class="danger-row" @click="reset(false)"><Icon icon="solar:trash-bin-minimalistic-linear"/> Xóa toàn bộ dữ liệu <Icon icon="solar:alt-arrow-right-linear"/></button>
+    </div>
+    <p class="help-text">Nhắc chăm cây mới chỉ là công tắc giao diện, chưa gửi thông báo thật.</p>
+  </main>
 </template>

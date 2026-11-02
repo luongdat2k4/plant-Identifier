@@ -1,4 +1,4 @@
-export async function readImage(event: Event): Promise<string | null> {
+export async function readImage(event: Event, maxSide = 640): Promise<string | null> {
   const file = (event.target as HTMLInputElement).files?.[0]
   if (!file) return null
   if (file.size > 8_000_000) throw new Error('Image too large')
@@ -14,7 +14,7 @@ export async function readImage(event: Event): Promise<string | null> {
     image.onerror = reject
     image.src = source
   })
-  const ratio = Math.min(1, 1280 / Math.max(picture.width, picture.height))
+  const ratio = Math.min(1, maxSide / Math.max(picture.width, picture.height))
   const canvas = document.createElement('canvas')
   canvas.width = Math.round(picture.width * ratio)
   canvas.height = Math.round(picture.height * ratio)
