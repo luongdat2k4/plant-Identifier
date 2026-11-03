@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { t } from './shared/i18n'
 import { computed, onMounted, onUnmounted, watch } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
 import BottomNav from './shared/components/BottomNav.vue'
@@ -14,7 +15,7 @@ watch(() => route.fullPath, () => { if (route.meta.bar) setStatusBar(String(rout
 
 function refreshPots() {
   const died = tickAll()
-  if (died.length) notify(`${died.join(', ')} đã ngủ đông. Hạt giống đã quay về túi hạt.`)
+  if (died.length) notify(t('toast.hibernated', { names: died.join(', ') }))
 }
 function onVisible() { if (!document.hidden) refreshPots() }
 let timer: ReturnType<typeof setInterval> | undefined

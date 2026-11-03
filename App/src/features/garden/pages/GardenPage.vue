@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { t } from '../../../shared/i18n'
 import NotificationBell from '../../../shared/components/NotificationBell.vue'
 import { computed, ref } from 'vue'
 import { Icon } from '@iconify/vue'
@@ -11,24 +12,24 @@ import SeedRow from '../../../shared/components/SeedRow.vue'
 const { go } = useAppNavigation()
 const { notify } = useToast()
 const filter = ref<'all' | 'care' | 'happy'>('all')
-const filters = [{ key: 'all', label: 'Tất cả' }, { key: 'care', label: 'Cần chăm' }, { key: 'happy', label: 'Khỏe' }] as const
+const filters = computed(() => [{ key: 'all', label: t('filter.all') }, { key: 'care', label: t('filter.care') }, { key: 'happy', label: t('filter.happy') }] as const)
 const pots = computed(() => state.value.pots)
 const shown = computed(() => pots.value.filter(p => filter.value === 'all' || (filter.value === 'happy') === (statusOf(p) === 'happy')))
 const waitingSeeds = computed(() => state.value.seeds.slice(0, 3))
 function care(pot: Pot, kind: 'water' | 'feed') {
   if (kind === 'water') waterPot(pot.id); else feedPot(pot.id)
-  notify(kind === 'water' ? `Đã tưới ${potName(pot)}` : `Đã bón phân cho ${potName(pot)}`)
+  notify(kind === 'water' ? t('toast.watered', { name: potName(pot) }) : t('toast.fed', { name: potName(pot) }))
 }
 function plant(id: string) {
   const pot = plantSeed(id)
-  if (!pot) return notify('Vườn đã hết chậu trống')
-  notify('Đã trồng hạt giống'); go('pot', pot.id)
+  if (!pot) return notify(t('toast.noFreePot'))
+  notify(t('toast.planted')); go('pot', pot.id)
 }
 </script>
 
 <template>
   <header class="home-head">
-    <div class="home-greeting"><b>Xin chào!</b><span>Khu vườn của bạn · {{ pots.length }}/{{ state.potSlots }} chậu</span></div>
+    <div class="home-greeting"><b>{{ t('garden.hello') }}</b><span>{{ t('garden.sub', { n: String(pots.length), slots: String(state.potSlots) }) }}</span></div>
     <NotificationBell/>
   </header>
   <main class="content">
@@ -36,25 +37,25 @@ function plant(id: string) {
       <button v-for="item in filters" :key="item.key" :class="{ active: filter === item.key }" @click="filter = item.key">{{ item.label }}</button>
     </div>
 
-    <div class="block-head"><h2>Cây của tôi</h2><span class="pill-tag">{{ shown.length }} cây</span></div>
+    <div class="block-head"><h2>{{ t('garden.myPlants') }}</h2><span class="pill-tag">{{ t('garden.count', { n: String(shown.length) }) }}</span></div>
     <div v-if="shown.length" class="pot-grid">
       <PotCard v-for="pot in shown" :key="pot.id" :pot="pot"
         @open="go('pot', pot.id)" @water="care(pot, 'water')" @feed="care(pot, 'feed')"/>
     </div>
     <div v-else class="soft-empty">
       <Icon icon="solar:leaf-linear" width="34"/>
-      <b>{{ pots.length ? 'Không có cây nào ở mục này' : 'Chưa có cây nào' }}</b>
-      <span>{{ pots.length ? 'Thử chọn mục khác.' : 'Chụp ảnh để nhận hạt giống đầu tiên.' }}</span>
+      <b>{{ pots.length ? t('garden.emptyFilter') : t('garden.emptyNone') }}</b>
+      <span>{{ pots.length ? t('garden.tryOther') : t('garden.firstSeed') }}</span>
     </div>
 
-    <div class="block-head"><h2>Hạt chờ trồng</h2><button class="pill-tag" @click="go('seeds')">Xem tất cả</button></div>
+    <div class="block-head"><h2>{{ t('garden.waitingSeeds') }}</h2><button class="pill-tag" @click="go('seeds')">{{ t('garden.viewAll') }}</button></div>
     <div v-if="waitingSeeds.length" class="list-stack">
       <SeedRow v-for="seed in waitingSeeds" :key="seed.id" :seed="seed" :can-plant="hasFreeSlot()" @plant="plant(seed.id)"/>
     </div>
     <article v-else class="list-row">
       <div class="list-row-icon"><Icon icon="solar:camera-linear" width="24"/></div>
-      <div class="list-row-text"><b>Chụp ảnh để có hạt</b><span>Mỗi ảnh là một hạt giống ngẫu nhiên.</span></div>
-      <button class="plus-btn" aria-label="Chụp ảnh" @click="go('scan')"><Icon icon="solar:add-circle-linear" width="24"/></button>
+      <div class="list-row-text"><b>{{ t('garden.scanTitle') }}</b><span>{{ t('garden.scanText') }}</span></div>
+      <button class="plus-btn" :aria-label="t('scan.snapAria')" @click="go('scan')"><Icon icon="solar:add-circle-linear" width="24"/></button>
     </article>
   </main>
 </template>

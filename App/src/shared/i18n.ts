@@ -1,4 +1,6 @@
 import { ref } from 'vue'
+import vi from './language/vi.json'
+import en from './language/en.json'
 
 export type Lang = 'vi' | 'en'
 export const LANGUAGES: { code: Lang; name: string; native: string }[] = [
@@ -9,78 +11,11 @@ export const LANGUAGES: { code: Lang; name: string; native: string }[] = [
 const langKey = 'plantin-lang'
 const chosenKey = 'plantin-lang-chosen'
 
-const messages = {
-  vi: {
-    'lang.title': 'Chọn ngôn ngữ',
-    'lang.text': 'Chọn ngôn ngữ bạn muốn dùng trong ứng dụng.',
-    'lang.continue': 'Tiếp tục',
-    'common.back': 'Quay lại',
-    'spot.sun': 'Chỗ nắng',
-    'spot.shade': 'Chỗ râm',
-    'species.rarity': 'Độ hiếm',
-    'species.spot': 'Ưa thích',
-    'species.bestStage': 'Tiến độ cao nhất',
-    'species.mastered': 'ĐÃ THUẦN',
-    'species.unseen.title': 'Chưa gặp loài này',
-    'species.unseen.text': 'Chụp thêm ảnh để có cơ hội gặp loài mới.',
-    'species.unseen.back': 'Về bộ sưu tập',
-    'article.info': 'Thông tin loài',
-    'article.family': 'Họ',
-    'article.genus': 'Chi',
-    'article.origin': 'Nguồn gốc',
-    'article.tips': 'Mẹo chăm sóc',
-    'article.remember': 'Hãy nhớ những điều sau:',
-    'article.noTips': 'Loài này chưa có mẹo chăm sóc riêng.',
-    'article.facts': 'Bạn có biết?',
-    'article.noFacts': 'Loài này chưa có điều thú vị nào được ghi lại.',
-    'article.careAlt': 'Chăm sóc {name}',
-    'ob.skip': 'Bỏ qua',
-    'ob.next': 'Tiếp',
-    'ob.start': 'Bắt đầu',
-    'ob.1.title': 'Chụp ảnh\nbất kỳ thứ gì',
-    'ob.1.text': 'Hướng camera vào bất cứ thứ gì quanh bạn. Mỗi bức ảnh là một hạt giống ngẫu nhiên đang chờ nảy mầm.',
-    'ob.2.title': 'Gieo hạt\nvà chăm cây',
-    'ob.2.text': 'Trồng hạt vào chậu, tưới nước và bón phân đúng lúc để cây lớn qua từng giai đoạn. Bỏ bê lâu quá cây sẽ héo.',
-    'ob.3.title': 'Sưu tầm\ncả bộ cây',
-    'ob.3.text': 'Mỗi loài bạn gặp được thêm vào bộ sưu tập. Nuôi tới khi ra hoa để mở khóa mô tả, mẹo chăm sóc và những điều thú vị.',
-  },
-  en: {
-    'lang.title': 'Choose your language',
-    'lang.text': 'Pick the language you want to use in the app.',
-    'lang.continue': 'Continue',
-    'common.back': 'Back',
-    'spot.sun': 'Sunny spot',
-    'spot.shade': 'Shady spot',
-    'species.rarity': 'Rarity',
-    'species.spot': 'Prefers',
-    'species.bestStage': 'Best stage',
-    'species.mastered': 'MASTERED',
-    'species.unseen.title': 'Species not met yet',
-    'species.unseen.text': 'Take more photos for a chance to meet new species.',
-    'species.unseen.back': 'Back to collection',
-    'article.info': 'About this species',
-    'article.family': 'Family',
-    'article.genus': 'Genus',
-    'article.origin': 'Origin',
-    'article.tips': 'Care tips',
-    'article.remember': 'Keep these in mind:',
-    'article.noTips': 'No care tips for this species yet.',
-    'article.facts': 'Did you know?',
-    'article.noFacts': 'No fun facts recorded for this species yet.',
-    'article.careAlt': 'Caring for {name}',
-    'ob.skip': 'Skip',
-    'ob.next': 'Next',
-    'ob.start': 'Get started',
-    'ob.1.title': 'Snap a photo\nof anything',
-    'ob.1.text': 'Point the camera at anything around you. Every photo becomes a random seed waiting to sprout.',
-    'ob.2.title': 'Sow seeds\nand care for plants',
-    'ob.2.text': 'Plant seeds in pots, then water and feed them on time so they grow through every stage. Neglect them for too long and they will wilt.',
-    'ob.3.title': 'Collect\nthe whole set',
-    'ob.3.text': 'Every species you meet is added to your collection. Grow it until it blooms to unlock its description, care tips and fun facts.',
-  },
-} as const
+// UI text lives in ./language/<code>.json (not the catalog text, which comes from the database i18n files).
+// Add a language by dropping a new JSON file here and listing it in LANGUAGES.
+const messages = { vi, en } as const
 
-export type MessageKey = keyof (typeof messages)['vi']
+export type MessageKey = keyof typeof vi
 
 function read(key: string): string | null {
   try { return localStorage.getItem(key) } catch { return null }
@@ -99,7 +34,7 @@ if (typeof document !== 'undefined') document.documentElement.lang = lang.value
 
 /** Looks up a UI string; `{name}`-style placeholders are filled from `params`. */
 export function t(key: MessageKey, params?: Record<string, string>): string {
-  const text: string = messages[lang.value][key]
+  const text: string = (messages[lang.value] as Record<string, string>)[key] ?? (vi as Record<string, string>)[key] ?? key
   return params ? text.replace(/\{(\w+)\}/g, (_, name: string) => params[name] ?? '') : text
 }
 /** Switches the language right away (so the chooser can preview it) and remembers it. */
@@ -113,3 +48,6 @@ export function hasChosenLanguage(): boolean {
   try { return localStorage.getItem(chosenKey) === '1' } catch { return true }
 }
 export function markLanguageChosen() { write(chosenKey, '1') }
+
+/** Locale for dates and numbers that matches the chosen language. */
+export const dateLocale = () => (lang.value === 'vi' ? 'vi-VN' : 'en-US')

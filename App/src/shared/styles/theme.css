@@ -328,20 +328,20 @@ button.pill-tag{cursor:pointer}
 
 /* highlighted centre scan button */
 .bottom-nav{overflow:visible}
-.bottom-nav button[aria-label="Chụp ảnh"]{width:64px;height:64px;flex:none;margin-top:-26px;background:linear-gradient(145deg,#7fd45c,#58b538);color:#fff;border:5px solid #f4fbf5;box-shadow:0 10px 22px #4aa02f66;animation:scan-pulse 2.4s ease-in-out infinite}
-.bottom-nav button[aria-label="Chụp ảnh"] svg{width:28px;height:28px}
+.bottom-nav button.scan-btn{width:64px;height:64px;flex:none;margin-top:-26px;background:linear-gradient(145deg,#7fd45c,#58b538);color:#fff;border:5px solid #f4fbf5;box-shadow:0 10px 22px #4aa02f66;animation:scan-pulse 2.4s ease-in-out infinite}
+.bottom-nav button.scan-btn svg{width:28px;height:28px}
 @keyframes scan-pulse{0%,100%{box-shadow:0 10px 22px #4aa02f66,0 0 0 0 #6cc24a55}50%{box-shadow:0 10px 22px #4aa02f66,0 0 0 9px #6cc24a00}}
-@media(prefers-reduced-motion:reduce){.bottom-nav button[aria-label="Chụp ảnh"]{animation:none}}
+@media(prefers-reduced-motion:reduce){.bottom-nav button.scan-btn{animation:none}}
 
 /* ===== Bottom nav v2: white bar with a circular notch for the scan button ===== */
 .bottom-nav{background:none;backdrop-filter:none;border:0;box-shadow:none;filter:drop-shadow(0 8px 18px #2b3a2418);isolation:isolate}
 .bottom-nav::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:34px;background:#fff;
   -webkit-mask:radial-gradient(circle 41px at 50% 6px,transparent 40px,#000 41px);mask:radial-gradient(circle 41px at 50% 6px,transparent 40px,#000 41px)}
 .bottom-nav button{position:relative;background:none;color:#b3bab5;box-shadow:none}
-.bottom-nav button:not([aria-label="Chụp ảnh"]).active{background:none;color:var(--green-deep);box-shadow:none}
-.bottom-nav button:not([aria-label="Chụp ảnh"]).active::after{content:"";position:absolute;left:50%;bottom:1px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:var(--green-deep)}
-.bottom-nav button[aria-label="Chụp ảnh"]{width:62px;height:62px;margin-top:0;top:-28px;border:0;color:#fff;background:linear-gradient(145deg,#7fd45c,#4aa02f);box-shadow:0 8px 18px #4aa02f55}
-.bottom-nav button[aria-label="Chụp ảnh"].active{background:linear-gradient(145deg,#7fd45c,#4aa02f)}
+.bottom-nav button:not(.scan-btn).active{background:none;color:var(--green-deep);box-shadow:none}
+.bottom-nav button:not(.scan-btn).active::after{content:"";position:absolute;left:50%;bottom:1px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:var(--green-deep)}
+.bottom-nav button.scan-btn{width:62px;height:62px;margin-top:0;top:-28px;border:0;color:#fff;background:linear-gradient(145deg,#7fd45c,#4aa02f);box-shadow:0 8px 18px #4aa02f55}
+.bottom-nav button.scan-btn.active{background:linear-gradient(145deg,#7fd45c,#4aa02f)}
 
 /* garden header: title only, pinned to the top while scrolling */
 .home-head{position:sticky;top:0;z-index:6;padding:12px 23px 12px;background:#f0f9f2e6;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}

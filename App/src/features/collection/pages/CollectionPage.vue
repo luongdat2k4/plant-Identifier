@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { t } from '../../../shared/i18n'
 import NotificationBell from '../../../shared/components/NotificationBell.vue'
 import { computed, ref } from 'vue'
 import { Icon } from '@iconify/vue'
@@ -9,30 +10,30 @@ import { useToast } from '../../../shared/composables/useToast'
 const { go } = useAppNavigation()
 const { notify } = useToast()
 const filter = ref<Rarity | 'all'>('all')
-const filters: { key: Rarity | 'all'; label: string }[] = [
-  { key: 'all', label: 'Tất cả' },
+const filters = computed<{ key: Rarity | 'all'; label: string }[]>(() => [
+  { key: 'all', label: t('filter.all') },
   { key: 'common', label: RARITY_META.common.label },
   { key: 'uncommon', label: RARITY_META.uncommon.label },
   { key: 'rare', label: RARITY_META.rare.label },
-]
+])
 const shown = computed(() => allSpecies.filter(s => filter.value === 'all' || s.rarity === filter.value))
 const seenCount = computed(() => state.value.discoveries.length)
 const masteredCount = computed(() => state.value.discoveries.filter(d => d.mastered).length)
 function open(id: string) {
   if (discoveryOf(id)) go('species', id)
-  else notify('Chưa gặp loài này. Hãy chụp thêm ảnh!')
+  else notify(t('toast.notSeen'))
 }
 </script>
 
 <template>
   <header class="home-head">
-    <div class="home-greeting"><b>Bộ sưu tập</b><span>Loài cây bạn đã gặp</span></div>
+    <div class="home-greeting"><b>{{ t('collection.title') }}</b><span>{{ t('collection.subtitle') }}</span></div>
     <NotificationBell/>
   </header>
   <main class="content">
     <div class="collection-summary">
-      <div><b>{{ seenCount }}<small>/{{ allSpecies.length }}</small></b><span>Đã gặp</span></div>
-      <div><b>{{ masteredCount }}<small>/{{ allSpecies.length }}</small></b><span>Đã thuần</span></div>
+      <div><b>{{ seenCount }}<small>/{{ allSpecies.length }}</small></b><span>{{ t('stats.seen') }}</span></div>
+      <div><b>{{ masteredCount }}<small>/{{ allSpecies.length }}</small></b><span>{{ t('stats.mastered') }}</span></div>
     </div>
     <div class="pill-tabs">
       <button v-for="item in filters" :key="item.key" :class="{ active: filter === item.key }" @click="filter = item.key">{{ item.label }}</button>
@@ -40,8 +41,8 @@ function open(id: string) {
     <div class="species-grid">
       <button v-for="item in shown" :key="item.id" class="species-card" :class="{ unseen: !discoveryOf(item.id) }" @click="open(item.id)">
         <div class="species-image">
-          <img :src="item.thumb" :alt="discoveryOf(item.id) ? item.name : 'Loài chưa gặp'"/>
-          <span v-if="discoveryOf(item.id)?.mastered" class="mastered-badge"><Icon icon="solar:medal-ribbon-bold" width="14"/> Đã thuần</span>
+          <img :src="item.thumb" :alt="discoveryOf(item.id) ? item.name : t('collection.unseenAlt')"/>
+          <span v-if="discoveryOf(item.id)?.mastered" class="mastered-badge"><Icon icon="solar:medal-ribbon-bold" width="14"/> {{ t('stats.mastered') }}</span>
           <Icon v-if="!discoveryOf(item.id)" class="lock-icon" icon="solar:lock-linear" width="26"/>
         </div>
         <b>{{ discoveryOf(item.id) ? item.name : '???' }}</b>

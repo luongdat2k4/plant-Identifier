@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { t } from '../../../shared/i18n'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { Icon } from '@iconify/vue'
@@ -26,24 +27,24 @@ const progress = computed(() => {
   return Math.round(((pot.value.growthDays - from) / (to - from)) * 100)
 })
 const unlocked = computed(() => stageIndex(stage.value))
-function water() { if (pot.value) { waterPot(pot.value.id); notify('Đã tưới nước') } }
-function feed() { if (pot.value) { feedPot(pot.value.id); notify('Đã bón phân') } }
+function water() { if (pot.value) { waterPot(pot.value.id); notify(t('toast.wateredPlain')) } }
+function feed() { if (pot.value) { feedPot(pot.value.id); notify(t('toast.fedPlain')) } }
 function changeSpot(spot: Spot) { if (pot.value) setSpot(pot.value.id, spot) }
 function uproot() {
-  if (!pot.value || !confirm(`Nhổ ${potName(pot.value)} khỏi chậu? Cây sẽ quay về túi hạt giống.`)) return
-  uprootPot(pot.value.id); notify('Đã cất cây về túi hạt'); go('garden')
+  if (!pot.value || !confirm(t('confirm.uproot', { name: potName(pot.value) }))) return
+  uprootPot(pot.value.id); notify(t('toast.uprooted')); go('garden')
 }
 </script>
 
 <template>
   <template v-if="pot && species">
     <section class="hero">
-      <header class="hero-bar"><button class="round-btn" aria-label="Quay lại" @click="back"><Icon icon="solar:arrow-left-linear" width="22"/></button></header>
+      <header class="hero-bar"><button class="round-btn" :aria-label="t('common.back')" @click="back"><Icon icon="solar:arrow-left-linear" width="22"/></button></header>
       <img class="hero-img" :src="species.image" :alt="species.name"/>
       <dl class="hero-meta">
-        <div><dt>Giai đoạn</dt><dd>{{ STAGE_META[stage].emoji }} {{ STAGE_META[stage].label }}</dd></div>
-        <div><dt>Nước</dt><dd>{{ Math.round(pot.water) }}%</dd></div>
-        <div><dt>Dinh dưỡng</dt><dd>{{ Math.round(pot.nutrition) }}%</dd></div>
+        <div><dt>{{ t('pot.stage') }}</dt><dd>{{ STAGE_META[stage].emoji }} {{ STAGE_META[stage].label }}</dd></div>
+        <div><dt>{{ t('pot.water') }}</dt><dd>{{ Math.round(pot.water) }}%</dd></div>
+        <div><dt>{{ t('pot.nutrition') }}</dt><dd>{{ Math.round(pot.nutrition) }}%</dd></div>
       </dl>
     </section>
 
@@ -54,46 +55,46 @@ function uproot() {
       <div class="status-banner" :class="status">
         <b>{{ STATUS_META[status].label }}</b>
         <span>{{ STATUS_META[status].hint }}</span>
-        <small v-if="deathIn !== null">Còn khoảng {{ deathIn }} ngày trước khi cây ngủ đông.</small>
+        <small v-if="deathIn !== null">{{ t('pot.dieIn', { days: String(deathIn) }) }}</small>
       </div>
 
       <div class="care-card">
-        <StatBar kind="water" label="Nước" :value="pot.water"/>
-        <StatBar kind="nutrition" label="Dinh dưỡng" :value="pot.nutrition"/>
+        <StatBar kind="water" :label="t('pot.water')" :value="pot.water"/>
+        <StatBar kind="nutrition" :label="t('pot.nutrition')" :value="pot.nutrition"/>
       </div>
 
       <div class="field">
-        <label>Vị trí đặt</label>
+        <label>{{ t('pot.position') }}</label>
         <div class="segmented">
-          <button :class="{ active: pot.spot === 'sun' }" @click="changeSpot('sun')"><Icon icon="solar:sun-2-bold"/> Chỗ nắng</button>
-          <button :class="{ active: pot.spot === 'shade' }" @click="changeSpot('shade')"><Icon icon="solar:cloud-bold"/> Chỗ râm</button>
+          <button :class="{ active: pot.spot === 'sun' }" @click="changeSpot('sun')"><Icon icon="solar:sun-2-bold"/> {{ t('spot.sun') }}</button>
+          <button :class="{ active: pot.spot === 'shade' }" @click="changeSpot('shade')"><Icon icon="solar:cloud-bold"/> {{ t('spot.shade') }}</button>
         </div>
-        <small class="spot-hint">{{ pot.spot === species.preferredSpot ? 'Đây là chỗ cây thích.' : `Cây thích ${species.preferredSpot === 'sun' ? 'chỗ nắng' : 'chỗ râm'} hơn, đặt sai chỗ cây sẽ khát nhanh hơn một chút.` }}</small>
+        <small class="spot-hint">{{ pot.spot === species.preferredSpot ? t('pot.spotPreferred') : t('pot.spotWrong', { spot: (species.preferredSpot === 'sun' ? t('spot.sun') : t('spot.shade')).toLowerCase() }) }}</small>
       </div>
 
-      <div class="field nickname"><label>Tên riêng</label><input v-model="pot.nickname" :placeholder="species.name" maxlength="24"/></div>
+      <div class="field nickname"><label>{{ t('pot.nickname') }}</label><input v-model="pot.nickname" :placeholder="species.name" maxlength="24"/></div>
 
       <div class="growth-card">
-        <div class="growth-head"><b>Tăng trưởng</b><span>{{ pot.growthDays }} ngày chăm tốt</span></div>
+        <div class="growth-head"><b>{{ t('pot.growth') }}</b><span>{{ t('pot.growthDays', { days: String(pot.growthDays) }) }}</span></div>
         <div class="stat-bar-track"><div class="stat-bar-fill growth" :style="{ width: `${progress}%` }"></div></div>
-        <p v-if="upcoming">Còn {{ upcoming.daysLeft }} ngày nữa để lên {{ STAGE_META[upcoming.stage].label }}. Cây héo sẽ tạm dừng lớn, nhưng không bị mất tiến độ.</p>
-        <p v-else>Cây đã ra hoa, loài này đã được thuần trong bộ sưu tập.</p>
+        <p v-if="upcoming">{{ t('pot.untilNext', { days: String(upcoming.daysLeft), stage: STAGE_META[upcoming.stage].label }) }}</p>
+        <p v-else>{{ t('pot.bloomed') }}</p>
         <div class="stage-steps">
           <span v-for="(s, i) in STAGES" :key="s" :class="{ done: i <= unlocked, current: i === unlocked }">{{ STAGE_META[s].emoji }}</span>
         </div>
       </div>
 
 
-      <button class="delete-button" @click="uproot">Nhổ cây, cất về túi hạt</button>
+      <button class="delete-button" @click="uproot">{{ t('pot.uproot') }}</button>
       <div class="sheet-cta">
-        <button class="dark-button" @click="water"><Icon icon="solar:waterdrop-bold"/> Tưới nước</button>
-        <button class="dark-button" @click="feed"><Icon icon="solar:leaf-bold"/> Bón phân</button>
+        <button class="dark-button" @click="water"><Icon icon="solar:waterdrop-bold"/> {{ t('care.water') }}</button>
+        <button class="dark-button" @click="feed"><Icon icon="solar:leaf-bold"/> {{ t('care.feed') }}</button>
       </div>
     </main>
   </template>
   <main v-else class="content search-empty">
-    <h3>Không tìm thấy cây</h3>
-    <p>Cây này có thể đã ngủ đông và quay về túi hạt giống.</p>
-    <button class="dark-button" @click="go('garden')">Về vườn</button>
+    <h3>{{ t('pot.notFoundTitle') }}</h3>
+    <p>{{ t('pot.notFoundText') }}</p>
+    <button class="dark-button" @click="go('garden')">{{ t('common.toGarden') }}</button>
   </main>
 </template>

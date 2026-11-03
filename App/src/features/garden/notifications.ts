@@ -1,6 +1,7 @@
 import { computed, ref, watch } from 'vue'
 import { state } from '../../shared/store'
 import { getSpecies } from '../collection/model'
+import { t } from '../../shared/i18n'
 import { daysUntilDeath, hasFreeSlot, HAPPY_AT, potName, statusOf } from './model'
 
 export type NoticeKind = 'wilting' | 'care' | 'seeds'
@@ -28,23 +29,23 @@ export const notices = computed<Notice[]>(() => {
     if (status === 'wilting') {
       const days = daysUntilDeath(pot)
       list.push({
-        id: `wilting-${pot.id}`, kind: 'wilting', potId: pot.id, image, title: `${potName(pot)} đang héo`,
-        meta: days === null ? 'Khẩn cấp' : `Còn ${days} ngày`,
-        text: 'Cây tạm ngừng lớn. Tưới nước hoặc bón phân là hồi phục ngay.',
+        id: `wilting-${pot.id}`, kind: 'wilting', potId: pot.id, image, title: t('notice.wilting', { name: potName(pot) }),
+        meta: days === null ? t('notice.urgent') : t('notice.daysLeft', { days: String(days) }),
+        text: t('notice.wiltingText'),
       })
       continue
     }
-    const needs = [pot.water < HAPPY_AT && 'nước', pot.nutrition < HAPPY_AT && 'dinh dưỡng'].filter(Boolean).join(' và ')
+    const needs = [pot.water < HAPPY_AT && t('notice.needWater'), pot.nutrition < HAPPY_AT && t('notice.needFood')].filter(Boolean).join(t('notice.and'))
     list.push({
-      id: `care-${pot.id}`, kind: 'care', potId: pot.id, image, title: `${potName(pot)} cần chăm`,
-      meta: `Nước ${Math.round(pot.water)}% · Dinh dưỡng ${Math.round(pot.nutrition)}%`, text: `Cây đang cần ${needs}.`,
+      id: `care-${pot.id}`, kind: 'care', potId: pot.id, image, title: t('notice.careTitle', { name: potName(pot) }),
+      meta: t('notice.careMeta', { water: String(Math.round(pot.water)), food: String(Math.round(pot.nutrition)) }), text: t('notice.careText', { needs }),
     })
   }
   if (state.value.seeds.length && hasFreeSlot()) {
     const first = state.value.seeds[0]
     list.push({
-      id: 'seeds', kind: 'seeds', image: getSpecies(first.speciesId)?.thumb, title: `${state.value.seeds.length} hạt giống chờ trồng`,
-      meta: `${state.value.pots.length}/${state.value.potSlots} chậu`, text: 'Vườn còn chậu trống, hãy gieo hạt mới.',
+      id: 'seeds', kind: 'seeds', image: getSpecies(first.speciesId)?.thumb, title: t('notice.seedsTitle', { n: String(state.value.seeds.length) }),
+      meta: t('notice.seedsMeta', { n: String(state.value.pots.length), slots: String(state.value.potSlots) }), text: t('notice.seedsText'),
     })
   }
   return list.sort((a, b) => ORDER[a.kind] - ORDER[b.kind])

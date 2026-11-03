@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { t } from '../../../shared/i18n'
 import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
 import { getSpecies, STAGE_META } from '../../collection/model'
@@ -24,8 +25,8 @@ const stage = computed(() => STAGE_META[stageOf(props.pot)])
       </div>
     </button>
     <div class="pot-actions">
-      <button class="care-btn" aria-label="Tưới nước" @click="$emit('water')"><Icon icon="solar:waterdrop-bold" width="16"/> Tưới</button>
-      <button class="care-btn" aria-label="Bón phân" @click="$emit('feed')"><Icon icon="solar:leaf-bold" width="16"/> Bón</button>
+      <button class="care-btn" :aria-label="t('care.water')" @click="$emit('water')"><Icon icon="solar:waterdrop-bold" width="16"/> {{ t('care.waterShort') }}</button>
+      <button class="care-btn" :aria-label="t('care.feed')" @click="$emit('feed')"><Icon icon="solar:leaf-bold" width="16"/> {{ t('care.feedShort') }}</button>
     </div>
   </article>
 </template>

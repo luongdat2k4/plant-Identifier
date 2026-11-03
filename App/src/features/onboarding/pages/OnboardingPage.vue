@@ -52,8 +52,8 @@ onMounted(() => track.value?.focus({ preventScroll: true }))
     </div>
 
     <footer class="ob-foot">
-      <div class="ob-dots" role="tablist" aria-label="Trang giới thiệu">
-        <button v-for="(slide, i) in slides" :key="i" :class="{ on: i === index }" :aria-label="`Trang ${i + 1}`" @click="goTo(i)"></button>
+      <div class="ob-dots" role="tablist" :aria-label="t('ob.dots')">
+        <button v-for="(slide, i) in slides" :key="i" :class="{ on: i === index }" :aria-label="t('ob.page', { n: String(i + 1) })" @click="goTo(i)"></button>
       </div>
       <button class="ob-next" @click="next">{{ last ? t('ob.start') : t('ob.next') }}</button>
     </footer>

@@ -1,5 +1,6 @@
 import { state } from '../../shared/store'
 import { newId } from '../../shared/utils/newId'
+import { t } from '../../shared/i18n'
 import { getSpecies, recordProgress, stageForDays, STAGES, STAGE_META, type Stage } from '../collection/model'
 
 export type Spot = 'sun' | 'shade'
@@ -41,10 +42,10 @@ export function statusOf(pot: Pot): Status {
   if (lowest < WILT_BELOW) return 'wilting'
   return lowest < HAPPY_AT ? 'needs-care' : 'happy'
 }
-export const STATUS_META: Record<Status, { label: string; hint: string }> = {
-  happy: { label: 'Khỏe', hint: 'Cây đang phát triển tốt.' },
-  'needs-care': { label: 'Cần chăm', hint: 'Cây đang cần được chăm sóc.' },
-  wilting: { label: 'Đang héo', hint: 'Cây héo và tạm ngừng lớn. Chăm lại là hồi phục ngay.' },
+export const STATUS_META: Record<Status, { readonly label: string; readonly hint: string }> = {
+  happy: { get label() { return t('status.happy') }, get hint() { return t('status.happy.hint') } },
+  'needs-care': { get label() { return t('status.needsCare') }, get hint() { return t('status.needsCare.hint') } },
+  wilting: { get label() { return t('status.wilting') }, get hint() { return t('status.wilting.hint') } },
 }
 export function neededCare(pot: Pot): 'water' | 'nutrition' { return pot.water <= pot.nutrition ? 'water' : 'nutrition' }
 export function stageOf(pot: Pot): Stage { return stageForDays(pot.growthDays) }
@@ -56,7 +57,7 @@ export function daysUntilDeath(pot: Pot, now: Date = new Date()): number | null 
   if (!pot.wiltingSince) return null
   return Math.max(0, Math.ceil((new Date(pot.wiltingSince).getTime() + DEATH_AFTER_DAYS * DAY - now.getTime()) / DAY))
 }
-export function potName(pot: Pot): string { return pot.nickname?.trim() || getSpecies(pot.speciesId)?.name || 'Cây lạ' }
+export function potName(pot: Pot): string { return pot.nickname?.trim() || getSpecies(pot.speciesId)?.name || t('pot.unknown') }
 
 /** Applies elapsed real time to one pot. Returns false when the pot has died. */
 export function tickPot(pot: Pot, now: Date = new Date()): boolean {

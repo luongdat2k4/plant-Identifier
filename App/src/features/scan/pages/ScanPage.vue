@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { t } from '../../../shared/i18n'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera'
 import { Capacitor } from '@capacitor/core'
@@ -22,12 +23,12 @@ const photo = ref('')
 const result = ref<{ seed: Seed; species: Species; isNew: boolean } | null>(null)
 const torch = ref(false)
 const step = ref(0)
-const steps = [
-  'Đã chụp ảnh',
-  `Phân tích ${allSpecies.length} loài cây`,
-  'So khớp kết quả phù hợp nhất',
-  'Chuẩn bị hồ sơ cây',
-]
+const steps = computed(() => [
+  t('scan.step1'),
+  t('scan.step2', { n: String(allSpecies.length) }),
+  t('scan.step3'),
+  t('scan.step4'),
+])
 const hero = allSpecies.slice(0, 3)
 const canPlant = computed(() => hasFreeSlot())
 watch(phase, value => {
@@ -74,11 +75,11 @@ async function toggleTorch() {
   try {
     await track?.applyConstraints({ advanced: [{ torch: !torch.value } as MediaTrackConstraintSet] })
     torch.value = !torch.value
-  } catch { notify('Thiết bị không hỗ trợ đèn flash') }
+  } catch { notify(t('toast.noFlash')) }
 }
 function capture() {
   const el = video.value
-  if (!el || !el.videoWidth) return notify('Camera chưa sẵn sàng')
+  if (!el || !el.videoWidth) return notify(t('toast.cameraNotReady'))
   const ratio = Math.min(1, 640 / Math.max(el.videoWidth, el.videoHeight))
   const canvas = document.createElement('canvas')
   canvas.width = Math.round(el.videoWidth * ratio)
@@ -88,7 +89,7 @@ function capture() {
 }
 async function pickFile(event: Event) {
   try { const image = await readImage(event); if (image) scan(image) }
-  catch { notify('Hãy chọn ảnh nhỏ hơn 8 MB') }
+  catch { notify(t('toast.imageTooBig')) }
 }
 function scan(image: string) {
   photo.value = image
@@ -98,17 +99,17 @@ function scan(image: string) {
   stepTimers = [.3, .6, .85].map((at, i) => setTimeout(() => { step.value = i + 2 }, SCAN_MS * at))
   finish = setTimeout(() => {
     try { result.value = rollSeed(); phase.value = 'result' }
-    catch { notify('Có lỗi khi gieo hạt, hãy thử lại'); again() }
+    catch { notify(t('toast.seedError')); again() }
   }, SCAN_MS)
 }
 function plantNow() {
   if (!result.value) return
   const pot = plantSeed(result.value.seed.id)
-  if (!pot) return notify('Vườn đã hết chậu trống')
-  notify(`Đã trồng ${result.value.species.name}`)
+  if (!pot) return notify(t('toast.noFreePot'))
+  notify(t('toast.plantedSpecies', { name: result.value.species.name }))
   go('pot', pot.id)
 }
-function later() { notify('Đã cất hạt vào túi'); again() }
+function later() { notify(t('toast.seedSaved')); again() }
 function again() {
   clearTimeout(finish); stepTimers.forEach(clearTimeout)
   photo.value = ''; result.value = null; torch.value = false
@@ -128,15 +129,15 @@ onUnmounted(() => { stopStream(); clearTimeout(finish); stepTimers.forEach(clear
 <template>
   <main class="cam">
     <video v-show="phase === 'live'" ref="video" class="cam-media" autoplay playsinline muted></video>
-    <img v-if="photo && (phase === 'scanning' || phase === 'result')" class="cam-media" :src="photo" alt="Ảnh vừa chụp"/>
+    <img v-if="photo && (phase === 'scanning' || phase === 'result')" class="cam-media" :src="photo" :alt="t('scan.photoAlt')"/>
 
     <header class="cam-bar">
-      <button class="round-btn" aria-label="Về vườn" @click="go('garden')"><Icon icon="solar:arrow-left-linear" width="22"/></button>
-      <button v-if="phase === 'live'" class="round-btn" :class="{ on: torch }" aria-label="Đèn flash" @click="toggleTorch"><Icon icon="solar:flash-bold" width="22"/></button>
-      <button v-else-if="phase !== 'scanning'" class="round-btn" aria-label="Túi hạt giống" @click="go('seeds')"><Icon icon="solar:box-linear" width="22"/></button>
+      <button class="round-btn" :aria-label="t('common.toGarden')" @click="go('garden')"><Icon icon="solar:arrow-left-linear" width="22"/></button>
+      <button v-if="phase === 'live'" class="round-btn" :class="{ on: torch }" :aria-label="t('scan.flash')" @click="toggleTorch"><Icon icon="solar:flash-bold" width="22"/></button>
+      <button v-else-if="phase !== 'scanning'" class="round-btn" :aria-label="t('scan.seedBag')" @click="go('seeds')"><Icon icon="solar:box-linear" width="22"/></button>
     </header>
 
-    <p v-if="phase === 'live'" class="cam-hint">Đưa cây hoặc bất cứ thứ gì vào khung</p>
+    <p v-if="phase === 'live'" class="cam-hint">{{ t('scan.hint') }}</p>
     <template v-if="phase === 'live' || phase === 'scanning' || phase === 'result'">
       <div class="cam-frame">
         <i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
@@ -151,8 +152,8 @@ onUnmounted(() => { stopStream(); clearTimeout(finish); stepTimers.forEach(clear
     </div>
 
     <section v-if="phase === 'scanning'" class="cam-progress">
-      <h2>Đang nhận diện cây…</h2>
-      <p>Đối chiếu hình dáng, màu sắc và kết cấu</p>
+      <h2>{{ t('scan.identifying') }}</h2>
+      <p>{{ t('scan.identifyingText') }}</p>
       <ul>
         <li v-for="(label, index) in steps" :key="label" :class="{ done: index < step }">
           <span>{{ label }}</span>
@@ -164,15 +165,15 @@ onUnmounted(() => { stopStream(); clearTimeout(finish); stepTimers.forEach(clear
 
     <section v-if="phase === 'ask' || phase === 'denied'" class="cam-ask">
       <span class="cam-ask-ic"><Icon :icon="phase === 'ask' ? 'solar:camera-bold' : 'solar:camera-minimalistic-linear'" width="40"/></span>
-      <h2>{{ phase === 'ask' ? 'Cho phép dùng camera' : 'Chưa truy cập được camera' }}</h2>
-      <p>{{ phase === 'ask' ? 'PlantIn cần camera để chụp ảnh và gieo hạt giống ngẫu nhiên cho bạn. Ảnh chỉ lưu trong máy.' : 'Hãy cấp quyền camera trong cài đặt của máy, hoặc chọn một ảnh có sẵn.' }}</p>
-      <button class="dark-button full" @click="startCamera"><Icon icon="solar:camera-bold" width="20"/> {{ phase === 'ask' ? 'Cho phép' : 'Thử lại' }}</button>
-      <label class="outline-button full">Chọn ảnh từ thư viện<input type="file" accept="image/*" hidden @change="pickFile($event)"/></label>
+      <h2>{{ phase === 'ask' ? t('scan.askTitle') : t('scan.deniedTitle') }}</h2>
+      <p>{{ phase === 'ask' ? t('scan.askText') : t('scan.deniedText') }}</p>
+      <button class="dark-button full" @click="startCamera"><Icon icon="solar:camera-bold" width="20"/> {{ phase === 'ask' ? t('scan.allow') : t('scan.retry') }}</button>
+      <label class="outline-button full">{{ t('scan.pickPhoto') }}<input type="file" accept="image/*" hidden @change="pickFile($event)"/></label>
     </section>
 
     <div v-if="phase === 'live'" class="cam-shutter">
-      <label class="cam-side" aria-label="Chọn ảnh"><Icon icon="solar:gallery-bold" width="24"/><input type="file" accept="image/*" hidden @change="pickFile($event)"/></label>
-      <button class="cam-snap" aria-label="Chụp ảnh" @click="capture"><i></i></button>
+      <label class="cam-side" :aria-label="t('scan.pickAria')"><Icon icon="solar:gallery-bold" width="24"/><input type="file" accept="image/*" hidden @change="pickFile($event)"/></label>
+      <button class="cam-snap" :aria-label="t('scan.snapAria')" @click="capture"><i></i></button>
       <span class="cam-side ghost"></span>
     </div>
 
@@ -182,25 +183,25 @@ onUnmounted(() => { stopStream(); clearTimeout(finish); stepTimers.forEach(clear
         <div>
           <div class="result-head">
             <span class="rarity" :class="result.species.rarity">{{ RARITY_META[result.species.rarity].label }}</span>
-            <span v-if="result.isNew" class="new-tag">MỚI!</span>
+            <span v-if="result.isNew" class="new-tag">{{ t('scan.newTag') }}</span>
           </div>
           <b>{{ result.species.name }}</b>
           <small>{{ result.species.scientificName }}</small>
         </div>
       </div>
       <dl class="cam-facts">
-        <div><dt>Họ</dt><dd>{{ result.species.family }}</dd></div>
-        <div><dt>Chi</dt><dd>{{ result.species.scientificName.split(' ')[0] }}</dd></div>
-        <div v-if="result.species.origin"><dt>Nguồn gốc</dt><dd>{{ result.species.origin }}</dd></div>
-        <div><dt>Ưa thích</dt><dd>{{ result.species.preferredSpot === 'sun' ? 'Chỗ nắng' : 'Chỗ râm' }}</dd></div>
+        <div><dt>{{ t('article.family') }}</dt><dd>{{ result.species.family }}</dd></div>
+        <div><dt>{{ t('article.genus') }}</dt><dd>{{ result.species.scientificName.split(' ')[0] }}</dd></div>
+        <div v-if="result.species.origin"><dt>{{ t('article.origin') }}</dt><dd>{{ result.species.origin }}</dd></div>
+        <div><dt>{{ t('species.spot') }}</dt><dd>{{ result.species.preferredSpot === 'sun' ? t('spot.sun') : t('spot.shade') }}</dd></div>
       </dl>
       <p class="cam-desc">{{ result.species.description }}</p>
-      <p class="cam-note">{{ result.isNew ? 'Loài mới đã được thêm vào bộ sưu tập.' : 'Bạn đã gặp loài này. Hạt giống được cất vào túi.' }}</p>
-      <button class="dark-button full" :disabled="!canPlant" @click="plantNow"><Icon icon="solar:leaf-bold" width="20"/> Trồng ngay</button>
-      <p v-if="!canPlant" class="cam-note">Vườn đã đầy ({{ state.pots.length }}/{{ state.potSlots }} chậu). Hãy cất hạt và trồng sau.</p>
+      <p class="cam-note">{{ result.isNew ? t('scan.newSpecies') : t('scan.knownSpecies') }}</p>
+      <button class="dark-button full" :disabled="!canPlant" @click="plantNow"><Icon icon="solar:leaf-bold" width="20"/> {{ t('care.plantNow') }}</button>
+      <p v-if="!canPlant" class="cam-note">{{ t('scan.gardenFull', { pots: String(state.pots.length), slots: String(state.potSlots) }) }}</p>
       <div class="scan-actions">
-        <button class="outline-button" @click="later">Để sau</button>
-        <button class="outline-button" @click="again">Chụp tiếp</button>
+        <button class="outline-button" @click="later">{{ t('scan.later') }}</button>
+        <button class="outline-button" @click="again">{{ t('scan.again') }}</button>
       </div>
     </section>
   </main>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { t } from '../i18n'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { state } from '../store'
@@ -32,13 +33,13 @@ function care(item: Notice, kind: 'water' | 'feed') {
   const pot = findPot(item.potId)
   if (!pot) return
   if (kind === 'water') waterPot(pot.id); else feedPot(pot.id)
-  notify(kind === 'water' ? `Đã tưới ${potName(pot)}` : `Đã bón phân cho ${potName(pot)}`)
+  notify(kind === 'water' ? t('toast.watered', { name: potName(pot) }) : t('toast.fed', { name: potName(pot) }))
 }
 function plantFirst() {
   const seed = state.value.seeds[0]
   const pot = seed && plantSeed(seed.id)
-  if (!pot) return notify('Vườn đã hết chậu trống')
-  notify('Đã trồng hạt giống')
+  if (!pot) return notify(t('toast.noFreePot'))
+  notify(t('toast.planted'))
   open.value = false
   go('pot', pot.id)
 }
@@ -49,18 +50,18 @@ onUnmounted(() => document.removeEventListener('keydown', onKey))
 </script>
 
 <template>
-  <button ref="bell" class="bell-btn" :class="{ on: open }" aria-label="Thông báo" :aria-expanded="open" @click="toggle">
+  <button ref="bell" class="bell-btn" :class="{ on: open }" :aria-label="t('bell.label')" :aria-expanded="open" @click="toggle">
     <Icon icon="solar:bell-bold" width="24"/>
     <span v-if="unreadCount" class="bell-badge">{{ unreadCount > 9 ? '9+' : unreadCount }}</span>
   </button>
   <Teleport to="body">
     <div v-if="open" class="notice-backdrop" @click="open = false"></div>
-    <section v-if="open" class="notice-pop" role="dialog" aria-label="Danh sách thông báo" :style="{ top: `${place.top}px`, right: `${place.right}px` }">
+    <section v-if="open" class="notice-pop" role="dialog" :aria-label="t('bell.list')" :style="{ top: `${place.top}px`, right: `${place.right}px` }">
       <header>
-        <b>Thông báo</b>
+        <b>{{ t('bell.label') }}</b>
         <div class="notice-tabs" role="tablist">
-          <button :class="{ active: tab === 'all' }" @click="tab = 'all'">Tất cả</button>
-          <button :class="{ active: tab === 'unread' }" @click="tab = 'unread'">Chưa đọc</button>
+          <button :class="{ active: tab === 'all' }" @click="tab = 'all'">{{ t('bell.all') }}</button>
+          <button :class="{ active: tab === 'unread' }" @click="tab = 'unread'">{{ t('bell.unread') }}</button>
         </div>
       </header>
       <ul v-if="shown.length">
@@ -74,24 +75,24 @@ onUnmounted(() => document.removeEventListener('keydown', onKey))
               <span class="notice-top"><b>{{ item.title }}</b><em>{{ item.meta }}</em></span>
               <small>{{ item.text }}</small>
             </span>
-            <i v-if="isUnread(item.id)" class="notice-dot" aria-label="Chưa đọc"></i>
+            <i v-if="isUnread(item.id)" class="notice-dot" :aria-label="t('bell.unread')"></i>
           </button>
           <div v-if="item.kind !== 'seeds'" class="notice-actions">
-            <button @click="care(item, 'water')"><Icon icon="solar:waterdrop-bold" width="15"/> Tưới nước</button>
-            <button class="primary" @click="care(item, 'feed')"><Icon icon="solar:leaf-bold" width="15"/> Bón phân</button>
+            <button @click="care(item, 'water')"><Icon icon="solar:waterdrop-bold" width="15"/> {{ t('care.water') }}</button>
+            <button class="primary" @click="care(item, 'feed')"><Icon icon="solar:leaf-bold" width="15"/> {{ t('care.feed') }}</button>
           </div>
           <div v-else class="notice-actions">
-            <button @click="openSeeds">Xem túi hạt</button>
-            <button class="primary" @click="plantFirst">Trồng ngay</button>
+            <button @click="openSeeds">{{ t('bell.viewSeeds') }}</button>
+            <button class="primary" @click="plantFirst">{{ t('care.plantNow') }}</button>
           </div>
         </li>
       </ul>
       <div v-else class="notice-empty">
         <Icon icon="solar:check-circle-bold" width="38"/>
-        <b>{{ notices.length ? 'Đã đọc hết' : 'Cả vườn đều khỏe' }}</b>
-        <span>{{ notices.length ? 'Không còn thông báo chưa đọc.' : 'Chưa có gì cần làm. Bạn có thể quay lại sau vài ngày.' }}</span>
+        <b>{{ notices.length ? t('bell.allRead') : t('bell.gardenOk') }}</b>
+        <span>{{ notices.length ? t('bell.noUnread') : t('bell.nothing') }}</span>
       </div>
-      <footer v-if="unreadCount"><button @click="markAllRead">Đánh dấu đã đọc hết</button></footer>
+      <footer v-if="unreadCount"><button @click="markAllRead">{{ t('bell.markAll') }}</button></footer>
     </section>
   </Teleport>
 </template>
