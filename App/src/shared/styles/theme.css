@@ -254,8 +254,8 @@ button.pill-tag{cursor:pointer}
 .hero-img{width:100%;height:340px;border-radius:0;box-shadow:none}
 .hero-img.contain{padding:60px 130px 30px 10px}
 .hero-meta{right:16px;top:96px;width:34%;gap:10px}
-.hero-meta>div{background:#ffffff59;backdrop-filter:blur(10px);border-radius:16px;padding:8px 12px;box-shadow:0 4px 14px #3b6b4a14}
-.hero-meta dt{color:#4f6a58}
+.hero-meta>div{background:#ffffffe6;backdrop-filter:blur(14px);border-radius:16px;padding:8px 12px;box-shadow:0 6px 18px #1c3b2133}
+.hero-meta dt{color:#3f5a48;font-weight:600}
 .hero-meta dd{color:var(--ink);font-size:14px}
 .sheet{background:#fff;color:var(--ink);border-radius:36px 36px 0 0;margin-top:-30px;min-height:calc(100vh - 300px);padding-bottom:120px}
 .sheet .sheet-title,.sheet h3,.sheet b{color:var(--ink)}
