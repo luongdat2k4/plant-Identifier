@@ -8,6 +8,8 @@ export interface Species {
   id: string
   name: string
   scientificName: string
+  family: string
+  origin: string
   rarity: Rarity
   thirst: number
   hunger: number

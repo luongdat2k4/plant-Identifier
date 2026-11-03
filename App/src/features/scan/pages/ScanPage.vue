@@ -4,7 +4,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera'
 import { Capacitor } from '@capacitor/core'
 import { Icon } from '@iconify/vue'
 import { state } from '../../../shared/store'
-import { RARITY_META, type Species } from '../../collection/model'
+import { allSpecies, RARITY_META, type Species } from '../../collection/model'
 import { hasFreeSlot, plantSeed } from '../../garden/model'
 import { rollSeed, type Seed } from '../model'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
@@ -14,15 +14,24 @@ const { go } = useAppNavigation()
 const { notify } = useToast()
 
 type Phase = 'ask' | 'denied' | 'live' | 'scanning' | 'result'
-const SCAN_MS = 2200
+const SCAN_MS = 3200
 const phase = ref<Phase>('ask')
 const video = ref<HTMLVideoElement | null>(null)
 const photo = ref('')
 const result = ref<{ seed: Seed; species: Species; isNew: boolean } | null>(null)
 const torch = ref(false)
+const step = ref(0)
+const steps = [
+  'Đã chụp ảnh',
+  `Phân tích ${allSpecies.length} loài cây`,
+  'So khớp kết quả phù hợp nhất',
+  'Chuẩn bị hồ sơ cây',
+]
+const hero = allSpecies.slice(0, 3)
 const canPlant = computed(() => hasFreeSlot())
 let stream: MediaStream | null = null
 let finish: ReturnType<typeof setTimeout> | undefined
+let stepTimers: ReturnType<typeof setTimeout>[] = []
 
 function stopStream() {
   stream?.getTracks().forEach(track => track.stop())
@@ -80,6 +89,8 @@ function scan(image: string) {
   photo.value = image
   stopStream()
   phase.value = 'scanning'
+  step.value = 1
+  stepTimers = [.3, .6, .85].map((at, i) => setTimeout(() => { step.value = i + 2 }, SCAN_MS * at))
   finish = setTimeout(() => {
     try { result.value = rollSeed(); phase.value = 'result' }
     catch { notify('Có lỗi khi gieo hạt, hãy thử lại'); again() }
@@ -94,7 +105,7 @@ function plantNow() {
 }
 function later() { notify('Đã cất hạt vào túi'); again() }
 function again() {
-  clearTimeout(finish)
+  clearTimeout(finish); stepTimers.forEach(clearTimeout)
   photo.value = ''; result.value = null; torch.value = false
   phase.value = 'ask'
   startCamera()
@@ -106,14 +117,13 @@ onMounted(async () => {
     if (status?.state === 'granted') startCamera()
   } catch { /* browser can't tell: wait for the user to tap Allow */ }
 })
-onUnmounted(() => { stopStream(); clearTimeout(finish) })
+onUnmounted(() => { stopStream(); clearTimeout(finish); stepTimers.forEach(clearTimeout) })
 </script>
 
 <template>
   <main class="cam">
     <video v-show="phase === 'live'" ref="video" class="cam-media" autoplay playsinline muted></video>
     <img v-if="photo && (phase === 'scanning' || phase === 'result')" class="cam-media" :src="photo" alt="Ảnh vừa chụp"/>
-    <div v-if="phase === 'scanning'" class="cam-sweep" :style="{ animationDuration: `${SCAN_MS}ms` }"></div>
 
     <header class="cam-bar">
       <button class="round-btn" aria-label="Về vườn" @click="go('garden')"><Icon icon="solar:arrow-left-linear" width="22"/></button>
@@ -121,10 +131,31 @@ onUnmounted(() => { stopStream(); clearTimeout(finish) })
       <button v-else-if="phase !== 'scanning'" class="round-btn" aria-label="Túi hạt giống" @click="go('seeds')"><Icon icon="solar:box-linear" width="22"/></button>
     </header>
 
-    <p v-if="phase === 'scanning'" class="cam-status">ĐANG QUÉT<span class="dots"></span></p>
+    <p v-if="phase === 'live'" class="cam-hint">Đưa cây hoặc bất cứ thứ gì vào khung</p>
     <template v-if="phase === 'live' || phase === 'scanning' || phase === 'result'">
-      <div class="cam-frame"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></div>
+      <div class="cam-frame">
+        <i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
+        <div v-if="phase === 'scanning'" class="cam-fill" :style="{ animationDuration: `${SCAN_MS}ms` }"></div>
+      </div>
     </template>
+
+    <div v-if="phase === 'ask' || phase === 'denied'" class="cam-hero" aria-hidden="true">
+      <i class="blob b1"></i><i class="blob b2"></i>
+      <img v-for="(item, index) in hero" :key="item.id" :class="`leaf l${index + 1}`" :src="item.image" alt=""/>
+      <i class="vf tl"></i><i class="vf tr"></i><i class="vf bl"></i><i class="vf br"></i>
+    </div>
+
+    <section v-if="phase === 'scanning'" class="cam-progress">
+      <h2>Đang nhận diện cây…</h2>
+      <p>Đối chiếu hình dáng, màu sắc và kết cấu</p>
+      <ul>
+        <li v-for="(label, index) in steps" :key="label" :class="{ done: index < step }">
+          <span>{{ label }}</span>
+          <Icon v-if="index < step" icon="solar:check-circle-bold" width="24"/>
+          <span v-else class="wait"><i></i><i></i><i></i></span>
+        </li>
+      </ul>
+    </section>
 
     <section v-if="phase === 'ask' || phase === 'denied'" class="cam-ask">
       <span class="cam-ask-ic"><Icon :icon="phase === 'ask' ? 'solar:camera-bold' : 'solar:camera-minimalistic-linear'" width="40"/></span>
@@ -152,6 +183,13 @@ onUnmounted(() => { stopStream(); clearTimeout(finish) })
           <small>{{ result.species.scientificName }}</small>
         </div>
       </div>
+      <dl class="cam-facts">
+        <div><dt>Họ</dt><dd>{{ result.species.family }}</dd></div>
+        <div><dt>Chi</dt><dd>{{ result.species.scientificName.split(' ')[0] }}</dd></div>
+        <div><dt>Nguồn gốc</dt><dd>{{ result.species.origin }}</dd></div>
+        <div><dt>Ưa thích</dt><dd>{{ result.species.preferredSpot === 'sun' ? 'Chỗ nắng' : 'Chỗ râm' }}</dd></div>
+      </dl>
+      <p class="cam-desc">{{ result.species.description }}</p>
       <p class="cam-note">{{ result.isNew ? 'Loài mới đã được thêm vào bộ sưu tập.' : 'Bạn đã gặp loài này. Hạt giống được cất vào túi.' }}</p>
       <button class="dark-button full" :disabled="!canPlant" @click="plantNow"><Icon icon="solar:leaf-bold" width="20"/> Trồng ngay</button>
       <p v-if="!canPlant" class="cam-note">Vườn đã đầy ({{ state.pots.length }}/{{ state.potSlots }} chậu). Hãy cất hạt và trồng sau.</p>
