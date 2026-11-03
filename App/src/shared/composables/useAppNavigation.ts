@@ -1,5 +1,5 @@
 import { useRoute, useRouter } from 'vue-router'
-type Destination = 'garden' | 'collection' | 'scan' | 'seeds' | 'menu' | 'language' | 'welcome' | 'pot' | 'species'
+type Destination = 'garden' | 'collection' | 'scan' | 'seeds' | 'menu' | 'menu-language' | 'language' | 'welcome' | 'pot' | 'species'
 export function useAppNavigation() {
   const router = useRouter()
   const route = useRoute()
@@ -10,6 +10,7 @@ export function useAppNavigation() {
   function back() {
     const name = String(route.name || '')
     if (name === 'species') return go('collection')
+    if (name === 'menu-language') return go('menu')
     return go('garden')
   }
   return { go, back }

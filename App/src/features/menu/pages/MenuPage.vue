@@ -1,18 +1,16 @@
 <script setup lang="ts">
 import NotificationBell from '../../../shared/components/NotificationBell.vue'
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
 import { resetState, state } from '../../../shared/store'
 import { allSpecies } from '../../collection/model'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
 import { useToast } from '../../../shared/composables/useToast'
-import { lang, LANGUAGES, setLang, type Lang, t } from '../../../shared/i18n'
+import { lang, LANGUAGES, t } from '../../../shared/i18n'
 const { go } = useAppNavigation()
 const { notify } = useToast()
 const mastered = computed(() => state.value.discoveries.filter(d => d.mastered).length)
-const pickingLang = ref(false)
 const currentLang = computed(() => LANGUAGES.find(item => item.code === lang.value) ?? LANGUAGES[0])
-function chooseLang(code: Lang) { setLang(code); pickingLang.value = false }
 function reset() {
   if (!confirm(t('confirm.clearData'))) return
   resetState(); notify(t('toast.dataCleared')); go('garden')
@@ -35,18 +33,11 @@ function reset() {
     <div class="settings-list">
       <button @click="go('seeds')"><Icon icon="solar:box-linear"/> {{ t('menu.seedBag') }} <span>{{ state.seeds.length }}</span></button>
       <button @click="state.notifications = !state.notifications"><Icon icon="solar:bell-linear"/> {{ t('menu.reminders') }} <span>{{ state.notifications ? t('menu.on') : t('menu.off') }}</span></button>
-      <button class="lang-row" :class="{ open: pickingLang }" @click="pickingLang = !pickingLang">
+      <button class="lang-row" @click="go('menu-language')">
         <Icon icon="solar:global-linear"/> {{ t('menu.language') }}
         <span class="lang-now"><img :src="`/assets/flag/${currentLang.code}.svg`" alt=""/>{{ currentLang.native }}</span>
-        <Icon icon="solar:alt-arrow-down-linear" class="lang-caret"/>
+        <Icon icon="solar:alt-arrow-right-linear"/>
       </button>
-      <div v-if="pickingLang" class="lang-pick" role="radiogroup" :aria-label="t('menu.language')">
-        <button v-for="item in LANGUAGES" :key="item.code" role="radio" :aria-checked="lang === item.code" :class="{ on: lang === item.code }" @click="chooseLang(item.code)">
-          <img :src="`/assets/flag/${item.code}.svg`" alt=""/>
-          <span class="lang-pick-name"><b>{{ item.native }}</b><small>{{ item.name }}</small></span>
-          <Icon v-if="lang === item.code" icon="solar:check-circle-bold" width="22"/>
-        </button>
-      </div>
       <button @click="go('language')"><Icon icon="solar:play-circle-linear"/> {{ t('menu.replayIntro') }} <Icon icon="solar:alt-arrow-right-linear"/></button>
       <button @click="notify(t('toast.about'))"><Icon icon="solar:info-circle-linear"/> {{ t('menu.about') }} <Icon icon="solar:alt-arrow-right-linear"/></button>
     </div>

@@ -50,16 +50,10 @@
 .lang-tick{flex:none;color:#d3dcd6;display:grid;transition:color .2s}
 .lang-opt.on .lang-tick{color:var(--green)}
 
-/* Language switcher in the Menu */
+/* Language setting: row in the Menu and its own page */
 .settings-list .lang-row .lang-now{display:inline-flex;align-items:center;gap:8px;margin-left:auto;font-weight:700;color:#4b6454}
 .settings-list .lang-row .lang-now img{width:20px;height:20px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px #dfe7e1}
-.settings-list .lang-row>.lang-caret{margin-left:0;transition:transform .2s}
-.settings-list .lang-row.open>.lang-caret{transform:rotate(180deg)}
-.lang-pick{background:#f6faf6;border-bottom:1px solid #edf0eb;padding:6px 10px 10px}
-.settings-list .lang-pick button{display:flex;align-items:center;gap:12px;width:100%;border:0;border-radius:16px;background:transparent;padding:9px 10px;font-weight:600}
-.settings-list .lang-pick button.on{background:#e8f5e4}
-.lang-pick img{flex:none;width:34px;height:34px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px #dfe7e1}
-.settings-list .lang-pick .lang-pick-name{display:flex;flex-direction:column;gap:1px;margin-left:0;color:inherit}
-.lang-pick-name b{font-size:14px;color:#16221a}
-.lang-pick-name small{font-size:11px;color:#8d948c;font-weight:500}
-.settings-list .lang-pick button>svg{margin-left:auto;color:var(--green)}
+.settings-list .lang-row>svg:last-child{margin-left:0}
+.lang-page-head{justify-content:flex-start}
+.lang-page-head .home-greeting{flex:1;min-width:0}
+.lang-page-head+.content .lang-list{margin-top:6px}

@@ -12,6 +12,7 @@ export const router = createRouter({
     { path: '/menu', name: 'menu', meta: { bar: BAR.page }, component: () => import('../features/menu/pages/MenuPage.vue') },
     { path: '/pots/:id', name: 'pot', meta: { bar: BAR.hero }, component: () => import('../features/garden/pages/PotDetailPage.vue') },
     { path: '/species/:id', name: 'species', meta: { bar: BAR.hero }, component: () => import('../features/collection/pages/SpeciesDetailPage.vue') },
+    { path: '/menu/language', name: 'menu-language', meta: { bar: BAR.page }, component: () => import('../features/menu/pages/LanguageSettingsPage.vue') },
     { path: '/language', name: 'language', meta: { bar: BAR.intro }, component: () => import('../features/onboarding/pages/LanguagePage.vue') },
     { path: '/welcome', name: 'welcome', meta: { bar: BAR.intro }, component: () => import('../features/onboarding/pages/OnboardingPage.vue') },
     { path: '/:pathMatch(.*)*', redirect: '/' },
