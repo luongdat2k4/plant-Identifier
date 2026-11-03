@@ -1,6 +1,6 @@
 -- Catalog: loài cây. Chữ ở language: title (bắt buộc), description, family, origin, tip.N, fact.N.
 CREATE TABLE species (
-  key             TEXT PRIMARY KEY CHECK (key = lower(key) AND key NOT LIKE '%-%' AND key NOT LIKE '% %'),  -- 'luoi_ho'
+  key             TEXT PRIMARY KEY CHECK (key = lower(key) AND key NOT LIKE '%-%' AND key NOT LIKE '% %'),  -- 'snake_plant'
   sort_order      INTEGER NOT NULL DEFAULT 0,
   scientific_name TEXT NOT NULL,
   family          TEXT,                                 -- tên họ Latin, ví dụ 'Araceae'
@@ -8,7 +8,7 @@ CREATE TABLE species (
   thirst          REAL NOT NULL CHECK (thirst > 0),     -- hệ số mất nước
   hunger          REAL NOT NULL CHECK (hunger > 0),     -- hệ số mất dinh dưỡng
   preferred_spot  TEXT NOT NULL CHECK (preferred_spot IN ('sun', 'shade')),
-  image           TEXT,                                 -- 'imgs/05-lan-y/lan-y.webp'
+  image           TEXT,                                 -- '/imgs/peace_lily/peace_lily.webp'
   thumb           TEXT,
   image_credit_id TEXT REFERENCES image_credit(key)
 );

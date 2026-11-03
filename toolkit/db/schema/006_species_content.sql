@@ -2,7 +2,7 @@
 
 -- Chữ ở language: title (triệu chứng), cause, fix.
 CREATE TABLE species_symptom (
-  key        TEXT PRIMARY KEY,       -- '<species>_<n>', ví dụ 'luoi_ho_1'
+  key        TEXT PRIMARY KEY,       -- '<species>_<n>', ví dụ 'snake_plant_1'
   species_id TEXT NOT NULL REFERENCES species(key) ON DELETE CASCADE,
   sort_order INTEGER NOT NULL DEFAULT 0
 );
@@ -16,7 +16,7 @@ CREATE TABLE general_symptom (
 
 -- Chữ ở language: 'species_reminder.<key>.description' (ghi chú, tùy chọn).
 CREATE TABLE species_reminder (
-  key        TEXT PRIMARY KEY,       -- '<species>_<task>', ví dụ 'luoi_ho_fertilize'
+  key        TEXT PRIMARY KEY,       -- '<species>_<task>', ví dụ 'snake_plant_fertilize'
   species_id TEXT NOT NULL REFERENCES species(key) ON DELETE CASCADE,
   task       TEXT NOT NULL CHECK (task IN ('water', 'fertilize', 'check', 'repot', 'prune', 'mist')),
   every_days INTEGER NOT NULL CHECK (every_days > 0),

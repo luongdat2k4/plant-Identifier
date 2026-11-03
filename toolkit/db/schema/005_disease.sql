@@ -1,6 +1,6 @@
 -- Catalog: danh mục bệnh / dịch hại dùng chung nhiều loài. Chữ ở language: title (bắt buộc), description.
 CREATE TABLE disease (
-  key TEXT PRIMARY KEY CHECK (key = lower(key) AND key NOT LIKE '%-%' AND key NOT LIKE '% %')   -- 'rep_sap'
+  key TEXT PRIMARY KEY CHECK (key = lower(key) AND key NOT LIKE '%-%' AND key NOT LIKE '% %')   -- 'mealybugs'
 );
 
 -- Bệnh điển hình và ảnh của từng loài (1-1). Chữ ở language: 'species_disease.<key>.description' = ghi chú ảnh (bắt buộc hiển thị).

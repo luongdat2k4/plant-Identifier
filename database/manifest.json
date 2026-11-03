@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
-  "catalogVersion": "2026-11-03.2",
-  "generatedAt": "2026-11-03T08:06:15.584Z",
+  "catalogVersion": "2026-11-03.6",
+  "generatedAt": "2026-11-03T08:20:53.945Z",
   "dbFiles": [
     {
       "name": "catalog/catalog.db",
@@ -19,8 +19,8 @@
         "general_symptom",
         "species_reminder"
       ],
-      "sha256": "be112e57321f4ef4a0484548cd1785db01b6aa6898c9c3aa5e6fe8660a814577",
-      "sizeBytes": 122880
+      "sha256": "0413d96e56f4f1c75c87199706f08467fd4e3865c5346d412a3a22a56d623f9e",
+      "sizeBytes": 311296
     },
     {
       "name": "runtime-template.db",

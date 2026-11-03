@@ -9,7 +9,7 @@ Web dev chỉnh sửa dữ liệu và CLI build/split/stage DB cho Plant Identif
 | `../database/master.db` | Nguồn sự thật cho catalog, sửa qua giao diện |
 | `../database/catalog/*.db`, `runtime-template.db`, `manifest.json` | Output của Split |
 | `../App/public/db` | Đích của Stage. App đóng gói thư mục này |
-| `../App/public/i18n/<locale>.json` | Stage xuất một file JSON cho mỗi cột ngôn ngữ trong bảng `language` (trừ `key`), dạng object lồng theo khóa, ví dụ `species.luoi_ho.title` → `{ "species": { "luoi_ho": { "title": "..." } } }` |
+| `../App/public/i18n/<locale>.json` | Stage xuất một file JSON cho mỗi cột ngôn ngữ trong bảng `language` (trừ `key`), dạng object lồng theo khóa, ví dụ `species.snake_plant.title` → `{ "species": { "snake_plant": { "title": "..." } } }` |
 
 ## Chạy
 

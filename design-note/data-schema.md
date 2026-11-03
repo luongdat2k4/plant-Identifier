@@ -25,7 +25,9 @@ App có **hai luồng dữ liệu**:
 
 `key` của mọi thực thể: chữ thường, số và `_`; không dấu, không khoảng trắng, **không dùng `-`**.
 
-> **Thay đổi so với hiện tại.** Các `id` hiện có dùng dấu gạch ngang (`luoi-ho`, `xuong-rong-cau`, `duong-xi-boston`). Quy ước yêu cầu `_`, nên đổi thành `luoi_ho`, `xuong_rong_cau`, `duong_xi_boston`... Việc này cần **một migration cho runtime** (mục 7), và đổi tên thư mục ảnh trong `imgs/` cho khớp (hoặc để đường dẫn ảnh lưu thẳng trong catalog, không suy từ `key`).
+`key` viết bằng **tiếng Anh** (tên thường gọi của loài/bệnh), ví dụ `snake_plant`, `golden_pothos`, `mealybugs`. Không dùng tên tiếng Việt không dấu như `luoi_ho`.
+
+> **Thay đổi so với hiện tại.** Các `id` trong `App/src/mock-data/species.ts` là tiếng Việt có dấu gạch ngang (`luoi-ho`, `xuong-rong-cau`, `duong-xi-boston`). Chúng được đổi sang key tiếng Anh (`snake_plant`, `golden_barrel_cactus`, `boston_fern`...). Việc này cần **một migration cho runtime** (mục 7). Ảnh lưu theo key: `/imgs/<key>/<key>.webp`, `/imgs/<key>/<key>.thumb.webp`, ảnh bệnh `/imgs/<key>/<key>--<disease_key>.webp`; đường dẫn vẫn được lưu thẳng trong catalog, không suy từ `key`.
 
 Khóa dịch: `<bảng>.<key>.<trường>`, toàn chữ thường, dấu chấm phân tách các phần.
 
@@ -53,14 +55,14 @@ Các trường quy ước đã có sẵn: `title` (bắt buộc), `description`,
 
 | Thực thể | Khóa dịch |
 |---|---|
-| Loài `luoi_ho` | `species.luoi_ho.title`, `species.luoi_ho.description`, `species.luoi_ho.origin`, `species.luoi_ho.tip.1`, `species.luoi_ho.fact.1` |
+| Loài `snake_plant` | `species.snake_plant.title`, `species.snake_plant.description`, `species.snake_plant.origin`, `species.snake_plant.tip.1`, `species.snake_plant.fact.1` |
 | Giai đoạn `bloom` | `stage.bloom.title` |
 | Độ hiếm `rare` | `rarity.rare.title` |
-| Bệnh `rep_sap` | `disease.rep_sap.title` |
-| Triệu chứng riêng `luoi_ho_1` | `species_symptom.luoi_ho_1.title`, `.cause`, `.fix` |
+| Bệnh `mealybugs` | `disease.rep_sap.title` |
+| Triệu chứng riêng `snake_plant_1` | `species_symptom.snake_plant_1.title`, `.cause`, `.fix` |
 | Triệu chứng chung `gs_03` | `general_symptom.gs_03.title`, `.cause`, `.fix` |
-| Ghi chú ảnh bệnh của loài | `species_disease.luoi_ho.description` |
-| Ghi chú lịch nhắc | `species_reminder.luoi_ho_fertilize.description` |
+| Ghi chú ảnh bệnh của loài | `species_disease.snake_plant.description` |
+| Ghi chú lịch nhắc | `species_reminder.snake_plant_fertilize.description` |
 
 ---
 
@@ -109,9 +111,9 @@ Ví dụ dòng:
 
 | key | vi | en |
 |---|---|---|
-| `species.luoi_ho.title` | Lưỡi hổ | Snake plant |
-| `species.luoi_ho.origin` | Tây Phi | West Africa |
-| `species.luoi_ho.tip.1` | Tưới ít, để đất khô hẳn giữa hai lần tưới. | *(NULL)* |
+| `species.snake_plant.title` | Lưỡi hổ | Snake plant |
+| `species.snake_plant.origin` | Tây Phi | West Africa |
+| `species.snake_plant.tip.1` | Tưới ít, để đất khô hẳn giữa hai lần tưới. | *(NULL)* |
 | `stage.bloom.title` | Ra hoa | In bloom |
 | `rarity.rare.title` | Hiếm | Rare |
 
@@ -141,7 +143,7 @@ Chữ: `stage.<key>.title` (Hạt / Mầm / Cây non / Trưởng thành / Ra hoa
 
 | Cột | Kiểu | Ghi chú |
 |---|---|---|
-| `key` PK | text | Slug theo mục 1, ví dụ `luoi_ho` |
+| `key` PK | text | Slug theo mục 1, ví dụ `snake_plant` |
 | `sort_order` | int | Thứ tự 1–31 trong dataset |
 | `scientific_name` | text | Tên khoa học (Latin, phi ngôn ngữ) |
 | `family` | text | Họ bằng tên Latin, ví dụ `Araceae` |
@@ -149,7 +151,7 @@ Chữ: `stage.<key>.title` (Hạt / Mầm / Cây non / Trưởng thành / Ra hoa
 | `thirst` | real | Hệ số mất nước (0,5–1,4) |
 | `hunger` | real | Hệ số mất dinh dưỡng |
 | `preferred_spot` | text | `sun` hoặc `shade` (enum, giao diện dịch bằng `t()` trong code). Đặt sai chỗ thì mất nước nhanh hơn 1,25 lần |
-| `image` | text | Đường dẫn ảnh đầy đủ, ví dụ `imgs/05-lan-y/lan-y.webp` |
+| `image` | text | Đường dẫn ảnh đầy đủ, ví dụ `/imgs/peace_lily/peace_lily.webp` |
 | `thumb` | text | Đường dẫn thumbnail `.thumb.webp` |
 | `image_credit_id` FK | text | → `image_credit.key` |
 
@@ -178,7 +180,7 @@ Bảng con có chữ riêng nên có `key` riêng (mục 4.3 của quy ước).
 
 | Cột | Kiểu | Ghi chú |
 |---|---|---|
-| `key` PK | text | `<species>_<n>`, ví dụ `luoi_ho_1` |
+| `key` PK | text | `<species>_<n>`, ví dụ `snake_plant_1` |
 | `species_id` FK | text | → `species.key` |
 | `sort_order` | int | Thứ tự hiển thị |
 
@@ -199,7 +201,7 @@ Chữ: `title`, `cause`, `fix`.
 
 | Cột | Kiểu | Ghi chú |
 |---|---|---|
-| `key` PK | text | `<species>_<task>`, ví dụ `luoi_ho_fertilize` |
+| `key` PK | text | `<species>_<task>`, ví dụ `snake_plant_fertilize` |
 | `species_id` FK | text | → `species.key` |
 | `task` | text | `water` · `fertilize` · `check` · `repot` · `prune` · `mist` (enum) |
 | `every_days` | int | Chu kỳ (ngày) |
@@ -212,7 +214,7 @@ Một bệnh dùng chung nhiều loài (rệp sáp ở 5 loài).
 
 | Cột | Kiểu | Ghi chú |
 |---|---|---|
-| `key` PK | text | Ví dụ `rep_sap`, `dom_la_vi_khuan` |
+| `key` PK | text | Ví dụ `mealybugs`, `bacterial_leaf_spot` |
 
 Chữ: `title` (bắt buộc), `description`.
 
@@ -222,7 +224,7 @@ Chữ: `title` (bắt buộc), `description`.
 |---|---|---|
 | `key` PK, FK | text | = `species.key` |
 | `disease_id` FK | text | → `disease.key` |
-| `image` | text | Ví dụ `imgs/05-lan-y/lan-y--dom-la-nam-alternaria.webp` |
+| `image` | text | Ví dụ `/imgs/peace_lily/peace_lily--fungal_leaf_spot.webp` |
 | `thumb` | text | Thumbnail tương ứng |
 | `image_credit_id` FK | text | → `image_credit.key` |
 
@@ -234,7 +236,7 @@ Lấy từ `imgs/sources.json`. Không có chữ cần dịch (tên file, giấy
 
 | Cột | Kiểu | Ghi chú |
 |---|---|---|
-| `key` PK | text | Ví dụ `luoi_ho_species`, `luoi_ho_disease` |
+| `key` PK | text | Ví dụ `snake_plant_species`, `snake_plant_disease` |
 | `file_name` | text | Tên file trên Commons |
 | `page_url` | text | `https://commons.wikimedia.org/wiki/File:...` |
 | `source_url` | text | Link ảnh gốc đã tải |
@@ -321,7 +323,7 @@ Danh sách thông báo **tính từ `pot`/`seed`**, không lưu. Chỉ lưu id �
 
 1. Lúc khởi động nạp toàn bộ `language` vào `Map<key, {vi, en}>`.
 2. Với thực thể đã đọc từ catalog, sinh khóa `` `${bảng}.${key}.${trường}` `` rồi tra Map.
-3. Thứ tự rơi: **ngôn ngữ đang chọn → `vi` → nhãn dự phòng là chính khóa** (ví dụ `species.luoi_ho.title`).
+3. Thứ tự rơi: **ngôn ngữ đang chọn → `vi` → nhãn dự phòng là chính khóa** (ví dụ `species.snake_plant.title`).
 4. Không ghép dữ liệu người dùng vào tên cột hoặc tên khóa. Nếu dùng SQL thì luôn `LEFT JOIN language`, thiếu chữ không được làm mất dòng.
 
 ### 5.1 Chuỗi giao diện không thuộc bảng `language`
@@ -354,7 +356,7 @@ Không có kiểm tra này thì đừng phát hành, vì không có FK nào bả
 
 ## 7. Migration từ bản hiện tại
 
-1. **Đổi `key` sang `_`**: `luoi-ho` → `luoi_ho`... Runtime phải đổi `species_id` trong `seeds`, `pots`, `discoveries` (key `plantin-recreated-v2`). Tăng `schema_version`, viết hàm đổi một lần khi đọc state.
+1. **Đổi `id` cũ sang key tiếng Anh**: `luoi-ho` → `snake_plant`, `trau-ba` → `golden_pothos`... (bảng đầy đủ 31 loài nằm trong lịch sử trao đổi; 12 id cũ trong `species.ts` là `trau-ba`, `luoi-ho`, `xuong-rong-cau`, `lan-y`, `nha-dam`, `duong-xi-boston`, `monstera`, `kim-tien`, `hoa-hong`, `sen-da`, `lan-ho-diep`, `bat-ruoi`). Runtime phải đổi `species_id` trong `seeds`, `pots`, `discoveries` (key `plantin-recreated-v2`) và `demo-state.ts`. Tăng `schema_version`, viết hàm đổi một lần khi đọc state.
 2. **Tách chữ ra khỏi `species.ts`**: `name` → `species.<key>.title`; `description`; `origin`; `careTips[]` → `tip.N`; `funFacts[]` → `fact.N`; phần tiếng Việt trong `family` → `species.<key>.family`.
 3. **`RARITY_META`, `STAGE_META`**: đưa `label` sang `language`, giữ `weight`, `emoji`, `minDays` ở bảng.
 4. **Nhập 19 loài còn lại và các bảng `species_care`, `species_symptom`, `species_reminder`, `species_disease`, `disease`, `general_symptom`, `image_credit`** từ `plant-species-dataset.md` và `imgs/sources.json`.
@@ -382,7 +384,7 @@ Không có kiểm tra này thì đừng phát hành, vì không có FK nào bả
 
 ## 9. Câu hỏi cần quyết định
 
-1. **Đổi `key` sang `_` có chấp nhận không?** Đây là chỗ quy ước xung đột với dữ liệu đang có và buộc phải migration cho người dùng đã lưu. Nếu giữ `-` thì phải sửa quy ước cho app này.
+1. ~~Đổi `key` sang `_`~~ **Đã chốt:** key dùng `_` và tiếng Anh; cần migration runtime (mục 7).
 2. **Nơi lưu catalog + `language`**: JSON theo từng bảng (đơn giản, hợp `localStorage`) hay SQLite (`catalog.db` như bên WorkoutApp)? Quy ước viết cho SQLite nhưng không bắt buộc.
 3. **Có cần `care_log` ở bản đầu không?** Nếu chưa thì bỏ cho gọn.
 4. **Có thêm các trường mới ở mục 1.1** (`fact`, `origin`, `light`...) vào danh sách chuẩn không, hay gộp lại thành `description` để ít trường hơn?
