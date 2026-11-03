@@ -1,6 +1,6 @@
 # Plant Toolkit
 
-Web dev chỉnh sửa dữ liệu và CLI build/split/stage DB cho Plant Identifier. Không dùng `conv`: schema đến từ các file SQL. **Hiện chưa có schema**, nên `master.db` là DB rỗng cho tới khi thêm file `.sql` vào `db/schema/`.
+Web dev chỉnh sửa dữ liệu và CLI build/split/stage DB cho Plant Identifier. Không dùng `conv`: schema đến từ các file SQL. Schema (7 file, 17 bảng) theo `design-note/data-schema.md`; dữ liệu chưa được nhập nên `master.db` đang không có dòng nào.
 
 | Đường dẫn | Vai trò |
 |---|---|

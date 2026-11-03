@@ -1,15 +1,59 @@
 {
   "formatVersion": 1,
-  "catalogVersion": "2026-11-03.1",
-  "generatedAt": "2026-11-03T07:59:21.870Z",
+  "catalogVersion": "2026-11-03.2",
+  "generatedAt": "2026-11-03T08:06:15.584Z",
   "dbFiles": [
+    {
+      "name": "catalog/catalog.db",
+      "purpose": "catalog",
+      "tables": [
+        "language",
+        "rarity",
+        "stage",
+        "image_credit",
+        "species",
+        "species_care",
+        "disease",
+        "species_disease",
+        "species_symptom",
+        "general_symptom",
+        "species_reminder"
+      ],
+      "sha256": "be112e57321f4ef4a0484548cd1785db01b6aa6898c9c3aa5e6fe8660a814577",
+      "sizeBytes": 122880
+    },
     {
       "name": "runtime-template.db",
       "purpose": "runtime-template",
-      "tables": [],
-      "sha256": "1417b954bbcc441d6df36065a1f354b30c548ec5f347bae8f44fbb8140a4bf83",
-      "sizeBytes": 4096
+      "tables": [
+        "settings",
+        "seed",
+        "pot",
+        "discovery",
+        "notice_read",
+        "care_log"
+      ],
+      "sha256": "289793b72015904b1454ec13902493c36cb53b3471e6b5e0728e611f84206f85",
+      "sizeBytes": 49152
     }
   ],
-  "tableIndex": {}
+  "tableIndex": {
+    "language": "catalog/catalog.db",
+    "rarity": "catalog/catalog.db",
+    "stage": "catalog/catalog.db",
+    "image_credit": "catalog/catalog.db",
+    "species": "catalog/catalog.db",
+    "species_care": "catalog/catalog.db",
+    "disease": "catalog/catalog.db",
+    "species_disease": "catalog/catalog.db",
+    "species_symptom": "catalog/catalog.db",
+    "general_symptom": "catalog/catalog.db",
+    "species_reminder": "catalog/catalog.db",
+    "settings": "runtime-template.db",
+    "seed": "runtime-template.db",
+    "pot": "runtime-template.db",
+    "discovery": "runtime-template.db",
+    "notice_read": "runtime-template.db",
+    "care_log": "runtime-template.db"
+  }
 }

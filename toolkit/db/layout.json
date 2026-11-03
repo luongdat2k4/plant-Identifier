@@ -1,6 +1,6 @@
 {
   "catalogDefaultFile": "catalog/catalog.db",
   "groups": {},
-  "runtime": [],
+  "runtime": ["settings", "seed", "pot", "discovery", "notice_read", "care_log"],
   "appExcluded": []
 }
