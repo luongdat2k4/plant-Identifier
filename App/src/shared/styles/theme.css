@@ -210,3 +210,7 @@ button.pill-tag{cursor:pointer}
 .scan-sheet .outline-button{background:none;border-color:#ffffff88;color:#fff}
 .new-tag{background:var(--yellow);color:#1c2a10}
 .toast{background:#2c4421}
+
+/* hide default scrollbars (scrolling still works) */
+*{scrollbar-width:none;-ms-overflow-style:none}
+*::-webkit-scrollbar{display:none;width:0;height:0}
