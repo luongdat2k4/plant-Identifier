@@ -23,7 +23,6 @@ export interface Discovery {
   firstSeenAt: string
   mastered: boolean
   bestStage: Stage
-  photo?: string
 }
 
 export const STAGES: Stage[] = ['seed', 'sprout', 'young', 'mature', 'bloom']
@@ -53,9 +52,9 @@ export function discoveryOf(speciesId: string): Discovery | undefined {
 }
 
 /** Records a species as seen. Returns true when it was not in the collection yet. */
-export function markSeen(speciesId: string, photo?: string): boolean {
+export function markSeen(speciesId: string): boolean {
   if (discoveryOf(speciesId)) return false
-  state.value.discoveries.push({ speciesId, firstSeenAt: new Date().toISOString(), mastered: false, bestStage: 'seed', photo })
+  state.value.discoveries.push({ speciesId, firstSeenAt: new Date().toISOString(), mastered: false, bestStage: 'seed' })
   return true
 }
 export function recordProgress(speciesId: string, stage: Stage) {

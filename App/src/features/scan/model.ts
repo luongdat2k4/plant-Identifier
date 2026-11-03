@@ -1,15 +1,16 @@
 import { state } from '../../shared/store'
+import { newId } from '../../shared/utils/newId'
 import { markSeen, rollSpecies, type Species } from '../collection/model'
 
-export interface Seed { id: string; speciesId: string; photo: string; createdAt: string }
+export interface Seed { id: string; speciesId: string; createdAt: string }
 
 export const MAX_SEEDS = 20
 
-/** Turns a photo into a seed of a random species and records the species as seen. */
-export function sowPhoto(photo: string): { seed: Seed; species: Species; isNew: boolean } {
+/** The captured photo is only a trigger: it is never stored. Rolls a random species and records it as seen. */
+export function rollSeed(): { seed: Seed; species: Species; isNew: boolean } {
   const species = rollSpecies()
-  const isNew = markSeen(species.id, photo)
-  const seed: Seed = { id: crypto.randomUUID(), speciesId: species.id, photo, createdAt: new Date().toISOString() }
+  const isNew = markSeen(species.id)
+  const seed: Seed = { id: newId(), speciesId: species.id, createdAt: new Date().toISOString() }
   state.value.seeds.unshift(seed)
   if (state.value.seeds.length > MAX_SEEDS) state.value.seeds.length = MAX_SEEDS
   return { seed, species, isNew }

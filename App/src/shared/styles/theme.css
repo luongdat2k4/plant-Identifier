@@ -214,3 +214,114 @@ button.pill-tag{cursor:pointer}
 /* hide default scrollbars (scrolling still works) */
 *{scrollbar-width:none;-ms-overflow-style:none}
 *::-webkit-scrollbar{display:none;width:0;height:0}
+
+/* ===== Theme v4: mint canvas, fresh green accent, soft white cards, white bottom sheets ===== */
+:root{--green:#6cc24a;--green-deep:#4aa02f;--green-soft:#e3f4dc;--tint:#dcebdf;--ink:#16221a;--muted:#7f9085;--panel:#fff;--card-shadow:0 6px 20px #3b6b4a12}
+:root,body{background:#eaf5ec}
+.app-shell{background:linear-gradient(160deg,#f4fbf5 0%,#e3f3e6 55%,#d9eedd 100%)}
+.topbar h1,.sheet-title,.home-greeting b{color:var(--ink)}
+
+/* buttons */
+.dark-button{background:var(--green);color:#fff;border-radius:30px;box-shadow:0 8px 18px #6cc24a40}
+.dark-button:hover{background:var(--green-deep)}
+.outline-button{background:#fff;border:0;color:var(--green-deep);border-radius:30px;box-shadow:var(--card-shadow)}
+.round-btn,.page-header button,.hero-bar .round-btn{background:var(--green);color:#fff;border-radius:50%;box-shadow:0 6px 14px #6cc24a40;width:44px;height:44px}
+.count-badge,.pill-tag{background:#fff;color:var(--green-deep);box-shadow:var(--card-shadow)}
+.plus-btn{border:0;background:var(--green);color:#fff;border-radius:14px}
+.plus-btn:hover:not(:disabled){background:var(--green-deep)}
+
+/* floating nav */
+.bottom-nav{background:#d5e5d8e6;backdrop-filter:blur(14px);border:0;box-shadow:0 10px 28px #3b6b4a22;border-radius:36px}
+.bottom-nav button{background:none;color:#4a5d51}
+.bottom-nav button.active{background:var(--green);color:#fff;box-shadow:0 6px 14px #6cc24a55}
+
+/* tabs */
+.pill-tabs button{background:#ffffffaa;color:#5d6e63}
+.pill-tabs button.active{background:var(--green);color:#fff}
+
+/* cards */
+.pot-card,.list-row,.species-card,.collection-summary>div,.soft-empty,.settings-list{background:#ffffffd9;border:0;box-shadow:var(--card-shadow);border-radius:26px}
+.pot-card .pot-photo,.species-image{background:#e6f1e8}
+.mini-ic.nutrition{background:#e3f4dc;color:#4aa02f}
+.care-btn{background:var(--green);color:#fff}
+.collection-summary b{color:var(--green-deep)}
+.pot-card.wilting{box-shadow:0 0 0 2px #f6c9c3,var(--card-shadow)}
+.pot-card.needs-care{box-shadow:0 0 0 2px #f6e2a8,var(--card-shadow)}
+
+/* detail: mint hero with floating chips, white bottom sheet */
+.hero{background:linear-gradient(180deg,#dcebdf,#cfe5d3)}
+.hero::before{background:#ffffff55}
+.hero-img{width:100%;height:340px;border-radius:0;box-shadow:none}
+.hero-img.contain{padding:60px 130px 30px 10px}
+.hero-meta{right:16px;top:96px;width:34%;gap:10px}
+.hero-meta>div{background:#ffffff59;backdrop-filter:blur(10px);border-radius:16px;padding:8px 12px;box-shadow:0 4px 14px #3b6b4a14}
+.hero-meta dt{color:#4f6a58}
+.hero-meta dd{color:var(--ink);font-size:14px}
+.sheet{background:#fff;color:var(--ink);border-radius:36px 36px 0 0;margin-top:-30px;min-height:calc(100vh - 300px);padding-bottom:120px}
+.sheet .sheet-title,.sheet h3,.sheet b{color:var(--ink)}
+.sheet .eyebrow,.sheet .scientific{color:var(--muted)}
+.sheet p,.sheet li,.sheet span{color:#46564c}
+.sheet .mastered-inline{color:var(--green-deep)}
+.sheet .care-card,.sheet .growth-card,.sheet .info-block{background:#f2f8f3;color:var(--ink)}
+.sheet .info-block.locked{background:#f2f8f3;border:1.5px dashed #c9dccd;color:#7f9085}
+.sheet .stat-bar-track{background:#e0ece3}
+.sheet .stat-bar-fill.growth{background:var(--green)}
+.sheet .stage-steps span.done{background:var(--green-soft)}
+.sheet .stage-steps span.current{box-shadow:0 0 0 2px var(--green)}
+.sheet .pill-tag,.sheet .count-badge{background:#f2f8f3;color:var(--green-deep);box-shadow:none}
+.sheet .dark-button{background:var(--green);color:#fff}
+.sheet .outline-button{background:#f2f8f3;border:0;color:var(--green-deep)}
+.sheet .segmented{background:#eaf3ec}
+.sheet .segmented .active{background:#fff;color:var(--green-deep)}
+
+/* scan: mint canvas, white rounded sheet with green action */
+.scan-screen{background:linear-gradient(180deg,#dcebdf,#cfe5d3)}
+.vf-corner{border-color:#fff}
+.vf-hint{color:#3d7a3a}
+.scan-sheet{background:#fff;color:var(--ink);border-radius:36px 36px 0 0}
+.scan-sheet .sheet-title{color:var(--ink)}
+.scan-sheet .scientific,.scan-sheet .result-note,.scan-sheet .scan-note,.scan-sheet .rolling-text{color:var(--muted)}
+.option-card{background:#f2f8f3;border:0;color:var(--ink);border-radius:36px}
+.option-card.primary{background:var(--green);color:#fff;box-shadow:0 10px 22px #6cc24a40}
+.option-ic{background:#fff;color:var(--green-deep)}
+.option-ic.soft{background:#fff;color:var(--green-deep)}
+.scan-sheet .outline-button{background:#f2f8f3;border:0;color:var(--green-deep);box-shadow:none}
+.new-tag{background:var(--green);color:#fff}
+.toast{background:#2f4a37}
+
+/* ===== Scan: live camera ===== */
+.cam{position:fixed;inset:0;left:50%;transform:translateX(-50%);width:min(520px,100%);overflow:hidden;background:linear-gradient(180deg,#a9cdb2,#8fbc9b);color:var(--ink);z-index:5}
+.cam-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cam-bar{position:absolute;z-index:4;left:18px;right:18px;top:calc(16px + env(safe-area-inset-top));display:flex;justify-content:space-between}
+.cam-bar .round-btn{background:#fff;color:var(--green-deep);border-radius:14px;box-shadow:0 4px 14px #1c3b2120}
+.cam-bar .round-btn.on{background:var(--green);color:#fff}
+.cam-status{position:absolute;z-index:3;left:0;right:0;top:24%;text-align:center;color:#fff;font-size:13px;font-weight:700;letter-spacing:3px;margin:0;text-shadow:0 1px 8px #0006}
+.dots::after{content:"";animation:dots 1.2s steps(4,end) infinite}
+@keyframes dots{0%{content:""}25%{content:" ."}50%{content:" . ."}75%,100%{content:" . . ."}}
+.cam-frame{position:absolute;z-index:2;left:36px;right:36px;top:30%;height:36%;pointer-events:none}
+.cam-frame i{position:absolute;width:64px;height:64px;border:2px solid #ffffffd9}
+.cam-frame .tl{left:0;top:0;border-right:0;border-bottom:0;border-top-left-radius:18px}
+.cam-frame .tr{right:0;top:0;border-left:0;border-bottom:0;border-top-right-radius:18px}
+.cam-frame .bl{left:0;bottom:0;border-right:0;border-top:0;border-bottom-left-radius:18px}
+.cam-frame .br{right:0;bottom:0;border-left:0;border-top:0;border-bottom-right-radius:18px}
+.cam-sweep{position:absolute;z-index:2;left:0;right:0;top:0;height:0;background:linear-gradient(180deg,#ffffff00,#ffffff2e);border-bottom:2px solid #fff;box-shadow:0 6px 24px #ffffffaa;animation:sweep linear forwards}
+@keyframes sweep{to{height:100%}}
+.cam-ask{position:absolute;z-index:3;left:18px;right:18px;bottom:calc(24px + env(safe-area-inset-bottom));background:#fff;border-radius:32px;padding:28px 22px 22px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;box-shadow:0 14px 40px #1c3b2133}
+.cam-ask h2{margin:0;font-size:21px;letter-spacing:-.5px}
+.cam-ask p{margin:0 0 6px;font-size:13px;line-height:1.55;color:var(--muted)}
+.cam-ask-ic{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:var(--green-soft);color:var(--green-deep)}
+.cam-ask .outline-button{background:#f2f8f3;box-shadow:none}
+.cam-shutter{position:absolute;z-index:3;left:0;right:0;bottom:calc(34px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-evenly}
+.cam-snap{width:82px;height:82px;border-radius:50%;border:4px solid #fff;background:none;padding:6px;display:grid;place-items:center}
+.cam-snap i{width:100%;height:100%;border-radius:50%;background:var(--green);box-shadow:0 6px 18px #6cc24a66;transition:transform .12s}
+.cam-snap:active i{transform:scale(.88)}
+.cam-side{width:50px;height:50px;border-radius:16px;background:#fff;color:var(--green-deep);display:grid;place-items:center;cursor:pointer}
+.cam-side.ghost{visibility:hidden}
+.cam-result{position:absolute;z-index:3;left:14px;right:14px;bottom:calc(18px + env(safe-area-inset-bottom));background:#fff;border-radius:30px;padding:14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 14px 40px #1c3b2133}
+.cam-card{display:flex;align-items:center;gap:14px;background:#f2f8f3;border-radius:22px;padding:10px}
+.cam-card img{width:74px;height:74px;border-radius:16px;object-fit:contain;background:#fff;flex:none}
+.cam-card>div{display:flex;flex-direction:column;gap:3px;min-width:0}
+.cam-card b{font-size:19px;letter-spacing:-.4px}
+.cam-card small{font-size:12px;color:var(--muted);font-style:italic}
+.cam-note{margin:0;font-size:12px;color:var(--muted);text-align:center}
+.cam-result .scan-actions{margin-top:0}

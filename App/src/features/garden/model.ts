@@ -1,4 +1,5 @@
 import { state } from '../../shared/store'
+import { newId } from '../../shared/utils/newId'
 import { getSpecies, recordProgress, stageForDays, STAGES, STAGE_META, type Stage } from '../collection/model'
 
 export type Spot = 'sun' | 'shade'
@@ -8,7 +9,6 @@ export interface Pot {
   id: string
   speciesId: string
   nickname?: string
-  photo: string
   spot: Spot
   water: number
   nutrition: number
@@ -88,7 +88,7 @@ export function tickAll(now: Date = new Date()): string[] {
     if (tickPot(pot, now)) continue
     died.push(potName(pot))
     state.value.pots = state.value.pots.filter(p => p.id !== pot.id)
-    state.value.seeds.unshift({ id: crypto.randomUUID(), speciesId: pot.speciesId, photo: pot.photo, createdAt: now.toISOString() })
+    state.value.seeds.unshift({ id: newId(), speciesId: pot.speciesId, createdAt: now.toISOString() })
   }
   return died
 }
@@ -111,7 +111,7 @@ export function setSpot(id: string, spot: Spot) {
 export function uprootPot(id: string) {
   const pot = findPot(id); if (!pot) return
   state.value.pots = state.value.pots.filter(p => p.id !== id)
-  state.value.seeds.unshift({ id: crypto.randomUUID(), speciesId: pot.speciesId, photo: pot.photo, createdAt: new Date().toISOString() })
+  state.value.seeds.unshift({ id: newId(), speciesId: pot.speciesId, createdAt: new Date().toISOString() })
 }
 export function hasFreeSlot(): boolean { return state.value.pots.length < state.value.potSlots }
 
@@ -122,7 +122,7 @@ export function plantSeed(seedId: string): Pot | null {
   if (!seed || !species || !hasFreeSlot()) return null
   const now = new Date()
   const pot: Pot = {
-    id: crypto.randomUUID(), speciesId: species.id, photo: seed.photo, spot: species.preferredSpot,
+    id: newId(), speciesId: species.id, spot: species.preferredSpot,
     water: 100, nutrition: 100, growthDays: 0, lastGrowthDay: dayKey(now), lastUpdated: now.toISOString(), createdAt: now.toISOString(),
   }
   state.value.seeds = state.value.seeds.filter(s => s.id !== seedId)

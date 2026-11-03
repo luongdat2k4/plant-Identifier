@@ -10,7 +10,8 @@ function emptyState(): State { return { pots: [], seeds: [], discoveries: [], po
 function read(): State {
   try {
     const saved = localStorage.getItem(key)
-    if (saved) return { ...emptyState(), ...JSON.parse(saved) }
+    // older saves kept the captured photo on each seed/pot; it is no longer used, so drop it
+    if (saved) return { ...emptyState(), ...JSON.parse(saved, (name, value) => (name === 'photo' ? undefined : value)) }
   } catch { /* fall through to a fresh state */ }
   return USE_DEMO_DATA ? createDemoState() : emptyState()
 }

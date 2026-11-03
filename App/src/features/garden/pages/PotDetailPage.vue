@@ -37,7 +37,7 @@ function uproot() {
   <template v-if="pot && species">
     <section class="hero">
       <header class="hero-bar"><button class="round-btn" aria-label="Quay lại" @click="back"><Icon icon="solar:arrow-left-linear" width="22"/></button></header>
-      <img class="hero-img" :src="pot.photo" :alt="species.name"/>
+      <img class="hero-img" :src="species.image" :alt="species.name"/>
       <dl class="hero-meta">
         <div><dt>Giai đoạn</dt><dd>{{ STAGE_META[stage].emoji }} {{ STAGE_META[stage].label }}</dd></div>
         <div><dt>Nước</dt><dd>{{ Math.round(pot.water) }}%</dd></div>

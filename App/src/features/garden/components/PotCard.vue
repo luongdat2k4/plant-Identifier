@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
-import { STAGE_META } from '../../collection/model'
+import { getSpecies, STAGE_META } from '../../collection/model'
 import { potName, stageOf, statusOf, STATUS_META, type Pot } from '../model'
 const props = defineProps<{ pot: Pot }>()
 defineEmits<{ open: []; water: []; feed: [] }>()
@@ -13,7 +13,7 @@ const stage = computed(() => STAGE_META[stageOf(props.pot)])
   <article class="pot-card" :class="status">
     <button class="pot-card-main" @click="$emit('open')">
       <div class="pot-photo">
-        <img :src="pot.photo" :alt="potName(pot)"/>
+        <img :src="getSpecies(pot.speciesId)?.image" :alt="potName(pot)"/>
         <span class="stage-badge">{{ stage.emoji }} {{ stage.label }}</span>
       </div>
       <b class="pot-name">{{ potName(pot) }}</b>

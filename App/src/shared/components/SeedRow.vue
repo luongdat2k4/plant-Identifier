@@ -8,7 +8,7 @@ defineEmits<{ plant: []; discard: [] }>()
 
 <template>
   <article class="list-row">
-    <img :src="seed.photo" alt="Ảnh gốc"/>
+    <img :src="getSpecies(seed.speciesId)?.image" :alt="getSpecies(seed.speciesId)?.name"/>
     <div class="list-row-text">
       <b>{{ getSpecies(seed.speciesId)?.name ?? 'Hạt lạ' }}</b>
       <span>{{ getSpecies(seed.speciesId) ? RARITY_META[getSpecies(seed.speciesId)!.rarity].label : '' }} · {{ new Date(seed.createdAt).toLocaleDateString('vi-VN') }}</span>

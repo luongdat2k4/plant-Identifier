@@ -6,7 +6,8 @@ import { useToast } from './shared/composables/useToast'
 import { tickAll } from './features/garden/model'
 const route = useRoute()
 const { toast, notify } = useToast()
-const showNav = computed(() => ['garden', 'collection', 'scan', 'seeds', 'menu'].includes(String(route.name)))
+const isCamera = computed(() => route.name === 'scan')
+const showNav = computed(() => ['garden', 'collection', 'seeds', 'menu'].includes(String(route.name)))
 
 function refreshPots() {
   const died = tickAll()
@@ -24,7 +25,7 @@ onUnmounted(() => { clearInterval(timer); document.removeEventListener('visibili
 
 <template>
   <div class="app-shell" :class="{ 'has-nav': showNav }">
-    <div class="status-space"></div>
+    <div v-if="!isCamera" class="status-space"></div>
     <RouterView />
     <BottomNav v-if="showNav" />
     <div v-if="toast" class="toast" role="status">{{ toast }}</div>
