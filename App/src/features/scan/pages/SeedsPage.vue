@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import NotificationBell from '../../../shared/components/NotificationBell.vue'
 import { state } from '../../../shared/store'
 import { hasFreeSlot, plantSeed } from '../../garden/model'
 import { discardSeed, MAX_SEEDS } from '../model'
@@ -18,7 +19,7 @@ function discard(id: string) { if (confirm('Bỏ hạt giống này?')) { discar
 <template>
   <header class="home-head">
     <div class="home-greeting"><b>Túi hạt</b><span>Hạt giống chờ trồng</span></div>
-    <span class="pill-tag">{{ state.seeds.length }}/{{ MAX_SEEDS }} hạt</span>
+    <div class="head-end"><span class="pill-tag">{{ state.seeds.length }}/{{ MAX_SEEDS }} hạt</span><NotificationBell/></div>
   </header>
   <main class="content">
     <p v-if="state.seeds.length && !hasFreeSlot()" class="slot-warning">Vườn đã đầy ({{ state.pots.length }}/{{ state.potSlots }} chậu). Hãy nhổ bớt một cây để trồng hạt mới.</p>

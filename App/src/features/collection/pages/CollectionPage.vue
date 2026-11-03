@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import NotificationBell from '../../../shared/components/NotificationBell.vue'
 import { computed, ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { state } from '../../../shared/store'
@@ -26,6 +27,7 @@ function open(id: string) {
 <template>
   <header class="home-head">
     <div class="home-greeting"><b>Bộ sưu tập</b><span>Loài cây bạn đã gặp</span></div>
+    <NotificationBell/>
   </header>
   <main class="content">
     <div class="collection-summary">

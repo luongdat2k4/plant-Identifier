@@ -1,0 +1,97 @@
+<script setup lang="ts">
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { Icon } from '@iconify/vue'
+import { state } from '../store'
+import { feedPot, plantSeed, potName, waterPot, findPot } from '../../features/garden/model'
+import { isUnread, markAllRead, markRead, notices, unreadCount, type Notice, type NoticeKind } from '../../features/garden/notifications'
+import { useAppNavigation } from '../composables/useAppNavigation'
+import { useToast } from '../composables/useToast'
+const { go } = useAppNavigation()
+const { notify } = useToast()
+const open = ref(false)
+const tab = ref<'all' | 'unread'>('all')
+const bell = ref<HTMLButtonElement | null>(null)
+const place = ref({ top: 0, right: 0 })
+const BADGES: Record<NoticeKind, string> = { wilting: 'solar:danger-triangle-bold', care: 'solar:waterdrop-bold', seeds: 'solar:leaf-bold' }
+const shown = computed(() => notices.value.filter(item => tab.value === 'all' || isUnread(item.id)))
+
+function toggle() {
+  if (!open.value && bell.value) {
+    const rect = bell.value.getBoundingClientRect()
+    place.value = { top: rect.bottom + 10, right: Math.max(12, window.innerWidth - rect.right) }
+  }
+  open.value = !open.value
+}
+function pick(item: Notice) {
+  markRead(item.id)
+  open.value = false
+  if (item.potId) go('pot', item.potId); else go('seeds')
+}
+function care(item: Notice, kind: 'water' | 'feed') {
+  if (!item.potId) return
+  const pot = findPot(item.potId)
+  if (!pot) return
+  if (kind === 'water') waterPot(pot.id); else feedPot(pot.id)
+  notify(kind === 'water' ? `Đã tưới ${potName(pot)}` : `Đã bón phân cho ${potName(pot)}`)
+}
+function plantFirst() {
+  const seed = state.value.seeds[0]
+  const pot = seed && plantSeed(seed.id)
+  if (!pot) return notify('Vườn đã hết chậu trống')
+  notify('Đã trồng hạt giống')
+  open.value = false
+  go('pot', pot.id)
+}
+function openSeeds() { open.value = false; go('seeds') }
+function onKey(event: KeyboardEvent) { if (event.key === 'Escape') open.value = false }
+onMounted(() => document.addEventListener('keydown', onKey))
+onUnmounted(() => document.removeEventListener('keydown', onKey))
+</script>
+
+<template>
+  <button ref="bell" class="bell-btn" :class="{ on: open }" aria-label="Thông báo" :aria-expanded="open" @click="toggle">
+    <Icon icon="solar:bell-bold" width="24"/>
+    <span v-if="unreadCount" class="bell-badge">{{ unreadCount > 9 ? '9+' : unreadCount }}</span>
+  </button>
+  <Teleport to="body">
+    <div v-if="open" class="notice-backdrop" @click="open = false"></div>
+    <section v-if="open" class="notice-pop" role="dialog" aria-label="Danh sách thông báo" :style="{ top: `${place.top}px`, right: `${place.right}px` }">
+      <header>
+        <b>Thông báo</b>
+        <div class="notice-tabs" role="tablist">
+          <button :class="{ active: tab === 'all' }" @click="tab = 'all'">Tất cả</button>
+          <button :class="{ active: tab === 'unread' }" @click="tab = 'unread'">Chưa đọc</button>
+        </div>
+      </header>
+      <ul v-if="shown.length">
+        <li v-for="item in shown" :key="item.id" :class="{ unread: isUnread(item.id) }">
+          <button class="notice-main" @click="pick(item)">
+            <span class="notice-avatar">
+              <img v-if="item.image" :src="item.image" alt=""/>
+              <i class="notice-kind" :class="item.kind"><Icon :icon="BADGES[item.kind]" width="12"/></i>
+            </span>
+            <span class="notice-text">
+              <span class="notice-top"><b>{{ item.title }}</b><em>{{ item.meta }}</em></span>
+              <small>{{ item.text }}</small>
+            </span>
+            <i v-if="isUnread(item.id)" class="notice-dot" aria-label="Chưa đọc"></i>
+          </button>
+          <div v-if="item.kind !== 'seeds'" class="notice-actions">
+            <button @click="care(item, 'water')"><Icon icon="solar:waterdrop-bold" width="15"/> Tưới nước</button>
+            <button class="primary" @click="care(item, 'feed')"><Icon icon="solar:leaf-bold" width="15"/> Bón phân</button>
+          </div>
+          <div v-else class="notice-actions">
+            <button @click="openSeeds">Xem túi hạt</button>
+            <button class="primary" @click="plantFirst">Trồng ngay</button>
+          </div>
+        </li>
+      </ul>
+      <div v-else class="notice-empty">
+        <Icon icon="solar:check-circle-bold" width="38"/>
+        <b>{{ notices.length ? 'Đã đọc hết' : 'Cả vườn đều khỏe' }}</b>
+        <span>{{ notices.length ? 'Không còn thông báo chưa đọc.' : 'Chưa có gì cần làm. Bạn có thể quay lại sau vài ngày.' }}</span>
+      </div>
+      <footer v-if="unreadCount"><button @click="markAllRead">Đánh dấu đã đọc hết</button></footer>
+    </section>
+  </Teleport>
+</template>

@@ -22,7 +22,7 @@ export interface Pot {
 const WATER_PER_HOUR = 100 / 96
 const NUTRITION_PER_HOUR = 100 / 336
 const WRONG_SPOT_PENALTY = 1.25
-const HAPPY_AT = 40
+export const HAPPY_AT = 40
 const WILT_BELOW = 15
 const DEATH_AFTER_DAYS = 7
 const MAX_GROWTH_CATCHUP = 3
@@ -93,7 +93,7 @@ export function tickAll(now: Date = new Date()): string[] {
   return died
 }
 
-function findPot(id: string): Pot | undefined { return state.value.pots.find(p => p.id === id) }
+export function findPot(id: string): Pot | undefined { return state.value.pots.find(p => p.id === id) }
 function afterCare(pot: Pot) { if (statusOf(pot) !== 'wilting') delete pot.wiltingSince }
 export function waterPot(id: string) {
   const pot = findPot(id); if (!pot) return

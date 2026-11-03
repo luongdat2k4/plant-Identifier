@@ -395,3 +395,13 @@ button.pill-tag{cursor:pointer}
 @keyframes leaf-float{0%,100%{translate:0 0}50%{translate:0 -8px}}
 @media(prefers-reduced-motion:reduce){.cam-hero .leaf,.wait i{animation:none}}
 .cam-frame{top:20%;height:34%}
+
+/* detail pages: back button stays pinned while the sheet scrolls */
+.hero .hero-bar{position:fixed;z-index:8;top:max(env(safe-area-inset-top),15px);left:50%;right:auto;transform:translateX(-50%);width:min(520px,100%);box-sizing:border-box;padding:0 18px;margin-top:14px;pointer-events:none}
+.hero .hero-bar>*{pointer-events:auto}
+
+/* pot detail: care buttons pinned to the bottom of the screen */
+.sheet-cta{position:fixed;z-index:8;left:50%;bottom:0;transform:translateX(-50%);width:min(520px,100%);box-sizing:border-box;margin:0;padding:22px 24px calc(16px + env(safe-area-inset-bottom));pointer-events:none;isolation:isolate}
+.sheet-cta::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#fff0,#fff 42%)}
+.sheet-cta>*{pointer-events:auto}
+.sheet:has(.sheet-cta){padding-bottom:140px}

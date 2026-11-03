@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import NotificationBell from '../../../shared/components/NotificationBell.vue'
 import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
 import { resetState, state } from '../../../shared/store'
@@ -18,6 +19,7 @@ function reset(withDemo: boolean) {
 <template>
   <header class="home-head">
     <div class="home-greeting"><b>Menu</b><span>Tài khoản của bạn</span></div>
+    <NotificationBell/>
   </header>
   <main class="content">
     <div class="collection-summary">

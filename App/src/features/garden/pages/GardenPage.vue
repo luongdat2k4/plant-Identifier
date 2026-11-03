@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import NotificationBell from '../../../shared/components/NotificationBell.vue'
 import { computed, ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { state } from '../../../shared/store'
@@ -13,15 +14,7 @@ const filter = ref<'all' | 'care' | 'happy'>('all')
 const filters = [{ key: 'all', label: 'Tất cả' }, { key: 'care', label: 'Cần chăm' }, { key: 'happy', label: 'Khỏe' }] as const
 const pots = computed(() => state.value.pots)
 const shown = computed(() => pots.value.filter(p => filter.value === 'all' || (filter.value === 'happy') === (statusOf(p) === 'happy')))
-const needCare = computed(() => pots.value.filter(p => statusOf(p) !== 'happy'))
-const wilting = computed(() => pots.value.filter(p => statusOf(p) === 'wilting'))
 const waitingSeeds = computed(() => state.value.seeds.slice(0, 3))
-const summary = computed(() => {
-  if (!pots.value.length) return 'Khu vườn còn trống, hãy chụp ảnh để nhận hạt đầu tiên.'
-  if (wilting.value.length) return `${wilting.value.length} cây đang héo. Chăm lại là hồi phục ngay.`
-  if (needCare.value.length) return `${needCare.value.length} cây cần được chăm một chút.`
-  return 'Cả vườn đều khỏe. Bạn có thể quay lại sau vài ngày.'
-})
 function care(pot: Pot, kind: 'water' | 'feed') {
   if (kind === 'water') waterPot(pot.id); else feedPot(pot.id)
   notify(kind === 'water' ? `Đã tưới ${potName(pot)}` : `Đã bón phân cho ${potName(pot)}`)
@@ -36,12 +29,12 @@ function plant(id: string) {
 <template>
   <header class="home-head">
     <div class="home-greeting"><b>Xin chào!</b><span>Khu vườn của bạn · {{ pots.length }}/{{ state.potSlots }} chậu</span></div>
+    <NotificationBell/>
   </header>
   <main class="content">
     <div class="pill-tabs" role="tablist">
       <button v-for="item in filters" :key="item.key" :class="{ active: filter === item.key }" @click="filter = item.key">{{ item.label }}</button>
     </div>
-    <p class="garden-note">{{ summary }}</p>
 
     <div class="block-head"><h2>Cây của tôi</h2><span class="pill-tag">{{ shown.length }} cây</span></div>
     <div v-if="shown.length" class="pot-grid">
