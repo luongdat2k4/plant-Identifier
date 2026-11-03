@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { lang, LANGUAGES, setLang, t } from '../../../shared/i18n'
+import InFeedAd from '../../ads/components/InFeedAd.vue'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
 const { back } = useAppNavigation()
 </script>
@@ -18,5 +19,6 @@ const { back } = useAppNavigation()
         <i class="lang-tick"><Icon icon="solar:check-circle-bold" width="26"/></i>
       </button>
     </div>
+    <div class="ad-slot"><InFeedAd template="small"/></div>
   </main>
 </template>

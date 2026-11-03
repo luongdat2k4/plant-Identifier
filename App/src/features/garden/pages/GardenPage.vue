@@ -9,6 +9,7 @@ import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
 import { useToast } from '../../../shared/composables/useToast'
 import PotCard from '../components/PotCard.vue'
 import SeedRow from '../../../shared/components/SeedRow.vue'
+import InFeedAd from '../../ads/components/InFeedAd.vue'
 const { go } = useAppNavigation()
 const { notify } = useToast()
 const filter = ref<'all' | 'care' | 'happy'>('all')
@@ -42,7 +43,8 @@ function plant(id: string) {
       <PotCard v-for="pot in shown" :key="pot.id" :pot="pot"
         @open="go('pot', pot.id)" @water="care(pot, 'water')" @feed="care(pot, 'feed')"/>
     </div>
-    <div v-else class="soft-empty">
+    <div v-if="shown.length >= 4" class="ad-slot"><InFeedAd template="small"/></div>
+    <div v-if="!shown.length" class="soft-empty">
       <Icon icon="solar:leaf-linear" width="34"/>
       <b>{{ pots.length ? t('garden.emptyFilter') : t('garden.emptyNone') }}</b>
       <span>{{ pots.length ? t('garden.tryOther') : t('garden.firstSeed') }}</span>

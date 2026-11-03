@@ -35,7 +35,7 @@ export async function tryAppOpenOnLaunch(signal: AbortSignal): Promise<void> {
   appOpenAttempted = true
   // One deadline covers SDK initialization, loading, readiness and listener setup.
   // A late load may finish in the cache, but must never show over the next screen.
-  const deadline = Date.now() + 5000
+  const deadline = Date.now() + 3000
   const withinDeadline = <T>(operation: Promise<T>) => waitFor(operation, Math.max(0, deadline - Date.now()), signal)
   let listener: Awaited<ReturnType<typeof ALFAdMob.addListener>> | undefined
   let ownsFullScreen = false
@@ -98,9 +98,14 @@ async function waitFor<T>(operation: Promise<T>, timeout: number, signal: AbortS
   }
 }
 
-// Full-screen ads are spaced out so the scenario's many triggers (screens, taps, workout end)
-// can never stack into back-to-back ads.
-const FULL_SCREEN_GAP_MS = 30_000
+// Full-screen ads are spaced out so they can never stack into back-to-back ads: at least two minutes between
+// any two, and at most two interstitials per app session (design-note/ads-plantin-by-view.md).
+const FULL_SCREEN_GAP_MS = 120_000
+const MAX_INTERSTITIALS_PER_SESSION = 2
+let interstitialsShown = 0
+
+// Height the bottom banner takes, so the shell can lift the navigation bar above it. 0 while no banner is up.
+export const bannerInset = ref(0)
 
 export async function preloadInterstitial(): Promise<void> {
   if (!adsAvailable.value || interstitialLoaded || showing) return
@@ -113,10 +118,11 @@ export async function preloadInterstitial(): Promise<void> {
 // A milestone ignores the spacing and waits for the ad to load instead of skipping it.
 export async function showInterstitial(placement: string, milestone = false): Promise<void> {
   const now = Date.now()
-  if (!adsAvailable.value || showing || document.hidden || (!milestone && now - lastFullScreenAt < FULL_SCREEN_GAP_MS)) return
+  if (!adsAvailable.value || showing || document.hidden || interstitialsShown >= MAX_INTERSTITIALS_PER_SESSION || (!milestone && now - lastFullScreenAt < FULL_SCREEN_GAP_MS)) return
   if (!interstitialLoaded && milestone) await preloadInterstitial()
   if (!interstitialLoaded) { void preloadInterstitial(); return }
   interstitialLoaded = false
+  interstitialsShown++
   showing = true
   fullScreenShowing.value = true
   try {
@@ -136,18 +142,6 @@ export function closeNativeOverlay(): void {
   nativeOverlay.value = false
   lastFullScreenAt = Date.now()
   setTimeout(() => { nativeOverlayHold.value = false }, 400)
-}
-
-let tapsLeft = 2 + Math.floor(Math.random() * 2)
-let nativeTurn = false
-// Every 2-3 taps on a control, the next interstitial opportunity opens.
-export function countTap(blocked: boolean): void {
-  if (blocked) return
-  if (--tapsLeft > 0) return
-  tapsLeft = 2 + Math.floor(Math.random() * 2)
-  // The tap cycle alternates between an interstitial and the full-screen native ad.
-  nativeTurn = !nativeTurn
-  if (!nativeTurn || !openNativeOverlay()) void showInterstitial('tap_cycle')
 }
 
 // Rewarded video: resolves true only when the viewer earned the reward. Resolves false when there is no ad,

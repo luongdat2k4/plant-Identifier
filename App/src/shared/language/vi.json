@@ -183,5 +183,8 @@
   "ob.dots": "Trang giới thiệu",
   "ob.page": "Trang {n}",
   "ads.label": "Quảng cáo",
-  "ads.close": "Đóng quảng cáo"
+  "ads.close": "Đóng quảng cáo",
+  "toast.rewardSeed": "Bạn nhận được hạt {name}",
+  "toast.rewardNone": "Chưa có video phù hợp, hãy thử lại sau",
+  "seeds.watchForSeed": "Xem video nhận thêm 1 hạt ({n} lượt còn lại hôm nay)"
 }

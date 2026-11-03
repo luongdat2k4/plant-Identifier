@@ -10,6 +10,7 @@ import { hasFreeSlot, plantSeed } from '../../garden/model'
 import { rollSeed, type Seed } from '../model'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
 import { useToast } from '../../../shared/composables/useToast'
+import { showInterstitial } from '../../ads/adRuntime'
 import { readImage } from '../../../shared/utils/readImage'
 import { BAR, setStatusBar } from '../../../shared/utils/statusBar'
 const { go } = useAppNavigation()
@@ -108,8 +109,10 @@ function plantNow() {
   if (!pot) return notify(t('toast.noFreePot'))
   notify(t('toast.plantedSpecies', { name: result.value.species.name }))
   go('pot', pot.id)
+  // The viewer has finished with the result: a natural break for the one allowed full-screen ad.
+  void showInterstitial('scan_result')
 }
-function later() { notify(t('toast.seedSaved')); again() }
+function later() { notify(t('toast.seedSaved')); again(); void showInterstitial('scan_result') }
 function again() {
   clearTimeout(finish); stepTimers.forEach(clearTimeout)
   photo.value = ''; result.value = null; torch.value = false

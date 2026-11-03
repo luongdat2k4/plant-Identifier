@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { Icon } from '@iconify/vue'
+import InFeedAd from '../../ads/components/InFeedAd.vue'
 import { hasChosenLanguage, LANGUAGES, lang, markLanguageChosen, setLang, t } from '../../../shared/i18n'
 
 const router = useRouter()
@@ -40,6 +41,7 @@ function confirm() {
             <i class="lang-tick"><Icon icon="solar:check-circle-bold" width="26"/></i>
           </button>
         </div>
+        <div class="ad-slot"><InFeedAd template="small"/></div>
       </div>
     </section>
 

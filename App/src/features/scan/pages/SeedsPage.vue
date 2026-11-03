@@ -3,10 +3,14 @@ import { t } from '../../../shared/i18n'
 import NotificationBell from '../../../shared/components/NotificationBell.vue'
 import { state } from '../../../shared/store'
 import { hasFreeSlot, plantSeed } from '../../garden/model'
-import { discardSeed, MAX_SEEDS } from '../model'
+import { discardSeed, MAX_SEEDS, rollSeed } from '../model'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
 import { useToast } from '../../../shared/composables/useToast'
 import SeedRow from '../../../shared/components/SeedRow.vue'
+import RewardedAd from '../../ads/components/RewardedAd.vue'
+import { countReward, rewardsLeft } from '../../ads/rewardQuota'
+import { adsAvailable } from '../../ads/adRuntime'
+import { Icon } from '@iconify/vue'
 const { go } = useAppNavigation()
 const { notify } = useToast()
 function plant(id: string) {
@@ -14,6 +18,13 @@ function plant(id: string) {
   if (!pot) return notify(t('toast.noFreePot'))
   notify(t('toast.planted')); go('pot', pot.id)
 }
+// Optional: watching a rewarded video gives one extra seed. The reward is granted only when the viewer finishes it.
+function grantSeed() {
+  const { species } = rollSeed()
+  countReward()
+  notify(t('toast.rewardSeed', { name: species.name }))
+}
+function rewardSkipped() { notify(t('toast.rewardNone')) }
 function discard(id: string) { if (confirm(t('confirm.discardSeed'))) { discardSeed(id); notify(t('toast.seedDiscarded')) } }
 </script>
 
@@ -33,6 +44,9 @@ function discard(id: string) { if (confirm(t('confirm.discardSeed'))) { discardS
       <p>{{ t('seeds.emptyText') }}</p>
       <button class="dark-button" @click="go('scan')">{{ t('seeds.goScan') }}</button>
     </div>
+    <RewardedAd v-if="adsAvailable && rewardsLeft() > 0 && state.seeds.length < MAX_SEEDS" placement="seeds_extra" @rewarded="grantSeed" @skipped="rewardSkipped">
+      <template #default="{ busy }"><button class="seed-reward" :aria-busy="busy"><Icon icon="solar:play-circle-bold" width="22"/> {{ t('seeds.watchForSeed', { n: String(rewardsLeft()) }) }}</button></template>
+    </RewardedAd>
     <p v-if="state.seeds.length >= MAX_SEEDS" class="scan-note">{{ t('seeds.bagFull') }}</p>
   </main>
 </template>

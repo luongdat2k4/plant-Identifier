@@ -183,5 +183,8 @@
   "ob.dots": "Intro pages",
   "ob.page": "Page {n}",
   "ads.label": "Ad",
-  "ads.close": "Close ad"
+  "ads.close": "Close ad",
+  "toast.rewardSeed": "You received a {name} seed",
+  "toast.rewardNone": "No video available right now, try again later",
+  "seeds.watchForSeed": "Watch a video for 1 extra seed ({n} left today)"
 }

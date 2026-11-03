@@ -7,6 +7,7 @@ import { discoveryOf, getSpecies, RARITY_META, STAGE_META } from '../model'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
 import { useScrollFade } from '../../../shared/composables/useScrollFade'
 import { t } from '../../../shared/i18n'
+import InFeedAd from '../../ads/components/InFeedAd.vue'
 const route = useRoute()
 const { go, back } = useAppNavigation()
 useScrollFade()
@@ -31,6 +32,7 @@ const discovery = computed(() => discoveryOf(String(route.params.id)))
       <h1 class="sheet-title">{{ species.name }}</h1>
 
       <SpeciesArticle :species="species"/>
+      <div class="ad-slot"><InFeedAd template="small"/></div>
     </main>
   </template>
   <main v-else class="content search-empty">

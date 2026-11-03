@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { Icon } from '@iconify/vue'
 import { markOnboarded } from '../../../shared/utils/onboarding'
 import { t } from '../../../shared/i18n'
+import InFeedAd from '../../ads/components/InFeedAd.vue'
 
 const router = useRouter()
 const track = ref<HTMLElement | null>(null)
@@ -13,6 +14,8 @@ const slides = computed(() => [
   { image: '/assets/ic_scroll_card_5.png', title: t('ob.2.title'), text: t('ob.2.text'), icons: ['solar:waterdrop-bold', 'solar:leaf-bold'] },
   { image: '/assets/ic_scroll_card_1.png', title: t('ob.3.title'), text: t('ob.3.text'), icons: ['solar:book-bookmark-bold', 'solar:medal-ribbon-bold'] },
 ])
+// The ad sits above the fixed footer, so it needs a tall screen to leave the slide readable.
+const roomForAd = window.innerHeight >= 760
 const last = computed(() => index.value === slides.value.length - 1)
 
 function onScroll() {
@@ -50,6 +53,8 @@ onMounted(() => track.value?.focus({ preventScroll: true }))
         </div>
       </section>
     </div>
+
+    <div v-if="roomForAd" class="ob-ad"><InFeedAd template="small"/></div>
 
     <footer class="ob-foot">
       <div class="ob-dots" role="tablist" :aria-label="t('ob.dots')">
