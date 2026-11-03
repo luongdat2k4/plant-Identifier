@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera'
 import { Capacitor } from '@capacitor/core'
 import { Icon } from '@iconify/vue'
@@ -10,6 +10,7 @@ import { rollSeed, type Seed } from '../model'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
 import { useToast } from '../../../shared/composables/useToast'
 import { readImage } from '../../../shared/utils/readImage'
+import { BAR, setStatusBar } from '../../../shared/utils/statusBar'
 const { go } = useAppNavigation()
 const { notify } = useToast()
 
@@ -29,6 +30,10 @@ const steps = [
 ]
 const hero = allSpecies.slice(0, 3)
 const canPlant = computed(() => hasFreeSlot())
+watch(phase, value => {
+  if (value === 'ask' || value === 'denied') setStatusBar(BAR.scanAsk)
+  else setStatusBar(BAR.camera, false)
+})
 let stream: MediaStream | null = null
 let finish: ReturnType<typeof setTimeout> | undefined
 let stepTimers: ReturnType<typeof setTimeout>[] = []

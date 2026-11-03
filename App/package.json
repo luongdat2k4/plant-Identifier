@@ -3,12 +3,19 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "scripts": { "dev": "vite", "build": "vue-tsc --noEmit && vite build", "preview": "vite preview", "android:add": "cap add android", "android:sync": "npm run build && cap sync android" },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "android:add": "cap add android",
+    "android:sync": "npm run build && cap sync android"
+  },
   "dependencies": {
     "@capacitor/android": "^8.6.0",
     "@capacitor/camera": "^8.2.6",
     "@capacitor/cli": "^8.6.0",
     "@capacitor/core": "^8.6.0",
+    "@capacitor/status-bar": "^8.0.4",
     "@iconify/vue": "^5.0.5",
     "@tailwindcss/vite": "^4.3.3",
     "@vitejs/plugin-vue": "^6.0.10",

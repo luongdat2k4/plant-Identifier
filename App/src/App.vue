@@ -1,13 +1,16 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted, watch } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
 import BottomNav from './shared/components/BottomNav.vue'
 import { useToast } from './shared/composables/useToast'
 import { tickAll } from './features/garden/model'
+import { setStatusBar } from './shared/utils/statusBar'
 const route = useRoute()
 const { toast, notify } = useToast()
 const isCamera = computed(() => route.name === 'scan')
 const showNav = computed(() => ['garden', 'collection', 'seeds', 'menu'].includes(String(route.name)))
+
+watch(() => route.fullPath, () => { if (route.meta.bar) setStatusBar(String(route.meta.bar)) }, { immediate: true })
 
 function refreshPots() {
   const died = tickAll()
