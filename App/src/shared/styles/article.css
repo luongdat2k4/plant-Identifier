@@ -1,0 +1,22 @@
+/* species article: plain text with figures, no boxed blocks */
+.article{margin-top:26px;color:#1d2b22}
+.article h2{margin:0 0 12px;font-size:23px;font-weight:800;letter-spacing:-.6px;line-height:1.2}
+.article p,.article li{font-size:15.5px;line-height:1.7;color:#2b3a30}
+.article .lead{margin:0 0 6px}
+.article .cue{margin:18px 0 8px;font-size:16px;font-weight:700;color:var(--green-deep)}
+.article ol,.article ul{margin:0;padding-left:26px}
+.article li{padding-left:4px;margin-bottom:8px}
+.article ol li::marker{font-weight:600;color:#1d2b22}
+.article ul li::marker{color:var(--green)}
+.article .more{margin:6px 0 0;font-size:13px;color:#8d948c}
+.article hr{border:0;height:1px;background:#e6ece8;margin:26px 0}
+.article figure{margin:6px 0 0;border-radius:24px;overflow:hidden;background:linear-gradient(160deg,#e6f3e8,#cfe5d3);height:190px;display:grid;place-items:center}
+.article figure img{height:86%;max-width:80%;object-fit:contain}
+.article .facts{margin:16px 0 0}
+.article .facts>div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid #edf1ee}
+.article .facts dt{font-size:14px;color:#8d948c}
+.article .facts dd{margin:0;font-size:14px;font-weight:600;text-align:right}
+.article .locked{display:flex;align-items:center;gap:8px;margin:0;font-size:14px;color:#8d948c}
+.article .locked svg{flex:none}
+.article ol{list-style:decimal}
+.article ul{list-style:disc}

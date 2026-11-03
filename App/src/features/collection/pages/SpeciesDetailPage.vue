@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SpeciesArticle from '../../../shared/components/SpeciesArticle.vue'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { Icon } from '@iconify/vue'
@@ -27,21 +28,7 @@ const unlocked = computed(() => (discovery.value ? stageIndex(discovery.value.be
       <p class="eyebrow">{{ species.scientificName }}<span v-if="discovery.mastered" class="mastered-inline"> · ĐÃ THUẦN</span></p>
       <h1 class="sheet-title">{{ species.name }}</h1>
 
-      <section class="info-section">
-        <h3>Thông tin loài</h3>
-        <div class="info-block" :class="{ locked: unlocked < 1 }">
-          <p v-if="unlocked >= 1">{{ species.description }}</p>
-          <template v-else><Icon icon="solar:lock-linear"/> Nuôi loài này tới giai đoạn Mầm để mở khóa mô tả.</template>
-        </div>
-        <div class="info-block" :class="{ locked: unlocked < 2 }">
-          <template v-if="unlocked >= 2"><b>Mẹo chăm sóc</b><ul><li v-for="tip in (unlocked >= 3 ? species.careTips : species.careTips.slice(0, 1))" :key="tip">{{ tip }}</li></ul></template>
-          <template v-else><Icon icon="solar:lock-linear"/> Nuôi tới giai đoạn Cây non để mở khóa mẹo chăm sóc.</template>
-        </div>
-        <div class="info-block" :class="{ locked: unlocked < 4 }">
-          <template v-if="unlocked >= 4"><b>Bạn có biết?</b><ul><li v-for="fact in species.funFacts" :key="fact">{{ fact }}</li></ul></template>
-          <template v-else><Icon icon="solar:lock-linear"/> Nuôi tới khi ra hoa để mở khóa sự thật thú vị.</template>
-        </div>
-      </section>
+      <SpeciesArticle :species="species" :unlocked="unlocked"/>
     </main>
   </template>
   <main v-else class="content search-empty">

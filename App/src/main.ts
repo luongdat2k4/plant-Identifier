@@ -4,4 +4,5 @@ import { router } from './router'
 import './shared/styles/global.css'
 import './shared/styles/theme.css'
 import './shared/styles/bell.css'
+import './shared/styles/article.css'
 createApp(App).use(router).mount('#app')

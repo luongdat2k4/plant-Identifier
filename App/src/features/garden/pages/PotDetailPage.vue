@@ -81,21 +81,6 @@ function uproot() {
         </div>
       </div>
 
-      <section class="info-section">
-        <h3>Thông tin loài</h3>
-        <div class="info-block" :class="{ locked: unlocked < 1 }">
-          <template v-if="unlocked >= 1"><p>{{ species.description }}</p></template>
-          <template v-else><Icon icon="solar:lock-linear"/> Nuôi tới giai đoạn Mầm để mở khóa.</template>
-        </div>
-        <div class="info-block" :class="{ locked: unlocked < 2 }">
-          <template v-if="unlocked >= 2"><b>Mẹo chăm sóc</b><ul><li v-for="tip in (unlocked >= 3 ? species.careTips : species.careTips.slice(0, 1))" :key="tip">{{ tip }}</li></ul><small v-if="unlocked < 3">Đủ các mẹo ở giai đoạn Trưởng thành.</small></template>
-          <template v-else><Icon icon="solar:lock-linear"/> Nuôi tới giai đoạn Cây non để mở khóa mẹo chăm sóc.</template>
-        </div>
-        <div class="info-block" :class="{ locked: unlocked < 4 }">
-          <template v-if="unlocked >= 4"><b>Bạn có biết?</b><ul><li v-for="fact in species.funFacts" :key="fact">{{ fact }}</li></ul></template>
-          <template v-else><Icon icon="solar:lock-linear"/> Nuôi tới khi ra hoa để mở khóa sự thật thú vị.</template>
-        </div>
-      </section>
 
       <button class="delete-button" @click="uproot">Nhổ cây, cất về túi hạt</button>
       <div class="sheet-cta">
