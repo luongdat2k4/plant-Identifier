@@ -191,7 +191,7 @@ onUnmounted(() => { stopStream(); clearTimeout(finish); stepTimers.forEach(clear
       <dl class="cam-facts">
         <div><dt>Họ</dt><dd>{{ result.species.family }}</dd></div>
         <div><dt>Chi</dt><dd>{{ result.species.scientificName.split(' ')[0] }}</dd></div>
-        <div><dt>Nguồn gốc</dt><dd>{{ result.species.origin }}</dd></div>
+        <div v-if="result.species.origin"><dt>Nguồn gốc</dt><dd>{{ result.species.origin }}</dd></div>
         <div><dt>Ưa thích</dt><dd>{{ result.species.preferredSpot === 'sun' ? 'Chỗ nắng' : 'Chỗ râm' }}</dd></div>
       </dl>
       <p class="cam-desc">{{ result.species.description }}</p>

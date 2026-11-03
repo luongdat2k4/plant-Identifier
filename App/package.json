@@ -19,11 +19,15 @@
     "@iconify/vue": "^5.0.5",
     "@tailwindcss/vite": "^4.3.3",
     "@vitejs/plugin-vue": "^6.0.10",
+    "sql.js": "^1.15.2",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
     "vite": "^8.3.5",
     "vue": "^3.5.44",
     "vue-router": "^5.4.0",
     "vue-tsc": "^3.3.14"
+  },
+  "devDependencies": {
+    "@types/sql.js": "^1.4.11"
   }
 }

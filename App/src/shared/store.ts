@@ -2,22 +2,20 @@ import { ref, watch } from 'vue'
 import type { Pot } from '../features/garden/model'
 import type { Discovery } from '../features/collection/model'
 import type { Seed } from '../features/scan/model'
-import { createDemoState, USE_DEMO_DATA } from '../mock-data/demo-state'
+import { saveState } from '../backend/runtime'
 
 export interface State { pots: Pot[]; seeds: Seed[]; discoveries: Discovery[]; potSlots: number; notifications: boolean }
-const key = 'plantin-recreated-v2'
 function emptyState(): State { return { pots: [], seeds: [], discoveries: [], potSlots: 6, notifications: true } }
-function read(): State {
-  try {
-    const saved = localStorage.getItem(key)
-    // older saves kept the captured photo on each seed/pot; it is no longer used, so drop it
-    if (saved) return { ...emptyState(), ...JSON.parse(saved, (name, value) => (name === 'photo' ? undefined : value)) }
-  } catch { /* fall through to a fresh state */ }
-  return USE_DEMO_DATA ? createDemoState() : emptyState()
-}
-export const state = ref<State>(read())
-watch(state, value => {
-  try { localStorage.setItem(key, JSON.stringify(value)) } catch { /* storage full or unavailable */ }
-}, { deep: true })
 
-export function resetState(withDemo: boolean) { state.value = withDemo ? createDemoState() : emptyState() }
+// Filled from runtime.db by initBackend() before the app mounts; every change is written back to it.
+export const state = ref<State>(emptyState())
+let ready = false
+
+export function hydrateState(initial: State) {
+  state.value = initial
+  ready = true
+  saveState(state.value)
+}
+watch(state, value => { if (ready) saveState(value) }, { deep: true })
+
+export function resetState() { state.value = emptyState() }

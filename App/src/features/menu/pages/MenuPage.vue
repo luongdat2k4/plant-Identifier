@@ -9,10 +9,9 @@ import { useToast } from '../../../shared/composables/useToast'
 const { go } = useAppNavigation()
 const { notify } = useToast()
 const mastered = computed(() => state.value.discoveries.filter(d => d.mastered).length)
-function reset(withDemo: boolean) {
-  const message = withDemo ? 'Nạp lại dữ liệu mẫu? Dữ liệu hiện tại sẽ bị thay thế.' : 'Xóa toàn bộ vườn và bộ sưu tập?'
-  if (!confirm(message)) return
-  resetState(withDemo); notify(withDemo ? 'Đã nạp dữ liệu mẫu' : 'Đã xóa dữ liệu'); go('garden')
+function reset() {
+  if (!confirm('Xóa toàn bộ vườn và bộ sưu tập?')) return
+  resetState(); notify('Đã xóa dữ liệu'); go('garden')
 }
 </script>
 
@@ -36,10 +35,9 @@ function reset(withDemo: boolean) {
       <button @click="notify('PlantIn · bản thử giao diện v2')"><Icon icon="solar:info-circle-linear"/> Giới thiệu <Icon icon="solar:alt-arrow-right-linear"/></button>
     </div>
 
-    <div class="section-heading"><div><p class="eyebrow">DỮ LIỆU</p><h2>Dữ liệu thử</h2></div></div>
+    <div class="section-heading"><div><p class="eyebrow">DỮ LIỆU</p><h2>Dữ liệu của bạn</h2></div></div>
     <div class="settings-list">
-      <button @click="reset(true)"><Icon icon="solar:refresh-linear"/> Nạp lại dữ liệu mẫu <Icon icon="solar:alt-arrow-right-linear"/></button>
-      <button class="danger-row" @click="reset(false)"><Icon icon="solar:trash-bin-minimalistic-linear"/> Xóa toàn bộ dữ liệu <Icon icon="solar:alt-arrow-right-linear"/></button>
+      <button class="danger-row" @click="reset"><Icon icon="solar:trash-bin-minimalistic-linear"/> Xóa toàn bộ dữ liệu <Icon icon="solar:alt-arrow-right-linear"/></button>
     </div>
   </main>
 </template>

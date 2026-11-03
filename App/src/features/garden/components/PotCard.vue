@@ -13,7 +13,7 @@ const stage = computed(() => STAGE_META[stageOf(props.pot)])
   <article class="pot-card" :class="status">
     <button class="pot-card-main" @click="$emit('open')">
       <div class="pot-photo">
-        <img :src="getSpecies(pot.speciesId)?.image" :alt="potName(pot)"/>
+        <img :src="getSpecies(pot.speciesId)?.thumb" :alt="potName(pot)"/>
         <span class="stage-badge">{{ stage.emoji }} {{ stage.label }}</span>
       </div>
       <b class="pot-name">{{ potName(pot) }}</b>

@@ -24,7 +24,7 @@ export const notices = computed<Notice[]>(() => {
   for (const pot of state.value.pots) {
     const status = statusOf(pot)
     if (status === 'happy') continue
-    const image = getSpecies(pot.speciesId)?.image
+    const image = getSpecies(pot.speciesId)?.thumb
     if (status === 'wilting') {
       const days = daysUntilDeath(pot)
       list.push({
@@ -43,7 +43,7 @@ export const notices = computed<Notice[]>(() => {
   if (state.value.seeds.length && hasFreeSlot()) {
     const first = state.value.seeds[0]
     list.push({
-      id: 'seeds', kind: 'seeds', image: getSpecies(first.speciesId)?.image, title: `${state.value.seeds.length} hạt giống chờ trồng`,
+      id: 'seeds', kind: 'seeds', image: getSpecies(first.speciesId)?.thumb, title: `${state.value.seeds.length} hạt giống chờ trồng`,
       meta: `${state.value.pots.length}/${state.value.potSlots} chậu`, text: 'Vườn còn chậu trống, hãy gieo hạt mới.',
     })
   }

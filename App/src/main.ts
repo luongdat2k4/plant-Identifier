@@ -1,10 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { router } from './router'
+import { initBackend } from './backend'
 import './shared/styles/global.css'
 import './shared/styles/theme.css'
 import './shared/styles/bell.css'
 import './shared/styles/article.css'
 import './shared/styles/onboarding.css'
 import './shared/styles/fonts.css'
-createApp(App).use(router).mount('#app')
+void initBackend().then(() => createApp(App).use(router).mount('#app'))

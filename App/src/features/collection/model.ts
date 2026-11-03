@@ -1,24 +1,9 @@
 import { state } from '../../shared/store'
-import { species } from '../../mock-data/species'
+import { allSpecies, getSpecies, RARITY_META, STAGE_META, STAGES } from '../../backend/catalog'
+import type { Rarity, Species, Stage } from '../../backend/catalog'
 
-export type Rarity = 'common' | 'uncommon' | 'rare'
-export type Stage = 'seed' | 'sprout' | 'young' | 'mature' | 'bloom'
-
-export interface Species {
-  id: string
-  name: string
-  scientificName: string
-  family: string
-  origin: string
-  rarity: Rarity
-  thirst: number
-  hunger: number
-  preferredSpot: 'sun' | 'shade'
-  image: string
-  description: string
-  careTips: string[]
-  funFacts: string[]
-}
+export { allSpecies, getSpecies, RARITY_META, STAGE_META, STAGES }
+export type { Rarity, Species, Stage }
 
 export interface Discovery {
   speciesId: string
@@ -27,22 +12,6 @@ export interface Discovery {
   bestStage: Stage
 }
 
-export const STAGES: Stage[] = ['seed', 'sprout', 'young', 'mature', 'bloom']
-export const STAGE_META: Record<Stage, { label: string; emoji: string; minDays: number }> = {
-  seed: { label: 'Hạt', emoji: '🌰', minDays: 0 },
-  sprout: { label: 'Mầm', emoji: '🌱', minDays: 1 },
-  young: { label: 'Cây non', emoji: '🌿', minDays: 3 },
-  mature: { label: 'Trưởng thành', emoji: '🪴', minDays: 7 },
-  bloom: { label: 'Ra hoa', emoji: '🌸', minDays: 14 },
-}
-export const RARITY_META: Record<Rarity, { label: string; weight: number }> = {
-  common: { label: 'Phổ biến', weight: 70 },
-  uncommon: { label: 'Ít gặp', weight: 25 },
-  rare: { label: 'Hiếm', weight: 5 },
-}
-
-export const allSpecies = species
-export function getSpecies(id: string): Species | undefined { return species.find(s => s.id === id) }
 export function stageIndex(stage: Stage): number { return STAGES.indexOf(stage) }
 export function stageForDays(days: number): Stage {
   let result: Stage = 'seed'
@@ -69,8 +38,8 @@ export function recordProgress(speciesId: string, stage: Stage) {
 
 /** Weighted roll by rarity; species not yet seen are twice as likely. */
 export function rollSpecies(): Species {
-  const weights = species.map(s => RARITY_META[s.rarity].weight * (discoveryOf(s.id) ? 1 : 2))
+  const weights = allSpecies.map(s => RARITY_META[s.rarity].weight * (discoveryOf(s.id) ? 1 : 2))
   let pick = Math.random() * weights.reduce((sum, w) => sum + w, 0)
-  for (let i = 0; i < species.length; i++) { pick -= weights[i]; if (pick <= 0) return species[i] }
-  return species[species.length - 1]
+  for (let i = 0; i < allSpecies.length; i++) { pick -= weights[i]; if (pick <= 0) return allSpecies[i] }
+  return allSpecies[allSpecies.length - 1]
 }

@@ -40,7 +40,7 @@ function open(id: string) {
     <div class="species-grid">
       <button v-for="item in shown" :key="item.id" class="species-card" :class="{ unseen: !discoveryOf(item.id) }" @click="open(item.id)">
         <div class="species-image">
-          <img :src="item.image" :alt="discoveryOf(item.id) ? item.name : 'Loài chưa gặp'"/>
+          <img :src="item.thumb" :alt="discoveryOf(item.id) ? item.name : 'Loài chưa gặp'"/>
           <span v-if="discoveryOf(item.id)?.mastered" class="mastered-badge"><Icon icon="solar:medal-ribbon-bold" width="14"/> Đã thuần</span>
           <Icon v-if="!discoveryOf(item.id)" class="lock-icon" icon="solar:lock-linear" width="26"/>
         </div>
