@@ -1,0 +1,15 @@
+{
+  "formatVersion": 1,
+  "catalogVersion": "2026-11-03.1",
+  "generatedAt": "2026-11-03T07:59:21.870Z",
+  "dbFiles": [
+    {
+      "name": "runtime-template.db",
+      "purpose": "runtime-template",
+      "tables": [],
+      "sha256": "1417b954bbcc441d6df36065a1f354b30c548ec5f347bae8f44fbb8140a4bf83",
+      "sizeBytes": 4096
+    }
+  ],
+  "tableIndex": {}
+}
