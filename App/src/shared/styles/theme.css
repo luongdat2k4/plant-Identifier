@@ -397,7 +397,7 @@ button.pill-tag{cursor:pointer}
 .cam-frame{top:20%;height:34%}
 
 /* detail pages: back button stays pinned while the sheet scrolls */
-.hero .hero-bar{position:fixed;z-index:8;top:max(env(safe-area-inset-top),15px);left:50%;right:auto;transform:translateX(-50%);width:min(520px,100%);box-sizing:border-box;padding:0 18px;margin-top:14px;pointer-events:none}
+.hero .hero-bar{position:fixed;z-index:8;top:max(env(safe-area-inset-top),15px);left:50%;right:auto;transform:translateX(-50%);width:min(520px,100%);box-sizing:border-box;padding:0 18px;margin-top:5px;pointer-events:none}
 .hero .hero-bar>*{pointer-events:auto}
 
 /* pot detail: care buttons pinned to the bottom of the screen */
@@ -405,3 +405,11 @@ button.pill-tag{cursor:pointer}
 .sheet-cta::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#fff0,#fff 42%)}
 .sheet-cta>*{pointer-events:auto}
 .sheet:has(.sheet-cta){padding-bottom:140px}
+
+/* ===== Detail pages: hero fades out while scrolling, back button turns into a top bar ===== */
+:root{--p:0}
+.hero .hero-img,.hero .hero-meta,.hero::before{opacity:calc(1 - var(--p) * 1.15);transform:translateY(calc(var(--p) * 28px)) scale(calc(1 - var(--p) * .05));will-change:opacity,transform}
+.hero .hero-meta{transform:translateY(calc(var(--p) * 28px))}
+.hero .hero-bar::before{content:"";position:absolute;z-index:-1;left:0;right:0;top:calc(-1 * (max(env(safe-area-inset-top),15px) + 5px));height:calc(2 * max(env(safe-area-inset-top),15px) + 54px);background:#fff;opacity:var(--p);box-shadow:0 1px 0 #eef1ee,0 6px 18px #1c3b210f;pointer-events:none}
+.hero .hero-bar{isolation:isolate}
+.hero .hero-bar .round-btn{background:rgb(108 194 74 / calc(1 - var(--p)));color:#1d2b22;color:color-mix(in srgb,#fff calc((1 - var(--p)) * 100%),#1d2b22);box-shadow:0 6px 14px rgb(108 194 74 / calc(.25 * (1 - var(--p))))}

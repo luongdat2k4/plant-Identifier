@@ -6,10 +6,12 @@ import { state } from '../../../shared/store'
 import { getSpecies, stageIndex, STAGE_META, STAGES } from '../../collection/model'
 import { daysUntilDeath, feedPot, nextStage, potName, setSpot, stageOf, statusOf, STATUS_META, uprootPot, waterPot, type Spot } from '../model'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
+import { useScrollFade } from '../../../shared/composables/useScrollFade'
 import { useToast } from '../../../shared/composables/useToast'
 import StatBar from '../components/StatBar.vue'
 const route = useRoute()
 const { go, back } = useAppNavigation()
+useScrollFade()
 const { notify } = useToast()
 const pot = computed(() => state.value.pots.find(p => p.id === route.params.id))
 const species = computed(() => pot.value && getSpecies(pot.value.speciesId))

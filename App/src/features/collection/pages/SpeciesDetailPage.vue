@@ -5,8 +5,10 @@ import { useRoute } from 'vue-router'
 import { Icon } from '@iconify/vue'
 import { discoveryOf, getSpecies, RARITY_META, stageIndex, STAGE_META } from '../model'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
+import { useScrollFade } from '../../../shared/composables/useScrollFade'
 const route = useRoute()
 const { go, back } = useAppNavigation()
+useScrollFade()
 const species = computed(() => getSpecies(String(route.params.id)))
 const discovery = computed(() => discoveryOf(String(route.params.id)))
 const unlocked = computed(() => (discovery.value ? stageIndex(discovery.value.bestStage) : -1))
