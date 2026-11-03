@@ -14,6 +14,26 @@ const messages = {
     'lang.title': 'Chọn ngôn ngữ',
     'lang.text': 'Chọn ngôn ngữ bạn muốn dùng trong ứng dụng.',
     'lang.continue': 'Tiếp tục',
+    'common.back': 'Quay lại',
+    'spot.sun': 'Chỗ nắng',
+    'spot.shade': 'Chỗ râm',
+    'species.rarity': 'Độ hiếm',
+    'species.spot': 'Ưa thích',
+    'species.bestStage': 'Tiến độ cao nhất',
+    'species.mastered': 'ĐÃ THUẦN',
+    'species.unseen.title': 'Chưa gặp loài này',
+    'species.unseen.text': 'Chụp thêm ảnh để có cơ hội gặp loài mới.',
+    'species.unseen.back': 'Về bộ sưu tập',
+    'article.info': 'Thông tin loài',
+    'article.family': 'Họ',
+    'article.genus': 'Chi',
+    'article.origin': 'Nguồn gốc',
+    'article.tips': 'Mẹo chăm sóc',
+    'article.remember': 'Hãy nhớ những điều sau:',
+    'article.noTips': 'Loài này chưa có mẹo chăm sóc riêng.',
+    'article.facts': 'Bạn có biết?',
+    'article.noFacts': 'Loài này chưa có điều thú vị nào được ghi lại.',
+    'article.careAlt': 'Chăm sóc {name}',
     'ob.skip': 'Bỏ qua',
     'ob.next': 'Tiếp',
     'ob.start': 'Bắt đầu',
@@ -28,6 +48,26 @@ const messages = {
     'lang.title': 'Choose your language',
     'lang.text': 'Pick the language you want to use in the app.',
     'lang.continue': 'Continue',
+    'common.back': 'Back',
+    'spot.sun': 'Sunny spot',
+    'spot.shade': 'Shady spot',
+    'species.rarity': 'Rarity',
+    'species.spot': 'Prefers',
+    'species.bestStage': 'Best stage',
+    'species.mastered': 'MASTERED',
+    'species.unseen.title': 'Species not met yet',
+    'species.unseen.text': 'Take more photos for a chance to meet new species.',
+    'species.unseen.back': 'Back to collection',
+    'article.info': 'About this species',
+    'article.family': 'Family',
+    'article.genus': 'Genus',
+    'article.origin': 'Origin',
+    'article.tips': 'Care tips',
+    'article.remember': 'Keep these in mind:',
+    'article.noTips': 'No care tips for this species yet.',
+    'article.facts': 'Did you know?',
+    'article.noFacts': 'No fun facts recorded for this species yet.',
+    'article.careAlt': 'Caring for {name}',
     'ob.skip': 'Skip',
     'ob.next': 'Next',
     'ob.start': 'Get started',
@@ -57,7 +97,11 @@ function initialLang(): Lang {
 export const lang = ref<Lang>(initialLang())
 if (typeof document !== 'undefined') document.documentElement.lang = lang.value
 
-export function t(key: MessageKey): string { return messages[lang.value][key] }
+/** Looks up a UI string; `{name}`-style placeholders are filled from `params`. */
+export function t(key: MessageKey, params?: Record<string, string>): string {
+  const text: string = messages[lang.value][key]
+  return params ? text.replace(/\{(\w+)\}/g, (_, name: string) => params[name] ?? '') : text
+}
 /** Switches the language right away (so the chooser can preview it) and remembers it. */
 export function setLang(code: Lang) {
   lang.value = code
