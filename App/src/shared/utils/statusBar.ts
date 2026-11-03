@@ -7,6 +7,7 @@ export const BAR = {
   hero: '#dcebdf',
   white: '#ffffff',
   scanAsk: '#bfe2c6',
+  intro: '#e3f3e6',
   camera: '#000000',
 } as const
 

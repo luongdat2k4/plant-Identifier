@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { BAR } from '../shared/utils/statusBar'
+import { hasOnboarded } from '../shared/utils/onboarding'
+import { hasChosenLanguage } from '../shared/i18n'
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -10,7 +12,16 @@ export const router = createRouter({
     { path: '/menu', name: 'menu', meta: { bar: BAR.page }, component: () => import('../features/menu/pages/MenuPage.vue') },
     { path: '/pots/:id', name: 'pot', meta: { bar: BAR.hero }, component: () => import('../features/garden/pages/PotDetailPage.vue') },
     { path: '/species/:id', name: 'species', meta: { bar: BAR.hero }, component: () => import('../features/collection/pages/SpeciesDetailPage.vue') },
+    { path: '/language', name: 'language', meta: { bar: BAR.intro }, component: () => import('../features/onboarding/pages/LanguagePage.vue') },
+    { path: '/welcome', name: 'welcome', meta: { bar: BAR.intro }, component: () => import('../features/onboarding/pages/OnboardingPage.vue') },
     { path: '/:pathMatch(.*)*', redirect: '/' },
   ],
   scrollBehavior: () => ({ top: 0 }),
+})
+// First launch: language first, then the intro, each shown once.
+router.beforeEach(to => {
+  if (to.name === 'language') return true
+  if (!hasChosenLanguage()) return { name: 'language' }
+  if (to.name !== 'welcome' && !hasOnboarded()) return { name: 'welcome' }
+  return true
 })

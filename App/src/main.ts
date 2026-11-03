@@ -5,5 +5,6 @@ import './shared/styles/global.css'
 import './shared/styles/theme.css'
 import './shared/styles/bell.css'
 import './shared/styles/article.css'
+import './shared/styles/onboarding.css'
 import './shared/styles/fonts.css'
 createApp(App).use(router).mount('#app')

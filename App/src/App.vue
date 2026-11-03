@@ -7,7 +7,7 @@ import { tickAll } from './features/garden/model'
 import { setStatusBar } from './shared/utils/statusBar'
 const route = useRoute()
 const { toast, notify } = useToast()
-const isCamera = computed(() => route.name === 'scan')
+const isCamera = computed(() => ['scan', 'welcome', 'language'].includes(String(route.name)))
 const showNav = computed(() => ['garden', 'collection', 'seeds', 'menu'].includes(String(route.name)))
 
 watch(() => route.fullPath, () => { if (route.meta.bar) setStatusBar(String(route.meta.bar)) }, { immediate: true })

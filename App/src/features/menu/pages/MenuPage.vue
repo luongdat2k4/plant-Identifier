@@ -32,6 +32,7 @@ function reset(withDemo: boolean) {
     <div class="settings-list">
       <button @click="go('seeds')"><Icon icon="solar:box-linear"/> Túi hạt giống <span>{{ state.seeds.length }}</span></button>
       <button @click="state.notifications = !state.notifications"><Icon icon="solar:bell-linear"/> Nhắc chăm cây <span>{{ state.notifications ? 'Bật' : 'Tắt' }}</span></button>
+      <button @click="go('language')"><Icon icon="solar:play-circle-linear"/> Xem lại giới thiệu <Icon icon="solar:alt-arrow-right-linear"/></button>
       <button @click="notify('PlantIn · bản thử giao diện v2')"><Icon icon="solar:info-circle-linear"/> Giới thiệu <Icon icon="solar:alt-arrow-right-linear"/></button>
     </div>
 
