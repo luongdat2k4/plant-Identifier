@@ -181,5 +181,7 @@
   "collection.subtitle": "Species you have met",
   "collection.unseenAlt": "Unseen species",
   "ob.dots": "Intro pages",
-  "ob.page": "Page {n}"
+  "ob.page": "Page {n}",
+  "ads.label": "Ad",
+  "ads.close": "Close ad"
 }

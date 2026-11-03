@@ -181,5 +181,7 @@
   "collection.subtitle": "Loài cây bạn đã gặp",
   "collection.unseenAlt": "Loài chưa gặp",
   "ob.dots": "Trang giới thiệu",
-  "ob.page": "Trang {n}"
+  "ob.page": "Trang {n}",
+  "ads.label": "Quảng cáo",
+  "ads.close": "Đóng quảng cáo"
 }
