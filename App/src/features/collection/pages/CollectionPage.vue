@@ -24,8 +24,8 @@ function open(id: string) {
 </script>
 
 <template>
-  <header class="topbar">
-    <div><p class="eyebrow">LOÀI CÂY BẠN ĐÃ GẶP</p><h1>Bộ sưu tập</h1></div>
+  <header class="home-head">
+    <div class="home-greeting"><b>Bộ sưu tập</b><span>Loài cây bạn đã gặp</span></div>
   </header>
   <main class="content">
     <div class="collection-summary">

@@ -16,8 +16,8 @@ function discard(id: string) { if (confirm('Bỏ hạt giống này?')) { discar
 </script>
 
 <template>
-  <header class="topbar">
-    <div><p class="eyebrow">HẠT GIỐNG CHỜ TRỒNG</p><h1>Túi hạt</h1></div>
+  <header class="home-head">
+    <div class="home-greeting"><b>Túi hạt</b><span>Hạt giống chờ trồng</span></div>
     <span class="pill-tag">{{ state.seeds.length }}/{{ MAX_SEEDS }} hạt</span>
   </header>
   <main class="content">

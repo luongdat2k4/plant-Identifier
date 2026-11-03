@@ -16,7 +16,9 @@ function reset(withDemo: boolean) {
 </script>
 
 <template>
-  <header class="topbar"><div><p class="eyebrow">TÀI KHOẢN CỦA BẠN</p><h1>Menu</h1></div></header>
+  <header class="home-head">
+    <div class="home-greeting"><b>Menu</b><span>Tài khoản của bạn</span></div>
+  </header>
   <main class="content">
     <div class="collection-summary">
       <div><b>{{ state.pots.length }}</b><span>Cây đang nuôi</span></div>

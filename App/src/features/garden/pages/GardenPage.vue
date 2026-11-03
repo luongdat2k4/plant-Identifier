@@ -35,9 +35,7 @@ function plant(id: string) {
 
 <template>
   <header class="home-head">
-    <button class="round-btn" aria-label="Túi hạt giống" @click="go('seeds')"><Icon icon="solar:hamburger-menu-linear" width="22"/></button>
     <div class="home-greeting"><b>Xin chào!</b><span>Khu vườn của bạn · {{ pots.length }}/{{ state.potSlots }} chậu</span></div>
-    <button class="round-btn" aria-label="Chụp ảnh" @click="go('scan')"><Icon icon="solar:scanner-linear" width="22"/></button>
   </header>
   <main class="content">
     <div class="pill-tabs" role="tablist">
