@@ -40,6 +40,5 @@ function reset(withDemo: boolean) {
       <button @click="reset(true)"><Icon icon="solar:refresh-linear"/> Nạp lại dữ liệu mẫu <Icon icon="solar:alt-arrow-right-linear"/></button>
       <button class="danger-row" @click="reset(false)"><Icon icon="solar:trash-bin-minimalistic-linear"/> Xóa toàn bộ dữ liệu <Icon icon="solar:alt-arrow-right-linear"/></button>
     </div>
-    <p class="help-text">Nhắc chăm cây mới chỉ là công tắc giao diện, chưa gửi thông báo thật.</p>
   </main>
 </template>

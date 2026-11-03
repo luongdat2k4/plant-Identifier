@@ -413,3 +413,8 @@ button.pill-tag{cursor:pointer}
 .hero .hero-bar::before{content:"";position:absolute;z-index:-1;left:0;right:0;top:calc(-1 * (max(env(safe-area-inset-top),15px) + 5px));height:calc(2 * max(env(safe-area-inset-top),15px) + 54px);background:#fff;opacity:var(--p);box-shadow:0 1px 0 #eef1ee,0 6px 18px #1c3b210f;pointer-events:none}
 .hero .hero-bar{isolation:isolate}
 .hero .hero-bar .round-btn{background:rgb(108 194 74 / calc(1 - var(--p)));color:#1d2b22;color:color-mix(in srgb,#fff calc((1 - var(--p)) * 100%),#1d2b22);box-shadow:0 6px 14px rgb(108 194 74 / calc(.25 * (1 - var(--p))))}
+
+/* bottom nav docked to the bottom edge, full width */
+.bottom-nav{bottom:0;width:min(520px,100%);height:calc(68px + env(safe-area-inset-bottom));padding:8px 14px calc(8px + env(safe-area-inset-bottom));filter:drop-shadow(0 -6px 18px #2b3a2414)}
+.bottom-nav::before{border-radius:28px 28px 0 0}
+.app-shell.has-nav{padding-bottom:96px}
