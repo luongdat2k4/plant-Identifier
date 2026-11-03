@@ -3,7 +3,7 @@ import SpeciesArticle from '../../../shared/components/SpeciesArticle.vue'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { Icon } from '@iconify/vue'
-import { discoveryOf, getSpecies, RARITY_META, stageIndex, STAGE_META } from '../model'
+import { discoveryOf, getSpecies, RARITY_META, STAGE_META } from '../model'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
 import { useScrollFade } from '../../../shared/composables/useScrollFade'
 const route = useRoute()
@@ -11,7 +11,6 @@ const { go, back } = useAppNavigation()
 useScrollFade()
 const species = computed(() => getSpecies(String(route.params.id)))
 const discovery = computed(() => discoveryOf(String(route.params.id)))
-const unlocked = computed(() => (discovery.value ? stageIndex(discovery.value.bestStage) : -1))
 </script>
 
 <template>
@@ -30,7 +29,7 @@ const unlocked = computed(() => (discovery.value ? stageIndex(discovery.value.be
       <p class="eyebrow">{{ species.scientificName }}<span v-if="discovery.mastered" class="mastered-inline"> · ĐÃ THUẦN</span></p>
       <h1 class="sheet-title">{{ species.name }}</h1>
 
-      <SpeciesArticle :species="species" :unlocked="unlocked"/>
+      <SpeciesArticle :species="species"/>
     </main>
   </template>
   <main v-else class="content search-empty">
