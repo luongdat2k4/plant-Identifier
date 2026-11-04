@@ -37,7 +37,7 @@ function uproot() {
 </script>
 
 <template>
-  <template v-if="pot && species">
+  <div v-if="pot && species" class="page-scroll" data-ad-scroll-region>
     <section class="hero">
       <header class="hero-bar"><button class="round-btn" :aria-label="t('common.back')" @click="back"><Icon icon="solar:arrow-left-linear" width="22"/></button></header>
       <img class="hero-img" :src="species.image" :alt="species.name"/>
@@ -91,7 +91,7 @@ function uproot() {
         <button class="dark-button" @click="feed"><Icon icon="solar:leaf-bold"/> {{ t('care.feed') }}</button>
       </div>
     </main>
-  </template>
+  </div>
   <main v-else class="content search-empty">
     <h3>{{ t('pot.notFoundTitle') }}</h3>
     <p>{{ t('pot.notFoundText') }}</p>

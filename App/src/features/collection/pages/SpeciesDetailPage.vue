@@ -16,7 +16,7 @@ const discovery = computed(() => discoveryOf(String(route.params.id)))
 </script>
 
 <template>
-  <template v-if="species && discovery">
+  <div v-if="species && discovery" class="page-scroll" data-ad-scroll-region>
     <section class="hero">
       <header class="hero-bar"><button class="round-btn" :aria-label="t('common.back')" @click="back"><Icon icon="solar:arrow-left-linear" width="22"/></button></header>
       <img class="hero-img contain" :src="species.image" :alt="species.name"/>
@@ -34,7 +34,7 @@ const discovery = computed(() => discoveryOf(String(route.params.id)))
       <SpeciesArticle :species="species"/>
       <div class="ad-slot"><InFeedAd template="small"/></div>
     </main>
-  </template>
+  </div>
   <main v-else class="content search-empty">
     <h3>{{ t('species.unseen.title') }}</h3>
     <p>{{ t('species.unseen.text') }}</p>

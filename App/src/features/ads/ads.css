@@ -8,3 +8,9 @@
 .ob-ad{flex:none;padding:0 28px 150px}
 .seed-reward{display:flex;width:100%;align-items:center;justify-content:center;gap:8px;margin-top:14px;border:1px dashed #9ccf94;border-radius:16px;background:#f1f9ee;color:#245b3c;padding:13px;font-size:13px;font-weight:750}
 .seed-reward[aria-busy=true]{opacity:.6}
+.app-shell.has-banner .sheet-cta{bottom:calc(var(--ad-inset) + var(--ad-gap) + var(--sab));padding-bottom:16px}
+/* Detail pages scroll inside .page-scroll, which ends at the banner instead of running under it. */
+.app-shell:has(> .page-scroll){height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+.app-shell:has(> .page-scroll)>.status-space{display:none}
+.app-shell:has(> .page-scroll)>.page-scroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+.app-shell.has-banner:has(> .page-scroll){padding-bottom:calc(var(--ad-inset) + var(--ad-gap) + var(--sab))}
