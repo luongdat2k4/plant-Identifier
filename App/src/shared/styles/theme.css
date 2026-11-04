@@ -344,12 +344,12 @@ button.pill-tag{cursor:pointer}
 .bottom-nav button.scan-btn.active{background:linear-gradient(145deg,#7fd45c,#4aa02f)}
 
 /* garden header: title only, pinned to the top while scrolling */
-.home-head{position:sticky;top:0;z-index:6;padding:12px 23px 12px;background:#f0f9f2e6;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.home-head{--safe-top:max(env(safe-area-inset-top),15px);position:sticky;top:0;z-index:6;margin-top:calc(-1 * var(--safe-top));padding:calc(12px + var(--safe-top)) 23px 12px;background:#f0f9f2}
 .home-greeting b{font-size:22px;letter-spacing:-.6px}
 .home-greeting span{font-size:12.5px}
 
 /* bolder page titles */
-.home-head{padding:14px 23px 14px}
+.home-head{padding:calc(14px + var(--safe-top)) 23px 14px}
 .home-greeting{gap:4px}
 .home-greeting b{font-size:30px;line-height:1.1;font-weight:800;letter-spacing:-1px}
 .home-greeting span{font-size:13px}
