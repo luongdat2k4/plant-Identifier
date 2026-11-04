@@ -1,9 +1,9 @@
 /* The bottom banner is drawn by the SDK over the screen edge; the shell lifts its own bars above it. */
 .banner-dock{position:fixed;z-index:9;left:50%;bottom:0;transform:translateX(-50%);width:min(520px,100%)}
-.app-shell{--ad-inset:0px}
-.app-shell.has-banner .bottom-nav{bottom:calc(var(--ad-inset) + var(--sab));height:68px;padding:8px 14px}
-.app-shell.has-banner.has-nav{padding-bottom:calc(100px + var(--sab) + var(--ad-inset))}
-.app-shell.has-banner .toast{bottom:calc(90px + var(--ad-inset))}
+.app-shell{--ad-inset:0px;--ad-gap:12px}
+.app-shell.has-banner .bottom-nav{bottom:calc(var(--ad-inset) + var(--ad-gap) + var(--sab));height:68px;padding:8px 14px}
+.app-shell.has-banner.has-nav{padding-bottom:calc(100px + var(--sab) + var(--ad-inset) + var(--ad-gap))}
+.app-shell.has-banner .toast{bottom:calc(90px + var(--ad-inset) + var(--ad-gap))}
 .ad-slot{margin:18px 0}
 .ob-ad{flex:none;padding:0 28px 150px}
 .seed-reward{display:flex;width:100%;align-items:center;justify-content:center;gap:8px;margin-top:14px;border:1px dashed #9ccf94;border-radius:16px;background:#f1f9ee;color:#245b3c;padding:13px;font-size:13px;font-weight:750}
