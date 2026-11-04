@@ -1,10 +1,12 @@
 /* Visual theme: soft grey-green canvas, lime accent, white rounded cards, floating pill nav.
    Loaded after global.css so these rules override the base styles. */
-:root{--bg:#ebf1ee;--tint:#e1eae5;--green:#6f9e22;--green-deep:#587f18;--green-soft:#e6efd3;--ink:#1d2b22;--muted:#8a9a93;--card-shadow:0 6px 22px #1c3b2110}
+:root{--bg:#ebf1ee;--tint:#e1eae5;--green:#6f9e22;--green-deep:#587f18;--green-soft:#e6efd3;--ink:#1d2b22;--muted:#8a9a93;--card-shadow:0 6px 22px #1c3b2110;
+/* Phone status bar / system navigation bar heights: Capacitor injects --safe-area-inset-* on Android WebViews that lack env() support. */
+--sat:var(--safe-area-inset-top,env(safe-area-inset-top,0px));--sab:var(--safe-area-inset-bottom,env(safe-area-inset-bottom,0px))}
 :root{background:var(--bg)}
 body{background:#eef0ef}
 .app-shell{background:var(--bg);box-shadow:none;padding-bottom:0;overflow-x:clip}
-.app-shell.has-nav{padding-bottom:112px}
+.app-shell.has-nav{padding-bottom:calc(100px + var(--sab))}
 .eyebrow{color:var(--muted)}
 .leaf-dot{color:var(--green)}
 .round-btn,.page-header button,.hero-bar .round-btn{width:46px;height:46px;background:white;box-shadow:var(--card-shadow);color:var(--ink)}
@@ -18,7 +20,7 @@ body{background:#eef0ef}
 button.pill-tag{cursor:pointer}
 
 /* floating bottom nav */
-.bottom-nav{bottom:calc(14px + env(safe-area-inset-bottom));width:calc(min(520px,100%) - 36px);height:68px;padding:8px;border:0;border-radius:40px;background:white;box-shadow:0 12px 32px #1c3b2124;justify-content:space-between}
+.bottom-nav{bottom:calc(14px + var(--sab));width:calc(min(520px,100%) - 36px);height:68px;padding:8px;border:0;border-radius:40px;background:white;box-shadow:0 12px 32px #1c3b2124;justify-content:space-between}
 .bottom-nav button{width:52px;height:52px;flex:none;border-radius:50%;background:#eef2ef;color:#7d8f86;display:grid;place-items:center;transition:background .2s,color .2s}
 .bottom-nav button.active{background:var(--green);color:white}
 
@@ -72,9 +74,9 @@ button.pill-tag{cursor:pointer}
 .plain-icon{flex:none;border:0;background:none;padding:6px;display:grid;place-items:center}
 
 /* hero + sheet (detail pages) */
-.hero{position:relative;background:var(--tint);min-height:340px;overflow:hidden;margin-top:calc(-1 * max(env(safe-area-inset-top),15px))}
+.hero{position:relative;background:var(--tint);min-height:340px;overflow:hidden;margin-top:calc(-1 * max(var(--sat),15px))}
 .hero::before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:#ffffff66;right:-90px;top:-70px}
-.hero-bar{position:absolute;z-index:2;top:max(env(safe-area-inset-top),15px);left:18px;right:18px;margin-top:14px;display:flex;justify-content:space-between}
+.hero-bar{position:absolute;z-index:2;top:max(var(--sat),15px);left:18px;right:18px;margin-top:14px;display:flex;justify-content:space-between}
 .hero-img{position:absolute;left:0;top:0;width:58%;height:330px;object-fit:cover;border-radius:0 0 54px 0;box-shadow:0 14px 34px #1c3b2118}
 .hero-img.contain{object-fit:contain;background:none;box-shadow:none;padding:70px 10px 30px 0}
 .hero-meta{position:absolute;right:22px;top:104px;width:34%;margin:0;display:grid;gap:22px}
@@ -83,7 +85,7 @@ button.pill-tag{cursor:pointer}
 .sheet{position:relative;background:white;border-radius:36px 36px 0 0;margin-top:-34px;padding:26px 24px 30px;min-height:520px}
 .sheet-title{font-size:28px;line-height:1.1;letter-spacing:-1px;margin:6px 0 14px;font-weight:800}
 .sheet .scientific{margin:0 0 16px}
-.sheet-cta{position:sticky;bottom:calc(16px + env(safe-area-inset-bottom));display:flex;gap:10px;margin-top:18px}
+.sheet-cta{position:sticky;bottom:calc(16px + var(--sab));display:flex;gap:10px;margin-top:18px}
 .sheet-cta .dark-button{flex:1;min-height:54px;padding:12px 6px}
 .care-card,.growth-card{background:#f4f7f5;border:0;border-radius:22px}
 .care-buttons{display:none}
@@ -101,7 +103,7 @@ button.pill-tag{cursor:pointer}
 .mastered-inline{color:#9a6c0d}
 
 /* scan */
-.scan-screen{position:relative;min-height:100vh;display:flex;flex-direction:column;background:var(--tint);margin-top:calc(-1 * max(env(safe-area-inset-top),15px))}
+.scan-screen{position:relative;min-height:100vh;display:flex;flex-direction:column;background:var(--tint);margin-top:calc(-1 * max(var(--sat),15px))}
 .scan-bar{z-index:3}
 .viewfinder{position:relative;height:380px;display:grid;place-items:center;overflow:hidden}
 .viewfinder>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -292,7 +294,7 @@ button.pill-tag{cursor:pointer}
 /* ===== Scan: live camera ===== */
 .cam{position:fixed;inset:0;left:50%;transform:translateX(-50%);width:min(520px,100%);overflow:hidden;background:linear-gradient(180deg,#a9cdb2,#8fbc9b);color:var(--ink);z-index:5}
 .cam-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cam-bar{position:absolute;z-index:4;left:18px;right:18px;top:calc(16px + env(safe-area-inset-top));display:flex;justify-content:space-between}
+.cam-bar{position:absolute;z-index:4;left:18px;right:18px;top:calc(16px + var(--sat));display:flex;justify-content:space-between}
 .cam-bar .round-btn{background:#fff;color:var(--green-deep);border-radius:14px;box-shadow:0 4px 14px #1c3b2120}
 .cam-bar .round-btn.on{background:var(--green);color:#fff}
 .cam-status{position:absolute;z-index:3;left:0;right:0;top:24%;text-align:center;color:#fff;font-size:13px;font-weight:700;letter-spacing:3px;margin:0;text-shadow:0 1px 8px #0006}
@@ -306,18 +308,18 @@ button.pill-tag{cursor:pointer}
 .cam-frame .br{right:0;bottom:0;border-left:0;border-top:0;border-bottom-right-radius:18px}
 .cam-sweep{position:absolute;z-index:2;left:0;right:0;top:0;height:0;background:linear-gradient(180deg,#ffffff00,#ffffff2e);border-bottom:2px solid #fff;box-shadow:0 6px 24px #ffffffaa;animation:sweep linear forwards}
 @keyframes sweep{to{height:100%}}
-.cam-ask{position:absolute;z-index:3;left:18px;right:18px;bottom:calc(24px + env(safe-area-inset-bottom));background:#fff;border-radius:32px;padding:28px 22px 22px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;box-shadow:0 14px 40px #1c3b2133}
+.cam-ask{position:absolute;z-index:3;left:18px;right:18px;bottom:calc(24px + var(--sab));background:#fff;border-radius:32px;padding:28px 22px 22px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;box-shadow:0 14px 40px #1c3b2133}
 .cam-ask h2{margin:0;font-size:21px;letter-spacing:-.5px}
 .cam-ask p{margin:0 0 6px;font-size:13px;line-height:1.55;color:var(--muted)}
 .cam-ask-ic{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:var(--green-soft);color:var(--green-deep)}
 .cam-ask .outline-button{background:#f2f8f3;box-shadow:none}
-.cam-shutter{position:absolute;z-index:3;left:0;right:0;bottom:calc(34px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-evenly}
+.cam-shutter{position:absolute;z-index:3;left:0;right:0;bottom:calc(34px + var(--sab));display:flex;align-items:center;justify-content:space-evenly}
 .cam-snap{width:82px;height:82px;border-radius:50%;border:4px solid #fff;background:none;padding:6px;display:grid;place-items:center}
 .cam-snap i{width:100%;height:100%;border-radius:50%;background:var(--green);box-shadow:0 6px 18px #6cc24a66;transition:transform .12s}
 .cam-snap:active i{transform:scale(.88)}
 .cam-side{width:50px;height:50px;border-radius:16px;background:#fff;color:var(--green-deep);display:grid;place-items:center;cursor:pointer}
 .cam-side.ghost{visibility:hidden}
-.cam-result{position:absolute;z-index:3;left:14px;right:14px;bottom:calc(18px + env(safe-area-inset-bottom));background:#fff;border-radius:30px;padding:14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 14px 40px #1c3b2133}
+.cam-result{position:absolute;z-index:3;left:14px;right:14px;bottom:calc(18px + var(--sab));background:#fff;border-radius:30px;padding:14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 14px 40px #1c3b2133}
 .cam-card{display:flex;align-items:center;gap:14px;background:#f2f8f3;border-radius:22px;padding:10px}
 .cam-card img{width:74px;height:74px;border-radius:16px;object-fit:contain;background:#fff;flex:none}
 .cam-card>div{display:flex;flex-direction:column;gap:3px;min-width:0}
@@ -344,7 +346,7 @@ button.pill-tag{cursor:pointer}
 .bottom-nav button.scan-btn.active{background:linear-gradient(145deg,#7fd45c,#4aa02f)}
 
 /* garden header: title only, pinned to the top while scrolling */
-.home-head{--safe-top:max(env(safe-area-inset-top),15px);position:sticky;top:0;z-index:6;margin-top:calc(-1 * var(--safe-top));padding:calc(12px + var(--safe-top)) 23px 12px;background:#f0f9f2}
+.home-head{--safe-top:max(var(--sat),15px);position:sticky;top:0;z-index:6;margin-top:calc(-1 * var(--safe-top));padding:calc(12px + var(--safe-top)) 23px 12px;background:#f0f9f2}
 .home-greeting b{font-size:22px;letter-spacing:-.6px}
 .home-greeting span{font-size:12.5px}
 
@@ -366,9 +368,9 @@ button.pill-tag{cursor:pointer}
 .cam{background:linear-gradient(180deg,#bfe2c6 0%,#8fc79b 100%)}
 .cam-status,.cam-sweep{display:none}
 .cam-frame i{border-color:#c4ee3d;border-width:3px}
-.cam-hint{position:absolute;z-index:3;left:50%;top:calc(88px + env(safe-area-inset-top));transform:translateX(-50%);margin:0;white-space:nowrap;background:#ffffffd9;color:var(--green-deep);font-size:12.5px;font-weight:600;padding:8px 16px;border-radius:30px;backdrop-filter:blur(8px)}
+.cam-hint{position:absolute;z-index:3;left:50%;top:calc(88px + var(--sat));transform:translateX(-50%);margin:0;white-space:nowrap;background:#ffffffd9;color:var(--green-deep);font-size:12.5px;font-weight:600;padding:8px 16px;border-radius:30px;backdrop-filter:blur(8px)}
 .cam-fill{position:absolute;left:0;right:0;top:0;height:0;border-radius:6px;background:linear-gradient(180deg,#c4ee3d00,#c4ee3d66);border-bottom:2px solid #d8f66b;box-shadow:0 8px 22px #c4ee3d88;animation:sweep linear forwards}
-.cam-progress{position:absolute;z-index:3;left:14px;right:14px;bottom:calc(18px + env(safe-area-inset-bottom));background:#fff;border-radius:30px;padding:22px 22px 14px;box-shadow:0 14px 40px #1c3b2133}
+.cam-progress{position:absolute;z-index:3;left:14px;right:14px;bottom:calc(18px + var(--sab));background:#fff;border-radius:30px;padding:22px 22px 14px;box-shadow:0 14px 40px #1c3b2133}
 .cam-progress h2{margin:0;text-align:center;font-size:20px;letter-spacing:-.4px}
 .cam-progress p{margin:4px 0 14px;text-align:center;font-size:13px;color:var(--green-deep)}
 .cam-progress ul{list-style:none;margin:0;padding:0}
@@ -379,7 +381,7 @@ button.pill-tag{cursor:pointer}
 .wait i{width:6px;height:6px;border-radius:50%;background:#c9d6cd;animation:wait-dot 1s ease-in-out infinite}
 .wait i:nth-child(2){animation-delay:.15s}.wait i:nth-child(3){animation-delay:.3s}
 @keyframes wait-dot{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(-4px);opacity:1}}
-.cam-hero{position:absolute;z-index:1;left:0;right:0;top:calc(70px + env(safe-area-inset-top));height:40%;pointer-events:none}
+.cam-hero{position:absolute;z-index:1;left:0;right:0;top:calc(70px + var(--sat));height:40%;pointer-events:none}
 .cam-hero .blob{position:absolute;border-radius:50%;background:#ffffff40}
 .cam-hero .b1{width:280px;height:280px;left:50%;top:50%;margin:-150px 0 0 -140px}
 .cam-hero .b2{width:190px;height:190px;left:50%;top:50%;margin:-100px 0 0 -95px;background:#ffffff55}
@@ -397,11 +399,11 @@ button.pill-tag{cursor:pointer}
 .cam-frame{top:20%;height:34%}
 
 /* detail pages: back button stays pinned while the sheet scrolls */
-.hero .hero-bar{position:fixed;z-index:8;top:max(env(safe-area-inset-top),15px);left:50%;right:auto;transform:translateX(-50%);width:min(520px,100%);box-sizing:border-box;padding:0 18px;margin-top:5px;pointer-events:none}
+.hero .hero-bar{position:fixed;z-index:8;top:max(var(--sat),15px);left:50%;right:auto;transform:translateX(-50%);width:min(520px,100%);box-sizing:border-box;padding:0 18px;margin-top:5px;pointer-events:none}
 .hero .hero-bar>*{pointer-events:auto}
 
 /* pot detail: care buttons pinned to the bottom of the screen */
-.sheet-cta{position:fixed;z-index:8;left:50%;bottom:0;transform:translateX(-50%);width:min(520px,100%);box-sizing:border-box;margin:0;padding:22px 24px calc(16px + env(safe-area-inset-bottom));pointer-events:none;isolation:isolate}
+.sheet-cta{position:fixed;z-index:8;left:50%;bottom:0;transform:translateX(-50%);width:min(520px,100%);box-sizing:border-box;margin:0;padding:22px 24px calc(16px + var(--sab));pointer-events:none;isolation:isolate}
 .sheet-cta::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#fff0,#fff 42%)}
 .sheet-cta>*{pointer-events:auto}
 .sheet:has(.sheet-cta){padding-bottom:140px}
@@ -410,11 +412,11 @@ button.pill-tag{cursor:pointer}
 :root{--p:0}
 .hero .hero-img,.hero .hero-meta,.hero::before{opacity:calc(1 - var(--p) * 1.15);transform:translateY(calc(var(--p) * 28px)) scale(calc(1 - var(--p) * .05));will-change:opacity,transform}
 .hero .hero-meta{transform:translateY(calc(var(--p) * 28px))}
-.hero .hero-bar::before{content:"";position:absolute;z-index:-1;left:0;right:0;top:calc(-1 * (max(env(safe-area-inset-top),15px) + 5px));height:calc(2 * max(env(safe-area-inset-top),15px) + 54px);background:#fff;opacity:var(--p);box-shadow:0 1px 0 #eef1ee,0 6px 18px #1c3b210f;pointer-events:none}
+.hero .hero-bar::before{content:"";position:absolute;z-index:-1;left:0;right:0;top:calc(-1 * (max(var(--sat),15px) + 5px));height:calc(2 * max(var(--sat),15px) + 54px);background:#fff;opacity:var(--p);box-shadow:0 1px 0 #eef1ee,0 6px 18px #1c3b210f;pointer-events:none}
 .hero .hero-bar{isolation:isolate}
 .hero .hero-bar .round-btn{background:rgb(108 194 74 / calc(1 - var(--p)));color:#1d2b22;color:color-mix(in srgb,#fff calc((1 - var(--p)) * 100%),#1d2b22);box-shadow:0 6px 14px rgb(108 194 74 / calc(.25 * (1 - var(--p))))}
 
 /* bottom nav docked to the bottom edge, full width */
-.bottom-nav{bottom:0;width:min(520px,100%);height:calc(68px + env(safe-area-inset-bottom));padding:8px 14px calc(8px + env(safe-area-inset-bottom));filter:drop-shadow(0 -6px 18px #2b3a2414)}
+.bottom-nav{bottom:0;width:min(520px,100%);height:calc(68px + var(--sab));padding:8px 14px calc(8px + var(--sab));filter:drop-shadow(0 -6px 18px #2b3a2414)}
 .bottom-nav::before{border-radius:28px 28px 0 0}
 .app-shell.has-nav{padding-bottom:96px}

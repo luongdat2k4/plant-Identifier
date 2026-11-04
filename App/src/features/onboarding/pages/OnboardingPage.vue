@@ -5,6 +5,7 @@ import { Icon } from '@iconify/vue'
 import { markOnboarded } from '../../../shared/utils/onboarding'
 import { t } from '../../../shared/i18n'
 import InFeedAd from '../../ads/components/InFeedAd.vue'
+import { bannerInset } from '../../ads/adRuntime'
 
 const router = useRouter()
 const track = ref<HTMLElement | null>(null)
@@ -14,8 +15,8 @@ const slides = computed(() => [
   { image: '/assets/ic_scroll_card_5.png', title: t('ob.2.title'), text: t('ob.2.text'), icons: ['solar:waterdrop-bold', 'solar:leaf-bold'] },
   { image: '/assets/ic_scroll_card_1.png', title: t('ob.3.title'), text: t('ob.3.text'), icons: ['solar:book-bookmark-bold', 'solar:medal-ribbon-bold'] },
 ])
-// The ad sits above the fixed footer, so it needs a tall screen to leave the slide readable.
-const roomForAd = window.innerHeight >= 760
+// The ad sits above the fixed footer, so it needs a tall screen (minus the bottom banner) to leave the slide readable.
+const roomForAd = computed(() => window.innerHeight - bannerInset.value >= 760)
 const last = computed(() => index.value === slides.value.length - 1)
 
 function onScroll() {
@@ -30,8 +31,6 @@ onMounted(() => track.value?.focus({ preventScroll: true }))
 
 <template>
   <main class="ob">
-    <button v-if="!last" class="ob-skip" @click="finish">{{ t('ob.skip') }}</button>
-
     <div ref="track" class="ob-track" tabindex="-1" @scroll.passive="onScroll">
       <section v-for="(slide, i) in slides" :key="i" class="ob-slide" :aria-hidden="i !== index">
         <div class="ob-art">

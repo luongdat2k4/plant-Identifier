@@ -39,11 +39,11 @@ onBeforeUnmount(() => clearInterval(timer))
 </template>
 
 <style scoped>
-.ad-overlay { position: fixed; inset: 0; z-index: 80; display: flex; flex-direction: column; padding-top: env(safe-area-inset-top); background: #f0f9f2; }
+.ad-overlay { position: fixed; inset: 0; z-index: 80; display: flex; flex-direction: column; padding-top: var(--sat); background: #f0f9f2; }
 .ad-overlay-bar { display: flex; height: 68px; flex: none; align-items: center; justify-content: space-between; padding: 0 20px; }
 .ad-tag { border-radius: 5px; background: #1c2a20; padding: 2px 8px; color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .ad-close { display: flex; height: 40px; min-width: 40px; align-items: center; justify-content: center; border: 0; border-radius: 999px; background: #fff; padding: 0 12px; font-size: 14px; font-weight: 800; font-variant-numeric: tabular-nums; color: #16221a; }
 .ad-close:disabled { opacity: .6; }
-.ad-overlay-body { display: flex; min-height: 0; flex: 1; align-items: center; justify-content: center; padding: 0 20px env(safe-area-inset-bottom); }
+.ad-overlay-body { display: flex; min-height: 0; flex: 1; align-items: center; justify-content: center; padding: 0 20px var(--sab); }
 .ad-overlay-card { width: 100%; max-width: 520px; }
 </style>

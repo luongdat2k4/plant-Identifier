@@ -12,9 +12,9 @@ const route = useRoute()
 const { toast, notify } = useToast()
 const isCamera = computed(() => ['scan', 'welcome', 'language'].includes(String(route.name)))
 const showNav = computed(() => ['garden', 'collection', 'seeds', 'menu'].includes(String(route.name)))
-// One banner for the tab screens and the language page; never on camera, pot detail or onboarding.
+// One banner for the tab screens and the first-run screens (language, welcome); never on camera or pot detail.
 const showBanner = computed(() => adsAvailable.value && !adsSuppressed.value && !fullScreenShowing.value &&
-  ['garden', 'collection', 'seeds', 'menu', 'menu-language', 'language'].includes(String(route.name)))
+  ['garden', 'collection', 'seeds', 'menu', 'menu-language', 'language', 'welcome'].includes(String(route.name)))
 
 watch(() => route.fullPath, () => { if (route.meta.bar) setStatusBar(String(route.meta.bar)) }, { immediate: true })
 
