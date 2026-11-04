@@ -31,24 +31,26 @@
 
 /* Language chooser */
 .lang-body{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
-.lang .ob-art{flex:0 0 42%}
-.lang-globe{position:relative;z-index:1;width:132px;height:132px;border-radius:50%;display:grid;place-items:center;margin-bottom:40px;background:#fff;color:var(--green);box-shadow:0 18px 34px #1c3b2126;animation:ob-float 4.5s ease-in-out infinite}
-.lang-bubble{position:absolute;z-index:2;padding:9px 16px;border-radius:18px;background:#fff;color:var(--green-deep);font-size:14px;font-weight:700;box-shadow:0 10px 20px #1c3b2120;animation:ob-float 5s ease-in-out infinite}
+.lang .ob-art{flex:0 0 210px}
+.lang-globe{position:relative;z-index:1;width:104px;height:104px;border-radius:50%;display:grid;place-items:center;margin-bottom:34px;background:#fff;color:var(--green);box-shadow:0 18px 34px #1c3b2126;animation:ob-float 4.5s ease-in-out infinite}
+.lang-bubble{position:absolute;z-index:2;padding:8px 14px;border-radius:16px;background:#fff;color:var(--green-deep);font-size:13px;font-weight:700;box-shadow:0 10px 20px #1c3b2120;animation:ob-float 5s ease-in-out infinite}
 .lang-bubble.b1{left:11%;top:24%}
 .lang-bubble.b2{right:11%;top:42%;animation-delay:-2s}
-.lang-copy{padding-bottom:140px;overflow-y:auto}
+.lang-copy{padding-bottom:12px;overflow-y:auto}
+.lang-globe svg{width:54px;height:54px}
+/* the native ad stays put under the scrolling list, clear of the floating Continue button */
+.lang-ads{flex:none;padding:6px 32px calc(96px + env(safe-area-inset-bottom))}
 .lang-copy::before{display:none}
-.lang-list{display:grid;gap:10px;margin-top:20px}
-.lang-opt{display:flex;align-items:center;gap:14px;width:100%;border:2px solid #e8eeea;border-radius:22px;background:#fff;padding:12px 16px 12px 12px;text-align:left;color:var(--ink);transition:border-color .2s,background .2s}
+.lang-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:16px}
+.lang-opt{display:flex;align-items:center;gap:9px;min-width:0;width:100%;border:2px solid #e8eeea;border-radius:16px;background:#fff;padding:7px 8px 7px 7px;text-align:left;color:var(--ink);transition:border-color .2s,background .2s}
 .lang-opt.on{border-color:var(--green);background:#f2faef}
-.lang-code{flex:none;width:46px;height:46px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#fff;box-shadow:0 0 0 2px #e3eae5,0 4px 10px #1c3b2126}
+.lang-code{flex:none;width:30px;height:30px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#fff;box-shadow:0 0 0 1.5px #e3eae5}
 .lang-code img{width:100%;height:100%;object-fit:cover;display:block}
-.lang-opt.on .lang-code{box-shadow:0 0 0 2px var(--green),0 4px 10px #1c3b2126}
-.lang-name{flex:1;display:flex;flex-direction:column;gap:2px}
-.lang-name b{font-size:16px}
-.lang-name small{font-size:12px;color:#8d948c}
-.lang-tick{flex:none;color:#d3dcd6;display:grid;transition:color .2s}
-.lang-opt.on .lang-tick{color:var(--green)}
+.lang-opt.on .lang-code{box-shadow:0 0 0 1.5px var(--green)}
+.lang-name{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.lang-name b{font-size:13.5px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lang-name small{font-size:10.5px;line-height:1.2;color:#8d948c;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lang-tick{display:none}
 
 /* Language setting: row in the Menu and its own page */
 .settings-list .lang-row .lang-now{display:inline-flex;align-items:center;gap:8px;margin-left:auto;font-weight:700;color:#4b6454}
@@ -57,3 +59,6 @@
 .lang-page-head{justify-content:flex-start}
 .lang-page-head .home-greeting{flex:1;min-width:0}
 .lang-page-head+.content .lang-list{margin-top:6px}
+
+/* a bottom banner sits under the full-screen onboarding layer */
+.app-shell.has-banner .ob{bottom:var(--ad-inset)}

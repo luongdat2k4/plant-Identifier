@@ -33,7 +33,6 @@ function confirm() {
 
       <div class="ob-copy lang-copy">
         <h1>{{ t('lang.title') }}</h1>
-        <p>{{ t('lang.text') }}</p>
         <div class="lang-list" role="radiogroup" :aria-label="t('lang.title')">
           <button v-for="item in LANGUAGES" :key="item.code" class="lang-opt" :class="{ on: lang === item.code }" role="radio" :aria-checked="lang === item.code" @click="setLang(item.code)">
             <span class="lang-code"><img :src="`/assets/flag/${item.code}.svg`" alt=""/></span>
@@ -41,8 +40,8 @@ function confirm() {
             <i class="lang-tick"><Icon icon="solar:check-circle-bold" width="26"/></i>
           </button>
         </div>
-        <div class="ad-slot"><InFeedAd template="small"/></div>
       </div>
+      <div class="lang-ads"><InFeedAd template="small"/></div>
     </section>
 
     <footer class="ob-foot">

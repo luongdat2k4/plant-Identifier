@@ -14,7 +14,7 @@ const isCamera = computed(() => ['scan', 'welcome', 'language'].includes(String(
 const showNav = computed(() => ['garden', 'collection', 'seeds', 'menu'].includes(String(route.name)))
 // One banner for the tab screens and the language page; never on camera, pot detail or onboarding.
 const showBanner = computed(() => adsAvailable.value && !adsSuppressed.value && !fullScreenShowing.value &&
-  ['garden', 'collection', 'seeds', 'menu', 'menu-language'].includes(String(route.name)))
+  ['garden', 'collection', 'seeds', 'menu', 'menu-language', 'language'].includes(String(route.name)))
 
 watch(() => route.fullPath, () => { if (route.meta.bar) setStatusBar(String(route.meta.bar)) }, { immediate: true })
 
