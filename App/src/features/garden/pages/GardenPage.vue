@@ -33,7 +33,7 @@ function plant(id: string) {
     <div class="home-greeting"><b>{{ t('garden.hello') }}</b><span>{{ t('garden.sub', { n: String(pots.length), slots: String(state.potSlots) }) }}</span></div>
     <NotificationBell/>
   </header>
-  <main class="content">
+  <main class="content" data-ad-scroll-region>
     <div class="pill-tabs" role="tablist">
       <button v-for="item in filters" :key="item.key" :class="{ active: filter === item.key }" @click="filter = item.key">{{ item.label }}</button>
     </div>

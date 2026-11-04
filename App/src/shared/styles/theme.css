@@ -420,3 +420,11 @@ button.pill-tag{cursor:pointer}
 .bottom-nav{bottom:0;width:min(520px,100%);height:calc(68px + var(--sab));padding:8px 14px calc(8px + var(--sab));filter:drop-shadow(0 -6px 18px #2b3a2414)}
 .bottom-nav::before{border-radius:28px 28px 0 0}
 .app-shell.has-nav{padding-bottom:96px}
+
+/* Header and bottom navigation stay put; only the page content scrolls between them. */
+.app-shell:has(> .home-head){height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;padding-bottom:var(--sab)}
+.app-shell:has(> .home-head)>.status-space,.app-shell:has(> .home-head)>.home-head{flex:none}
+.app-shell:has(> .home-head)>.content{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-bottom:34px}
+.app-shell.has-nav:has(> .home-head){padding-bottom:calc(68px + var(--sab))}
+.app-shell.has-banner.has-nav:has(> .home-head){padding-bottom:calc(68px + var(--sab) + var(--ad-inset))}
+.app-shell.has-banner:not(.has-nav):has(> .home-head){padding-bottom:calc(var(--sab) + var(--ad-inset))}

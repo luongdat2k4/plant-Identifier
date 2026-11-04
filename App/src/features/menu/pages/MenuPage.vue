@@ -22,7 +22,7 @@ function reset() {
     <div class="home-greeting"><b>{{ t('menu.title') }}</b><span>{{ t('menu.subtitle') }}</span></div>
     <NotificationBell/>
   </header>
-  <main class="content">
+  <main class="content" data-ad-scroll-region>
     <div class="collection-summary">
       <div><b>{{ state.pots.length }}</b><span>{{ t('menu.pots') }}</span></div>
       <div><b>{{ state.discoveries.length }}<small>/{{ allSpecies.length }}</small></b><span>{{ t('stats.seen') }}</span></div>

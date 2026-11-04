@@ -34,7 +34,7 @@ function open(id: string) {
     <div class="home-greeting"><b>{{ t('collection.title') }}</b><span>{{ t('collection.subtitle') }}</span></div>
     <NotificationBell/>
   </header>
-  <main class="content">
+  <main class="content" data-ad-scroll-region>
     <div class="collection-summary">
       <div><b>{{ seenCount }}<small>/{{ allSpecies.length }}</small></b><span>{{ t('stats.seen') }}</span></div>
       <div><b>{{ masteredCount }}<small>/{{ allSpecies.length }}</small></b><span>{{ t('stats.mastered') }}</span></div>

@@ -11,7 +11,7 @@ const { back } = useAppNavigation()
     <button class="round-btn" :aria-label="t('common.back')" @click="back"><Icon icon="solar:arrow-left-linear" width="22"/></button>
     <div class="home-greeting"><b>{{ t('menu.language') }}</b></div>
   </header>
-  <main class="content">
+  <main class="content" data-ad-scroll-region>
     <div class="lang-list" role="radiogroup" :aria-label="t('menu.language')">
       <button v-for="item in LANGUAGES" :key="item.code" class="lang-opt" :class="{ on: lang === item.code }" role="radio" :aria-checked="lang === item.code" @click="setLang(item.code)">
         <span class="lang-code"><img :src="`/assets/flag/${item.code}.svg`" alt=""/></span>

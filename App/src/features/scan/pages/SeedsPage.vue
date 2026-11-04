@@ -33,7 +33,7 @@ function discard(id: string) { if (confirm(t('confirm.discardSeed'))) { discardS
     <div class="home-greeting"><b>{{ t('seeds.title') }}</b><span>{{ t('seeds.subtitle') }}</span></div>
     <div class="head-end"><span class="pill-tag">{{ t('seeds.count', { n: String(state.seeds.length), max: String(MAX_SEEDS) }) }}</span><NotificationBell/></div>
   </header>
-  <main class="content">
+  <main class="content" data-ad-scroll-region>
     <p v-if="state.seeds.length && !hasFreeSlot()" class="slot-warning">{{ t('seeds.gardenFull', { pots: String(state.pots.length), slots: String(state.potSlots) }) }}</p>
     <div v-if="state.seeds.length" class="list-stack">
       <SeedRow v-for="seed in state.seeds" :key="seed.id" :seed="seed" :can-plant="hasFreeSlot()" removable @plant="plant(seed.id)" @discard="discard(seed.id)"/>
