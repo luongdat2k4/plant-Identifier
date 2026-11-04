@@ -71,3 +71,5 @@
 @keyframes begin-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .begin-copy p{font-size:13px}
 .begin .ob-next:disabled{opacity:.4;box-shadow:none}
+.begin .ob-art{flex:0 0 40%}
+.begin-ad{text-align:left}

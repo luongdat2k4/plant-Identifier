@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { markBegun } from '../../../router'
 import { hasRuntimeData } from '../../../shared/store'
 import { t } from '../../../shared/i18n'
+import InFeedAd from '../../ads/components/InFeedAd.vue'
 import { initializeAds, tryAppOpenOnLaunch } from '../../ads/adRuntime'
 
 // Entry screen of every launch. A returning user (runtime data exists) sees a short 3s load and then taps Continue;
@@ -48,6 +49,7 @@ onBeforeUnmount(() => { clearTimeout(timer); abort.abort() })
       <h1>PlantIn</h1>
       <div class="begin-bar" :class="{ done: ready }" role="progressbar" :aria-busy="!ready"><i :style="{ animationDuration: `${WAIT_MS}ms` }"></i></div>
       <p>{{ t('begin.loading') }}</p>
+      <div class="ad-slot begin-ad"><InFeedAd template="small"/></div>
     </div>
     <footer class="ob-foot">
       <button class="ob-next" :disabled="!ready" @click="enter">{{ t('lang.continue') }}</button>

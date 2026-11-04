@@ -7,14 +7,16 @@ import { useToast } from './shared/composables/useToast'
 import { tickAll } from './features/garden/model'
 import { setStatusBar } from './shared/utils/statusBar'
 import BannerAd from './features/ads/components/BannerAd.vue'
+import { hasRuntimeData } from './shared/store'
 import { adsAvailable, adsSuppressed, bannerInset, fullScreenShowing } from './features/ads/adRuntime'
 const route = useRoute()
 const { toast, notify } = useToast()
 const isCamera = computed(() => ['scan', 'welcome', 'language', 'begin'].includes(String(route.name)))
 const showNav = computed(() => ['garden', 'collection', 'seeds', 'menu'].includes(String(route.name)))
-// One banner for the tab screens and the first-run screens (language, welcome); never on camera or pot detail.
+// One banner for the tab screens and the first-run screens (language, welcome) and the launch screen of a returning user; never on camera or pot detail.
 const showBanner = computed(() => adsAvailable.value && !adsSuppressed.value && !fullScreenShowing.value &&
-  ['garden', 'collection', 'seeds', 'menu', 'menu-language', 'language', 'welcome'].includes(String(route.name)))
+  (['garden', 'collection', 'seeds', 'menu', 'menu-language', 'language', 'welcome'].includes(String(route.name)) ||
+    (route.name === 'begin' && hasRuntimeData())))
 
 watch(() => route.fullPath, () => { if (route.meta.bar) setStatusBar(String(route.meta.bar)) }, { immediate: true })
 
