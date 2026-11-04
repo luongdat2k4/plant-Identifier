@@ -8,7 +8,7 @@ import { tickAll } from './features/garden/model'
 import { setStatusBar } from './shared/utils/statusBar'
 import BannerAd from './features/ads/components/BannerAd.vue'
 import { hasRuntimeData } from './shared/store'
-import { adsAvailable, adsSuppressed, bannerInset, fullScreenShowing } from './features/ads/adRuntime'
+import { adsAvailable, adsSuppressed, bannerInset, countAction, fullScreenShowing } from './features/ads/adRuntime'
 const route = useRoute()
 const { toast, notify } = useToast()
 const isCamera = computed(() => ['scan', 'welcome', 'language', 'begin'].includes(String(route.name)))
@@ -24,14 +24,24 @@ function refreshPots() {
   const died = tickAll()
   if (died.length) notify(t('toast.hibernated', { names: died.join(', ') }))
 }
+// Every 2-3 taps on a control an interstitial may show. Never on the camera, the first-run screens, the language page,
+// the scan button or the rewarded-seed button, and never while another ad is up.
+const NO_TAP_ADS = ['scan', 'begin', 'welcome', 'language', 'menu-language']
+function onTap(event: MouseEvent) {
+  if (NO_TAP_ADS.includes(String(route.name)) || fullScreenShowing.value || adsSuppressed.value) return
+  const control = (event.target as Element | null)?.closest('button, a[href], [role="button"]')
+  if (!control || control.closest('.scan-btn, .seed-reward, .banner-dock')) return
+  countAction()
+}
 function onVisible() { if (!document.hidden) refreshPots() }
 let timer: ReturnType<typeof setInterval> | undefined
 onMounted(() => {
   refreshPots()
   timer = setInterval(refreshPots, 60000)
   document.addEventListener('visibilitychange', onVisible)
+  document.addEventListener('click', onTap, true)
 })
-onUnmounted(() => { clearInterval(timer); document.removeEventListener('visibilitychange', onVisible) })
+onUnmounted(() => { clearInterval(timer); document.removeEventListener('visibilitychange', onVisible); document.removeEventListener('click', onTap, true) })
 </script>
 
 <template>

@@ -105,3 +105,12 @@ Việc cần làm (chưa thực hiện, chỉ là kịch bản):
 - Native luôn có nhãn "Quảng cáo", không thay một ô loài/chậu, không sát nút thao tác; không quá một native nhìn thấy cùng lúc trên mỗi view.
 - Rewarded chỉ cấp thưởng khi người xem hoàn tất; không fill thì không phạt người dùng.
 - Dùng test ads trong QA; kiểm thử offline, no fill, đóng ad, nền/foreground, đổi consent. Không tạo click/impression giả.
+
+## 8. Điều chỉnh theo yêu cầu (04/11/2026)
+
+Thay cho quy tắc 2 và 3 của mục 5 (Interstitial chỉ sau kết quả quét, cap 2 phút / 2 lần mỗi phiên):
+
+- Cứ **2–3 lần chạm** vào một nút (số ngẫu nhiên mỗi vòng) thì thử hiện một Interstitial. Hai quảng cáo toàn màn hình liền nhau cách nhau **tối thiểu 10 giây**; không giới hạn số lần mỗi phiên.
+- Không đếm và không hiện ở: `/scan`, `/begin`, `/welcome`, `/language`, `/menu/language`, nút Chụp ở thanh nav, nút xem video nhận hạt, hoặc khi đang có quảng cáo khác. Quảng cáo hiện sau khi xử lý xong thao tác (trễ ~350ms) để không đè lên nút vừa bấm.
+- Chưa hiện được thì lần chạm kế tiếp thử lại; bộ đếm chỉ đặt lại khi quảng cáo đã hiện. Điểm sau kết quả quét vẫn giữ.
+- Rủi ro chính sách: tài liệu `ads_policy_interstitial_banner_native.md` yêu cầu không hiện Interstitial sau **mỗi** thao tác, tránh mật độ cao và quảng cáo liên tiếp; mức 10 giây và 2–3 lần chạm là cấu hình dày hơn mức tài liệu gợi ý (60–120 giây). Cần theo dõi tỷ lệ gỡ cài đặt/đánh giá và chính sách AdMob/Google Play trước khi phát hành, và có thể nới lại hằng số `FULL_SCREEN_GAP_MS` trong `adRuntime.ts`.
