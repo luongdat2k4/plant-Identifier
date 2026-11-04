@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { Icon } from '@iconify/vue'
 import InFeedAd from '../../ads/components/InFeedAd.vue'
@@ -7,6 +8,33 @@ import { hasChosenLanguage, LANGUAGES, lang, markLanguageChosen, setLang, t } fr
 const router = useRouter()
 // Make sure a first-run visit has a stored choice even if the user just taps Continue.
 if (!hasChosenLanguage()) setLang(lang.value)
+
+// Greeting bubbles around the globe: a handful of slots, each showing "hello" in a random language and swapped for
+// another one about every two seconds (one slot changes every ~340ms, so each lives ~2s).
+const GREETINGS: Record<string, string> = {
+  vi: 'Xin chào', en: 'Hello', ar: 'مرحبا', bn: 'নমস্কার', de: 'Hallo', es: 'Hola', fr: 'Bonjour', hi: 'नमस्ते', id: 'Halo', it: 'Ciao',
+  ja: 'こんにちは', ko: '안녕하세요', nl: 'Hoi', pl: 'Cześć', pt: 'Olá', ru: 'Привет', th: 'สวัสดี', tr: 'Merhaba', ur: 'السلام علیکم', zh: '你好',
+}
+const SLOTS = [
+  { left: '6%', top: '10%' }, { right: '8%', top: '6%' }, { left: '3%', top: '50%' },
+  { right: '4%', top: '46%' }, { left: '25%', top: '72%' }, { right: '24%', top: '74%' },
+]
+const CODES = Object.keys(GREETINGS)
+const shown = ref<string[]>([])
+function pick(avoid: string[]): string {
+  const free = CODES.filter(code => !avoid.includes(code))
+  return free[Math.floor(Math.random() * free.length)]
+}
+for (const _ of SLOTS) shown.value.push(pick(shown.value))
+let tick = 0
+let timer: ReturnType<typeof setInterval> | undefined
+onMounted(() => {
+  timer = setInterval(() => {
+    const slot = tick++ % SLOTS.length
+    shown.value[slot] = pick(shown.value)
+  }, 340)
+})
+onBeforeUnmount(() => clearInterval(timer))
 
 function confirm() {
   markLanguageChosen()
@@ -20,8 +48,7 @@ function confirm() {
       <div class="ob-art">
         <i class="ob-glow"></i>
         <span class="lang-globe"><Icon icon="solar:global-bold" width="64"/></span>
-        <span class="lang-bubble b1">Xin chào</span>
-        <span class="lang-bubble b2">Hello</span>
+        <span v-for="(code, i) in shown" :key="`${i}-${code}`" class="lang-bubble" :style="SLOTS[i]" :lang="code">{{ GREETINGS[code] }}</span>
         <i class="ob-spark s1"></i><i class="ob-spark s2"></i>
         <svg class="ob-hills" viewBox="0 0 375 130" preserveAspectRatio="none" aria-hidden="true">
           <g fill="#7ec37a"><circle cx="30" cy="62" r="34"/><circle cx="78" cy="48" r="28"/><circle cx="318" cy="52" r="32"/><circle cx="352" cy="66" r="26"/></g>
