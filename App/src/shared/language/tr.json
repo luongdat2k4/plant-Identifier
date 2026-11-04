@@ -1,4 +1,7 @@
 {
+  "begin": {
+    "loading": "Bahçeniz hazırlanıyor…"
+  },
   "lang": {
     "title": "Dilini seç",
     "continue": "Devam"

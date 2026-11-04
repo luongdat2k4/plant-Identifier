@@ -1,4 +1,7 @@
 {
+  "begin": {
+    "loading": "Đang chuẩn bị khu vườn của bạn…"
+  },
   "lang": {
     "title": "Chọn ngôn ngữ",
     "continue": "Tiếp tục"

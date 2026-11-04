@@ -1,4 +1,7 @@
 {
+  "begin": {
+    "loading": "Je tuin wordt voorbereid…"
+  },
   "lang": {
     "title": "Kies je taal",
     "continue": "Doorgaan"

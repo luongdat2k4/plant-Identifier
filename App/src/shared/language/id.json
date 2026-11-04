@@ -1,4 +1,7 @@
 {
+  "begin": {
+    "loading": "Menyiapkan kebun Anda…"
+  },
   "lang": {
     "title": "Pilih bahasa Anda",
     "continue": "Lanjutkan"

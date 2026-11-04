@@ -1,4 +1,7 @@
 {
+  "begin": {
+    "loading": "Dein Garten wird vorbereitet …"
+  },
   "lang": {
     "title": "Sprache wählen",
     "continue": "Weiter"

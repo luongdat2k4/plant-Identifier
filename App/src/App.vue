@@ -10,7 +10,7 @@ import BannerAd from './features/ads/components/BannerAd.vue'
 import { adsAvailable, adsSuppressed, bannerInset, fullScreenShowing } from './features/ads/adRuntime'
 const route = useRoute()
 const { toast, notify } = useToast()
-const isCamera = computed(() => ['scan', 'welcome', 'language'].includes(String(route.name)))
+const isCamera = computed(() => ['scan', 'welcome', 'language', 'begin'].includes(String(route.name)))
 const showNav = computed(() => ['garden', 'collection', 'seeds', 'menu'].includes(String(route.name)))
 // One banner for the tab screens and the first-run screens (language, welcome); never on camera or pot detail.
 const showBanner = computed(() => adsAvailable.value && !adsSuppressed.value && !fullScreenShowing.value &&

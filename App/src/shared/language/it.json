@@ -1,4 +1,7 @@
 {
+  "begin": {
+    "loading": "Stiamo preparando il tuo giardino…"
+  },
   "lang": {
     "title": "Scegli la tua lingua",
     "continue": "Continua"

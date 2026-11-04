@@ -59,5 +59,15 @@
 .lang-page-head+.content .lang-list{margin-top:6px}
 
 /* a bottom banner sits under the full-screen onboarding layer */
-.app-shell.has-banner .ob{bottom:var(--ad-inset)}
+.app-shell.has-banner .ob{bottom:calc(var(--ad-inset) + var(--ad-gap))}
 @media(prefers-reduced-motion:reduce){.lang-bubble{animation:none}}
+
+/* /begin: app name, a 3s load bar, then Continue */
+.begin-copy{text-align:center;padding-bottom:150px}
+.begin-copy h1{font-size:34px;letter-spacing:-1.2px}
+.begin-bar{width:180px;height:6px;margin:18px auto 12px;border-radius:6px;background:#e3eee6;overflow:hidden}
+.begin-bar i{display:block;height:100%;width:100%;border-radius:6px;background:linear-gradient(90deg,#7fd45c,#4aa02f);transform-origin:left;animation:begin-fill 3s linear forwards}
+.begin-bar.done i{animation:none}
+@keyframes begin-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.begin-copy p{font-size:13px}
+.begin .ob-next:disabled{opacity:.4;box-shadow:none}

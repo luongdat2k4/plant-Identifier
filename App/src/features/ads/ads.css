@@ -1,6 +1,6 @@
 /* The bottom banner is drawn by the SDK over the screen edge; the shell lifts its own bars above it. */
 .banner-dock{position:fixed;z-index:9;left:50%;bottom:0;transform:translateX(-50%);width:min(520px,100%)}
-.app-shell{--ad-inset:0px;--ad-gap:12px}
+.app-shell{--ad-inset:0px;--ad-gap:16px}
 .app-shell.has-banner .bottom-nav{bottom:calc(var(--ad-inset) + var(--ad-gap) + var(--sab));height:68px;padding:8px 14px}
 .app-shell.has-banner.has-nav{padding-bottom:calc(100px + var(--sab) + var(--ad-inset) + var(--ad-gap))}
 .app-shell.has-banner .toast{bottom:calc(90px + var(--ad-inset) + var(--ad-gap))}

@@ -1,4 +1,7 @@
 {
+  "begin": {
+    "loading": "正在准备你的花园…"
+  },
   "lang": {
     "title": "选择语言",
     "continue": "继续"

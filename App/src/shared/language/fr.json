@@ -1,4 +1,7 @@
 {
+  "begin": {
+    "loading": "Préparation de votre jardin…"
+  },
   "lang": {
     "title": "Choisissez votre langue",
     "continue": "Continuer"

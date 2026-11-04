@@ -1,4 +1,7 @@
 {
+  "begin": {
+    "loading": "ガーデンを準備しています…"
+  },
   "lang": {
     "title": "言語を選択",
     "continue": "続ける"
