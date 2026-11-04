@@ -1,0 +1,250 @@
+{
+  "lang": {
+    "title": "Scegli la tua lingua",
+    "text": "Scegli la lingua da usare nell'app.",
+    "continue": "Continua"
+  },
+  "common": {
+    "back": "Indietro",
+    "toGarden": "Torna al giardino"
+  },
+  "spot": {
+    "sun": "Posto soleggiato",
+    "shade": "Posto ombreggiato"
+  },
+  "species": {
+    "rarity": "Rarità",
+    "spot": "Preferisce",
+    "bestStage": "Fase migliore",
+    "mastered": "COMPLETATA",
+    "unseen": {
+      "title": "Specie non ancora incontrata",
+      "text": "Scatta altre foto per avere la possibilità di incontrare nuove specie.",
+      "back": "Torna alla collezione"
+    }
+  },
+  "article": {
+    "info": "Su questa specie",
+    "family": "Famiglia",
+    "genus": "Genere",
+    "origin": "Origine",
+    "tips": "Consigli di cura",
+    "remember": "Da ricordare:",
+    "noTips": "Nessun consiglio di cura per questa specie al momento.",
+    "facts": "Lo sapevi?",
+    "noFacts": "Nessuna curiosità registrata per questa specie al momento.",
+    "careAlt": "Prendersi cura di {name}"
+  },
+  "ob": {
+    "skip": "Salta",
+    "next": "Avanti",
+    "start": "Inizia",
+    "1": {
+      "title": "Scatta una foto\na qualsiasi cosa",
+      "text": "Punta la fotocamera su qualsiasi cosa intorno a te. Ogni foto diventa un seme casuale pronto a germogliare."
+    },
+    "2": {
+      "title": "Semina\ne cura le piante",
+      "text": "Pianta i semi nei vasi, poi annaffiali e concimali in tempo così crescono attraverso ogni fase. Se li trascuri troppo a lungo, appassiranno."
+    },
+    "3": {
+      "title": "Colleziona\ntutto il set",
+      "text": "Ogni specie che incontri viene aggiunta alla tua collezione. Falla crescere fino alla fioritura per sbloccare descrizione, consigli di cura e curiosità."
+    },
+    "dots": "Pagine di introduzione",
+    "page": "Pagina {n}"
+  },
+  "toast": {
+    "hibernated": "{names} è andata in dormienza. Il seme è tornato nel sacchetto dei semi.",
+    "watered": "{name} annaffiata",
+    "fed": "{name} concimata",
+    "noFreePot": "Nessun vaso libero nel tuo giardino",
+    "planted": "Seme piantato",
+    "wateredPlain": "Annaffiata",
+    "fedPlain": "Concimata",
+    "seedDiscarded": "Seme scartato",
+    "uprooted": "Pianta rimessa nel sacchetto dei semi",
+    "dataCleared": "Dati eliminati",
+    "noFlash": "Questo dispositivo non ha il flash",
+    "cameraNotReady": "La fotocamera non è ancora pronta",
+    "imageTooBig": "Scegli un'immagine inferiore a 8 MB",
+    "seedError": "Qualcosa è andato storto nell'estrazione del seme. Riprova.",
+    "plantedSpecies": "{name} piantata",
+    "seedSaved": "Seme salvato nel sacchetto",
+    "notSeen": "Non ancora incontrata. Scatta altre foto!",
+    "about": "PlantIn · Anteprima UI v2",
+    "rewardSeed": "Hai ricevuto un seme di {name}",
+    "rewardNone": "Nessun video disponibile al momento, riprova più tardi"
+  },
+  "confirm": {
+    "discardSeed": "Scartare questo seme?",
+    "uproot": "Togliere {name} dal vaso? Tornerà nel sacchetto dei semi.",
+    "clearData": "Eliminare tutto il giardino e la collezione?"
+  },
+  "nav": {
+    "label": "Navigazione principale",
+    "garden": "Giardino",
+    "collection": "Collezione",
+    "scan": "Scansiona",
+    "seeds": "Semi",
+    "menu": "Menu"
+  },
+  "care": {
+    "water": "Annaffia",
+    "feed": "Concima",
+    "waterShort": "Annaffia",
+    "feedShort": "Concima",
+    "plantNow": "Pianta ora"
+  },
+  "filter": {
+    "all": "Tutte",
+    "care": "Da curare",
+    "happy": "In salute"
+  },
+  "stats": {
+    "seen": "Incontrate",
+    "mastered": "Completate"
+  },
+  "status": {
+    "happy": {
+      "label": "In salute",
+      "hint": "La pianta cresce bene."
+    },
+    "needsCare": {
+      "label": "Da curare",
+      "hint": "La pianta ha bisogno di cure."
+    },
+    "wilting": {
+      "label": "Appassita",
+      "hint": "La pianta è appassita e ha smesso di crescere. Curala e si riprenderà subito."
+    }
+  },
+  "bell": {
+    "label": "Notifiche",
+    "list": "Elenco notifiche",
+    "all": "Tutte",
+    "unread": "Non lette",
+    "viewSeeds": "Vedi semi",
+    "allRead": "Tutto letto",
+    "gardenOk": "Il tuo giardino è in salute",
+    "noUnread": "Nessuna notifica non letta.",
+    "nothing": "Niente da fare per ora. Ricontrolla tra qualche giorno.",
+    "markAll": "Segna tutto come letto"
+  },
+  "notice": {
+    "wilting": "{name} è appassita",
+    "urgent": "Urgente",
+    "daysLeft": "Restano {days} giorni",
+    "wiltingText": "La pianta ha smesso di crescere. Annaffiala o concimala per farla riprendere subito.",
+    "careTitle": "{name} ha bisogno di cure",
+    "needWater": "acqua",
+    "needFood": "nutrienti",
+    "and": " e ",
+    "careMeta": "Acqua {water}% · Nutrienti {food}%",
+    "careText": "La pianta ha bisogno di {needs}.",
+    "seedsTitle": "{n} semi in attesa di essere piantati",
+    "seedsMeta": "{n}/{slots} vasi",
+    "seedsText": "Hai dei vasi liberi. Pianta un nuovo seme."
+  },
+  "seed": {
+    "unknown": "Seme sconosciuto",
+    "discard": "Scarta seme",
+    "plant": "Pianta seme"
+  },
+  "seeds": {
+    "title": "Sacchetto dei semi",
+    "subtitle": "Semi in attesa di essere piantati",
+    "count": "{n}/{max} semi",
+    "gardenFull": "Il tuo giardino è pieno ({pots}/{slots} vasi). Rimuovi una pianta per piantare un nuovo seme.",
+    "emptyTitle": "Il sacchetto dei semi è vuoto",
+    "emptyText": "Scatta una foto per ottenere un nuovo seme.",
+    "goScan": "Scatta una foto",
+    "bagFull": "Il sacchetto è pieno. Il seme più vecchio viene sostituito quando ne ottieni uno nuovo.",
+    "watchForSeed": "Guarda un video per 1 seme extra (ne restano {n} oggi)"
+  },
+  "pot": {
+    "unknown": "Pianta sconosciuta",
+    "stage": "Fase",
+    "water": "Acqua",
+    "nutrition": "Nutrienti",
+    "dieIn": "Circa {days} giorni prima che la pianta vada in dormienza.",
+    "position": "Posizione",
+    "spotPreferred": "Questo è il posto che la pianta preferisce.",
+    "spotWrong": "Questa pianta preferisce: {spot}. Nel posto sbagliato ha sete un po' più in fretta.",
+    "nickname": "Soprannome",
+    "growth": "Crescita",
+    "growthDays": "{days} giorni di buone cure",
+    "untilNext": "Ancora {days} giorni per raggiungere {stage}. Una pianta appassita smette di crescere ma conserva i progressi.",
+    "bloomed": "La pianta è fiorita; questa specie è completata nella tua collezione.",
+    "uproot": "Rimuovi pianta, torna al sacchetto dei semi",
+    "notFoundTitle": "Pianta non trovata",
+    "notFoundText": "Questa pianta potrebbe essere andata in dormienza ed essere tornata nel sacchetto dei semi."
+  },
+  "scan": {
+    "step1": "Foto acquisita",
+    "step2": "Analisi di {n} specie",
+    "step3": "Ricerca del risultato migliore",
+    "step4": "Preparazione della scheda della pianta",
+    "photoAlt": "Foto appena scattata",
+    "flash": "Flash",
+    "seedBag": "Sacchetto dei semi",
+    "hint": "Inquadra una pianta o qualsiasi altra cosa",
+    "identifying": "Riconoscimento della pianta…",
+    "identifyingText": "Confronto di forma, colore e consistenza",
+    "askTitle": "Consenti l'accesso alla fotocamera",
+    "deniedTitle": "Fotocamera non disponibile",
+    "askText": "PlantIn ha bisogno della fotocamera per scattare foto ed estrarre un seme casuale per te. Le foto restano sul tuo dispositivo.",
+    "deniedText": "Consenti l'accesso alla fotocamera nelle impostazioni del dispositivo, oppure scegli una foto esistente.",
+    "allow": "Consenti",
+    "retry": "Riprova",
+    "pickPhoto": "Scegli dalla galleria",
+    "pickAria": "Scegli foto",
+    "snapAria": "Scatta foto",
+    "newTag": "NUOVA!",
+    "newSpecies": "Nuova specie aggiunta alla tua collezione.",
+    "knownSpecies": "Hai già incontrato questa specie. Il seme va nel tuo sacchetto.",
+    "gardenFull": "Il tuo giardino è pieno ({pots}/{slots} vasi). Tieni il seme e piantalo più tardi.",
+    "later": "Più tardi",
+    "again": "Scansiona ancora"
+  },
+  "menu": {
+    "title": "Menu",
+    "subtitle": "Il tuo account",
+    "pots": "Piante in crescita",
+    "settingsEyebrow": "IMPOSTAZIONI",
+    "options": "Opzioni",
+    "seedBag": "Sacchetto dei semi",
+    "reminders": "Promemoria di cura",
+    "on": "Attivi",
+    "off": "Disattivati",
+    "language": "Lingua",
+    "replayIntro": "Rivedi l'introduzione",
+    "about": "Info",
+    "dataEyebrow": "DATI",
+    "yourData": "I tuoi dati",
+    "clear": "Elimina tutti i dati"
+  },
+  "garden": {
+    "hello": "Ciao!",
+    "sub": "Il tuo giardino · {n}/{slots} vasi",
+    "myPlants": "Le mie piante",
+    "count": "{n} piante",
+    "emptyFilter": "Nessuna pianta in questa scheda",
+    "emptyNone": "Ancora nessuna pianta",
+    "tryOther": "Prova un'altra scheda.",
+    "firstSeed": "Scatta una foto per ottenere il tuo primo seme.",
+    "waitingSeeds": "Semi in attesa",
+    "viewAll": "Vedi tutti",
+    "scanTitle": "Scatta una foto per ottenere un seme",
+    "scanText": "Ogni foto è un seme casuale."
+  },
+  "collection": {
+    "title": "Collezione",
+    "subtitle": "Specie che hai incontrato",
+    "unseenAlt": "Specie non incontrata"
+  },
+  "ads": {
+    "label": "Annuncio",
+    "close": "Chiudi annuncio"
+  }
+}

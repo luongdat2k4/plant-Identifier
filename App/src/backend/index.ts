@@ -8,7 +8,7 @@ import { hydrateState } from '../shared/store'
 
 /** Opens catalog.db and runtime.db, loads the i18n files and fills the app state; call once before mounting the app. */
 export async function initBackend() {
-  const [{ freshRuntime }] = await Promise.all([openDatabases(), loadCatalogText(['vi', lang.value])])
+  const [{ freshRuntime }] = await Promise.all([openDatabases(), loadCatalogText(['vi', 'en', lang.value])])
   loadCatalog()
   hydrateState((freshRuntime ? readLegacyState() : null) ?? loadState())
 }

@@ -1,0 +1,250 @@
+{
+  "lang": {
+    "title": "Wybierz język",
+    "text": "Wybierz język, którego chcesz używać w aplikacji.",
+    "continue": "Dalej"
+  },
+  "common": {
+    "back": "Wstecz",
+    "toGarden": "Wróć do ogrodu"
+  },
+  "spot": {
+    "sun": "Słoneczne miejsce",
+    "shade": "Cieniste miejsce"
+  },
+  "species": {
+    "rarity": "Rzadkość",
+    "spot": "Preferuje",
+    "bestStage": "Najlepszy etap",
+    "mastered": "OPANOWANY",
+    "unseen": {
+      "title": "Gatunek jeszcze nie poznany",
+      "text": "Zrób więcej zdjęć, aby mieć szansę poznać nowe gatunki.",
+      "back": "Wróć do kolekcji"
+    }
+  },
+  "article": {
+    "info": "O tym gatunku",
+    "family": "Rodzina",
+    "genus": "Rodzaj",
+    "origin": "Pochodzenie",
+    "tips": "Porady pielęgnacyjne",
+    "remember": "Warto pamiętać:",
+    "noTips": "Brak porad pielęgnacyjnych dla tego gatunku.",
+    "facts": "Czy wiesz, że?",
+    "noFacts": "Brak ciekawostek o tym gatunku.",
+    "careAlt": "Pielęgnacja: {name}"
+  },
+  "ob": {
+    "skip": "Pomiń",
+    "next": "Dalej",
+    "start": "Zaczynamy",
+    "1": {
+      "title": "Zrób zdjęcie\nczegokolwiek",
+      "text": "Skieruj aparat na cokolwiek wokół siebie. Każde zdjęcie staje się losowym nasionkiem gotowym do kiełkowania."
+    },
+    "2": {
+      "title": "Siej nasiona\ni dbaj o rośliny",
+      "text": "Sadź nasiona w doniczkach, a potem podlewaj je i nawoź na czas, by przeszły przez wszystkie etapy wzrostu. Jeśli zaniedbasz je zbyt długo, uschną."
+    },
+    "3": {
+      "title": "Zbierz\ncały komplet",
+      "text": "Każdy poznany gatunek trafia do Twojej kolekcji. Wyhoduj go do kwitnienia, by odblokować opis, porady pielęgnacyjne i ciekawostki."
+    },
+    "dots": "Strony wprowadzenia",
+    "page": "Strona {n}"
+  },
+  "toast": {
+    "hibernated": "{names} przeszła w stan uśpienia. Nasiono wróciło do woreczka z nasionami.",
+    "watered": "Podlano: {name}",
+    "fed": "Nawieziono: {name}",
+    "noFreePot": "W ogrodzie nie ma wolnych doniczek",
+    "planted": "Nasiono zasadzone",
+    "wateredPlain": "Podlano",
+    "fedPlain": "Nawieziono",
+    "seedDiscarded": "Nasiono wyrzucone",
+    "uprooted": "Roślina wróciła do woreczka z nasionami",
+    "dataCleared": "Dane usunięte",
+    "noFlash": "To urządzenie nie ma lampy błyskowej",
+    "cameraNotReady": "Aparat nie jest jeszcze gotowy",
+    "imageTooBig": "Wybierz obraz mniejszy niż 8 MB",
+    "seedError": "Coś poszło nie tak podczas losowania nasiona. Spróbuj ponownie.",
+    "plantedSpecies": "Zasadzono: {name}",
+    "seedSaved": "Nasiono zapisane w woreczku",
+    "notSeen": "Jeszcze nie poznany. Zrób więcej zdjęć!",
+    "about": "PlantIn · Podgląd UI v2",
+    "rewardSeed": "Otrzymano nasiono: {name}",
+    "rewardNone": "Brak dostępnego filmu, spróbuj ponownie później"
+  },
+  "confirm": {
+    "discardSeed": "Wyrzucić to nasiono?",
+    "uproot": "Wyjąć roślinę {name} z doniczki? Wróci do woreczka z nasionami.",
+    "clearData": "Usunąć cały ogród i kolekcję?"
+  },
+  "nav": {
+    "label": "Główna nawigacja",
+    "garden": "Ogród",
+    "collection": "Kolekcja",
+    "scan": "Skanuj",
+    "seeds": "Nasiona",
+    "menu": "Menu"
+  },
+  "care": {
+    "water": "Podlej",
+    "feed": "Nawieź",
+    "waterShort": "Woda",
+    "feedShort": "Nawóz",
+    "plantNow": "Posadź teraz"
+  },
+  "filter": {
+    "all": "Wszystkie",
+    "care": "Wymaga opieki",
+    "happy": "Zdrowe"
+  },
+  "stats": {
+    "seen": "Poznane",
+    "mastered": "Opanowane"
+  },
+  "status": {
+    "happy": {
+      "label": "Zdrowa",
+      "hint": "Roślina dobrze rośnie."
+    },
+    "needsCare": {
+      "label": "Wymaga opieki",
+      "hint": "Roślina potrzebuje opieki."
+    },
+    "wilting": {
+      "label": "Więdnie",
+      "hint": "Roślina więdnie i przestała rosnąć. Zadbaj o nią, a od razu wróci do formy."
+    }
+  },
+  "bell": {
+    "label": "Powiadomienia",
+    "list": "Lista powiadomień",
+    "all": "Wszystkie",
+    "unread": "Nieprzeczytane",
+    "viewSeeds": "Zobacz nasiona",
+    "allRead": "Wszystko przeczytane",
+    "gardenOk": "Twój ogród jest zdrowy",
+    "noUnread": "Brak nieprzeczytanych powiadomień.",
+    "nothing": "Na razie nic do zrobienia. Zajrzyj za kilka dni.",
+    "markAll": "Oznacz wszystko jako przeczytane"
+  },
+  "notice": {
+    "wilting": "{name} więdnie",
+    "urgent": "Pilne",
+    "daysLeft": "Zostało dni: {days}",
+    "wiltingText": "Roślina przestała rosnąć. Podlej ją lub nawieź, aby od razu wróciła do formy.",
+    "careTitle": "{name} wymaga opieki",
+    "needWater": "woda",
+    "needFood": "składniki odżywcze",
+    "and": " i ",
+    "careMeta": "Woda {water}% · Składniki {food}%",
+    "careText": "Roślina potrzebuje: {needs}.",
+    "seedsTitle": "Nasiona czekające na posadzenie: {n}",
+    "seedsMeta": "{n}/{slots} doniczek",
+    "seedsText": "Masz wolne doniczki. Posadź nowe nasiono."
+  },
+  "seed": {
+    "unknown": "Nieznane nasiono",
+    "discard": "Wyrzuć nasiono",
+    "plant": "Posadź nasiono"
+  },
+  "seeds": {
+    "title": "Woreczek z nasionami",
+    "subtitle": "Nasiona czekające na posadzenie",
+    "count": "Nasiona: {n}/{max}",
+    "gardenFull": "Twój ogród jest pełny ({pots}/{slots} doniczek). Usuń roślinę, aby posadzić nowe nasiono.",
+    "emptyTitle": "Woreczek z nasionami jest pusty",
+    "emptyText": "Zrób zdjęcie, aby zdobyć nowe nasiono.",
+    "goScan": "Zrób zdjęcie",
+    "bagFull": "Woreczek jest pełny. Najstarsze nasiono zostanie zastąpione, gdy zdobędziesz nowe.",
+    "watchForSeed": "Obejrzyj film, aby dostać 1 dodatkowe nasiono (dziś zostało: {n})"
+  },
+  "pot": {
+    "unknown": "Nieznana roślina",
+    "stage": "Etap",
+    "water": "Woda",
+    "nutrition": "Składniki odżywcze",
+    "dieIn": "Zostało około {days} dni, zanim roślina przejdzie w stan uśpienia.",
+    "position": "Pozycja",
+    "spotPreferred": "To miejsce, które roślina lubi.",
+    "spotWrong": "Ta roślina preferuje: {spot}. W złym miejscu odrobinę szybciej robi się spragniona.",
+    "nickname": "Przezwisko",
+    "growth": "Wzrost",
+    "growthDays": "Dni dobrej opieki: {days}",
+    "untilNext": "Jeszcze {days} dni do etapu: {stage}. Zwiędnięta roślina wstrzymuje wzrost, ale zachowuje postęp.",
+    "bloomed": "Roślina zakwitła; ten gatunek jest opanowany w Twojej kolekcji.",
+    "uproot": "Usuń roślinę, wróć do woreczka z nasionami",
+    "notFoundTitle": "Nie znaleziono rośliny",
+    "notFoundText": "Ta roślina mogła przejść w stan uśpienia i wrócić do woreczka z nasionami."
+  },
+  "scan": {
+    "step1": "Zdjęcie zrobione",
+    "step2": "Analiza gatunków: {n}",
+    "step3": "Dopasowywanie najlepszego wyniku",
+    "step4": "Przygotowywanie profilu rośliny",
+    "photoAlt": "Zdjęcie, które właśnie zrobiono",
+    "flash": "Lampa błyskowa",
+    "seedBag": "Woreczek z nasionami",
+    "hint": "Umieść w kadrze roślinę lub cokolwiek innego",
+    "identifying": "Rozpoznawanie rośliny…",
+    "identifyingText": "Porównywanie kształtu, koloru i faktury",
+    "askTitle": "Zezwól na dostęp do aparatu",
+    "deniedTitle": "Aparat niedostępny",
+    "askText": "PlantIn potrzebuje aparatu, aby robić zdjęcia i losować dla Ciebie nasiono. Zdjęcia zostają na Twoim urządzeniu.",
+    "deniedText": "Zezwól na dostęp do aparatu w ustawieniach urządzenia lub wybierz istniejące zdjęcie.",
+    "allow": "Zezwól",
+    "retry": "Spróbuj ponownie",
+    "pickPhoto": "Wybierz z galerii",
+    "pickAria": "Wybierz zdjęcie",
+    "snapAria": "Zrób zdjęcie",
+    "newTag": "NOWY!",
+    "newSpecies": "Nowy gatunek dodany do Twojej kolekcji.",
+    "knownSpecies": "Ten gatunek już poznałeś. Nasiono trafia do Twojego woreczka.",
+    "gardenFull": "Twój ogród jest pełny ({pots}/{slots} doniczek). Zachowaj nasiono i posadź je później.",
+    "later": "Później",
+    "again": "Skanuj ponownie"
+  },
+  "menu": {
+    "title": "Menu",
+    "subtitle": "Twoje konto",
+    "pots": "Rosnące rośliny",
+    "settingsEyebrow": "USTAWIENIA",
+    "options": "Opcje",
+    "seedBag": "Woreczek z nasionami",
+    "reminders": "Przypomnienia o pielęgnacji",
+    "on": "Wł.",
+    "off": "Wył.",
+    "language": "Język",
+    "replayIntro": "Obejrzyj intro ponownie",
+    "about": "O aplikacji",
+    "dataEyebrow": "DANE",
+    "yourData": "Twoje dane",
+    "clear": "Usuń wszystkie dane"
+  },
+  "garden": {
+    "hello": "Cześć!",
+    "sub": "Twój ogród · {n}/{slots} doniczek",
+    "myPlants": "Moje rośliny",
+    "count": "Rośliny: {n}",
+    "emptyFilter": "Brak roślin w tej zakładce",
+    "emptyNone": "Brak roślin",
+    "tryOther": "Spróbuj innej zakładki.",
+    "firstSeed": "Zrób zdjęcie, aby zdobyć pierwsze nasiono.",
+    "waitingSeeds": "Nasiona czekają",
+    "viewAll": "Zobacz wszystkie",
+    "scanTitle": "Zrób zdjęcie, aby zdobyć nasiono",
+    "scanText": "Każde zdjęcie to losowe nasiono."
+  },
+  "collection": {
+    "title": "Kolekcja",
+    "subtitle": "Gatunki, które poznałeś",
+    "unseenAlt": "Niepoznany gatunek"
+  },
+  "ads": {
+    "label": "Reklama",
+    "close": "Zamknij reklamę"
+  }
+}

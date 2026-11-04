@@ -1,0 +1,250 @@
+{
+  "lang": {
+    "title": "Pilih bahasa Anda",
+    "text": "Pilih bahasa yang ingin Anda gunakan di aplikasi.",
+    "continue": "Lanjutkan"
+  },
+  "common": {
+    "back": "Kembali",
+    "toGarden": "Kembali ke kebun"
+  },
+  "spot": {
+    "sun": "Tempat cerah",
+    "shade": "Tempat teduh"
+  },
+  "species": {
+    "rarity": "Kelangkaan",
+    "spot": "Menyukai",
+    "bestStage": "Tahap terbaik",
+    "mastered": "TUNTAS",
+    "unseen": {
+      "title": "Spesies belum ditemukan",
+      "text": "Ambil lebih banyak foto untuk berkesempatan bertemu spesies baru.",
+      "back": "Kembali ke koleksi"
+    }
+  },
+  "article": {
+    "info": "Tentang spesies ini",
+    "family": "Famili",
+    "genus": "Genus",
+    "origin": "Asal",
+    "tips": "Tips perawatan",
+    "remember": "Ingat hal berikut:",
+    "noTips": "Belum ada tips perawatan untuk spesies ini.",
+    "facts": "Tahukah Anda?",
+    "noFacts": "Belum ada fakta menarik untuk spesies ini.",
+    "careAlt": "Merawat {name}"
+  },
+  "ob": {
+    "skip": "Lewati",
+    "next": "Lanjut",
+    "start": "Mulai",
+    "1": {
+      "title": "Potret apa saja\ndengan kamera",
+      "text": "Arahkan kamera ke apa pun di sekitar Anda. Setiap foto menjadi biji acak yang siap bertunas."
+    },
+    "2": {
+      "title": "Tabur biji\ndan rawat tanaman",
+      "text": "Tanam biji di pot, lalu siram dan beri pupuk tepat waktu agar tumbuh melewati setiap tahap. Jika terlalu lama diabaikan, tanaman akan layu."
+    },
+    "3": {
+      "title": "Kumpulkan\nseluruh koleksi",
+      "text": "Setiap spesies yang Anda temui masuk ke koleksi. Tumbuhkan hingga berbunga untuk membuka deskripsi, tips perawatan, dan fakta menarik."
+    },
+    "dots": "Halaman pengenalan",
+    "page": "Halaman {n}"
+  },
+  "toast": {
+    "hibernated": "{names} dorman. Bijinya kembali ke kantong biji.",
+    "watered": "{name} disiram",
+    "fed": "{name} dipupuk",
+    "noFreePot": "Tidak ada pot kosong di kebun Anda",
+    "planted": "Biji ditanam",
+    "wateredPlain": "Disiram",
+    "fedPlain": "Dipupuk",
+    "seedDiscarded": "Biji dibuang",
+    "uprooted": "Tanaman dipindahkan ke kantong biji",
+    "dataCleared": "Data dihapus",
+    "noFlash": "Perangkat ini tidak memiliki lampu kilat",
+    "cameraNotReady": "Kamera belum siap",
+    "imageTooBig": "Pilih gambar yang lebih kecil dari 8 MB",
+    "seedError": "Terjadi kesalahan saat mengacak biji. Coba lagi.",
+    "plantedSpecies": "{name} ditanam",
+    "seedSaved": "Biji disimpan di kantong",
+    "notSeen": "Belum ditemukan. Ambil lebih banyak foto!",
+    "about": "PlantIn · Pratinjau UI v2",
+    "rewardSeed": "Anda mendapat biji {name}",
+    "rewardNone": "Tidak ada video saat ini, coba lagi nanti"
+  },
+  "confirm": {
+    "discardSeed": "Buang biji ini?",
+    "uproot": "Keluarkan {name} dari pot? Tanaman akan kembali ke kantong biji.",
+    "clearData": "Hapus seluruh kebun dan koleksi Anda?"
+  },
+  "nav": {
+    "label": "Navigasi utama",
+    "garden": "Kebun",
+    "collection": "Koleksi",
+    "scan": "Pindai",
+    "seeds": "Biji",
+    "menu": "Menu"
+  },
+  "care": {
+    "water": "Siram",
+    "feed": "Pupuk",
+    "waterShort": "Siram",
+    "feedShort": "Pupuk",
+    "plantNow": "Tanam sekarang"
+  },
+  "filter": {
+    "all": "Semua",
+    "care": "Perlu dirawat",
+    "happy": "Sehat"
+  },
+  "stats": {
+    "seen": "Ditemukan",
+    "mastered": "Tuntas"
+  },
+  "status": {
+    "happy": {
+      "label": "Sehat",
+      "hint": "Tanaman tumbuh dengan baik."
+    },
+    "needsCare": {
+      "label": "Perlu dirawat",
+      "hint": "Tanaman perlu dirawat."
+    },
+    "wilting": {
+      "label": "Layu",
+      "hint": "Tanaman layu dan berhenti tumbuh. Rawat tanaman dan ia akan segera pulih."
+    }
+  },
+  "bell": {
+    "label": "Notifikasi",
+    "list": "Daftar notifikasi",
+    "all": "Semua",
+    "unread": "Belum dibaca",
+    "viewSeeds": "Lihat biji",
+    "allRead": "Semua sudah dibaca",
+    "gardenOk": "Kebun Anda sehat",
+    "noUnread": "Tidak ada notifikasi yang belum dibaca.",
+    "nothing": "Tidak ada yang perlu dilakukan sekarang. Cek lagi dalam beberapa hari.",
+    "markAll": "Tandai semua sudah dibaca"
+  },
+  "notice": {
+    "wilting": "{name} layu",
+    "urgent": "Mendesak",
+    "daysLeft": "Sisa {days} hari",
+    "wiltingText": "Tanaman berhenti tumbuh. Siram atau beri pupuk agar segera pulih.",
+    "careTitle": "{name} perlu dirawat",
+    "needWater": "air",
+    "needFood": "nutrisi",
+    "and": " dan ",
+    "careMeta": "Air {water}% · Nutrisi {food}%",
+    "careText": "Tanaman membutuhkan {needs}.",
+    "seedsTitle": "{n} biji menunggu ditanam",
+    "seedsMeta": "{n}/{slots} pot",
+    "seedsText": "Anda punya pot kosong. Tanam biji baru."
+  },
+  "seed": {
+    "unknown": "Biji tidak dikenal",
+    "discard": "Buang biji",
+    "plant": "Tanam biji"
+  },
+  "seeds": {
+    "title": "Kantong biji",
+    "subtitle": "Biji yang menunggu ditanam",
+    "count": "{n}/{max} biji",
+    "gardenFull": "Kebun Anda penuh ({pots}/{slots} pot). Cabut satu tanaman untuk menanam biji baru.",
+    "emptyTitle": "Kantong biji Anda kosong",
+    "emptyText": "Ambil foto untuk mendapatkan biji baru.",
+    "goScan": "Ambil foto",
+    "bagFull": "Kantong penuh. Biji terlama akan diganti saat Anda mendapat biji baru.",
+    "watchForSeed": "Tonton video untuk 1 biji tambahan (sisa {n} hari ini)"
+  },
+  "pot": {
+    "unknown": "Tanaman tidak dikenal",
+    "stage": "Tahap",
+    "water": "Air",
+    "nutrition": "Nutrisi",
+    "dieIn": "Sekitar {days} hari lagi sebelum tanaman dorman.",
+    "position": "Posisi",
+    "spotPreferred": "Ini tempat yang disukai tanaman.",
+    "spotWrong": "Tanaman ini lebih menyukai: {spot}. Di tempat yang salah, ia lebih cepat haus.",
+    "nickname": "Nama panggilan",
+    "growth": "Pertumbuhan",
+    "growthDays": "{days} hari perawatan baik",
+    "untilNext": "{days} hari lagi untuk mencapai {stage}. Tanaman yang layu berhenti tumbuh sementara tetapi kemajuannya tetap tersimpan.",
+    "bloomed": "Tanaman sudah berbunga; spesies ini tuntas di koleksi Anda.",
+    "uproot": "Cabut tanaman, kembali ke kantong biji",
+    "notFoundTitle": "Tanaman tidak ditemukan",
+    "notFoundText": "Tanaman ini mungkin sudah dorman dan kembali ke kantong biji."
+  },
+  "scan": {
+    "step1": "Foto diambil",
+    "step2": "Menganalisis {n} spesies",
+    "step3": "Mencocokkan hasil terbaik",
+    "step4": "Menyiapkan profil tanaman",
+    "photoAlt": "Foto yang baru diambil",
+    "flash": "Lampu kilat",
+    "seedBag": "Kantong biji",
+    "hint": "Letakkan tanaman atau benda lain di dalam bingkai",
+    "identifying": "Mengenali tanaman…",
+    "identifyingText": "Membandingkan bentuk, warna, dan tekstur",
+    "askTitle": "Izinkan akses kamera",
+    "deniedTitle": "Kamera tidak tersedia",
+    "askText": "PlantIn memerlukan kamera untuk mengambil foto dan mengacak biji untuk Anda. Foto tetap berada di perangkat Anda.",
+    "deniedText": "Izinkan akses kamera di pengaturan perangkat, atau pilih foto yang sudah ada.",
+    "allow": "Izinkan",
+    "retry": "Coba lagi",
+    "pickPhoto": "Pilih dari galeri",
+    "pickAria": "Pilih foto",
+    "snapAria": "Ambil foto",
+    "newTag": "BARU!",
+    "newSpecies": "Spesies baru ditambahkan ke koleksi Anda.",
+    "knownSpecies": "Anda pernah menemukan spesies ini. Biji masuk ke kantong Anda.",
+    "gardenFull": "Kebun Anda penuh ({pots}/{slots} pot). Simpan biji dan tanam nanti.",
+    "later": "Nanti",
+    "again": "Pindai lagi"
+  },
+  "menu": {
+    "title": "Menu",
+    "subtitle": "Akun Anda",
+    "pots": "Tanaman yang tumbuh",
+    "settingsEyebrow": "PENGATURAN",
+    "options": "Opsi",
+    "seedBag": "Kantong biji",
+    "reminders": "Pengingat perawatan",
+    "on": "Aktif",
+    "off": "Nonaktif",
+    "language": "Bahasa",
+    "replayIntro": "Putar ulang pengenalan",
+    "about": "Tentang",
+    "dataEyebrow": "DATA",
+    "yourData": "Data Anda",
+    "clear": "Hapus semua data"
+  },
+  "garden": {
+    "hello": "Halo!",
+    "sub": "Kebun Anda · {n}/{slots} pot",
+    "myPlants": "Tanaman saya",
+    "count": "{n} tanaman",
+    "emptyFilter": "Tidak ada tanaman di tab ini",
+    "emptyNone": "Belum ada tanaman",
+    "tryOther": "Coba tab lain.",
+    "firstSeed": "Ambil foto untuk mendapatkan biji pertama Anda.",
+    "waitingSeeds": "Biji menunggu",
+    "viewAll": "Lihat semua",
+    "scanTitle": "Ambil foto untuk mendapatkan biji",
+    "scanText": "Setiap foto adalah biji acak."
+  },
+  "collection": {
+    "title": "Koleksi",
+    "subtitle": "Spesies yang pernah Anda temui",
+    "unseenAlt": "Spesies belum ditemukan"
+  },
+  "ads": {
+    "label": "Iklan",
+    "close": "Tutup iklan"
+  }
+}

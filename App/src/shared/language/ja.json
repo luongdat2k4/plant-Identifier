@@ -1,0 +1,250 @@
+{
+  "lang": {
+    "title": "言語を選択",
+    "text": "アプリで使用する言語を選んでください。",
+    "continue": "続ける"
+  },
+  "common": {
+    "back": "戻る",
+    "toGarden": "庭に戻る"
+  },
+  "spot": {
+    "sun": "日なた",
+    "shade": "日かげ"
+  },
+  "species": {
+    "rarity": "レア度",
+    "spot": "好む場所",
+    "bestStage": "最高ステージ",
+    "mastered": "コンプリート",
+    "unseen": {
+      "title": "まだ出会っていない種",
+      "text": "もっと写真を撮ると、新しい種に出会えるチャンスがあります。",
+      "back": "コレクションに戻る"
+    }
+  },
+  "article": {
+    "info": "この種について",
+    "family": "科",
+    "genus": "属",
+    "origin": "原産地",
+    "tips": "お世話のコツ",
+    "remember": "覚えておきたいこと:",
+    "noTips": "この種のお世話のコツはまだありません。",
+    "facts": "豆知識",
+    "noFacts": "この種の豆知識はまだ記録されていません。",
+    "careAlt": "{name}のお世話"
+  },
+  "ob": {
+    "skip": "スキップ",
+    "next": "次へ",
+    "start": "はじめる",
+    "1": {
+      "title": "何でも\n写真に撮ろう",
+      "text": "身の回りのものにカメラを向けてみましょう。写真1枚ごとに、芽吹きを待つランダムな種が手に入ります。"
+    },
+    "2": {
+      "title": "種をまいて\n植物を育てよう",
+      "text": "種を鉢に植えて、時間どおりに水と肥料をあげれば、すべての成長ステージを経て育ちます。放っておきすぎると枯れてしまいます。"
+    },
+    "3": {
+      "title": "全種を\nコンプリート",
+      "text": "出会った種はすべてコレクションに追加されます。花が咲くまで育てると、説明・お世話のコツ・豆知識が解放されます。"
+    },
+    "dots": "イントロのページ",
+    "page": "{n}ページ"
+  },
+  "toast": {
+    "hibernated": "{names}が休眠しました。種は種袋に戻りました。",
+    "watered": "{name}に水をあげました",
+    "fed": "{name}に肥料をあげました",
+    "noFreePot": "庭に空いている鉢がありません",
+    "planted": "種を植えました",
+    "wateredPlain": "水をあげました",
+    "fedPlain": "肥料をあげました",
+    "seedDiscarded": "種を捨てました",
+    "uprooted": "植物を種袋に戻しました",
+    "dataCleared": "データを削除しました",
+    "noFlash": "この端末にはフラッシュがありません",
+    "cameraNotReady": "カメラの準備ができていません",
+    "imageTooBig": "8MB未満の画像を選んでください",
+    "seedError": "種の抽選中に問題が発生しました。もう一度お試しください。",
+    "plantedSpecies": "{name}を植えました",
+    "seedSaved": "種を種袋に保存しました",
+    "notSeen": "まだ出会っていません。もっと写真を撮りましょう!",
+    "about": "PlantIn · UIプレビュー v2",
+    "rewardSeed": "{name}の種を受け取りました",
+    "rewardNone": "現在利用できる動画がありません。後でもう一度お試しください"
+  },
+  "confirm": {
+    "discardSeed": "この種を捨てますか?",
+    "uproot": "{name}を鉢から取り出しますか?種袋に戻ります。",
+    "clearData": "庭とコレクションをすべて削除しますか?"
+  },
+  "nav": {
+    "label": "メインナビゲーション",
+    "garden": "庭",
+    "collection": "コレクション",
+    "scan": "スキャン",
+    "seeds": "種",
+    "menu": "メニュー"
+  },
+  "care": {
+    "water": "水やり",
+    "feed": "肥料",
+    "waterShort": "水やり",
+    "feedShort": "肥料",
+    "plantNow": "今すぐ植える"
+  },
+  "filter": {
+    "all": "すべて",
+    "care": "お世話が必要",
+    "happy": "元気"
+  },
+  "stats": {
+    "seen": "出会った",
+    "mastered": "コンプリート"
+  },
+  "status": {
+    "happy": {
+      "label": "元気",
+      "hint": "植物は順調に育っています。"
+    },
+    "needsCare": {
+      "label": "お世話が必要",
+      "hint": "植物にお世話が必要です。"
+    },
+    "wilting": {
+      "label": "しおれ中",
+      "hint": "植物がしおれて成長が止まっています。お世話をするとすぐに回復します。"
+    }
+  },
+  "bell": {
+    "label": "通知",
+    "list": "通知リスト",
+    "all": "すべて",
+    "unread": "未読",
+    "viewSeeds": "種を見る",
+    "allRead": "すべて確認済み",
+    "gardenOk": "庭は元気です",
+    "noUnread": "未読の通知はありません。",
+    "nothing": "今のところやることはありません。数日後にまた確認してください。",
+    "markAll": "すべて既読にする"
+  },
+  "notice": {
+    "wilting": "{name}がしおれています",
+    "urgent": "緊急",
+    "daysLeft": "あと{days}日",
+    "wiltingText": "植物の成長が止まりました。水か肥料をあげるとすぐに回復します。",
+    "careTitle": "{name}にお世話が必要です",
+    "needWater": "水",
+    "needFood": "栄養",
+    "and": "と",
+    "careMeta": "水分 {water}% · 栄養 {food}%",
+    "careText": "植物に{needs}が必要です。",
+    "seedsTitle": "植えるのを待つ種が{n}個あります",
+    "seedsMeta": "{n}/{slots}鉢",
+    "seedsText": "空いている鉢があります。新しい種を植えましょう。"
+  },
+  "seed": {
+    "unknown": "不明な種",
+    "discard": "種を捨てる",
+    "plant": "種を植える"
+  },
+  "seeds": {
+    "title": "種袋",
+    "subtitle": "植えるのを待つ種",
+    "count": "{n}/{max}個",
+    "gardenFull": "庭がいっぱいです({pots}/{slots}鉢)。新しい種を植えるには植物を1つ取り除いてください。",
+    "emptyTitle": "種袋は空です",
+    "emptyText": "写真を撮って新しい種を手に入れましょう。",
+    "goScan": "写真を撮りに行く",
+    "bagFull": "袋がいっぱいです。新しい種を手に入れると、いちばん古い種が入れ替わります。",
+    "watchForSeed": "動画を見て種をもう1個もらう(本日あと{n}回)"
+  },
+  "pot": {
+    "unknown": "不明な植物",
+    "stage": "ステージ",
+    "water": "水分",
+    "nutrition": "栄養",
+    "dieIn": "植物が休眠するまで約{days}日です。",
+    "position": "置き場所",
+    "spotPreferred": "ここは植物が好む場所です。",
+    "spotWrong": "この植物の好みは「{spot}」です。合わない場所では少し早くのどが渇きます。",
+    "nickname": "ニックネーム",
+    "growth": "成長",
+    "growthDays": "良いお世話{days}日分",
+    "untilNext": "{stage}まであと{days}日。しおれた植物は成長が止まりますが、進行状況は保たれます。",
+    "bloomed": "植物が開花しました。この種はコレクションでコンプリートです。",
+    "uproot": "植物を取り除いて種袋に戻す",
+    "notFoundTitle": "植物が見つかりません",
+    "notFoundText": "この植物は休眠して種袋に戻った可能性があります。"
+  },
+  "scan": {
+    "step1": "写真を撮影しました",
+    "step2": "{n}種を解析中",
+    "step3": "最適な結果を照合中",
+    "step4": "植物プロフィールを準備中",
+    "photoAlt": "撮影したばかりの写真",
+    "flash": "フラッシュ",
+    "seedBag": "種袋",
+    "hint": "植物やその他のものを枠に入れてください",
+    "identifying": "植物を識別中…",
+    "identifyingText": "形・色・質感を比較しています",
+    "askTitle": "カメラへのアクセスを許可",
+    "deniedTitle": "カメラを利用できません",
+    "askText": "PlantInは写真を撮ってランダムな種を抽選するためにカメラを使います。写真は端末内に保存されます。",
+    "deniedText": "端末の設定でカメラへのアクセスを許可するか、既存の写真を選んでください。",
+    "allow": "許可",
+    "retry": "もう一度",
+    "pickPhoto": "ギャラリーから選ぶ",
+    "pickAria": "写真を選択",
+    "snapAria": "写真を撮る",
+    "newTag": "NEW!",
+    "newSpecies": "新しい種がコレクションに追加されました。",
+    "knownSpecies": "この種には出会ったことがあります。種は種袋に入ります。",
+    "gardenFull": "庭がいっぱいです({pots}/{slots}鉢)。種を取っておいて、あとで植えましょう。",
+    "later": "あとで",
+    "again": "もう一度スキャン"
+  },
+  "menu": {
+    "title": "メニュー",
+    "subtitle": "あなたのアカウント",
+    "pots": "育成中の植物",
+    "settingsEyebrow": "設定",
+    "options": "オプション",
+    "seedBag": "種袋",
+    "reminders": "お世話のリマインダー",
+    "on": "オン",
+    "off": "オフ",
+    "language": "言語",
+    "replayIntro": "イントロをもう一度見る",
+    "about": "このアプリについて",
+    "dataEyebrow": "データ",
+    "yourData": "あなたのデータ",
+    "clear": "すべてのデータを削除"
+  },
+  "garden": {
+    "hello": "こんにちは!",
+    "sub": "あなたの庭 · {n}/{slots}鉢",
+    "myPlants": "マイ植物",
+    "count": "{n}本",
+    "emptyFilter": "このタブには植物がありません",
+    "emptyNone": "まだ植物がありません",
+    "tryOther": "別のタブを試してください。",
+    "firstSeed": "写真を撮って最初の種を手に入れましょう。",
+    "waitingSeeds": "待機中の種",
+    "viewAll": "すべて見る",
+    "scanTitle": "写真を撮って種を手に入れる",
+    "scanText": "写真1枚ごとにランダムな種が手に入ります。"
+  },
+  "collection": {
+    "title": "コレクション",
+    "subtitle": "出会った種",
+    "unseenAlt": "未発見の種"
+  },
+  "ads": {
+    "label": "広告",
+    "close": "広告を閉じる"
+  }
+}

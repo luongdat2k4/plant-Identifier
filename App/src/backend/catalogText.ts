@@ -3,7 +3,7 @@ import { lang, type Lang } from '../shared/i18n'
 
 // Catalog text lives in public/i18n/<lang>.json (staged by the Toolkit from the `language` table) as nested objects, e.g.
 // { "species": { "snake_plant": { "title": "...", "tip": { "1": "..." } } } }.
-// Lookup order: chosen language -> vi -> (required text only) the key itself.
+// Lookup order: chosen language -> en -> vi -> (required text only) the key itself. Languages without catalog text yet fall back to English.
 const base = import.meta.env.BASE_URL
 type CatalogStrings = { [segment: string]: string | CatalogStrings }
 const strings = shallowRef<Partial<Record<Lang, CatalogStrings>>>({})
@@ -42,7 +42,7 @@ function lookup(source: CatalogStrings | undefined, key: string): string | undef
 
 /** Text that may legitimately be missing (origin, tips, notes): undefined when no language has it. Reading `lang` keeps templates reactive. */
 export function textOrUndefined(key: string): string | undefined {
-  return lookup(strings.value[lang.value], key) ?? lookup(strings.value.vi, key)
+  return lookup(strings.value[lang.value], key) ?? lookup(strings.value.en, key) ?? lookup(strings.value.vi, key)
 }
 
 /** Text every entity must have (title): falls back to the key so a gap is visible instead of blank. */

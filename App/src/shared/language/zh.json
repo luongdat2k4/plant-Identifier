@@ -1,0 +1,250 @@
+{
+  "lang": {
+    "title": "选择语言",
+    "text": "选择你想在应用中使用的语言。",
+    "continue": "继续"
+  },
+  "common": {
+    "back": "返回",
+    "toGarden": "返回花园"
+  },
+  "spot": {
+    "sun": "向阳处",
+    "shade": "阴凉处"
+  },
+  "species": {
+    "rarity": "稀有度",
+    "spot": "偏好",
+    "bestStage": "最佳阶段",
+    "mastered": "已精通",
+    "unseen": {
+      "title": "尚未遇见该物种",
+      "text": "多拍几张照片，就有机会遇见新物种。",
+      "back": "返回图鉴"
+    }
+  },
+  "article": {
+    "info": "关于该物种",
+    "family": "科",
+    "genus": "属",
+    "origin": "原产地",
+    "tips": "养护小贴士",
+    "remember": "请牢记：",
+    "noTips": "该物种暂无养护小贴士。",
+    "facts": "你知道吗？",
+    "noFacts": "该物种暂无趣味知识。",
+    "careAlt": "养护{name}"
+  },
+  "ob": {
+    "skip": "跳过",
+    "next": "下一步",
+    "start": "开始",
+    "1": {
+      "title": "随手拍下\n身边的一切",
+      "text": "把镜头对准身边的任何东西。每张照片都会变成一颗随机种子，等待发芽。"
+    },
+    "2": {
+      "title": "播种\n并照料植物",
+      "text": "把种子种进花盆，按时浇水和施肥，让它们顺利走过每个阶段。长时间不管，它们就会枯萎。"
+    },
+    "3": {
+      "title": "集齐\n整套图鉴",
+      "text": "你遇见的每个物种都会加入图鉴。把它养到开花，即可解锁介绍、养护小贴士和趣味知识。"
+    },
+    "dots": "介绍页",
+    "page": "第 {n} 页"
+  },
+  "toast": {
+    "hibernated": "{names}进入了休眠。种子已回到你的种子袋。",
+    "watered": "已给{name}浇水",
+    "fed": "已给{name}施肥",
+    "noFreePot": "你的花园里没有空花盆了",
+    "planted": "种子已种下",
+    "wateredPlain": "已浇水",
+    "fedPlain": "已施肥",
+    "seedDiscarded": "种子已丢弃",
+    "uprooted": "植物已放回种子袋",
+    "dataCleared": "数据已清除",
+    "noFlash": "此设备没有闪光灯",
+    "cameraNotReady": "相机尚未就绪",
+    "imageTooBig": "请选择小于 8 MB 的图片",
+    "seedError": "抽取种子时出错了，请重试。",
+    "plantedSpecies": "已种下{name}",
+    "seedSaved": "种子已存入种子袋",
+    "notSeen": "尚未遇见，多拍几张照片吧！",
+    "about": "PlantIn · 界面预览 v2",
+    "rewardSeed": "你获得了一颗{name}种子",
+    "rewardNone": "暂时没有可用的视频，请稍后再试"
+  },
+  "confirm": {
+    "discardSeed": "丢弃这颗种子吗？",
+    "uproot": "把{name}从花盆里取出来吗？它会回到你的种子袋。",
+    "clearData": "删除你的整个花园和图鉴吗？"
+  },
+  "nav": {
+    "label": "主导航",
+    "garden": "花园",
+    "collection": "图鉴",
+    "scan": "扫描",
+    "seeds": "种子",
+    "menu": "菜单"
+  },
+  "care": {
+    "water": "浇水",
+    "feed": "施肥",
+    "waterShort": "浇水",
+    "feedShort": "施肥",
+    "plantNow": "立即种植"
+  },
+  "filter": {
+    "all": "全部",
+    "care": "需要照料",
+    "happy": "健康"
+  },
+  "stats": {
+    "seen": "已遇见",
+    "mastered": "已精通"
+  },
+  "status": {
+    "happy": {
+      "label": "健康",
+      "hint": "植物生长良好。"
+    },
+    "needsCare": {
+      "label": "需要照料",
+      "hint": "植物需要照料。"
+    },
+    "wilting": {
+      "label": "枯萎中",
+      "hint": "植物正在枯萎并已停止生长。照料它，它会立刻恢复。"
+    }
+  },
+  "bell": {
+    "label": "通知",
+    "list": "通知列表",
+    "all": "全部",
+    "unread": "未读",
+    "viewSeeds": "查看种子",
+    "allRead": "已全部处理",
+    "gardenOk": "你的花园很健康",
+    "noUnread": "没有未读通知。",
+    "nothing": "目前无事可做，过几天再来看看。",
+    "markAll": "全部标为已读"
+  },
+  "notice": {
+    "wilting": "{name}正在枯萎",
+    "urgent": "紧急",
+    "daysLeft": "还剩 {days} 天",
+    "wiltingText": "植物已停止生长。浇水或施肥即可立刻恢复。",
+    "careTitle": "{name}需要照料",
+    "needWater": "水分",
+    "needFood": "养分",
+    "and": "和",
+    "careMeta": "水分 {water}% · 养分 {food}%",
+    "careText": "植物需要{needs}。",
+    "seedsTitle": "有 {n} 颗种子等待种植",
+    "seedsMeta": "{n}/{slots} 个花盆",
+    "seedsText": "你还有空花盆，种下一颗新种子吧。"
+  },
+  "seed": {
+    "unknown": "未知种子",
+    "discard": "丢弃种子",
+    "plant": "种下种子"
+  },
+  "seeds": {
+    "title": "种子袋",
+    "subtitle": "等待种植的种子",
+    "count": "{n}/{max} 颗种子",
+    "gardenFull": "你的花园已满（{pots}/{slots} 个花盆）。移除一株植物后才能种下新种子。",
+    "emptyTitle": "你的种子袋是空的",
+    "emptyText": "拍张照片来获得新种子。",
+    "goScan": "去拍照",
+    "bagFull": "种子袋已满。获得新种子时，最旧的种子会被替换。",
+    "watchForSeed": "观看视频可额外获得 1 颗种子（今天还剩 {n} 次）"
+  },
+  "pot": {
+    "unknown": "未知植物",
+    "stage": "阶段",
+    "water": "水分",
+    "nutrition": "养分",
+    "dieIn": "大约还有 {days} 天，植物将进入休眠。",
+    "position": "位置",
+    "spotPreferred": "这是植物喜欢的位置。",
+    "spotWrong": "这株植物偏好{spot}；放错位置会更快口渴。",
+    "nickname": "昵称",
+    "growth": "生长",
+    "growthDays": "已悉心照料 {days} 天",
+    "untilNext": "还需 {days} 天到达{stage}。枯萎的植物会暂停生长，但会保留进度。",
+    "bloomed": "植物已开花；该物种已在你的图鉴中精通。",
+    "uproot": "移除植物，放回种子袋",
+    "notFoundTitle": "未找到植物",
+    "notFoundText": "这株植物可能已进入休眠，回到了你的种子袋。"
+  },
+  "scan": {
+    "step1": "照片已拍摄",
+    "step2": "正在分析 {n} 个物种",
+    "step3": "正在匹配最佳结果",
+    "step4": "正在准备植物资料",
+    "photoAlt": "刚拍的照片",
+    "flash": "闪光灯",
+    "seedBag": "种子袋",
+    "hint": "把植物或任何东西放入取景框",
+    "identifying": "正在识别植物…",
+    "identifyingText": "正在比对形状、颜色和纹理",
+    "askTitle": "允许访问相机",
+    "deniedTitle": "相机不可用",
+    "askText": "PlantIn 需要使用相机来拍照并为你随机抽取种子。照片只保存在你的设备上。",
+    "deniedText": "请在设备设置中允许访问相机，或选择一张已有照片。",
+    "allow": "允许",
+    "retry": "重试",
+    "pickPhoto": "从相册选择",
+    "pickAria": "选择照片",
+    "snapAria": "拍照",
+    "newTag": "新！",
+    "newSpecies": "新物种已加入你的图鉴。",
+    "knownSpecies": "你之前遇见过该物种。种子将放入你的种子袋。",
+    "gardenFull": "你的花园已满（{pots}/{slots} 个花盆）。先保留种子，之后再种。",
+    "later": "稍后",
+    "again": "重新扫描"
+  },
+  "menu": {
+    "title": "菜单",
+    "subtitle": "你的账户",
+    "pots": "正在生长的植物",
+    "settingsEyebrow": "设置",
+    "options": "选项",
+    "seedBag": "种子袋",
+    "reminders": "养护提醒",
+    "on": "开",
+    "off": "关",
+    "language": "语言",
+    "replayIntro": "重看介绍",
+    "about": "关于",
+    "dataEyebrow": "数据",
+    "yourData": "你的数据",
+    "clear": "删除所有数据"
+  },
+  "garden": {
+    "hello": "你好！",
+    "sub": "你的花园 · {n}/{slots} 个花盆",
+    "myPlants": "我的植物",
+    "count": "{n} 株植物",
+    "emptyFilter": "此标签下没有植物",
+    "emptyNone": "还没有植物",
+    "tryOther": "试试其他标签。",
+    "firstSeed": "拍张照片，获得你的第一颗种子。",
+    "waitingSeeds": "等待中的种子",
+    "viewAll": "查看全部",
+    "scanTitle": "拍照获得种子",
+    "scanText": "每张照片都是一颗随机种子。"
+  },
+  "collection": {
+    "title": "图鉴",
+    "subtitle": "你遇见过的物种",
+    "unseenAlt": "未遇见的物种"
+  },
+  "ads": {
+    "label": "广告",
+    "close": "关闭广告"
+  }
+}

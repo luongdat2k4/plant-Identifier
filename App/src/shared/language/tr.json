@@ -1,0 +1,250 @@
+{
+  "lang": {
+    "title": "Dilini seç",
+    "text": "Uygulamada kullanmak istediğin dili seç.",
+    "continue": "Devam"
+  },
+  "common": {
+    "back": "Geri",
+    "toGarden": "Bahçeye dön"
+  },
+  "spot": {
+    "sun": "Güneşli yer",
+    "shade": "Gölgeli yer"
+  },
+  "species": {
+    "rarity": "Nadirlik",
+    "spot": "Tercih eder",
+    "bestStage": "En iyi aşama",
+    "mastered": "USTALAŞILDI",
+    "unseen": {
+      "title": "Tür henüz keşfedilmedi",
+      "text": "Yeni türlerle karşılaşmak için daha fazla fotoğraf çek.",
+      "back": "Koleksiyona dön"
+    }
+  },
+  "article": {
+    "info": "Bu tür hakkında",
+    "family": "Familya",
+    "genus": "Cins",
+    "origin": "Köken",
+    "tips": "Bakım ipuçları",
+    "remember": "Şunları aklında tut:",
+    "noTips": "Bu tür için henüz bakım ipucu yok.",
+    "facts": "Biliyor muydun?",
+    "noFacts": "Bu tür için henüz eğlenceli bilgi eklenmedi.",
+    "careAlt": "{name} bakımı"
+  },
+  "ob": {
+    "skip": "Atla",
+    "next": "İleri",
+    "start": "Başla",
+    "1": {
+      "title": "Her şeyin\nfotoğrafını çek",
+      "text": "Kamerayı çevrendeki her şeye tut. Her fotoğraf, filizlenmeyi bekleyen rastgele bir tohuma dönüşür."
+    },
+    "2": {
+      "title": "Tohum ek,\nbitkilere bak",
+      "text": "Tohumları saksılara ek, zamanında sulayıp gübrele ki her aşamada büyüsünler. Çok uzun süre ihmal edersen solarlar."
+    },
+    "3": {
+      "title": "Tüm seti\ntopla",
+      "text": "Karşılaştığın her tür koleksiyonuna eklenir. Açana kadar büyüt; açıklamasını, bakım ipuçlarını ve eğlenceli bilgileri aç."
+    },
+    "dots": "Tanıtım sayfaları",
+    "page": "Sayfa {n}"
+  },
+  "toast": {
+    "hibernated": "{names} uyku moduna girdi. Tohum tohum çantana geri döndü.",
+    "watered": "{name} sulandı",
+    "fed": "{name} gübrelendi",
+    "noFreePot": "Bahçende boş saksı kalmadı",
+    "planted": "Tohum ekildi",
+    "wateredPlain": "Sulandı",
+    "fedPlain": "Gübrelendi",
+    "seedDiscarded": "Tohum atıldı",
+    "uprooted": "Bitki tohum çantasına geri taşındı",
+    "dataCleared": "Veriler silindi",
+    "noFlash": "Bu cihazda flaş yok",
+    "cameraNotReady": "Kamera henüz hazır değil",
+    "imageTooBig": "8 MB'tan küçük bir görsel seç",
+    "seedError": "Tohum çekilirken bir sorun oluştu. Tekrar dene.",
+    "plantedSpecies": "{name} ekildi",
+    "seedSaved": "Tohum çantana kaydedildi",
+    "notSeen": "Henüz keşfedilmedi. Daha fazla fotoğraf çek!",
+    "about": "PlantIn · Arayüz önizlemesi v2",
+    "rewardSeed": "{name} tohumu aldın",
+    "rewardNone": "Şu an video yok, daha sonra tekrar dene"
+  },
+  "confirm": {
+    "discardSeed": "Bu tohum atılsın mı?",
+    "uproot": "{name} saksıdan çıkarılsın mı? Tohum çantana geri dönecek.",
+    "clearData": "Tüm bahçen ve koleksiyonun silinsin mi?"
+  },
+  "nav": {
+    "label": "Ana gezinme",
+    "garden": "Bahçe",
+    "collection": "Koleksiyon",
+    "scan": "Tara",
+    "seeds": "Tohumlar",
+    "menu": "Menü"
+  },
+  "care": {
+    "water": "Sula",
+    "feed": "Gübrele",
+    "waterShort": "Sula",
+    "feedShort": "Besle",
+    "plantNow": "Şimdi ek"
+  },
+  "filter": {
+    "all": "Tümü",
+    "care": "Bakım gerek",
+    "happy": "Sağlıklı"
+  },
+  "stats": {
+    "seen": "Keşfedilen",
+    "mastered": "Ustalaşılan"
+  },
+  "status": {
+    "happy": {
+      "label": "Sağlıklı",
+      "hint": "Bitki iyi büyüyor."
+    },
+    "needsCare": {
+      "label": "Bakım gerek",
+      "hint": "Bitkinin bakıma ihtiyacı var."
+    },
+    "wilting": {
+      "label": "Soluyor",
+      "hint": "Bitki soluyor ve büyümesi durdu. Bakım yaparsan hemen toparlanır."
+    }
+  },
+  "bell": {
+    "label": "Bildirimler",
+    "list": "Bildirim listesi",
+    "all": "Tümü",
+    "unread": "Okunmamış",
+    "viewSeeds": "Tohumlara bak",
+    "allRead": "Her şey tamam",
+    "gardenOk": "Bahçen sağlıklı",
+    "noUnread": "Okunmamış bildirim yok.",
+    "nothing": "Şu an yapılacak bir şey yok. Birkaç gün sonra tekrar bak.",
+    "markAll": "Tümünü okundu işaretle"
+  },
+  "notice": {
+    "wilting": "{name} soluyor",
+    "urgent": "Acil",
+    "daysLeft": "{days} gün kaldı",
+    "wiltingText": "Bitkinin büyümesi durdu. Hemen toparlanması için sula ya da gübrele.",
+    "careTitle": "{name} bakım istiyor",
+    "needWater": "su",
+    "needFood": "besin",
+    "and": " ve ",
+    "careMeta": "Su %{water} · Besin %{food}",
+    "careText": "Bitkinin şuna ihtiyacı var: {needs}.",
+    "seedsTitle": "Ekilmeyi bekleyen {n} tohum",
+    "seedsMeta": "{n}/{slots} saksı",
+    "seedsText": "Boş saksıların var. Yeni bir tohum ek."
+  },
+  "seed": {
+    "unknown": "Bilinmeyen tohum",
+    "discard": "Tohumu at",
+    "plant": "Tohumu ek"
+  },
+  "seeds": {
+    "title": "Tohum çantası",
+    "subtitle": "Ekilmeyi bekleyen tohumlar",
+    "count": "{n}/{max} tohum",
+    "gardenFull": "Bahçen dolu ({pots}/{slots} saksı). Yeni tohum ekmek için bir bitkiyi çıkar.",
+    "emptyTitle": "Tohum çantan boş",
+    "emptyText": "Yeni bir tohum için fotoğraf çek.",
+    "goScan": "Fotoğraf çekmeye git",
+    "bagFull": "Çanta dolu. Yeni tohum aldığında en eski tohum değiştirilir.",
+    "watchForSeed": "1 ekstra tohum için video izle (bugün {n} hak kaldı)"
+  },
+  "pot": {
+    "unknown": "Bilinmeyen bitki",
+    "stage": "Aşama",
+    "water": "Su",
+    "nutrition": "Besin",
+    "dieIn": "Bitkinin uyku moduna girmesine yaklaşık {days} gün kaldı.",
+    "position": "Konum",
+    "spotPreferred": "Bitkinin sevdiği yer burası.",
+    "spotWrong": "Bu bitki şunu tercih eder: {spot}. Yanlış yerde biraz daha çabuk susar.",
+    "nickname": "Takma ad",
+    "growth": "Büyüme",
+    "growthDays": "{days} gün iyi bakım",
+    "untilNext": "{stage} aşamasına {days} gün daha var. Solmuş bitki büyümeyi durdurur ama ilerlemesini korur.",
+    "bloomed": "Bitki çiçek açtı; bu tür koleksiyonunda ustalaşıldı.",
+    "uproot": "Bitkiyi çıkar, tohum çantasına dön",
+    "notFoundTitle": "Bitki bulunamadı",
+    "notFoundText": "Bu bitki uyku moduna girip tohum çantana dönmüş olabilir."
+  },
+  "scan": {
+    "step1": "Fotoğraf çekildi",
+    "step2": "{n} tür analiz ediliyor",
+    "step3": "En iyi sonuç eşleştiriliyor",
+    "step4": "Bitki profili hazırlanıyor",
+    "photoAlt": "Az önce çekilen fotoğraf",
+    "flash": "Flaş",
+    "seedBag": "Tohum çantası",
+    "hint": "Çerçeveye bir bitki ya da başka bir şey koy",
+    "identifying": "Bitki tanımlanıyor…",
+    "identifyingText": "Şekil, renk ve doku karşılaştırılıyor",
+    "askTitle": "Kamera erişimine izin ver",
+    "deniedTitle": "Kamera kullanılamıyor",
+    "askText": "PlantIn, fotoğraf çekmek ve sana rastgele bir tohum vermek için kameraya ihtiyaç duyar. Fotoğraflar cihazında kalır.",
+    "deniedText": "Cihaz ayarlarından kamera erişimine izin ver ya da mevcut bir fotoğraf seç.",
+    "allow": "İzin ver",
+    "retry": "Tekrar dene",
+    "pickPhoto": "Galeriden seç",
+    "pickAria": "Fotoğraf seç",
+    "snapAria": "Fotoğraf çek",
+    "newTag": "YENİ!",
+    "newSpecies": "Koleksiyonuna yeni bir tür eklendi.",
+    "knownSpecies": "Bu türle daha önce karşılaştın. Tohum çantana gider.",
+    "gardenFull": "Bahçen dolu ({pots}/{slots} saksı). Tohumu sakla, sonra ek.",
+    "later": "Sonra",
+    "again": "Tekrar tara"
+  },
+  "menu": {
+    "title": "Menü",
+    "subtitle": "Hesabın",
+    "pots": "Büyüyen bitkiler",
+    "settingsEyebrow": "AYARLAR",
+    "options": "Seçenekler",
+    "seedBag": "Tohum çantası",
+    "reminders": "Bakım hatırlatıcıları",
+    "on": "Açık",
+    "off": "Kapalı",
+    "language": "Dil",
+    "replayIntro": "Tanıtımı tekrar izle",
+    "about": "Hakkında",
+    "dataEyebrow": "VERİ",
+    "yourData": "Verilerin",
+    "clear": "Tüm verileri sil"
+  },
+  "garden": {
+    "hello": "Merhaba!",
+    "sub": "Bahçen · {n}/{slots} saksı",
+    "myPlants": "Bitkilerim",
+    "count": "{n} bitki",
+    "emptyFilter": "Bu sekmede bitki yok",
+    "emptyNone": "Henüz bitki yok",
+    "tryOther": "Başka bir sekmeyi dene.",
+    "firstSeed": "İlk tohumunu almak için fotoğraf çek.",
+    "waitingSeeds": "Bekleyen tohumlar",
+    "viewAll": "Tümünü gör",
+    "scanTitle": "Tohum için fotoğraf çek",
+    "scanText": "Her fotoğraf rastgele bir tohumdur."
+  },
+  "collection": {
+    "title": "Koleksiyon",
+    "subtitle": "Karşılaştığın türler",
+    "unseenAlt": "Keşfedilmemiş tür"
+  },
+  "ads": {
+    "label": "Reklam",
+    "close": "Reklamı kapat"
+  }
+}

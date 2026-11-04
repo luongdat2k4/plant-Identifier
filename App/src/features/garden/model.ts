@@ -43,9 +43,9 @@ export function statusOf(pot: Pot): Status {
   return lowest < HAPPY_AT ? 'needs-care' : 'happy'
 }
 export const STATUS_META: Record<Status, { readonly label: string; readonly hint: string }> = {
-  happy: { get label() { return t('status.happy') }, get hint() { return t('status.happy.hint') } },
-  'needs-care': { get label() { return t('status.needsCare') }, get hint() { return t('status.needsCare.hint') } },
-  wilting: { get label() { return t('status.wilting') }, get hint() { return t('status.wilting.hint') } },
+  happy: { get label() { return t('status.happy.label') }, get hint() { return t('status.happy.hint') } },
+  'needs-care': { get label() { return t('status.needsCare.label') }, get hint() { return t('status.needsCare.hint') } },
+  wilting: { get label() { return t('status.wilting.label') }, get hint() { return t('status.wilting.hint') } },
 }
 export function neededCare(pot: Pot): 'water' | 'nutrition' { return pot.water <= pot.nutrition ? 'water' : 'nutrition' }
 export function stageOf(pot: Pot): Stage { return stageForDays(pot.growthDays) }

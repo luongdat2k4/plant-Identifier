@@ -1,0 +1,250 @@
+{
+  "lang": {
+    "title": "Sprache wählen",
+    "text": "Wähle die Sprache, die du in der App verwenden möchtest.",
+    "continue": "Weiter"
+  },
+  "common": {
+    "back": "Zurück",
+    "toGarden": "Zurück zum Garten"
+  },
+  "spot": {
+    "sun": "Sonniger Platz",
+    "shade": "Schattiger Platz"
+  },
+  "species": {
+    "rarity": "Seltenheit",
+    "spot": "Bevorzugt",
+    "bestStage": "Beste Phase",
+    "mastered": "MEISTERT",
+    "unseen": {
+      "title": "Art noch nicht entdeckt",
+      "text": "Mach mehr Fotos, um neue Arten zu entdecken.",
+      "back": "Zurück zur Sammlung"
+    }
+  },
+  "article": {
+    "info": "Über diese Art",
+    "family": "Familie",
+    "genus": "Gattung",
+    "origin": "Herkunft",
+    "tips": "Pflegetipps",
+    "remember": "Merke dir:",
+    "noTips": "Für diese Art gibt es noch keine Pflegetipps.",
+    "facts": "Schon gewusst?",
+    "noFacts": "Für diese Art sind noch keine Fun Facts hinterlegt.",
+    "careAlt": "{name} pflegen"
+  },
+  "ob": {
+    "skip": "Überspringen",
+    "next": "Weiter",
+    "start": "Los geht's",
+    "1": {
+      "title": "Fotografiere\nirgendwas",
+      "text": "Richte die Kamera auf alles um dich herum. Jedes Foto wird zu einem zufälligen Samen, der darauf wartet zu keimen."
+    },
+    "2": {
+      "title": "Samen säen\nund Pflanzen pflegen",
+      "text": "Pflanze Samen in Töpfe, gieße und dünge sie rechtzeitig, damit sie jede Phase durchlaufen. Vernachlässigst du sie zu lange, welken sie."
+    },
+    "3": {
+      "title": "Sammle\ndas ganze Set",
+      "text": "Jede Art, die du entdeckst, kommt in deine Sammlung. Zieh sie bis zur Blüte, um Beschreibung, Pflegetipps und Fun Facts freizuschalten."
+    },
+    "dots": "Intro-Seiten",
+    "page": "Seite {n}"
+  },
+  "toast": {
+    "hibernated": "{names} ist in den Ruhezustand gegangen. Der Samen ist zurück in deinem Samenbeutel.",
+    "watered": "{name} gegossen",
+    "fed": "{name} gedüngt",
+    "noFreePot": "Keine freien Töpfe mehr in deinem Garten",
+    "planted": "Samen gepflanzt",
+    "wateredPlain": "Gegossen",
+    "fedPlain": "Gedüngt",
+    "seedDiscarded": "Samen verworfen",
+    "uprooted": "Pflanze zurück in den Samenbeutel gelegt",
+    "dataCleared": "Daten gelöscht",
+    "noFlash": "Dieses Gerät hat keinen Blitz",
+    "cameraNotReady": "Die Kamera ist noch nicht bereit",
+    "imageTooBig": "Wähle ein Bild unter 8 MB",
+    "seedError": "Beim Auswürfeln des Samens ist etwas schiefgelaufen. Versuch es erneut.",
+    "plantedSpecies": "{name} gepflanzt",
+    "seedSaved": "Samen in deinem Beutel gespeichert",
+    "notSeen": "Noch nicht entdeckt. Mach mehr Fotos!",
+    "about": "PlantIn · UI-Vorschau v2",
+    "rewardSeed": "Du hast einen Samen von {name} erhalten",
+    "rewardNone": "Gerade ist kein Video verfügbar, versuch es später erneut"
+  },
+  "confirm": {
+    "discardSeed": "Diesen Samen verwerfen?",
+    "uproot": "{name} aus dem Topf nehmen? Sie kommt zurück in deinen Samenbeutel.",
+    "clearData": "Deinen ganzen Garten und deine Sammlung löschen?"
+  },
+  "nav": {
+    "label": "Hauptnavigation",
+    "garden": "Garten",
+    "collection": "Sammlung",
+    "scan": "Scannen",
+    "seeds": "Samen",
+    "menu": "Menü"
+  },
+  "care": {
+    "water": "Gießen",
+    "feed": "Düngen",
+    "waterShort": "Gießen",
+    "feedShort": "Düngen",
+    "plantNow": "Jetzt pflanzen"
+  },
+  "filter": {
+    "all": "Alle",
+    "care": "Braucht Pflege",
+    "happy": "Gesund"
+  },
+  "stats": {
+    "seen": "Entdeckt",
+    "mastered": "Gemeistert"
+  },
+  "status": {
+    "happy": {
+      "label": "Gesund",
+      "hint": "Die Pflanze wächst gut."
+    },
+    "needsCare": {
+      "label": "Braucht Pflege",
+      "hint": "Die Pflanze braucht Pflege."
+    },
+    "wilting": {
+      "label": "Welkend",
+      "hint": "Die Pflanze welkt und wächst nicht mehr. Pflege sie, dann erholt sie sich sofort."
+    }
+  },
+  "bell": {
+    "label": "Benachrichtigungen",
+    "list": "Benachrichtigungsliste",
+    "all": "Alle",
+    "unread": "Ungelesen",
+    "viewSeeds": "Samen ansehen",
+    "allRead": "Alles erledigt",
+    "gardenOk": "Dein Garten ist gesund",
+    "noUnread": "Keine ungelesenen Benachrichtigungen.",
+    "nothing": "Gerade gibt es nichts zu tun. Schau in ein paar Tagen wieder vorbei.",
+    "markAll": "Alle als gelesen markieren"
+  },
+  "notice": {
+    "wilting": "{name} welkt",
+    "urgent": "Dringend",
+    "daysLeft": "Noch {days} Tage",
+    "wiltingText": "Die Pflanze wächst nicht mehr. Gieße oder dünge sie, damit sie sich sofort erholt.",
+    "careTitle": "{name} braucht Pflege",
+    "needWater": "Wasser",
+    "needFood": "Nährstoffe",
+    "and": " und ",
+    "careMeta": "Wasser {water} % · Nährstoffe {food} %",
+    "careText": "Die Pflanze braucht {needs}.",
+    "seedsTitle": "{n} Samen warten aufs Pflanzen",
+    "seedsMeta": "{n}/{slots} Töpfe",
+    "seedsText": "Du hast freie Töpfe. Pflanze einen neuen Samen."
+  },
+  "seed": {
+    "unknown": "Unbekannter Samen",
+    "discard": "Samen verwerfen",
+    "plant": "Samen pflanzen"
+  },
+  "seeds": {
+    "title": "Samenbeutel",
+    "subtitle": "Samen, die aufs Pflanzen warten",
+    "count": "{n}/{max} Samen",
+    "gardenFull": "Dein Garten ist voll ({pots}/{slots} Töpfe). Entferne eine Pflanze, um einen neuen Samen zu pflanzen.",
+    "emptyTitle": "Dein Samenbeutel ist leer",
+    "emptyText": "Mach ein Foto, um einen neuen Samen zu bekommen.",
+    "goScan": "Foto machen",
+    "bagFull": "Der Beutel ist voll. Der älteste Samen wird ersetzt, wenn du einen neuen bekommst.",
+    "watchForSeed": "Sieh dir ein Video für 1 Extra-Samen an (noch {n} heute)"
+  },
+  "pot": {
+    "unknown": "Unbekannte Pflanze",
+    "stage": "Phase",
+    "water": "Wasser",
+    "nutrition": "Nährstoffe",
+    "dieIn": "Noch etwa {days} Tage, bis die Pflanze in den Ruhezustand geht.",
+    "position": "Standort",
+    "spotPreferred": "Das ist der Platz, den die Pflanze mag.",
+    "spotWrong": "Diese Pflanze bevorzugt einen {spot}; am falschen Platz wird sie etwas schneller durstig.",
+    "nickname": "Spitzname",
+    "growth": "Wachstum",
+    "growthDays": "{days} Tage gute Pflege",
+    "untilNext": "Noch {days} Tage bis {stage}. Eine welke Pflanze pausiert das Wachstum, behält aber ihren Fortschritt.",
+    "bloomed": "Die Pflanze hat geblüht; diese Art ist in deiner Sammlung gemeistert.",
+    "uproot": "Pflanze entfernen, zurück in den Samenbeutel",
+    "notFoundTitle": "Pflanze nicht gefunden",
+    "notFoundText": "Diese Pflanze ist vielleicht in den Ruhezustand gegangen und in deinen Samenbeutel zurückgekehrt."
+  },
+  "scan": {
+    "step1": "Foto aufgenommen",
+    "step2": "{n} Arten werden analysiert",
+    "step3": "Bestes Ergebnis wird zugeordnet",
+    "step4": "Pflanzenprofil wird vorbereitet",
+    "photoAlt": "Gerade aufgenommenes Foto",
+    "flash": "Blitz",
+    "seedBag": "Samenbeutel",
+    "hint": "Platziere eine Pflanze oder etwas anderes im Bild",
+    "identifying": "Pflanze wird erkannt…",
+    "identifyingText": "Form, Farbe und Textur werden verglichen",
+    "askTitle": "Kamerazugriff erlauben",
+    "deniedTitle": "Kamera nicht verfügbar",
+    "askText": "PlantIn braucht die Kamera, um Fotos zu machen und einen zufälligen Samen für dich auszuwürfeln. Fotos bleiben auf deinem Gerät.",
+    "deniedText": "Erlaube den Kamerazugriff in den Geräteeinstellungen oder wähle ein vorhandenes Foto.",
+    "allow": "Erlauben",
+    "retry": "Erneut versuchen",
+    "pickPhoto": "Aus Galerie wählen",
+    "pickAria": "Foto auswählen",
+    "snapAria": "Foto aufnehmen",
+    "newTag": "NEU!",
+    "newSpecies": "Neue Art zu deiner Sammlung hinzugefügt.",
+    "knownSpecies": "Diese Art kennst du schon. Der Samen kommt in deinen Beutel.",
+    "gardenFull": "Dein Garten ist voll ({pots}/{slots} Töpfe). Behalte den Samen und pflanze ihn später.",
+    "later": "Später",
+    "again": "Erneut scannen"
+  },
+  "menu": {
+    "title": "Menü",
+    "subtitle": "Dein Konto",
+    "pots": "Wachsende Pflanzen",
+    "settingsEyebrow": "EINSTELLUNGEN",
+    "options": "Optionen",
+    "seedBag": "Samenbeutel",
+    "reminders": "Pflegeerinnerungen",
+    "on": "An",
+    "off": "Aus",
+    "language": "Sprache",
+    "replayIntro": "Intro wiederholen",
+    "about": "Info",
+    "dataEyebrow": "DATEN",
+    "yourData": "Deine Daten",
+    "clear": "Alle Daten löschen"
+  },
+  "garden": {
+    "hello": "Hallo!",
+    "sub": "Dein Garten · {n}/{slots} Töpfe",
+    "myPlants": "Meine Pflanzen",
+    "count": "{n} Pflanzen",
+    "emptyFilter": "Keine Pflanzen in diesem Tab",
+    "emptyNone": "Noch keine Pflanzen",
+    "tryOther": "Probier einen anderen Tab.",
+    "firstSeed": "Mach ein Foto, um deinen ersten Samen zu bekommen.",
+    "waitingSeeds": "Wartende Samen",
+    "viewAll": "Alle ansehen",
+    "scanTitle": "Mach ein Foto für einen Samen",
+    "scanText": "Jedes Foto ist ein zufälliger Samen."
+  },
+  "collection": {
+    "title": "Sammlung",
+    "subtitle": "Arten, die du entdeckt hast",
+    "unseenAlt": "Unentdeckte Art"
+  },
+  "ads": {
+    "label": "Anzeige",
+    "close": "Anzeige schließen"
+  }
+}

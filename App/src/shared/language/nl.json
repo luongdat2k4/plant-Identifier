@@ -1,0 +1,250 @@
+{
+  "lang": {
+    "title": "Kies je taal",
+    "text": "Kies de taal die je in de app wilt gebruiken.",
+    "continue": "Doorgaan"
+  },
+  "common": {
+    "back": "Terug",
+    "toGarden": "Terug naar tuin"
+  },
+  "spot": {
+    "sun": "Zonnige plek",
+    "shade": "Schaduwrijke plek"
+  },
+  "species": {
+    "rarity": "Zeldzaamheid",
+    "spot": "Voorkeur",
+    "bestStage": "Beste stadium",
+    "mastered": "VOLTOOID",
+    "unseen": {
+      "title": "Soort nog niet ontmoet",
+      "text": "Maak meer foto's voor de kans om nieuwe soorten te ontmoeten.",
+      "back": "Terug naar collectie"
+    }
+  },
+  "article": {
+    "info": "Over deze soort",
+    "family": "Familie",
+    "genus": "Geslacht",
+    "origin": "Herkomst",
+    "tips": "Verzorgingstips",
+    "remember": "Onthoud dit:",
+    "noTips": "Nog geen verzorgingstips voor deze soort.",
+    "facts": "Wist je dat?",
+    "noFacts": "Nog geen leuke weetjes vastgelegd voor deze soort.",
+    "careAlt": "{name} verzorgen"
+  },
+  "ob": {
+    "skip": "Overslaan",
+    "next": "Volgende",
+    "start": "Aan de slag",
+    "1": {
+      "title": "Maak een foto\nvan alles",
+      "text": "Richt de camera op alles om je heen. Elke foto wordt een willekeurig zaadje dat klaarstaat om te ontkiemen."
+    },
+    "2": {
+      "title": "Zaai zaadjes\nen verzorg planten",
+      "text": "Plant zaadjes in potten en geef ze op tijd water en voeding, zodat ze door elk stadium groeien. Verwaarloos je ze te lang, dan verwelken ze."
+    },
+    "3": {
+      "title": "Verzamel\nde hele set",
+      "text": "Elke soort die je ontmoet komt in je collectie. Kweek hem tot hij bloeit om de beschrijving, verzorgingstips en weetjes te ontgrendelen."
+    },
+    "dots": "Intropagina's",
+    "page": "Pagina {n}"
+  },
+  "toast": {
+    "hibernated": "{names} is in rust gegaan. Het zaadje zit weer in je zaadzakje.",
+    "watered": "{name} water gegeven",
+    "fed": "{name} bemest",
+    "noFreePot": "Geen vrije potten meer in je tuin",
+    "planted": "Zaadje geplant",
+    "wateredPlain": "Water gegeven",
+    "fedPlain": "Bemest",
+    "seedDiscarded": "Zaadje weggegooid",
+    "uprooted": "Plant terug in het zaadzakje gezet",
+    "dataCleared": "Gegevens gewist",
+    "noFlash": "Dit apparaat heeft geen flitser",
+    "cameraNotReady": "De camera is nog niet klaar",
+    "imageTooBig": "Kies een afbeelding kleiner dan 8 MB",
+    "seedError": "Er ging iets mis bij het trekken van een zaadje. Probeer het opnieuw.",
+    "plantedSpecies": "{name} geplant",
+    "seedSaved": "Zaadje opgeslagen in je zakje",
+    "notSeen": "Nog niet ontmoet. Maak meer foto's!",
+    "about": "PlantIn · UI-voorbeeld v2",
+    "rewardSeed": "Je hebt een {name}-zaadje ontvangen",
+    "rewardNone": "Momenteel geen video beschikbaar, probeer het later opnieuw"
+  },
+  "confirm": {
+    "discardSeed": "Dit zaadje weggooien?",
+    "uproot": "{name} uit de pot halen? Het gaat terug naar je zaadzakje.",
+    "clearData": "Je hele tuin en collectie verwijderen?"
+  },
+  "nav": {
+    "label": "Hoofdnavigatie",
+    "garden": "Tuin",
+    "collection": "Collectie",
+    "scan": "Scannen",
+    "seeds": "Zaden",
+    "menu": "Menu"
+  },
+  "care": {
+    "water": "Water geven",
+    "feed": "Bemesten",
+    "waterShort": "Water",
+    "feedShort": "Voeding",
+    "plantNow": "Nu planten"
+  },
+  "filter": {
+    "all": "Alles",
+    "care": "Heeft zorg nodig",
+    "happy": "Gezond"
+  },
+  "stats": {
+    "seen": "Ontmoet",
+    "mastered": "Voltooid"
+  },
+  "status": {
+    "happy": {
+      "label": "Gezond",
+      "hint": "De plant groeit goed."
+    },
+    "needsCare": {
+      "label": "Heeft zorg nodig",
+      "hint": "De plant heeft zorg nodig."
+    },
+    "wilting": {
+      "label": "Verwelkt",
+      "hint": "De plant verwelkt en groeit niet meer. Verzorg hem en hij herstelt meteen."
+    }
+  },
+  "bell": {
+    "label": "Meldingen",
+    "list": "Lijst met meldingen",
+    "all": "Alle",
+    "unread": "Ongelezen",
+    "viewSeeds": "Zaden bekijken",
+    "allRead": "Helemaal bij",
+    "gardenOk": "Je tuin is gezond",
+    "noUnread": "Geen ongelezen meldingen.",
+    "nothing": "Op dit moment niets te doen. Kom over een paar dagen terug.",
+    "markAll": "Alles als gelezen markeren"
+  },
+  "notice": {
+    "wilting": "{name} verwelkt",
+    "urgent": "Dringend",
+    "daysLeft": "Nog {days} dagen",
+    "wiltingText": "De plant groeit niet meer. Geef water of voeding om meteen te herstellen.",
+    "careTitle": "{name} heeft zorg nodig",
+    "needWater": "water",
+    "needFood": "voeding",
+    "and": " en ",
+    "careMeta": "Water {water}% · Voeding {food}%",
+    "careText": "De plant heeft {needs} nodig.",
+    "seedsTitle": "{n} zaadjes wachten om geplant te worden",
+    "seedsMeta": "{n}/{slots} potten",
+    "seedsText": "Je hebt vrije potten. Plant een nieuw zaadje."
+  },
+  "seed": {
+    "unknown": "Onbekend zaadje",
+    "discard": "Zaadje weggooien",
+    "plant": "Zaadje planten"
+  },
+  "seeds": {
+    "title": "Zaadzakje",
+    "subtitle": "Zaadjes die wachten om geplant te worden",
+    "count": "{n}/{max} zaadjes",
+    "gardenFull": "Je tuin is vol ({pots}/{slots} potten). Verwijder een plant om een nieuw zaadje te planten.",
+    "emptyTitle": "Je zaadzakje is leeg",
+    "emptyText": "Maak een foto om een nieuw zaadje te krijgen.",
+    "goScan": "Maak een foto",
+    "bagFull": "Het zakje is vol. Het oudste zaadje wordt vervangen als je een nieuw krijgt.",
+    "watchForSeed": "Bekijk een video voor 1 extra zaadje (nog {n} vandaag)"
+  },
+  "pot": {
+    "unknown": "Onbekende plant",
+    "stage": "Stadium",
+    "water": "Water",
+    "nutrition": "Voeding",
+    "dieIn": "Nog ongeveer {days} dagen voordat de plant in rust gaat.",
+    "position": "Plek",
+    "spotPreferred": "Dit is de plek die de plant fijn vindt.",
+    "spotWrong": "Deze plant heeft voorkeur voor: {spot}. Op de verkeerde plek krijgt hij iets sneller dorst.",
+    "nickname": "Bijnaam",
+    "growth": "Groei",
+    "growthDays": "{days} dagen goede zorg",
+    "untilNext": "Nog {days} dagen tot {stage}. Een verwelkte plant stopt met groeien, maar behoudt zijn voortgang.",
+    "bloomed": "De plant bloeit; deze soort is voltooid in je collectie.",
+    "uproot": "Plant verwijderen, terug naar zaadzakje",
+    "notFoundTitle": "Plant niet gevonden",
+    "notFoundText": "Deze plant is misschien in rust gegaan en terug naar je zaadzakje gegaan."
+  },
+  "scan": {
+    "step1": "Foto gemaakt",
+    "step2": "{n} soorten analyseren",
+    "step3": "Beste resultaat zoeken",
+    "step4": "Plantprofiel voorbereiden",
+    "photoAlt": "Zojuist gemaakte foto",
+    "flash": "Flits",
+    "seedBag": "Zaadzakje",
+    "hint": "Zet een plant of iets anders in beeld",
+    "identifying": "Plant herkennen…",
+    "identifyingText": "Vorm, kleur en structuur vergelijken",
+    "askTitle": "Cameratoegang toestaan",
+    "deniedTitle": "Camera niet beschikbaar",
+    "askText": "PlantIn heeft de camera nodig om foto's te maken en een willekeurig zaadje voor je te trekken. Foto's blijven op je apparaat.",
+    "deniedText": "Sta cameratoegang toe in de instellingen van je apparaat of kies een bestaande foto.",
+    "allow": "Toestaan",
+    "retry": "Opnieuw proberen",
+    "pickPhoto": "Kies uit galerij",
+    "pickAria": "Foto kiezen",
+    "snapAria": "Foto maken",
+    "newTag": "NIEUW!",
+    "newSpecies": "Nieuwe soort toegevoegd aan je collectie.",
+    "knownSpecies": "Je hebt deze soort al eens ontmoet. Het zaadje gaat in je zakje.",
+    "gardenFull": "Je tuin is vol ({pots}/{slots} potten). Bewaar het zaadje en plant het later.",
+    "later": "Later",
+    "again": "Opnieuw scannen"
+  },
+  "menu": {
+    "title": "Menu",
+    "subtitle": "Je account",
+    "pots": "Groeiende planten",
+    "settingsEyebrow": "INSTELLINGEN",
+    "options": "Opties",
+    "seedBag": "Zaadzakje",
+    "reminders": "Verzorgingsherinneringen",
+    "on": "Aan",
+    "off": "Uit",
+    "language": "Taal",
+    "replayIntro": "Intro opnieuw bekijken",
+    "about": "Over",
+    "dataEyebrow": "GEGEVENS",
+    "yourData": "Jouw gegevens",
+    "clear": "Alle gegevens verwijderen"
+  },
+  "garden": {
+    "hello": "Hallo!",
+    "sub": "Je tuin · {n}/{slots} potten",
+    "myPlants": "Mijn planten",
+    "count": "{n} planten",
+    "emptyFilter": "Geen planten in dit tabblad",
+    "emptyNone": "Nog geen planten",
+    "tryOther": "Probeer een ander tabblad.",
+    "firstSeed": "Maak een foto om je eerste zaadje te krijgen.",
+    "waitingSeeds": "Wachtende zaadjes",
+    "viewAll": "Alles bekijken",
+    "scanTitle": "Maak een foto voor een zaadje",
+    "scanText": "Elke foto is een willekeurig zaadje."
+  },
+  "collection": {
+    "title": "Collectie",
+    "subtitle": "Soorten die je hebt ontmoet",
+    "unseenAlt": "Onbekende soort"
+  },
+  "ads": {
+    "label": "Advertentie",
+    "close": "Advertentie sluiten"
+  }
+}

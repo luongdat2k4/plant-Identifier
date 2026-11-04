@@ -1,21 +1,58 @@
 import { ref } from 'vue'
 import vi from './language/vi.json'
-import en from './language/en.json'
 
-export type Lang = 'vi' | 'en'
-export const LANGUAGES: { code: Lang; name: string; native: string }[] = [
+export const LANGUAGES = [
   { code: 'vi', name: 'Vietnamese', native: 'Tiếng Việt' },
   { code: 'en', name: 'English', native: 'English' },
-]
+  { code: 'ar', name: 'Arabic', native: 'العربية' },
+  { code: 'bn', name: 'Bengali', native: 'বাংলা' },
+  { code: 'de', name: 'German', native: 'Deutsch' },
+  { code: 'es', name: 'Spanish', native: 'Español' },
+  { code: 'fr', name: 'French', native: 'Français' },
+  { code: 'hi', name: 'Hindi', native: 'हिन्दी' },
+  { code: 'id', name: 'Indonesian', native: 'Bahasa Indonesia' },
+  { code: 'it', name: 'Italian', native: 'Italiano' },
+  { code: 'ja', name: 'Japanese', native: '日本語' },
+  { code: 'ko', name: 'Korean', native: '한국어' },
+  { code: 'nl', name: 'Dutch', native: 'Nederlands' },
+  { code: 'pl', name: 'Polish', native: 'Polski' },
+  { code: 'pt', name: 'Portuguese', native: 'Português' },
+  { code: 'ru', name: 'Russian', native: 'Русский' },
+  { code: 'th', name: 'Thai', native: 'ไทย' },
+  { code: 'tr', name: 'Turkish', native: 'Türkçe' },
+  { code: 'ur', name: 'Urdu', native: 'اردو' },
+  { code: 'zh', name: 'Chinese', native: '中文' },
+] as const
+export type Lang = (typeof LANGUAGES)[number]['code']
+
+// Right-to-left scripts flip the page direction.
+const RTL: readonly Lang[] = ['ar', 'ur']
 
 const langKey = 'plantin-lang'
 const chosenKey = 'plantin-lang-chosen'
 
-// UI text lives in ./language/<code>.json (not the catalog text, which comes from the database i18n files).
+// UI text lives in ./language/<code>.json as nested objects (not the catalog text, which comes from the database i18n files).
 // Add a language by dropping a new JSON file here and listing it in LANGUAGES.
-const messages = { vi, en } as const
+type Tree = { [segment: string]: string | Tree }
+type Paths<T> = { [K in keyof T & string]: T[K] extends string ? K : `${K}.${Paths<T[K]>}` }[keyof T & string]
+export type MessageKey = Paths<typeof vi>
 
-export type MessageKey = keyof typeof vi
+/** Flattens `{ nav: { garden: "..." } }` into `{ "nav.garden": "..." }` once, so lookups stay a single map read. */
+function flatten(tree: Tree, prefix = '', out: Record<string, string> = {}): Record<string, string> {
+  for (const [key, value] of Object.entries(tree)) {
+    if (typeof value === 'string') out[prefix + key] = value
+    else flatten(value, `${prefix}${key}.`, out)
+  }
+  return out
+}
+const files = import.meta.glob<Tree>('./language/*.json', { eager: true, import: 'default' })
+const messages: Partial<Record<Lang, Record<string, string>>> = {}
+for (const { code } of LANGUAGES) {
+  const file = files[`./language/${code}.json`]
+  if (file) messages[code] = flatten(file)
+}
+
+const isLang = (code: string | null | undefined): code is Lang => LANGUAGES.some(item => item.code === code)
 
 function read(key: string): string | null {
   try { return localStorage.getItem(key) } catch { return null }
@@ -25,23 +62,29 @@ function write(key: string, value: string) {
 }
 function initialLang(): Lang {
   const saved = read(langKey)
-  if (saved === 'vi' || saved === 'en') return saved
-  return (typeof navigator !== 'undefined' && navigator.language?.toLowerCase().startsWith('vi')) ? 'vi' : 'en'
+  if (isLang(saved)) return saved
+  const device = typeof navigator !== 'undefined' ? navigator.language?.toLowerCase().slice(0, 2) : undefined
+  return isLang(device) ? device : 'en'
+}
+function applyDocument(code: Lang) {
+  if (typeof document === 'undefined') return
+  document.documentElement.lang = code
+  document.documentElement.dir = RTL.includes(code) ? 'rtl' : 'ltr'
 }
 
 export const lang = ref<Lang>(initialLang())
-if (typeof document !== 'undefined') document.documentElement.lang = lang.value
+applyDocument(lang.value)
 
 /** Looks up a UI string; `{name}`-style placeholders are filled from `params`. */
 export function t(key: MessageKey, params?: Record<string, string>): string {
-  const text: string = (messages[lang.value] as Record<string, string>)[key] ?? (vi as Record<string, string>)[key] ?? key
+  const text: string = messages[lang.value]?.[key] ?? messages.en?.[key] ?? messages.vi?.[key] ?? key
   return params ? text.replace(/\{(\w+)\}/g, (_, name: string) => params[name] ?? '') : text
 }
 /** Switches the language right away (so the chooser can preview it) and remembers it. */
 export function setLang(code: Lang) {
   lang.value = code
   write(langKey, code)
-  if (typeof document !== 'undefined') document.documentElement.lang = code
+  applyDocument(code)
 }
 /** True once the user has confirmed a language on the first-run screen. Storage failures count as chosen so the app is never blocked. */
 export function hasChosenLanguage(): boolean {
@@ -50,4 +93,4 @@ export function hasChosenLanguage(): boolean {
 export function markLanguageChosen() { write(chosenKey, '1') }
 
 /** Locale for dates and numbers that matches the chosen language. */
-export const dateLocale = () => (lang.value === 'vi' ? 'vi-VN' : 'en-US')
+export const dateLocale = () => (lang.value === 'vi' ? 'vi-VN' : lang.value === 'en' ? 'en-US' : lang.value)

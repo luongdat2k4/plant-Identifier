@@ -1,0 +1,250 @@
+{
+  "lang": {
+    "title": "Choisissez votre langue",
+    "text": "Choisissez la langue à utiliser dans l'application.",
+    "continue": "Continuer"
+  },
+  "common": {
+    "back": "Retour",
+    "toGarden": "Retour au jardin"
+  },
+  "spot": {
+    "sun": "Endroit ensoleillé",
+    "shade": "Endroit ombragé"
+  },
+  "species": {
+    "rarity": "Rareté",
+    "spot": "Préfère",
+    "bestStage": "Meilleur stade",
+    "mastered": "MAÎTRISÉE",
+    "unseen": {
+      "title": "Espèce pas encore rencontrée",
+      "text": "Prenez plus de photos pour avoir une chance de rencontrer de nouvelles espèces.",
+      "back": "Retour à la collection"
+    }
+  },
+  "article": {
+    "info": "À propos de cette espèce",
+    "family": "Famille",
+    "genus": "Genre",
+    "origin": "Origine",
+    "tips": "Conseils d'entretien",
+    "remember": "À retenir :",
+    "noTips": "Pas encore de conseils d'entretien pour cette espèce.",
+    "facts": "Le saviez-vous ?",
+    "noFacts": "Aucune anecdote enregistrée pour cette espèce pour l'instant.",
+    "careAlt": "Prendre soin de {name}"
+  },
+  "ob": {
+    "skip": "Passer",
+    "next": "Suivant",
+    "start": "Commencer",
+    "1": {
+      "title": "Prenez en photo\nn'importe quoi",
+      "text": "Pointez la caméra vers ce qui vous entoure. Chaque photo devient une graine aléatoire prête à germer."
+    },
+    "2": {
+      "title": "Semez des graines\net prenez soin des plantes",
+      "text": "Plantez les graines en pot, puis arrosez-les et nourrissez-les à temps pour qu'elles traversent tous les stades. Si vous les négligez trop longtemps, elles se faneront."
+    },
+    "3": {
+      "title": "Collectionnez\ntout le set",
+      "text": "Chaque espèce rencontrée est ajoutée à votre collection. Faites-la fleurir pour débloquer sa description, ses conseils d'entretien et ses anecdotes."
+    },
+    "dots": "Pages d'introduction",
+    "page": "Page {n}"
+  },
+  "toast": {
+    "hibernated": "{names} est en dormance. La graine est revenue dans votre sac de graines.",
+    "watered": "{name} arrosé",
+    "fed": "{name} fertilisé",
+    "noFreePot": "Plus aucun pot libre dans votre jardin",
+    "planted": "Graine plantée",
+    "wateredPlain": "Arrosé",
+    "fedPlain": "Fertilisé",
+    "seedDiscarded": "Graine jetée",
+    "uprooted": "La plante est retournée dans le sac de graines",
+    "dataCleared": "Données effacées",
+    "noFlash": "Cet appareil n'a pas de flash",
+    "cameraNotReady": "La caméra n'est pas encore prête",
+    "imageTooBig": "Choisissez une image de moins de 8 Mo",
+    "seedError": "Un problème est survenu lors du tirage de la graine. Réessayez.",
+    "plantedSpecies": "{name} planté",
+    "seedSaved": "Graine enregistrée dans votre sac",
+    "notSeen": "Pas encore rencontrée. Prenez plus de photos !",
+    "about": "PlantIn · Aperçu de l'interface v2",
+    "rewardSeed": "Vous avez reçu une graine de {name}",
+    "rewardNone": "Aucune vidéo disponible pour le moment, réessayez plus tard"
+  },
+  "confirm": {
+    "discardSeed": "Jeter cette graine ?",
+    "uproot": "Retirer {name} du pot ? Elle retournera dans votre sac de graines.",
+    "clearData": "Supprimer tout votre jardin et votre collection ?"
+  },
+  "nav": {
+    "label": "Navigation principale",
+    "garden": "Jardin",
+    "collection": "Collection",
+    "scan": "Scanner",
+    "seeds": "Graines",
+    "menu": "Menu"
+  },
+  "care": {
+    "water": "Arroser",
+    "feed": "Fertiliser",
+    "waterShort": "Arroser",
+    "feedShort": "Nourrir",
+    "plantNow": "Planter maintenant"
+  },
+  "filter": {
+    "all": "Toutes",
+    "care": "À soigner",
+    "happy": "En forme"
+  },
+  "stats": {
+    "seen": "Rencontrées",
+    "mastered": "Maîtrisées"
+  },
+  "status": {
+    "happy": {
+      "label": "En forme",
+      "hint": "La plante pousse bien."
+    },
+    "needsCare": {
+      "label": "À soigner",
+      "hint": "La plante a besoin de soins."
+    },
+    "wilting": {
+      "label": "Fanée",
+      "hint": "La plante est fanée et ne pousse plus. Prenez-en soin et elle se rétablira aussitôt."
+    }
+  },
+  "bell": {
+    "label": "Notifications",
+    "list": "Liste des notifications",
+    "all": "Toutes",
+    "unread": "Non lues",
+    "viewSeeds": "Voir les graines",
+    "allRead": "Tout est à jour",
+    "gardenOk": "Votre jardin est en pleine forme",
+    "noUnread": "Aucune notification non lue.",
+    "nothing": "Rien à faire pour le moment. Revenez dans quelques jours.",
+    "markAll": "Tout marquer comme lu"
+  },
+  "notice": {
+    "wilting": "{name} se fane",
+    "urgent": "Urgent",
+    "daysLeft": "Encore {days} jours",
+    "wiltingText": "La plante a cessé de pousser. Arrosez-la ou fertilisez-la pour qu'elle se rétablisse aussitôt.",
+    "careTitle": "{name} a besoin de soins",
+    "needWater": "d'eau",
+    "needFood": "de nutriments",
+    "and": " et ",
+    "careMeta": "Eau {water} % · Nutrition {food} %",
+    "careText": "La plante a besoin {needs}.",
+    "seedsTitle": "{n} graines en attente d'être plantées",
+    "seedsMeta": "{n}/{slots} pots",
+    "seedsText": "Vous avez des pots libres. Plantez une nouvelle graine."
+  },
+  "seed": {
+    "unknown": "Graine inconnue",
+    "discard": "Jeter la graine",
+    "plant": "Planter la graine"
+  },
+  "seeds": {
+    "title": "Sac de graines",
+    "subtitle": "Graines en attente d'être plantées",
+    "count": "{n}/{max} graines",
+    "gardenFull": "Votre jardin est plein ({pots}/{slots} pots). Retirez une plante pour planter une nouvelle graine.",
+    "emptyTitle": "Votre sac de graines est vide",
+    "emptyText": "Prenez une photo pour obtenir une nouvelle graine.",
+    "goScan": "Aller prendre une photo",
+    "bagFull": "Le sac est plein. La plus ancienne graine est remplacée quand vous en obtenez une nouvelle.",
+    "watchForSeed": "Regardez une vidéo pour 1 graine en plus ({n} restantes aujourd'hui)"
+  },
+  "pot": {
+    "unknown": "Plante inconnue",
+    "stage": "Stade",
+    "water": "Eau",
+    "nutrition": "Nutrition",
+    "dieIn": "Environ {days} jours avant que la plante ne passe en dormance.",
+    "position": "Emplacement",
+    "spotPreferred": "C'est l'endroit que la plante apprécie.",
+    "spotWrong": "Cette plante préfère un {spot} ; au mauvais endroit, elle a soif un peu plus vite.",
+    "nickname": "Surnom",
+    "growth": "Croissance",
+    "growthDays": "{days} jours de bons soins",
+    "untilNext": "Encore {days} jours pour atteindre {stage}. Une plante fanée met sa croissance en pause mais garde sa progression.",
+    "bloomed": "La plante a fleuri ; cette espèce est maîtrisée dans votre collection.",
+    "uproot": "Retirer la plante, retour au sac de graines",
+    "notFoundTitle": "Plante introuvable",
+    "notFoundText": "Cette plante est peut-être entrée en dormance et retournée dans votre sac de graines."
+  },
+  "scan": {
+    "step1": "Photo capturée",
+    "step2": "Analyse de {n} espèces",
+    "step3": "Recherche du meilleur résultat",
+    "step4": "Préparation de la fiche de la plante",
+    "photoAlt": "Photo à l'instant",
+    "flash": "Flash",
+    "seedBag": "Sac de graines",
+    "hint": "Placez une plante ou autre chose dans le cadre",
+    "identifying": "Identification de la plante…",
+    "identifyingText": "Comparaison de la forme, de la couleur et de la texture",
+    "askTitle": "Autoriser l'accès à la caméra",
+    "deniedTitle": "Caméra indisponible",
+    "askText": "PlantIn a besoin de la caméra pour prendre des photos et tirer une graine aléatoire. Les photos restent sur votre appareil.",
+    "deniedText": "Autorisez l'accès à la caméra dans les réglages de votre appareil, ou choisissez une photo existante.",
+    "allow": "Autoriser",
+    "retry": "Réessayer",
+    "pickPhoto": "Choisir dans la galerie",
+    "pickAria": "Choisir une photo",
+    "snapAria": "Prendre une photo",
+    "newTag": "NOUVEAU !",
+    "newSpecies": "Nouvelle espèce ajoutée à votre collection.",
+    "knownSpecies": "Vous avez déjà rencontré cette espèce. La graine va dans votre sac.",
+    "gardenFull": "Votre jardin est plein ({pots}/{slots} pots). Gardez la graine et plantez-la plus tard.",
+    "later": "Plus tard",
+    "again": "Scanner à nouveau"
+  },
+  "menu": {
+    "title": "Menu",
+    "subtitle": "Votre compte",
+    "pots": "Plantes en croissance",
+    "settingsEyebrow": "RÉGLAGES",
+    "options": "Options",
+    "seedBag": "Sac de graines",
+    "reminders": "Rappels d'entretien",
+    "on": "Activés",
+    "off": "Désactivés",
+    "language": "Langue",
+    "replayIntro": "Revoir l'introduction",
+    "about": "À propos",
+    "dataEyebrow": "DONNÉES",
+    "yourData": "Vos données",
+    "clear": "Supprimer toutes les données"
+  },
+  "garden": {
+    "hello": "Bonjour !",
+    "sub": "Votre jardin · {n}/{slots} pots",
+    "myPlants": "Mes plantes",
+    "count": "{n} plantes",
+    "emptyFilter": "Aucune plante dans cet onglet",
+    "emptyNone": "Pas encore de plantes",
+    "tryOther": "Essayez un autre onglet.",
+    "firstSeed": "Prenez une photo pour obtenir votre première graine.",
+    "waitingSeeds": "Graines en attente",
+    "viewAll": "Tout voir",
+    "scanTitle": "Prenez une photo pour obtenir une graine",
+    "scanText": "Chaque photo est une graine aléatoire."
+  },
+  "collection": {
+    "title": "Collection",
+    "subtitle": "Espèces rencontrées",
+    "unseenAlt": "Espèce non rencontrée"
+  },
+  "ads": {
+    "label": "Pub",
+    "close": "Fermer la pub"
+  }
+}
