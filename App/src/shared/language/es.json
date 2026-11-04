@@ -73,7 +73,7 @@
     "plantedSpecies": "{name} plantada",
     "seedSaved": "Semilla guardada en tu bolsa",
     "notSeen": "Aún no descubierta. ¡Haz más fotos!",
-    "about": "PlantIn · Vista previa de la interfaz v2",
+    "about": "Sproutly · Vista previa de la interfaz v2",
     "rewardSeed": "Recibiste una semilla de {name}",
     "rewardNone": "No hay vídeos disponibles ahora, inténtalo más tarde"
   },
@@ -194,7 +194,7 @@
     "identifyingText": "Comparando forma, color y textura",
     "askTitle": "Permitir acceso a la cámara",
     "deniedTitle": "Cámara no disponible",
-    "askText": "PlantIn necesita la cámara para hacer fotos y generarte una semilla aleatoria. Las fotos se quedan en tu dispositivo.",
+    "askText": "Sproutly necesita la cámara para hacer fotos y generarte una semilla aleatoria. Las fotos se quedan en tu dispositivo.",
     "deniedText": "Permite el acceso a la cámara en los ajustes de tu dispositivo, o elige una foto existente.",
     "allow": "Permitir",
     "retry": "Reintentar",

@@ -73,7 +73,7 @@
     "plantedSpecies": "Planted {name}",
     "seedSaved": "Seed saved to your bag",
     "notSeen": "Not met yet. Take more photos!",
-    "about": "PlantIn · UI preview v2",
+    "about": "Sproutly · UI preview v2",
     "rewardSeed": "You received a {name} seed",
     "rewardNone": "No video available right now, try again later"
   },
@@ -194,7 +194,7 @@
     "identifyingText": "Comparing shape, color and texture",
     "askTitle": "Allow camera access",
     "deniedTitle": "Camera unavailable",
-    "askText": "PlantIn needs the camera to take photos and roll a random seed for you. Photos stay on your device.",
+    "askText": "Sproutly needs the camera to take photos and roll a random seed for you. Photos stay on your device.",
     "deniedText": "Allow camera access in your device settings, or pick an existing photo.",
     "allow": "Allow",
     "retry": "Try again",

@@ -73,7 +73,7 @@
     "plantedSpecies": "{name} ditanam",
     "seedSaved": "Biji disimpan di kantong",
     "notSeen": "Belum ditemukan. Ambil lebih banyak foto!",
-    "about": "PlantIn · Pratinjau UI v2",
+    "about": "Sproutly · Pratinjau UI v2",
     "rewardSeed": "Anda mendapat biji {name}",
     "rewardNone": "Tidak ada video saat ini, coba lagi nanti"
   },
@@ -194,7 +194,7 @@
     "identifyingText": "Membandingkan bentuk, warna, dan tekstur",
     "askTitle": "Izinkan akses kamera",
     "deniedTitle": "Kamera tidak tersedia",
-    "askText": "PlantIn memerlukan kamera untuk mengambil foto dan mengacak biji untuk Anda. Foto tetap berada di perangkat Anda.",
+    "askText": "Sproutly memerlukan kamera untuk mengambil foto dan mengacak biji untuk Anda. Foto tetap berada di perangkat Anda.",
     "deniedText": "Izinkan akses kamera di pengaturan perangkat, atau pilih foto yang sudah ada.",
     "allow": "Izinkan",
     "retry": "Coba lagi",

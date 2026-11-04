@@ -15,7 +15,7 @@ export const adsConfig: Config = {
     testAds: true,
     isGame: false,
     isApp: true,
-    appName: 'PlantIn',
+    appName: 'Sproutly',
     appVersion: '1.0.0',
     environment: 'dev',
   },

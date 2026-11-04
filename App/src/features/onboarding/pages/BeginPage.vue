@@ -46,7 +46,7 @@ onBeforeUnmount(() => { clearTimeout(timer); abort.abort() })
       </svg>
     </div>
     <div class="ob-copy begin-copy">
-      <h1>PlantIn</h1>
+      <h1>Sproutly</h1>
       <div class="begin-bar" :class="{ done: ready }" role="progressbar" :aria-busy="!ready"><i :style="{ animationDuration: `${WAIT_MS}ms` }"></i></div>
       <p>{{ t('begin.loading') }}</p>
       <div class="ad-slot begin-ad"><InFeedAd template="small"/></div>

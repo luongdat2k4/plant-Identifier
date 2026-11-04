@@ -73,7 +73,7 @@
     "plantedSpecies": "{name} geplant",
     "seedSaved": "Zaadje opgeslagen in je zakje",
     "notSeen": "Nog niet ontmoet. Maak meer foto's!",
-    "about": "PlantIn · UI-voorbeeld v2",
+    "about": "Sproutly · UI-voorbeeld v2",
     "rewardSeed": "Je hebt een {name}-zaadje ontvangen",
     "rewardNone": "Momenteel geen video beschikbaar, probeer het later opnieuw"
   },
@@ -194,7 +194,7 @@
     "identifyingText": "Vorm, kleur en structuur vergelijken",
     "askTitle": "Cameratoegang toestaan",
     "deniedTitle": "Camera niet beschikbaar",
-    "askText": "PlantIn heeft de camera nodig om foto's te maken en een willekeurig zaadje voor je te trekken. Foto's blijven op je apparaat.",
+    "askText": "Sproutly heeft de camera nodig om foto's te maken en een willekeurig zaadje voor je te trekken. Foto's blijven op je apparaat.",
     "deniedText": "Sta cameratoegang toe in de instellingen van je apparaat of kies een bestaande foto.",
     "allow": "Toestaan",
     "retry": "Opnieuw proberen",

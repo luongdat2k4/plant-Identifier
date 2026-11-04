@@ -73,7 +73,7 @@
     "plantedSpecies": "{name} ekildi",
     "seedSaved": "Tohum çantana kaydedildi",
     "notSeen": "Henüz keşfedilmedi. Daha fazla fotoğraf çek!",
-    "about": "PlantIn · Arayüz önizlemesi v2",
+    "about": "Sproutly · Arayüz önizlemesi v2",
     "rewardSeed": "{name} tohumu aldın",
     "rewardNone": "Şu an video yok, daha sonra tekrar dene"
   },
@@ -194,7 +194,7 @@
     "identifyingText": "Şekil, renk ve doku karşılaştırılıyor",
     "askTitle": "Kamera erişimine izin ver",
     "deniedTitle": "Kamera kullanılamıyor",
-    "askText": "PlantIn, fotoğraf çekmek ve sana rastgele bir tohum vermek için kameraya ihtiyaç duyar. Fotoğraflar cihazında kalır.",
+    "askText": "Sproutly, fotoğraf çekmek ve sana rastgele bir tohum vermek için kameraya ihtiyaç duyar. Fotoğraflar cihazında kalır.",
     "deniedText": "Cihaz ayarlarından kamera erişimine izin ver ya da mevcut bir fotoğraf seç.",
     "allow": "İzin ver",
     "retry": "Tekrar dene",

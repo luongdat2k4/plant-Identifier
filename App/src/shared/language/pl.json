@@ -73,7 +73,7 @@
     "plantedSpecies": "Zasadzono: {name}",
     "seedSaved": "Nasiono zapisane w woreczku",
     "notSeen": "Jeszcze nie poznany. Zrób więcej zdjęć!",
-    "about": "PlantIn · Podgląd UI v2",
+    "about": "Sproutly · Podgląd UI v2",
     "rewardSeed": "Otrzymano nasiono: {name}",
     "rewardNone": "Brak dostępnego filmu, spróbuj ponownie później"
   },
@@ -194,7 +194,7 @@
     "identifyingText": "Porównywanie kształtu, koloru i faktury",
     "askTitle": "Zezwól na dostęp do aparatu",
     "deniedTitle": "Aparat niedostępny",
-    "askText": "PlantIn potrzebuje aparatu, aby robić zdjęcia i losować dla Ciebie nasiono. Zdjęcia zostają na Twoim urządzeniu.",
+    "askText": "Sproutly potrzebuje aparatu, aby robić zdjęcia i losować dla Ciebie nasiono. Zdjęcia zostają na Twoim urządzeniu.",
     "deniedText": "Zezwól na dostęp do aparatu w ustawieniach urządzenia lub wybierz istniejące zdjęcie.",
     "allow": "Zezwól",
     "retry": "Spróbuj ponownie",

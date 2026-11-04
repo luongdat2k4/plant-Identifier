@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli'
 const config: CapacitorConfig = { 
   appId: 'com.plantin.recreated', 
-  appName: 'PlantIn', 
+  appName: 'Sproutly', 
   webDir: 'dist', 
   server: {
     androidScheme: 'http',

@@ -73,7 +73,7 @@
     "plantedSpecies": "{name} gepflanzt",
     "seedSaved": "Samen in deinem Beutel gespeichert",
     "notSeen": "Noch nicht entdeckt. Mach mehr Fotos!",
-    "about": "PlantIn · UI-Vorschau v2",
+    "about": "Sproutly · UI-Vorschau v2",
     "rewardSeed": "Du hast einen Samen von {name} erhalten",
     "rewardNone": "Gerade ist kein Video verfügbar, versuch es später erneut"
   },
@@ -194,7 +194,7 @@
     "identifyingText": "Form, Farbe und Textur werden verglichen",
     "askTitle": "Kamerazugriff erlauben",
     "deniedTitle": "Kamera nicht verfügbar",
-    "askText": "PlantIn braucht die Kamera, um Fotos zu machen und einen zufälligen Samen für dich auszuwürfeln. Fotos bleiben auf deinem Gerät.",
+    "askText": "Sproutly braucht die Kamera, um Fotos zu machen und einen zufälligen Samen für dich auszuwürfeln. Fotos bleiben auf deinem Gerät.",
     "deniedText": "Erlaube den Kamerazugriff in den Geräteeinstellungen oder wähle ein vorhandenes Foto.",
     "allow": "Erlauben",
     "retry": "Erneut versuchen",

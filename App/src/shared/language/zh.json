@@ -73,7 +73,7 @@
     "plantedSpecies": "已种下{name}",
     "seedSaved": "种子已存入种子袋",
     "notSeen": "尚未遇见，多拍几张照片吧！",
-    "about": "PlantIn · 界面预览 v2",
+    "about": "Sproutly · 界面预览 v2",
     "rewardSeed": "你获得了一颗{name}种子",
     "rewardNone": "暂时没有可用的视频，请稍后再试"
   },
@@ -194,7 +194,7 @@
     "identifyingText": "正在比对形状、颜色和纹理",
     "askTitle": "允许访问相机",
     "deniedTitle": "相机不可用",
-    "askText": "PlantIn 需要使用相机来拍照并为你随机抽取种子。照片只保存在你的设备上。",
+    "askText": "Sproutly 需要使用相机来拍照并为你随机抽取种子。照片只保存在你的设备上。",
     "deniedText": "请在设备设置中允许访问相机，或选择一张已有照片。",
     "allow": "允许",
     "retry": "重试",

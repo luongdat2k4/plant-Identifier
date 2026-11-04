@@ -73,7 +73,7 @@
     "plantedSpecies": "{name}を植えました",
     "seedSaved": "種を種袋に保存しました",
     "notSeen": "まだ出会っていません。もっと写真を撮りましょう!",
-    "about": "PlantIn · UIプレビュー v2",
+    "about": "Sproutly · UIプレビュー v2",
     "rewardSeed": "{name}の種を受け取りました",
     "rewardNone": "現在利用できる動画がありません。後でもう一度お試しください"
   },
@@ -194,7 +194,7 @@
     "identifyingText": "形・色・質感を比較しています",
     "askTitle": "カメラへのアクセスを許可",
     "deniedTitle": "カメラを利用できません",
-    "askText": "PlantInは写真を撮ってランダムな種を抽選するためにカメラを使います。写真は端末内に保存されます。",
+    "askText": "Sproutlyは写真を撮ってランダムな種を抽選するためにカメラを使います。写真は端末内に保存されます。",
     "deniedText": "端末の設定でカメラへのアクセスを許可するか、既存の写真を選んでください。",
     "allow": "許可",
     "retry": "もう一度",

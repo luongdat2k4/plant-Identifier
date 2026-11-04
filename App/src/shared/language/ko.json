@@ -73,7 +73,7 @@
     "plantedSpecies": "{name}을(를) 심었어요",
     "seedSaved": "씨앗을 주머니에 저장했어요",
     "notSeen": "아직 만나지 못했어요. 사진을 더 찍어 보세요!",
-    "about": "PlantIn · UI 미리보기 v2",
+    "about": "Sproutly · UI 미리보기 v2",
     "rewardSeed": "{name} 씨앗을 받았어요",
     "rewardNone": "지금은 볼 수 있는 동영상이 없어요. 나중에 다시 시도하세요"
   },
@@ -194,7 +194,7 @@
     "identifyingText": "모양, 색, 질감을 비교하고 있어요",
     "askTitle": "카메라 접근 허용",
     "deniedTitle": "카메라를 사용할 수 없어요",
-    "askText": "PlantIn은 사진을 찍고 무작위 씨앗을 뽑기 위해 카메라가 필요해요. 사진은 기기에만 저장돼요.",
+    "askText": "Sproutly은 사진을 찍고 무작위 씨앗을 뽑기 위해 카메라가 필요해요. 사진은 기기에만 저장돼요.",
     "deniedText": "기기 설정에서 카메라 접근을 허용하거나 기존 사진을 선택하세요.",
     "allow": "허용",
     "retry": "다시 시도",
