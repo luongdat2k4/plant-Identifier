@@ -11,7 +11,7 @@
     "android:sync": "npm run build && cap sync android"
   },
   "dependencies": {
-    "@alf/app-sdk": "file:vendor/alf-app-sdk-2.0.0.tgz",
+    "@alf/app-sdk": "file:vendor/alf-app-sdk-3.0.0.tgz",
     "@capacitor/android": "^8.6.0",
     "@capacitor/camera": "^8.2.6",
     "@capacitor/cli": "^8.6.0",
