@@ -25,9 +25,6 @@ export const LANGUAGES = [
 ] as const
 export type Lang = (typeof LANGUAGES)[number]['code']
 
-// Right-to-left scripts flip the page direction.
-const RTL: readonly Lang[] = ['ar', 'ur']
-
 const langKey = 'plantin-lang'
 const chosenKey = 'plantin-lang-chosen'
 
@@ -69,7 +66,8 @@ function initialLang(): Lang {
 function applyDocument(code: Lang) {
   if (typeof document === 'undefined') return
   document.documentElement.lang = code
-  document.documentElement.dir = RTL.includes(code) ? 'rtl' : 'ltr'
+  // The layout stays left-to-right for every language (Arabic and Urdu text still run right-to-left inside their own lines).
+  document.documentElement.dir = 'ltr'
 }
 
 export const lang = ref<Lang>(initialLang())
