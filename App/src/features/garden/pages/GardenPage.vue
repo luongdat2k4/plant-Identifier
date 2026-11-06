@@ -10,7 +10,9 @@ import { useToast } from '../../../shared/composables/useToast'
 import PotCard from '../components/PotCard.vue'
 import SeedRow from '../../../shared/components/SeedRow.vue'
 import InFeedAd from '../../ads/components/InFeedAd.vue'
+import { useDocScroll } from '../../../shared/composables/pageScroll'
 const { go } = useAppNavigation()
+useDocScroll()
 const { notify } = useToast()
 const filter = ref<'all' | 'care' | 'happy'>('all')
 const filters = computed(() => [{ key: 'all', label: t('filter.all') }, { key: 'care', label: t('filter.care') }, { key: 'happy', label: t('filter.happy') }] as const)

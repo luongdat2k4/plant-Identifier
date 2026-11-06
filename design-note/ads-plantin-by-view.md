@@ -126,3 +126,15 @@ Thay cho quy tắc 2 và 3 của mục 5 (Interstitial chỉ sau kết quả qu�
 - **Cache SDK:** `MainActivity` dọn `files/al` về tối đa 30 MB trước khi bridge khởi động (không làm gì nếu thư mục không có; app dùng AdMob nên có thể không có).
 
 Chưa làm: bật R8/AAB cho bản release (cần thử trên máy thật vì dễ làm hỏng plugin phản chiếu), consent thật, đổi cấu hình test trước khi phát hành, `showBanner` chỉ gọi sau khi tải xong đã làm; chưa xác nhận trên màn hình.
+
+## 10. Ổn định layout và cuộn native ad (theo `design-note/note/ad-layout-stability.md` và `native-ad-scroll-fix.md`)
+
+Đã áp dụng (chưa đo trên máy thật):
+
+- **Chỗ chứa có từ khung hình đầu:** `adsPossible = Capacitor.isNativePlatform()` thay cho `adsAvailable` trong mọi điều kiện giữ chỗ (dải banner, `InFeedAd`). Chiều cao banner là một giá trị dùng chung `bannerHeight` (mặc định 50px, chỉnh một lần sau khi SDK sẵn sàng), không màn nào tự đo. `showBanner` chỉ phụ thuộc route và sự kiện người dùng.
+- **Trạng thái nằm trong khung:** ô native có shimmer khi đang tải, nền tĩnh sau 10 giây, quảng cáo phủ lên khi có; cùng một kích thước, không thu ô khi chậu hoặc lỗi. `BannerAd` bắt đầu tải ngay khi SDK sẵn sàng.
+- **Tắt native ad validator** (`NATIVE_AD_DEBUGGER_ENABLED=false` trong `AndroidManifest.xml`): validator của test ad mở một cửa sổ popup mỗi lần hiện ad làm mọi màn giật.
+- **Cuộn bằng document ở màn có native trong danh sách** (Vườn, Bộ sưu tập, đổi ngôn ngữ): class `doc-scroll` trên `<html>`, header `sticky`, thanh nav cố định, trông như cũ. SDK được vá bằng `patch-package` (`App/patches/@alf+app-sdk+3.0.0.patch`, chạy ở `postinstall`): plugin Android đặt vị trí ad ngay trong frame đang vẽ theo `WebView.getScrollY()` và cắt ad ở mép header/thanh dưới (`NativeAdClip`); JS gửi vị trí trong trang (`y + scrollY`) và vùng được hiện, chỉ khi có thay đổi.
+- Các màn còn cuộn trong khung riêng (chi tiết loài, chi tiết chậu) vẫn dùng cách cũ: ẩn ad khi cuộn, hiện lại sau 300ms.
+
+Cần kiểm tra trên máy thật: ad bám đúng hàng khi cuộn, mép cắt dưới header/thanh nav, bấm vào phần bị cắt không trúng ad. Nâng phiên bản SDK thì tên file trong `dist/` có thể đổi và patch sẽ không áp được.

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { NativeAdTemplate } from '@alf/app-sdk'
 import { t } from '../../../shared/i18n'
-import { adsAvailable } from '../adRuntime'
+import { adsPossible } from '../adRuntime'
 import NativeAd from './NativeAd.vue'
 
 // In-feed ad: a native ad placed between feed items. The "Ad" label sits outside
@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<{ template?: NativeAdTemplate }>(), { tem
 </script>
 
 <template>
-  <div v-if="adsAvailable" class="in-feed-ad">
+  <div v-if="adsPossible" class="in-feed-ad">
     <p><span class="ad-tag">{{ t('ads.label') }}</span></p>
     <NativeAd :template="props.template" />
   </div>

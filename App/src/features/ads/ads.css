@@ -1,5 +1,5 @@
 /* The bottom banner is drawn by the SDK over the screen edge; the shell lifts its own bars above it. */
-.banner-dock{position:fixed;z-index:9;left:50%;bottom:0;transform:translateX(-50%);width:min(520px,100%)}
+.banner-dock{position:fixed;z-index:9;left:50%;bottom:0;transform:translateX(-50%);width:min(520px,100%);background:#eef4ef}
 .app-shell{--ad-inset:0px;--ad-gap:16px}
 .app-shell.has-banner .bottom-nav{bottom:calc(var(--ad-inset) + var(--ad-gap) + var(--sab));height:68px;padding:8px 14px}
 .app-shell.has-banner.has-nav{padding-bottom:calc(100px + var(--sab) + var(--ad-inset) + var(--ad-gap))}
@@ -14,3 +14,6 @@
 .app-shell:has(> .page-scroll)>.status-space{display:none}
 .app-shell:has(> .page-scroll)>.page-scroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain}
 .app-shell.has-banner:has(> .page-scroll){padding-bottom:calc(var(--ad-inset) + var(--ad-gap) + var(--sab))}
+/* Screens with a native ad inside their list scroll on the document, with the header sticky and the bar fixed. */
+html.doc-scroll .app-shell:has(> .home-head){height:auto;min-height:100vh;display:block;overflow:visible}
+html.doc-scroll .app-shell:has(> .home-head)>.content{overflow:visible;flex:none;min-height:0}

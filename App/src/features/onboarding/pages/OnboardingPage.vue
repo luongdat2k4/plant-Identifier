@@ -5,7 +5,7 @@ import { Icon } from '@iconify/vue'
 import { markOnboarded } from '../../../shared/utils/onboarding'
 import { t } from '../../../shared/i18n'
 import InFeedAd from '../../ads/components/InFeedAd.vue'
-import { bannerInset, showInterstitial } from '../../ads/adRuntime'
+import { bannerHeight, showInterstitial } from '../../ads/adRuntime'
 
 const router = useRouter()
 const track = ref<HTMLElement | null>(null)
@@ -16,7 +16,7 @@ const slides = computed(() => [
   { image: '/assets/ic_scroll_card_1.png', title: t('ob.3.title'), text: t('ob.3.text'), icons: ['solar:book-bookmark-bold', 'solar:medal-ribbon-bold'] },
 ])
 // The ad sits above the fixed footer, so it needs a tall screen (minus the bottom banner) to leave the slide readable.
-const roomForAd = computed(() => window.innerHeight - bannerInset.value >= 760)
+const roomForAd = computed(() => window.innerHeight - bannerHeight.value >= 760)
 const last = computed(() => index.value === slides.value.length - 1)
 
 function onScroll() {

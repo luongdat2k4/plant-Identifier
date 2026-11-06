@@ -8,13 +8,13 @@ import { tickAll } from './features/garden/model'
 import { setStatusBar } from './shared/utils/statusBar'
 import BannerAd from './features/ads/components/BannerAd.vue'
 import { hasRuntimeData } from './shared/store'
-import { adsAvailable, adsSuppressed, bannerInset, countAction, fullScreenShowing } from './features/ads/adRuntime'
+import { adsPossible, adsSuppressed, bannerHeight, countAction, fullScreenShowing } from './features/ads/adRuntime'
 const route = useRoute()
 const { toast, notify } = useToast()
 const isCamera = computed(() => ['scan', 'welcome', 'language', 'begin'].includes(String(route.name)))
 const showNav = computed(() => ['garden', 'collection', 'seeds', 'menu'].includes(String(route.name)))
 // One banner for the tab screens and the first-run screens (language, welcome) and the launch screen of a returning user; never on camera or pot detail.
-const showBanner = computed(() => adsAvailable.value && !adsSuppressed.value && !fullScreenShowing.value &&
+const showBanner = computed(() => adsPossible && !adsSuppressed.value && !fullScreenShowing.value &&
   (['garden', 'collection', 'seeds', 'menu', 'menu-language', 'language', 'welcome', 'pot', 'species'].includes(String(route.name)) ||
     (route.name === 'begin' && hasRuntimeData())))
 
@@ -45,11 +45,11 @@ onUnmounted(() => { clearInterval(timer); document.removeEventListener('visibili
 </script>
 
 <template>
-  <div class="app-shell" :class="{ 'has-nav': showNav, 'has-banner': showBanner }" :style="{ '--ad-inset': `${showBanner ? bannerInset : 0}px` }">
+  <div class="app-shell" :class="{ 'has-nav': showNav, 'has-banner': showBanner }" :style="{ '--ad-inset': `${showBanner ? bannerHeight : 0}px` }">
     <div v-if="!isCamera" class="status-space"></div>
     <RouterView />
     <BottomNav v-if="showNav" />
-    <div v-if="adsAvailable" v-show="showBanner" class="banner-dock"><BannerAd :visible="showBanner"/></div>
+    <div v-if="adsPossible" v-show="showBanner" class="banner-dock" :style="{ height: `${bannerHeight}px` }"><BannerAd :visible="showBanner"/></div>
     <div v-if="toast" class="toast" role="status">{{ toast }}</div>
   </div>
 </template>

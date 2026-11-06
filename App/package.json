@@ -8,7 +8,8 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "android:add": "cap add android",
-    "android:sync": "npm run build && cap sync android"
+    "android:sync": "npm run build && cap sync android",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@alf/app-sdk": "file:vendor/alf-app-sdk-3.0.0.tgz",
@@ -30,6 +31,7 @@
     "vue-tsc": "^3.3.14"
   },
   "devDependencies": {
-    "@types/sql.js": "^1.4.11"
+    "@types/sql.js": "^1.4.11",
+    "patch-package": "^8.0.1"
   }
 }

@@ -8,7 +8,9 @@ import { allSpecies, discoveryOf, RARITY_META, type Rarity } from '../model'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
 import { useToast } from '../../../shared/composables/useToast'
 import InFeedAd from '../../ads/components/InFeedAd.vue'
+import { useDocScroll } from '../../../shared/composables/pageScroll'
 const { go } = useAppNavigation()
+useDocScroll()
 const { notify } = useToast()
 const filter = ref<Rarity | 'all'>('all')
 const filters = computed<{ key: Rarity | 'all'; label: string }[]>(() => [

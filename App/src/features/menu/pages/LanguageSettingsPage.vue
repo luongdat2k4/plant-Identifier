@@ -2,8 +2,10 @@
 import { Icon } from '@iconify/vue'
 import { lang, LANGUAGES, setLang, t } from '../../../shared/i18n'
 import InFeedAd from '../../ads/components/InFeedAd.vue'
+import { useDocScroll } from '../../../shared/composables/pageScroll'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
 const { back } = useAppNavigation()
+useDocScroll()
 </script>
 
 <template>

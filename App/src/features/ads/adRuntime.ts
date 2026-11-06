@@ -11,6 +11,16 @@ export const fullScreenShowing = ref(false)
 // a moment longer (`nativeOverlayHold`) because the SDK has a single native ad view to hand over.
 export const nativeOverlay = ref(false)
 export const nativeOverlayHold = ref(false)
+// Native ads exist only on the device. Their space is reserved from the first frame, before anyone knows whether an ad
+// will come, so a banner or native ad arriving (or not) never moves the layout.
+export const adsPossible = Capacitor.isNativePlatform()
+// One shared banner height: a phone banner is 50px, refined once when the native side answers.
+export const bannerHeight = ref(adsPossible ? 50 : 0)
+let heightRequest: Promise<void> | undefined
+export function syncBannerHeight() {
+  if (!adsPossible) return
+  heightRequest ??= ALF.Instance.Ads.GetAdHeight('banner').then(h => { if (h > 0) bannerHeight.value = h }).catch(() => {})
+}
 export const adsAvailable = computed(() => Capacitor.isNativePlatform() && initialized.value && (adsConfig.settings?.testAds === true || consentReady.value))
 
 // Production callers must set this only after their consent flow says ads may be requested.
@@ -23,7 +33,7 @@ export function initializeAds(): Promise<void> {
   return initialization ??= initAds()
     // Consent has no real flow yet (no UMP form): this is only a placeholder so adsAvailable cannot block silently
     // once testAds is off. Replace it with the consent result before shipping in the EU/UK.
-    .then(() => { setAdsInitialized(true); setAdConsentReady(true); void preloadInterstitial() })
+    .then(() => { setAdsInitialized(true); setAdConsentReady(true); syncBannerHeight(); void preloadInterstitial() })
     .catch(error => console.warn('[ads] init failed', error))
 }
 
@@ -103,8 +113,6 @@ async function waitFor<T>(operation: Promise<T>, timeout: number, signal: AbortS
 // Full-screen ads are spaced out so they can never stack into back-to-back ads: at least 10 seconds between any two.
 const FULL_SCREEN_GAP_MS = 30_000
 
-// Height the bottom banner takes, so the shell can lift the navigation bar above it. 0 while no banner is up.
-export const bannerInset = ref(0)
 
 export async function preloadInterstitial(): Promise<void> {
   if (!adsAvailable.value || interstitialLoaded || showing) return
