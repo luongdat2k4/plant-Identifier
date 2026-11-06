@@ -428,3 +428,7 @@ button.pill-tag{cursor:pointer}
 .app-shell.has-nav:has(> .home-head){padding-bottom:calc(68px + var(--sab))}
 .app-shell.has-banner.has-nav:has(> .home-head){padding-bottom:calc(68px + var(--sab) + var(--ad-inset) + var(--ad-gap))}
 .app-shell.has-banner:not(.has-nav):has(> .home-head){padding-bottom:calc(var(--sab) + var(--ad-inset))}
+
+/* Native camera preview sits behind the WebView: everything up to the camera screen must be transparent. */
+html.cam-live,html.cam-live body,html.cam-live #app,html.cam-live .app-shell,html.cam-live .cam{background:transparent!important}
+html.cam-live .cam-media{display:none}
