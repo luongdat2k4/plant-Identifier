@@ -43,7 +43,6 @@ function plant(id: string) {
       <PotCard v-for="pot in shown" :key="pot.id" :pot="pot"
         @open="go('pot', pot.id)" @water="care(pot, 'water')" @feed="care(pot, 'feed')"/>
     </div>
-    <div v-if="shown.length >= 4" class="ad-slot"><InFeedAd template="small"/></div>
     <div v-if="!shown.length" class="soft-empty">
       <Icon icon="solar:leaf-linear" width="34"/>
       <b>{{ pots.length ? t('garden.emptyFilter') : t('garden.emptyNone') }}</b>
@@ -59,5 +58,7 @@ function plant(id: string) {
       <div class="list-row-text"><b>{{ t('garden.scanTitle') }}</b><span>{{ t('garden.scanText') }}</span></div>
       <button class="plus-btn" :aria-label="t('scan.snapAria')" @click="go('scan')"><Icon icon="solar:add-circle-linear" width="24"/></button>
     </article>
+
+    <div class="ad-slot"><InFeedAd template="small"/></div>
   </main>
 </template>

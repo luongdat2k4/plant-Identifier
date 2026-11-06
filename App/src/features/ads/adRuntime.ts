@@ -101,7 +101,7 @@ async function waitFor<T>(operation: Promise<T>, timeout: number, signal: AbortS
 }
 
 // Full-screen ads are spaced out so they can never stack into back-to-back ads: at least 10 seconds between any two.
-const FULL_SCREEN_GAP_MS = 10_000
+const FULL_SCREEN_GAP_MS = 30_000
 
 // Height the bottom banner takes, so the shell can lift the navigation bar above it. 0 while no banner is up.
 export const bannerInset = ref(0)

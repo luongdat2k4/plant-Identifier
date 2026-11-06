@@ -5,7 +5,7 @@ import { Icon } from '@iconify/vue'
 import { markOnboarded } from '../../../shared/utils/onboarding'
 import { t } from '../../../shared/i18n'
 import InFeedAd from '../../ads/components/InFeedAd.vue'
-import { bannerInset } from '../../ads/adRuntime'
+import { bannerInset, showInterstitial } from '../../ads/adRuntime'
 
 const router = useRouter()
 const track = ref<HTMLElement | null>(null)
@@ -25,7 +25,12 @@ function onScroll() {
 }
 function goTo(i: number) { track.value?.scrollTo({ left: i * track.value.clientWidth, behavior: 'smooth' }) }
 function next() { if (last.value) finish(); else goTo(index.value + 1) }
-function finish() { markOnboarded(); router.replace({ name: 'garden' }) }
+function finish() {
+  markOnboarded()
+  router.replace({ name: 'garden' })
+  // End of the intro: one interstitial over the garden if an ad was preloaded while the intro was read.
+  void showInterstitial('after_welcome')
+}
 onMounted(() => track.value?.focus({ preventScroll: true }))
 </script>
 
