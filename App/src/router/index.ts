@@ -2,7 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { BAR } from '../shared/utils/statusBar'
 import { hasOnboarded } from '../shared/utils/onboarding'
 import { hasChosenLanguage } from '../shared/i18n'
-// Every launch starts at /begin. Once it hands over (or skips itself for a first-time user), the rest of the app opens.
+import { hasRuntimeData } from '../shared/store'
+// /begin is the launch screen of a returning user only (someone who already has runtime data). A first-time user never
+// sees it: the guard sends them straight into the language and welcome screens.
 let begun = false
 export function markBegun() { begun = true }
 
@@ -26,8 +28,11 @@ export const router = createRouter({
 })
 // First launch: language first, then the intro, each shown once.
 router.beforeEach(to => {
+  if (!begun) {
+    if (!hasRuntimeData()) begun = true // first launch: no /begin, the first-run checks below take over
+    else if (to.name !== 'begin') return { name: 'begin' }
+  }
   if (to.name === 'begin') return begun ? { name: 'garden' } : true
-  if (!begun) return { name: 'begin' }
   if (to.name === 'language') return true
   if (!hasChosenLanguage()) return { name: 'language' }
   if (to.name !== 'welcome' && !hasOnboarded()) return { name: 'welcome' }
