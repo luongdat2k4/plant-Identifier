@@ -192,11 +192,8 @@
     "hint": "식물이나 다른 아무거나 프레임에 담으세요",
     "identifying": "식물을 식별하는 중…",
     "identifyingText": "모양, 색, 질감을 비교하고 있어요",
-    "askTitle": "카메라 접근 허용",
     "deniedTitle": "카메라를 사용할 수 없어요",
-    "askText": "Sproutly은 사진을 찍고 무작위 씨앗을 뽑기 위해 카메라가 필요해요. 사진은 기기에만 저장돼요.",
     "deniedText": "기기 설정에서 카메라 접근을 허용하거나 기존 사진을 선택하세요.",
-    "allow": "허용",
     "retry": "다시 시도",
     "pickPhoto": "갤러리에서 선택",
     "pickAria": "사진 선택",
@@ -206,7 +203,8 @@
     "knownSpecies": "이미 만난 적 있는 종이에요. 씨앗은 주머니에 들어가요.",
     "gardenFull": "정원이 가득 찼어요 ({pots}/{slots}개 화분). 씨앗을 보관했다가 나중에 심으세요.",
     "later": "나중에",
-    "again": "다시 스캔"
+    "again": "다시 스캔",
+    "flip": "카메라 전환"
   },
   "menu": {
     "title": "메뉴",

@@ -192,11 +192,8 @@
     "hint": "Pon una planta u otra cosa en el encuadre",
     "identifying": "Identificando la planta…",
     "identifyingText": "Comparando forma, color y textura",
-    "askTitle": "Permitir acceso a la cámara",
     "deniedTitle": "Cámara no disponible",
-    "askText": "Sproutly necesita la cámara para hacer fotos y generarte una semilla aleatoria. Las fotos se quedan en tu dispositivo.",
     "deniedText": "Permite el acceso a la cámara en los ajustes de tu dispositivo, o elige una foto existente.",
-    "allow": "Permitir",
     "retry": "Reintentar",
     "pickPhoto": "Elegir de la galería",
     "pickAria": "Elegir foto",
@@ -206,7 +203,8 @@
     "knownSpecies": "Ya conocías esta especie. La semilla va a tu bolsa.",
     "gardenFull": "Tu jardín está lleno ({pots}/{slots} macetas). Guarda la semilla y plántala más tarde.",
     "later": "Más tarde",
-    "again": "Escanear de nuevo"
+    "again": "Escanear de nuevo",
+    "flip": "Cambiar de cámara"
   },
   "menu": {
     "title": "Menú",

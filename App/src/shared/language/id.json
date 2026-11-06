@@ -192,11 +192,8 @@
     "hint": "Letakkan tanaman atau benda lain di dalam bingkai",
     "identifying": "Mengenali tanaman…",
     "identifyingText": "Membandingkan bentuk, warna, dan tekstur",
-    "askTitle": "Izinkan akses kamera",
     "deniedTitle": "Kamera tidak tersedia",
-    "askText": "Sproutly memerlukan kamera untuk mengambil foto dan mengacak biji untuk Anda. Foto tetap berada di perangkat Anda.",
     "deniedText": "Izinkan akses kamera di pengaturan perangkat, atau pilih foto yang sudah ada.",
-    "allow": "Izinkan",
     "retry": "Coba lagi",
     "pickPhoto": "Pilih dari galeri",
     "pickAria": "Pilih foto",
@@ -206,7 +203,8 @@
     "knownSpecies": "Anda pernah menemukan spesies ini. Biji masuk ke kantong Anda.",
     "gardenFull": "Kebun Anda penuh ({pots}/{slots} pot). Simpan biji dan tanam nanti.",
     "later": "Nanti",
-    "again": "Pindai lagi"
+    "again": "Pindai lagi",
+    "flip": "Ganti kamera"
   },
   "menu": {
     "title": "Menu",

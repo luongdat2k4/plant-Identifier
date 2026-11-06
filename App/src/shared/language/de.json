@@ -192,11 +192,8 @@
     "hint": "Platziere eine Pflanze oder etwas anderes im Bild",
     "identifying": "Pflanze wird erkannt…",
     "identifyingText": "Form, Farbe und Textur werden verglichen",
-    "askTitle": "Kamerazugriff erlauben",
     "deniedTitle": "Kamera nicht verfügbar",
-    "askText": "Sproutly braucht die Kamera, um Fotos zu machen und einen zufälligen Samen für dich auszuwürfeln. Fotos bleiben auf deinem Gerät.",
     "deniedText": "Erlaube den Kamerazugriff in den Geräteeinstellungen oder wähle ein vorhandenes Foto.",
-    "allow": "Erlauben",
     "retry": "Erneut versuchen",
     "pickPhoto": "Aus Galerie wählen",
     "pickAria": "Foto auswählen",
@@ -206,7 +203,8 @@
     "knownSpecies": "Diese Art kennst du schon. Der Samen kommt in deinen Beutel.",
     "gardenFull": "Dein Garten ist voll ({pots}/{slots} Töpfe). Behalte den Samen und pflanze ihn später.",
     "later": "Später",
-    "again": "Erneut scannen"
+    "again": "Erneut scannen",
+    "flip": "Kamera wechseln"
   },
   "menu": {
     "title": "Menü",

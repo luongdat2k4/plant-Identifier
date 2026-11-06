@@ -192,11 +192,8 @@
     "hint": "Coloque uma planta ou qualquer outra coisa no quadro",
     "identifying": "Identificando a planta…",
     "identifyingText": "Comparando forma, cor e textura",
-    "askTitle": "Permitir acesso à câmera",
     "deniedTitle": "Câmera indisponível",
-    "askText": "O Sproutly precisa da câmera para tirar fotos e sortear uma semente aleatória para você. As fotos ficam no seu dispositivo.",
     "deniedText": "Permita o acesso à câmera nas configurações do dispositivo ou escolha uma foto existente.",
-    "allow": "Permitir",
     "retry": "Tentar novamente",
     "pickPhoto": "Escolher da galeria",
     "pickAria": "Escolher foto",
@@ -206,7 +203,8 @@
     "knownSpecies": "Você já encontrou esta espécie. A semente vai para o seu saquinho.",
     "gardenFull": "Seu jardim está cheio ({pots}/{slots} vasos). Guarde a semente e plante depois.",
     "later": "Depois",
-    "again": "Escanear de novo"
+    "again": "Escanear de novo",
+    "flip": "Trocar de câmera"
   },
   "menu": {
     "title": "Menu",

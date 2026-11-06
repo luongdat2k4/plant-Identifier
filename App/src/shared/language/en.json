@@ -192,11 +192,8 @@
     "hint": "Put a plant or anything else in the frame",
     "identifying": "Identifying the plant…",
     "identifyingText": "Comparing shape, color and texture",
-    "askTitle": "Allow camera access",
     "deniedTitle": "Camera unavailable",
-    "askText": "Sproutly needs the camera to take photos and roll a random seed for you. Photos stay on your device.",
     "deniedText": "Allow camera access in your device settings, or pick an existing photo.",
-    "allow": "Allow",
     "retry": "Try again",
     "pickPhoto": "Choose from gallery",
     "pickAria": "Choose photo",
@@ -206,7 +203,8 @@
     "knownSpecies": "You have met this species before. The seed goes into your bag.",
     "gardenFull": "Your garden is full ({pots}/{slots} pots). Keep the seed and plant it later.",
     "later": "Later",
-    "again": "Scan again"
+    "again": "Scan again",
+    "flip": "Switch camera"
   },
   "menu": {
     "title": "Menu",

@@ -192,11 +192,8 @@
     "hint": "Çerçeveye bir bitki ya da başka bir şey koy",
     "identifying": "Bitki tanımlanıyor…",
     "identifyingText": "Şekil, renk ve doku karşılaştırılıyor",
-    "askTitle": "Kamera erişimine izin ver",
     "deniedTitle": "Kamera kullanılamıyor",
-    "askText": "Sproutly, fotoğraf çekmek ve sana rastgele bir tohum vermek için kameraya ihtiyaç duyar. Fotoğraflar cihazında kalır.",
     "deniedText": "Cihaz ayarlarından kamera erişimine izin ver ya da mevcut bir fotoğraf seç.",
-    "allow": "İzin ver",
     "retry": "Tekrar dene",
     "pickPhoto": "Galeriden seç",
     "pickAria": "Fotoğraf seç",
@@ -206,7 +203,8 @@
     "knownSpecies": "Bu türle daha önce karşılaştın. Tohum çantana gider.",
     "gardenFull": "Bahçen dolu ({pots}/{slots} saksı). Tohumu sakla, sonra ek.",
     "later": "Sonra",
-    "again": "Tekrar tara"
+    "again": "Tekrar tara",
+    "flip": "Kamerayı değiştir"
   },
   "menu": {
     "title": "Menü",

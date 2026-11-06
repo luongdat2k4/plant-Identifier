@@ -432,3 +432,10 @@ button.pill-tag{cursor:pointer}
 /* Native camera preview sits behind the WebView: everything up to the camera screen must be transparent. */
 html.cam-live,html.cam-live body,html.cam-live #app,html.cam-live .app-shell,html.cam-live .cam{background:transparent!important}
 html.cam-live .cam-media{display:none}
+
+/* Scan screen: the camera view is always there; without permission it is dark and a popup asks for access. */
+.cam.idle{background:#0c1710}
+.cam-scrim{position:absolute;inset:0;z-index:5;background:#000000a6}
+.cam-ask{z-index:6}
+.cam-bar{z-index:7}
+button.cam-side{border:0;cursor:pointer}

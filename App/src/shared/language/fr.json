@@ -192,11 +192,8 @@
     "hint": "Placez une plante ou autre chose dans le cadre",
     "identifying": "Identification de la plante…",
     "identifyingText": "Comparaison de la forme, de la couleur et de la texture",
-    "askTitle": "Autoriser l'accès à la caméra",
     "deniedTitle": "Caméra indisponible",
-    "askText": "Sproutly a besoin de la caméra pour prendre des photos et tirer une graine aléatoire. Les photos restent sur votre appareil.",
     "deniedText": "Autorisez l'accès à la caméra dans les réglages de votre appareil, ou choisissez une photo existante.",
-    "allow": "Autoriser",
     "retry": "Réessayer",
     "pickPhoto": "Choisir dans la galerie",
     "pickAria": "Choisir une photo",
@@ -206,7 +203,8 @@
     "knownSpecies": "Vous avez déjà rencontré cette espèce. La graine va dans votre sac.",
     "gardenFull": "Votre jardin est plein ({pots}/{slots} pots). Gardez la graine et plantez-la plus tard.",
     "later": "Plus tard",
-    "again": "Scanner à nouveau"
+    "again": "Scanner à nouveau",
+    "flip": "Changer de caméra"
   },
   "menu": {
     "title": "Menu",

@@ -192,11 +192,8 @@
     "hint": "Inquadra una pianta o qualsiasi altra cosa",
     "identifying": "Riconoscimento della pianta…",
     "identifyingText": "Confronto di forma, colore e consistenza",
-    "askTitle": "Consenti l'accesso alla fotocamera",
     "deniedTitle": "Fotocamera non disponibile",
-    "askText": "Sproutly ha bisogno della fotocamera per scattare foto ed estrarre un seme casuale per te. Le foto restano sul tuo dispositivo.",
     "deniedText": "Consenti l'accesso alla fotocamera nelle impostazioni del dispositivo, oppure scegli una foto esistente.",
-    "allow": "Consenti",
     "retry": "Riprova",
     "pickPhoto": "Scegli dalla galleria",
     "pickAria": "Scegli foto",
@@ -206,7 +203,8 @@
     "knownSpecies": "Hai già incontrato questa specie. Il seme va nel tuo sacchetto.",
     "gardenFull": "Il tuo giardino è pieno ({pots}/{slots} vasi). Tieni il seme e piantalo più tardi.",
     "later": "Più tardi",
-    "again": "Scansiona ancora"
+    "again": "Scansiona ancora",
+    "flip": "Cambia fotocamera"
   },
   "menu": {
     "title": "Menu",

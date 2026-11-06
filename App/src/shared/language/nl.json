@@ -192,11 +192,8 @@
     "hint": "Zet een plant of iets anders in beeld",
     "identifying": "Plant herkennen…",
     "identifyingText": "Vorm, kleur en structuur vergelijken",
-    "askTitle": "Cameratoegang toestaan",
     "deniedTitle": "Camera niet beschikbaar",
-    "askText": "Sproutly heeft de camera nodig om foto's te maken en een willekeurig zaadje voor je te trekken. Foto's blijven op je apparaat.",
     "deniedText": "Sta cameratoegang toe in de instellingen van je apparaat of kies een bestaande foto.",
-    "allow": "Toestaan",
     "retry": "Opnieuw proberen",
     "pickPhoto": "Kies uit galerij",
     "pickAria": "Foto kiezen",
@@ -206,7 +203,8 @@
     "knownSpecies": "Je hebt deze soort al eens ontmoet. Het zaadje gaat in je zakje.",
     "gardenFull": "Je tuin is vol ({pots}/{slots} potten). Bewaar het zaadje en plant het later.",
     "later": "Later",
-    "again": "Opnieuw scannen"
+    "again": "Opnieuw scannen",
+    "flip": "Camera wisselen"
   },
   "menu": {
     "title": "Menu",

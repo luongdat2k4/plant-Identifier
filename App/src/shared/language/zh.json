@@ -192,11 +192,8 @@
     "hint": "把植物或任何东西放入取景框",
     "identifying": "正在识别植物…",
     "identifyingText": "正在比对形状、颜色和纹理",
-    "askTitle": "允许访问相机",
     "deniedTitle": "相机不可用",
-    "askText": "Sproutly 需要使用相机来拍照并为你随机抽取种子。照片只保存在你的设备上。",
     "deniedText": "请在设备设置中允许访问相机，或选择一张已有照片。",
-    "allow": "允许",
     "retry": "重试",
     "pickPhoto": "从相册选择",
     "pickAria": "选择照片",
@@ -206,7 +203,8 @@
     "knownSpecies": "你之前遇见过该物种。种子将放入你的种子袋。",
     "gardenFull": "你的花园已满（{pots}/{slots} 个花盆）。先保留种子，之后再种。",
     "later": "稍后",
-    "again": "重新扫描"
+    "again": "重新扫描",
+    "flip": "切换摄像头"
   },
   "menu": {
     "title": "菜单",

@@ -192,11 +192,8 @@
     "hint": "Umieść w kadrze roślinę lub cokolwiek innego",
     "identifying": "Rozpoznawanie rośliny…",
     "identifyingText": "Porównywanie kształtu, koloru i faktury",
-    "askTitle": "Zezwól na dostęp do aparatu",
     "deniedTitle": "Aparat niedostępny",
-    "askText": "Sproutly potrzebuje aparatu, aby robić zdjęcia i losować dla Ciebie nasiono. Zdjęcia zostają na Twoim urządzeniu.",
     "deniedText": "Zezwól na dostęp do aparatu w ustawieniach urządzenia lub wybierz istniejące zdjęcie.",
-    "allow": "Zezwól",
     "retry": "Spróbuj ponownie",
     "pickPhoto": "Wybierz z galerii",
     "pickAria": "Wybierz zdjęcie",
@@ -206,7 +203,8 @@
     "knownSpecies": "Ten gatunek już poznałeś. Nasiono trafia do Twojego woreczka.",
     "gardenFull": "Twój ogród jest pełny ({pots}/{slots} doniczek). Zachowaj nasiono i posadź je później.",
     "later": "Później",
-    "again": "Skanuj ponownie"
+    "again": "Skanuj ponownie",
+    "flip": "Przełącz aparat"
   },
   "menu": {
     "title": "Menu",

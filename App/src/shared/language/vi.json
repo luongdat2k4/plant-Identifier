@@ -192,11 +192,8 @@
     "hint": "Đưa cây hoặc bất cứ thứ gì vào khung",
     "identifying": "Đang nhận diện cây…",
     "identifyingText": "Đối chiếu hình dáng, màu sắc và kết cấu",
-    "askTitle": "Cho phép dùng camera",
     "deniedTitle": "Chưa truy cập được camera",
-    "askText": "Sproutly cần camera để chụp ảnh và gieo hạt giống ngẫu nhiên cho bạn. Ảnh chỉ lưu trong máy.",
     "deniedText": "Hãy cấp quyền camera trong cài đặt của máy, hoặc chọn một ảnh có sẵn.",
-    "allow": "Cho phép",
     "retry": "Thử lại",
     "pickPhoto": "Chọn ảnh từ thư viện",
     "pickAria": "Chọn ảnh",
@@ -206,7 +203,8 @@
     "knownSpecies": "Bạn đã gặp loài này. Hạt giống được cất vào túi.",
     "gardenFull": "Vườn đã đầy ({pots}/{slots} chậu). Hãy cất hạt và trồng sau.",
     "later": "Để sau",
-    "again": "Chụp tiếp"
+    "again": "Chụp tiếp",
+    "flip": "Đổi camera"
   },
   "menu": {
     "title": "Menu",
