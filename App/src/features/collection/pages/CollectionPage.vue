@@ -17,7 +17,10 @@ const filters = computed<{ key: Rarity | 'all'; label: string }[]>(() => [
   { key: 'uncommon', label: RARITY_META.uncommon.label },
   { key: 'rare', label: RARITY_META.rare.label },
 ])
-const shown = computed(() => allSpecies.filter(s => filter.value === 'all' || s.rarity === filter.value))
+// Species the user has already met come first; each group keeps the catalog order.
+const shown = computed(() => allSpecies
+  .filter(s => filter.value === 'all' || s.rarity === filter.value)
+  .sort((a, b) => Number(!!discoveryOf(b.id)) - Number(!!discoveryOf(a.id))))
 // One ad row after the eighth species splits the grid in two.
 const AD_AFTER = 8
 const rows = computed(() => [shown.value.slice(0, AD_AFTER), shown.value.slice(AD_AFTER)])
