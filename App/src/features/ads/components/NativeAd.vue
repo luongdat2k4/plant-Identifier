@@ -17,8 +17,10 @@ let frame = 0
 let observer: IntersectionObserver | undefined
 let resizeObserver: ResizeObserver | undefined
 const inView = ref(false)
+const scrolling = ref(false)
+let settle: ReturnType<typeof setTimeout> | undefined
 const documentVisible = ref(!document.hidden)
-const canShow = computed(() => adsAvailable.value && (props.overlay || !adsSuppressed.value) && inView.value && documentVisible.value)
+const canShow = computed(() => adsAvailable.value && (props.overlay || !adsSuppressed.value) && inView.value && documentVisible.value && !scrolling.value)
 
 function rect() {
   const r = box.value?.getBoundingClientRect()
@@ -60,6 +62,16 @@ async function show() {
   else await ALF.Instance.Ads.UpdateAdMobNativeAdRect(currentRect)
 }
 
+// The native view floats above the WebView and would trail a scrolling page by a frame, so it hides while the page
+// moves and comes back once scrolling has stopped. Scrolling of unrelated lists is ignored.
+function onScroll(event: Event) {
+  const target = event.target
+  if (props.overlay || (target instanceof Node && target !== document && box.value && !target.contains(box.value))) return
+  scrolling.value = true
+  clearTimeout(settle)
+  settle = setTimeout(() => { scrolling.value = false; track() }, 300)
+}
+
 function refresh() {
   documentVisible.value = !document.hidden
   const boxRect = box.value?.getBoundingClientRect()
@@ -89,7 +101,7 @@ watch(canShow, visible => {
 onMounted(() => {
   if (!native) return
   alive = true
-  document.addEventListener('scroll', track, { capture: true, passive: true })
+  document.addEventListener('scroll', onScroll, { capture: true, passive: true })
   window.addEventListener('resize', track)
   document.addEventListener('visibilitychange', track)
   observer = new IntersectionObserver(track, { threshold: [0, 1] })
@@ -108,7 +120,8 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (!native) return
   alive = false
-  document.removeEventListener('scroll', track, { capture: true })
+  document.removeEventListener('scroll', onScroll, { capture: true })
+  clearTimeout(settle)
   window.removeEventListener('resize', track)
   document.removeEventListener('visibilitychange', track)
   observer?.disconnect()

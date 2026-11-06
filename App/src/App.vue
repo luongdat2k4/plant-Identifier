@@ -49,7 +49,7 @@ onUnmounted(() => { clearInterval(timer); document.removeEventListener('visibili
     <div v-if="!isCamera" class="status-space"></div>
     <RouterView />
     <BottomNav v-if="showNav" />
-    <div v-if="showBanner" class="banner-dock"><BannerAd/></div>
+    <div v-if="adsAvailable" v-show="showBanner" class="banner-dock"><BannerAd :visible="showBanner"/></div>
     <div v-if="toast" class="toast" role="status">{{ toast }}</div>
   </div>
 </template>

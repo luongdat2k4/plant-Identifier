@@ -114,3 +114,15 @@ Thay cho quy tắc 2 và 3 của mục 5 (Interstitial chỉ sau kết quả qu�
 - Không đếm và không hiện ở: `/scan`, `/begin`, `/welcome`, `/language`, `/menu/language`, nút Chụp ở thanh nav, nút xem video nhận hạt, hoặc khi đang có quảng cáo khác. Quảng cáo hiện sau khi xử lý xong thao tác (trễ ~350ms) để không đè lên nút vừa bấm.
 - Chưa hiện được thì lần chạm kế tiếp thử lại; bộ đếm chỉ đặt lại khi quảng cáo đã hiện. Điểm sau kết quả quét vẫn giữ.
 - Rủi ro chính sách: tài liệu `ads_policy_interstitial_banner_native.md` yêu cầu không hiện Interstitial sau **mỗi** thao tác, tránh mật độ cao và quảng cáo liên tiếp; mức 10 giây và 2–3 lần chạm là cấu hình dày hơn mức tài liệu gợi ý (60–120 giây). Cần theo dõi tỷ lệ gỡ cài đặt/đánh giá và chính sách AdMob/Google Play trước khi phát hành, và có thể nới lại hằng số `FULL_SCREEN_GAP_MS` trong `adRuntime.ts`.
+
+## 9. Hiệu năng quảng cáo (theo `WorkoutApp/design-note/ad-size-performance-guide.md`)
+
+Đã áp dụng (chưa đo trên máy thật):
+
+- **Cổng `adsAvailable`:** `setAdConsentReady` trước đây không ai gọi, nên khi tắt `testAds` quảng cáo sẽ bị chặn im lặng. Giờ `initializeAds()` bật cờ này ngay sau khi init. Đây **chưa phải consent thật**: cần thay bằng kết quả form UMP trước khi phát hành ở EU/UK.
+- **Banner:** luôn gắn một lần, chỉ `HideBannerAd`/`ShowBannerAd` khi đổi màn (không hủy/tạo lại). Chỉ hủy khi component bị gỡ hẳn. Lệnh banner xếp hàng để lệnh hiện không vượt lệnh tải.
+- **Native:** ẩn ngay khi trang chứa nó cuộn, hiện lại sau 300ms dừng cuộn (tránh quảng cáo trễ theo cuộn và đè item). Ô nằm ngoài vùng cuộn (`/begin`, chọn ngôn ngữ, giới thiệu) không bị ảnh hưởng.
+- **Bảng thông báo (chuông):** mở bảng thì `adsSuppressed` bật để native không vẽ đè lên bảng.
+- **Cache SDK:** `MainActivity` dọn `files/al` về tối đa 30 MB trước khi bridge khởi động (không làm gì nếu thư mục không có; app dùng AdMob nên có thể không có).
+
+Chưa làm: bật R8/AAB cho bản release (cần thử trên máy thật vì dễ làm hỏng plugin phản chiếu), consent thật, đổi cấu hình test trước khi phát hành, `showBanner` chỉ gọi sau khi tải xong đã làm; chưa xác nhận trên màn hình.

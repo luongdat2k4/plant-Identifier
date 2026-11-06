@@ -1,15 +1,19 @@
 <script setup lang="ts">
 import { t } from '../i18n'
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { Icon } from '@iconify/vue'
 import { state } from '../store'
 import { feedPot, plantSeed, potName, waterPot, findPot } from '../../features/garden/model'
 import { isUnread, markAllRead, markRead, notices, unreadCount, type Notice, type NoticeKind } from '../../features/garden/notifications'
 import { useAppNavigation } from '../composables/useAppNavigation'
 import { useToast } from '../composables/useToast'
+import { adsSuppressed } from '../../features/ads/adRuntime'
 const { go } = useAppNavigation()
 const { notify } = useToast()
 const open = ref(false)
+// The panel is part of the page; the native ad view would be drawn over it, so ads step aside while it is open.
+watch(open, value => { adsSuppressed.value = value })
+onUnmounted(() => { adsSuppressed.value = false })
 const tab = ref<'all' | 'unread'>('all')
 const bell = ref<HTMLButtonElement | null>(null)
 const place = ref({ top: 0, right: 0 })

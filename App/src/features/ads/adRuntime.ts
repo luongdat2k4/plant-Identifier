@@ -21,7 +21,9 @@ export const launchFinished = ref(false)
 let initialization: Promise<void> | undefined
 export function initializeAds(): Promise<void> {
   return initialization ??= initAds()
-    .then(() => { setAdsInitialized(true); void preloadInterstitial() })
+    // Consent has no real flow yet (no UMP form): this is only a placeholder so adsAvailable cannot block silently
+    // once testAds is off. Replace it with the consent result before shipping in the EU/UK.
+    .then(() => { setAdsInitialized(true); setAdConsentReady(true); void preloadInterstitial() })
     .catch(error => console.warn('[ads] init failed', error))
 }
 
