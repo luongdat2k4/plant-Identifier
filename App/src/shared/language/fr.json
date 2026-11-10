@@ -8,7 +8,8 @@
   },
   "common": {
     "back": "Retour",
-    "toGarden": "Retour au jardin"
+    "toGarden": "Retour au jardin",
+    "ok": "OK"
   },
   "spot": {
     "sun": "Endroit ensoleillé",
@@ -18,12 +19,7 @@
     "rarity": "Rareté",
     "spot": "Préfère",
     "bestStage": "Meilleur stade",
-    "mastered": "MAÎTRISÉE",
-    "unseen": {
-      "title": "Espèce pas encore rencontrée",
-      "text": "Prenez plus de photos pour avoir une chance de rencontrer de nouvelles espèces.",
-      "back": "Retour à la collection"
-    }
+    "mastered": "MAÎTRISÉE"
   },
   "article": {
     "info": "À propos de cette espèce",
@@ -72,10 +68,9 @@
     "seedError": "Un problème est survenu lors du tirage de la graine. Réessayez.",
     "plantedSpecies": "{name} planté",
     "seedSaved": "Graine enregistrée dans votre sac",
-    "notSeen": "Pas encore rencontrée. Prenez plus de photos !",
     "about": "Sproutly · Aperçu de l'interface v2",
-    "rewardSeed": "Vous avez reçu une graine de {name}",
-    "rewardNone": "Aucune vidéo disponible pour le moment, réessayez plus tard"
+    "rewardNone": "Aucune vidéo disponible pour le moment, réessayez plus tard",
+    "coinsReward": "Vous avez reçu +{n} graines"
   },
   "confirm": {
     "discardSeed": "Jeter cette graine ?",
@@ -155,13 +150,11 @@
   "seeds": {
     "title": "Sac de graines",
     "subtitle": "Graines en attente d'être plantées",
-    "count": "{n}/{max} graines",
     "gardenFull": "Votre jardin est plein ({pots}/{slots} pots). Retirez une plante pour planter une nouvelle graine.",
     "emptyTitle": "Votre sac de graines est vide",
     "emptyText": "Prenez une photo pour obtenir une nouvelle graine.",
     "goScan": "Aller prendre une photo",
-    "bagFull": "Le sac est plein. La plus ancienne graine est remplacée quand vous en obtenez une nouvelle.",
-    "watchForSeed": "Regardez une vidéo pour 1 graine en plus ({n} restantes aujourd'hui)"
+    "bagFull": "Le sac est plein. La plus ancienne graine est remplacée quand vous en obtenez une nouvelle."
   },
   "pot": {
     "unknown": "Plante inconnue",
@@ -240,10 +233,81 @@
   "collection": {
     "title": "Collection",
     "subtitle": "Espèces rencontrées",
-    "unseenAlt": "Espèce non rencontrée"
+    "unseenAlt": "Espèce non rencontrée",
+    "progress": "Progression de la collection",
+    "progressCount": "{n}/{total} espèces · {p} %"
   },
   "ads": {
     "label": "Pub",
     "close": "Fermer la pub"
+  },
+  "home": {
+    "seeds": "Graines",
+    "missions": "Missions",
+    "collection": "Collection",
+    "missionCard": "Missions quotidiennes",
+    "missionHint": "Terminez-les pour +{n} graines",
+    "missionReady": "Votre récompense vous attend !"
+  },
+  "coins": {
+    "plus": "+{n} graines"
+  },
+  "missions": {
+    "title": "Missions quotidiennes",
+    "subtitle": "Terminez toutes les missions pour gagner la récompense",
+    "progress": "{done}/{total} terminées",
+    "water": "Arrosez les plantes {n} fois",
+    "scan": "Photographiez une plante {n} fois",
+    "feed": "Nourrissez une plante {n} fois",
+    "go": "Y aller",
+    "reward": "Récompense de fin",
+    "claim": "Récupérer",
+    "claimed": "Récupérée aujourd'hui, revenez demain",
+    "left": "Encore {n} missions",
+    "note": "Mission {done}/{target}",
+    "doneTitle": "Missions terminées !",
+    "doneText": "Vous avez terminé toutes les missions du jour.",
+    "careHint": "Ne compte que si une plante a vraiment besoin d'eau ou d'engrais"
+  },
+  "shop": {
+    "tabStore": "Boutique",
+    "tabMine": "Mes graines",
+    "heroTitle": "Obtenez plus de graines",
+    "heroText": "Ouvrez un paquet pour de nouvelles graines pour votre jardin",
+    "basic": {
+      "title": "Paquet de base",
+      "text": "Obtenez 1 graine au hasard"
+    },
+    "plus": {
+      "title": "Paquet plus",
+      "text": "Obtenez 3 graines, dont au moins une peu commune"
+    },
+    "special": {
+      "title": "Paquet spécial",
+      "text": "Obtenez 5 graines, dont au moins une rare"
+    },
+    "watch": "Regarder",
+    "videosLeft": "Encore {n} vidéos aujourd'hui",
+    "noVideo": "Aucune vidéo",
+    "quotaDone": "Terminé pour aujourd'hui",
+    "notEnough": "Pas assez de graines",
+    "noRoom": "Votre sac n'a plus que {n} places libres",
+    "earnHint": "Faites les missions quotidiennes pour gagner plus de graines",
+    "gotTitle": "Vous avez des graines !",
+    "gotText": "Vous avez reçu {n} nouvelles graines"
+  },
+  "unlock": {
+    "title": "Débloquer avec des graines",
+    "cost": "Coûte {n} graines",
+    "have": "Vous avez {n}",
+    "button": "Débloquer",
+    "locked": "Verrouillée",
+    "more": "Obtenir plus de graines",
+    "watch": "Regardez une pub pour +{n} graines",
+    "done": "{name} débloquée"
+  },
+  "levelUp": {
+    "title": "Votre plante a grandi !",
+    "text": "{name} a atteint le stade {stage}"
   }
 }

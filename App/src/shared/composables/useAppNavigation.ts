@@ -1,5 +1,5 @@
 import { useRoute, useRouter } from 'vue-router'
-type Destination = 'garden' | 'collection' | 'scan' | 'seeds' | 'menu' | 'menu-language' | 'language' | 'welcome' | 'begin' | 'pot' | 'species'
+type Destination = 'garden' | 'collection' | 'scan' | 'seeds' | 'menu' | 'menu-language' | 'language' | 'welcome' | 'begin' | 'missions' | 'pot' | 'species'
 export function useAppNavigation() {
   const router = useRouter()
   const route = useRoute()

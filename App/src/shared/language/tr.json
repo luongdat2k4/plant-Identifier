@@ -8,7 +8,8 @@
   },
   "common": {
     "back": "Geri",
-    "toGarden": "Bahçeye dön"
+    "toGarden": "Bahçeye dön",
+    "ok": "Tamam"
   },
   "spot": {
     "sun": "Güneşli yer",
@@ -18,12 +19,7 @@
     "rarity": "Nadirlik",
     "spot": "Tercih eder",
     "bestStage": "En iyi aşama",
-    "mastered": "USTALAŞILDI",
-    "unseen": {
-      "title": "Tür henüz keşfedilmedi",
-      "text": "Yeni türlerle karşılaşmak için daha fazla fotoğraf çek.",
-      "back": "Koleksiyona dön"
-    }
+    "mastered": "USTALAŞILDI"
   },
   "article": {
     "info": "Bu tür hakkında",
@@ -72,10 +68,9 @@
     "seedError": "Tohum çekilirken bir sorun oluştu. Tekrar dene.",
     "plantedSpecies": "{name} ekildi",
     "seedSaved": "Tohum çantana kaydedildi",
-    "notSeen": "Henüz keşfedilmedi. Daha fazla fotoğraf çek!",
     "about": "Sproutly · Arayüz önizlemesi v2",
-    "rewardSeed": "{name} tohumu aldın",
-    "rewardNone": "Şu an video yok, daha sonra tekrar dene"
+    "rewardNone": "Şu an video yok, daha sonra tekrar dene",
+    "coinsReward": "+{n} tohum aldın"
   },
   "confirm": {
     "discardSeed": "Bu tohum atılsın mı?",
@@ -155,13 +150,11 @@
   "seeds": {
     "title": "Tohum çantası",
     "subtitle": "Ekilmeyi bekleyen tohumlar",
-    "count": "{n}/{max} tohum",
     "gardenFull": "Bahçen dolu ({pots}/{slots} saksı). Yeni tohum ekmek için bir bitkiyi çıkar.",
     "emptyTitle": "Tohum çantan boş",
     "emptyText": "Yeni bir tohum için fotoğraf çek.",
     "goScan": "Fotoğraf çekmeye git",
-    "bagFull": "Çanta dolu. Yeni tohum aldığında en eski tohum değiştirilir.",
-    "watchForSeed": "1 ekstra tohum için video izle (bugün {n} hak kaldı)"
+    "bagFull": "Çanta dolu. Yeni tohum aldığında en eski tohum değiştirilir."
   },
   "pot": {
     "unknown": "Bilinmeyen bitki",
@@ -240,10 +233,81 @@
   "collection": {
     "title": "Koleksiyon",
     "subtitle": "Karşılaştığın türler",
-    "unseenAlt": "Keşfedilmemiş tür"
+    "unseenAlt": "Keşfedilmemiş tür",
+    "progress": "Koleksiyon ilerlemesi",
+    "progressCount": "{n}/{total} tür · %{p}"
   },
   "ads": {
     "label": "Reklam",
     "close": "Reklamı kapat"
+  },
+  "home": {
+    "seeds": "Tohumlar",
+    "missions": "Görevler",
+    "collection": "Koleksiyon",
+    "missionCard": "Günlük görevler",
+    "missionHint": "Bitir, +{n} tohum kazan",
+    "missionReady": "Ödülün seni bekliyor!"
+  },
+  "coins": {
+    "plus": "+{n} tohum"
+  },
+  "missions": {
+    "title": "Günlük görevler",
+    "subtitle": "Ödülü kazanmak için tüm görevleri tamamla",
+    "progress": "{done}/{total} tamamlandı",
+    "water": "Bitkileri {n} kez sula",
+    "scan": "Bir bitkinin {n} kez fotoğrafını çek",
+    "feed": "Bir bitkiyi {n} kez besle",
+    "go": "Git",
+    "reward": "Tamamlama ödülü",
+    "claim": "Al",
+    "claimed": "Bugün alındı, yarın tekrar gel",
+    "left": "{n} görev kaldı",
+    "note": "Görev {done}/{target}",
+    "doneTitle": "Görevler tamamlandı!",
+    "doneText": "Bugünkü tüm görevleri bitirdin.",
+    "careHint": "Yalnızca bitkinin gerçekten suya veya besine ihtiyacı olduğunda sayılır"
+  },
+  "shop": {
+    "tabStore": "Mağaza",
+    "tabMine": "Tohumlarım",
+    "heroTitle": "Daha fazla tohum al",
+    "heroText": "Bahçen için yeni tohumlar almak üzere bir paket aç",
+    "basic": {
+      "title": "Temel paket",
+      "text": "1 rastgele tohum al"
+    },
+    "plus": {
+      "title": "Plus paket",
+      "text": "3 tohum al, en az biri yaygın olmayan"
+    },
+    "special": {
+      "title": "Özel paket",
+      "text": "5 tohum al, en az biri ender"
+    },
+    "watch": "İzle",
+    "videosLeft": "Bugün {n} video hakkın kaldı",
+    "noVideo": "Video yok",
+    "quotaDone": "Bugünlük bitti",
+    "notEnough": "Yeterli tohum yok",
+    "noRoom": "Çantanda yalnızca {n} boş yer var",
+    "earnHint": "Daha fazla tohum kazanmak için günlük görevleri yap",
+    "gotTitle": "Tohum kazandın!",
+    "gotText": "{n} yeni tohum aldın"
+  },
+  "unlock": {
+    "title": "Tohumla kilidi aç",
+    "cost": "{n} tohum gerekir",
+    "have": "Sende {n} var",
+    "button": "Kilidi aç",
+    "locked": "Kilitli",
+    "more": "Daha fazla tohum al",
+    "watch": "Reklam izle, +{n} tohum kazan",
+    "done": "{name} açıldı"
+  },
+  "levelUp": {
+    "title": "Bitkin büyüdü!",
+    "text": "{name} {stage} aşamasına ulaştı"
   }
 }

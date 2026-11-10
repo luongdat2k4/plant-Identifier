@@ -8,7 +8,8 @@
   },
   "common": {
     "back": "Back",
-    "toGarden": "Back to garden"
+    "toGarden": "Back to garden",
+    "ok": "OK"
   },
   "spot": {
     "sun": "Sunny spot",
@@ -18,12 +19,7 @@
     "rarity": "Rarity",
     "spot": "Prefers",
     "bestStage": "Best stage",
-    "mastered": "MASTERED",
-    "unseen": {
-      "title": "Species not met yet",
-      "text": "Take more photos for a chance to meet new species.",
-      "back": "Back to collection"
-    }
+    "mastered": "MASTERED"
   },
   "article": {
     "info": "About this species",
@@ -72,10 +68,9 @@
     "seedError": "Something went wrong rolling a seed. Try again.",
     "plantedSpecies": "Planted {name}",
     "seedSaved": "Seed saved to your bag",
-    "notSeen": "Not met yet. Take more photos!",
     "about": "Sproutly · UI preview v2",
-    "rewardSeed": "You received a {name} seed",
-    "rewardNone": "No video available right now, try again later"
+    "rewardNone": "No video available right now, try again later",
+    "coinsReward": "You received +{n} seeds"
   },
   "confirm": {
     "discardSeed": "Discard this seed?",
@@ -155,13 +150,11 @@
   "seeds": {
     "title": "Seed bag",
     "subtitle": "Seeds waiting to be planted",
-    "count": "{n}/{max} seeds",
     "gardenFull": "Your garden is full ({pots}/{slots} pots). Remove a plant to plant a new seed.",
     "emptyTitle": "Your seed bag is empty",
     "emptyText": "Take a photo to get a new seed.",
     "goScan": "Go take a photo",
-    "bagFull": "The bag is full. The oldest seed is replaced when you get a new one.",
-    "watchForSeed": "Watch a video for 1 extra seed ({n} left today)"
+    "bagFull": "The bag is full. The oldest seed is replaced when you get a new one."
   },
   "pot": {
     "unknown": "Unknown plant",
@@ -240,10 +233,81 @@
   "collection": {
     "title": "Collection",
     "subtitle": "Species you have met",
-    "unseenAlt": "Unseen species"
+    "unseenAlt": "Unseen species",
+    "progress": "Collection progress",
+    "progressCount": "{n}/{total} species · {p}%"
   },
   "ads": {
     "label": "Ad",
     "close": "Close ad"
+  },
+  "home": {
+    "seeds": "Seeds",
+    "missions": "Missions",
+    "collection": "Collection",
+    "missionCard": "Daily missions",
+    "missionHint": "Finish them for +{n} seeds",
+    "missionReady": "Your reward is waiting!"
+  },
+  "coins": {
+    "plus": "+{n} seeds"
+  },
+  "missions": {
+    "title": "Daily missions",
+    "subtitle": "Finish every mission to earn the reward",
+    "progress": "{done}/{total} done",
+    "water": "Water plants {n} times",
+    "scan": "Snap a plant {n} time",
+    "feed": "Feed a plant {n} time",
+    "go": "Go",
+    "reward": "Completion reward",
+    "claim": "Claim",
+    "claimed": "Claimed today, come back tomorrow",
+    "left": "{n} missions to go",
+    "note": "Mission {done}/{target}",
+    "doneTitle": "Missions complete!",
+    "doneText": "You finished every mission today.",
+    "careHint": "Counts only when a plant really needs water or food"
+  },
+  "shop": {
+    "tabStore": "Shop",
+    "tabMine": "My seeds",
+    "heroTitle": "Get more seeds",
+    "heroText": "Open a pack for new seeds for your garden",
+    "basic": {
+      "title": "Basic pack",
+      "text": "Get 1 random seed"
+    },
+    "plus": {
+      "title": "Plus pack",
+      "text": "Get 3 seeds, at least one uncommon"
+    },
+    "special": {
+      "title": "Special pack",
+      "text": "Get 5 seeds, at least one rare"
+    },
+    "watch": "Watch",
+    "videosLeft": "{n} videos left today",
+    "noVideo": "No video",
+    "quotaDone": "Done for today",
+    "notEnough": "Not enough seeds",
+    "noRoom": "Your bag has only {n} free slots",
+    "earnHint": "Do daily missions to earn more seeds",
+    "gotTitle": "You got seeds!",
+    "gotText": "You received {n} new seeds"
+  },
+  "unlock": {
+    "title": "Unlock with seeds",
+    "cost": "Costs {n} seeds",
+    "have": "You have {n}",
+    "button": "Unlock",
+    "locked": "Locked",
+    "more": "Get more seeds",
+    "watch": "Watch an ad for +{n} seeds",
+    "done": "{name} unlocked"
+  },
+  "levelUp": {
+    "title": "Your plant grew!",
+    "text": "{name} reached the {stage} stage"
   }
 }

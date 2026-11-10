@@ -8,7 +8,8 @@
   },
   "common": {
     "back": "Wstecz",
-    "toGarden": "Wróć do ogrodu"
+    "toGarden": "Wróć do ogrodu",
+    "ok": "OK"
   },
   "spot": {
     "sun": "Słoneczne miejsce",
@@ -18,12 +19,7 @@
     "rarity": "Rzadkość",
     "spot": "Preferuje",
     "bestStage": "Najlepszy etap",
-    "mastered": "OPANOWANY",
-    "unseen": {
-      "title": "Gatunek jeszcze nie poznany",
-      "text": "Zrób więcej zdjęć, aby mieć szansę poznać nowe gatunki.",
-      "back": "Wróć do kolekcji"
-    }
+    "mastered": "OPANOWANY"
   },
   "article": {
     "info": "O tym gatunku",
@@ -72,10 +68,9 @@
     "seedError": "Coś poszło nie tak podczas losowania nasiona. Spróbuj ponownie.",
     "plantedSpecies": "Zasadzono: {name}",
     "seedSaved": "Nasiono zapisane w woreczku",
-    "notSeen": "Jeszcze nie poznany. Zrób więcej zdjęć!",
     "about": "Sproutly · Podgląd UI v2",
-    "rewardSeed": "Otrzymano nasiono: {name}",
-    "rewardNone": "Brak dostępnego filmu, spróbuj ponownie później"
+    "rewardNone": "Brak dostępnego filmu, spróbuj ponownie później",
+    "coinsReward": "Otrzymano +{n} nasion"
   },
   "confirm": {
     "discardSeed": "Wyrzucić to nasiono?",
@@ -155,13 +150,11 @@
   "seeds": {
     "title": "Woreczek z nasionami",
     "subtitle": "Nasiona czekające na posadzenie",
-    "count": "Nasiona: {n}/{max}",
     "gardenFull": "Twój ogród jest pełny ({pots}/{slots} doniczek). Usuń roślinę, aby posadzić nowe nasiono.",
     "emptyTitle": "Woreczek z nasionami jest pusty",
     "emptyText": "Zrób zdjęcie, aby zdobyć nowe nasiono.",
     "goScan": "Zrób zdjęcie",
-    "bagFull": "Woreczek jest pełny. Najstarsze nasiono zostanie zastąpione, gdy zdobędziesz nowe.",
-    "watchForSeed": "Obejrzyj film, aby dostać 1 dodatkowe nasiono (dziś zostało: {n})"
+    "bagFull": "Woreczek jest pełny. Najstarsze nasiono zostanie zastąpione, gdy zdobędziesz nowe."
   },
   "pot": {
     "unknown": "Nieznana roślina",
@@ -240,10 +233,81 @@
   "collection": {
     "title": "Kolekcja",
     "subtitle": "Gatunki, które poznałeś",
-    "unseenAlt": "Niepoznany gatunek"
+    "unseenAlt": "Niepoznany gatunek",
+    "progress": "Postęp kolekcji",
+    "progressCount": "{n}/{total} gatunków · {p}%"
   },
   "ads": {
     "label": "Reklama",
     "close": "Zamknij reklamę"
+  },
+  "home": {
+    "seeds": "Nasiona",
+    "missions": "Misje",
+    "collection": "Kolekcja",
+    "missionCard": "Misje dzienne",
+    "missionHint": "Ukończ je i zdobądź +{n} nasion",
+    "missionReady": "Twoja nagroda czeka!"
+  },
+  "coins": {
+    "plus": "+{n} nasion"
+  },
+  "missions": {
+    "title": "Misje dzienne",
+    "subtitle": "Ukończ wszystkie misje, aby odebrać nagrodę",
+    "progress": "Ukończono {done}/{total}",
+    "water": "Podlej rośliny {n} razy",
+    "scan": "Sfotografuj roślinę {n} razy",
+    "feed": "Nawieź roślinę {n} razy",
+    "go": "Idź",
+    "reward": "Nagroda za ukończenie",
+    "claim": "Odbierz",
+    "claimed": "Odebrano dziś, wróć jutro",
+    "left": "Zostało misji: {n}",
+    "note": "Misja {done}/{target}",
+    "doneTitle": "Misje ukończone!",
+    "doneText": "Ukończyłeś dziś wszystkie misje.",
+    "careHint": "Liczy się tylko wtedy, gdy roślina naprawdę potrzebuje wody lub nawozu"
+  },
+  "shop": {
+    "tabStore": "Sklep",
+    "tabMine": "Moje nasiona",
+    "heroTitle": "Zdobądź więcej nasion",
+    "heroText": "Otwórz paczkę, by dostać nowe nasiona do ogrodu",
+    "basic": {
+      "title": "Paczka podstawowa",
+      "text": "Zdobądź 1 losowe nasiono"
+    },
+    "plus": {
+      "title": "Paczka plus",
+      "text": "Zdobądź 3 nasiona, w tym co najmniej jedno nietypowe"
+    },
+    "special": {
+      "title": "Paczka specjalna",
+      "text": "Zdobądź 5 nasion, w tym co najmniej jedno rzadkie"
+    },
+    "watch": "Obejrzyj",
+    "videosLeft": "Zostało filmów dziś: {n}",
+    "noVideo": "Brak filmu",
+    "quotaDone": "Na dziś koniec",
+    "notEnough": "Za mało nasion",
+    "noRoom": "W torbie zostało tylko {n} wolnych miejsc",
+    "earnHint": "Wykonuj misje dzienne, by zdobyć więcej nasion",
+    "gotTitle": "Masz nasiona!",
+    "gotText": "Otrzymano nowe nasiona: {n}"
+  },
+  "unlock": {
+    "title": "Odblokuj za nasiona",
+    "cost": "Koszt: {n} nasion",
+    "have": "Masz: {n}",
+    "button": "Odblokuj",
+    "locked": "Zablokowane",
+    "more": "Zdobądź więcej nasion",
+    "watch": "Obejrzyj reklamę i zdobądź +{n} nasion",
+    "done": "Odblokowano: {name}"
+  },
+  "levelUp": {
+    "title": "Twoja roślina urosła!",
+    "text": "{name} osiągnęła etap: {stage}"
   }
 }

@@ -138,3 +138,14 @@ Chưa làm: bật R8/AAB cho bản release (cần thử trên máy thật vì d�
 - Các màn còn cuộn trong khung riêng (chi tiết loài, chi tiết chậu) vẫn dùng cách cũ: ẩn ad khi cuộn, hiện lại sau 300ms.
 
 Cần kiểm tra trên máy thật: ad bám đúng hàng khi cuộn, mép cắt dưới header/thanh nav, bấm vào phần bị cắt không trúng ad. Nâng phiên bản SDK thì tên file trong `dist/` có thể đổi và patch sẽ không áp được.
+
+## 11. Quảng cáo của các tính năng tiến trình (10/11/2026)
+
+| Tính năng | Màn | Quảng cáo |
+|---|---|---|
+| Nhiệm vụ hằng ngày | Thẻ trên Vườn, `/missions` | Không có (theo bảng yêu cầu). Popup nhận thưởng không kèm Interstitial. |
+| Trung tâm hạt giống | `/seeds` (tab Cửa hàng / Hạt của tôi) | Banner dưới cùng như mọi tab. Gói hạt cơ bản trả bằng **Rewarded** (tối đa 3 lần/ngày). Bấm OK ở popup "Nhận được hạt giống!" thì xét một **Interstitial** (`seed_pack`). |
+| Bộ sưu tập, mở khóa cây | `/collection`, `/species/:id` khi chưa mở khóa | Banner dưới cùng. Màn cây chưa mở khóa có **Rewarded** "+3 hạt giống" (tối đa 5 lần/ngày). Không có Interstitial. |
+| Chăm sóc cây, lên cấp | Vườn, `/pots/:id` | Banner dưới cùng. Bấm OK ở popup "Cây đã phát triển!" thì xét một **Interstitial** (`level_up`). |
+
+Interstitial ở đây vẫn theo khoảng cách 10 giây giữa hai quảng cáo toàn màn hình (mục 8); popup đang mở thì native ad tạm ẩn (`adsSuppressed`).

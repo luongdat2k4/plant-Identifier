@@ -8,7 +8,8 @@
   },
   "common": {
     "back": "返回",
-    "toGarden": "返回花园"
+    "toGarden": "返回花园",
+    "ok": "确定"
   },
   "spot": {
     "sun": "向阳处",
@@ -18,12 +19,7 @@
     "rarity": "稀有度",
     "spot": "偏好",
     "bestStage": "最佳阶段",
-    "mastered": "已精通",
-    "unseen": {
-      "title": "尚未遇见该物种",
-      "text": "多拍几张照片，就有机会遇见新物种。",
-      "back": "返回图鉴"
-    }
+    "mastered": "已精通"
   },
   "article": {
     "info": "关于该物种",
@@ -72,10 +68,9 @@
     "seedError": "抽取种子时出错了，请重试。",
     "plantedSpecies": "已种下{name}",
     "seedSaved": "种子已存入种子袋",
-    "notSeen": "尚未遇见，多拍几张照片吧！",
     "about": "Sproutly · 界面预览 v2",
-    "rewardSeed": "你获得了一颗{name}种子",
-    "rewardNone": "暂时没有可用的视频，请稍后再试"
+    "rewardNone": "暂时没有可用的视频，请稍后再试",
+    "coinsReward": "你获得了 +{n} 种子"
   },
   "confirm": {
     "discardSeed": "丢弃这颗种子吗？",
@@ -155,13 +150,11 @@
   "seeds": {
     "title": "种子袋",
     "subtitle": "等待种植的种子",
-    "count": "{n}/{max} 颗种子",
     "gardenFull": "你的花园已满（{pots}/{slots} 个花盆）。移除一株植物后才能种下新种子。",
     "emptyTitle": "你的种子袋是空的",
     "emptyText": "拍张照片来获得新种子。",
     "goScan": "去拍照",
-    "bagFull": "种子袋已满。获得新种子时，最旧的种子会被替换。",
-    "watchForSeed": "观看视频可额外获得 1 颗种子（今天还剩 {n} 次）"
+    "bagFull": "种子袋已满。获得新种子时，最旧的种子会被替换。"
   },
   "pot": {
     "unknown": "未知植物",
@@ -240,10 +233,81 @@
   "collection": {
     "title": "图鉴",
     "subtitle": "你遇见过的物种",
-    "unseenAlt": "未遇见的物种"
+    "unseenAlt": "未遇见的物种",
+    "progress": "图鉴进度",
+    "progressCount": "{n}/{total} 个物种 · {p}%"
   },
   "ads": {
     "label": "广告",
     "close": "关闭广告"
+  },
+  "home": {
+    "seeds": "种子",
+    "missions": "任务",
+    "collection": "图鉴",
+    "missionCard": "每日任务",
+    "missionHint": "完成即可获得 +{n} 种子",
+    "missionReady": "你的奖励在等你！"
+  },
+  "coins": {
+    "plus": "+{n} 种子"
+  },
+  "missions": {
+    "title": "每日任务",
+    "subtitle": "完成所有任务即可领取奖励",
+    "progress": "已完成 {done}/{total}",
+    "water": "给植物浇水 {n} 次",
+    "scan": "拍摄植物 {n} 次",
+    "feed": "给植物施肥 {n} 次",
+    "go": "前往",
+    "reward": "完成奖励",
+    "claim": "领取",
+    "claimed": "今天已领取，明天再来吧",
+    "left": "还剩 {n} 个任务",
+    "note": "任务 {done}/{target}",
+    "doneTitle": "任务完成！",
+    "doneText": "你已完成今天的所有任务。",
+    "careHint": "仅在植物确实需要水或肥料时才会计入"
+  },
+  "shop": {
+    "tabStore": "商店",
+    "tabMine": "我的种子",
+    "heroTitle": "获取更多种子",
+    "heroText": "打开种子包，为你的花园获得新种子",
+    "basic": {
+      "title": "基础种子包",
+      "text": "随机获得 1 颗种子"
+    },
+    "plus": {
+      "title": "进阶种子包",
+      "text": "获得 3 颗种子，至少 1 颗为少见品种"
+    },
+    "special": {
+      "title": "特别种子包",
+      "text": "获得 5 颗种子，至少 1 颗为稀有品种"
+    },
+    "watch": "观看",
+    "videosLeft": "今天还剩 {n} 次视频",
+    "noVideo": "暂无视频",
+    "quotaDone": "今天已用完",
+    "notEnough": "种子不足",
+    "noRoom": "背包只剩 {n} 个空位",
+    "earnHint": "完成每日任务，赚取更多种子",
+    "gotTitle": "获得种子！",
+    "gotText": "你收到了 {n} 颗新种子"
+  },
+  "unlock": {
+    "title": "用种子解锁",
+    "cost": "需要 {n} 种子",
+    "have": "你有 {n}",
+    "button": "解锁",
+    "locked": "未解锁",
+    "more": "获取更多种子",
+    "watch": "观看广告获得 +{n} 种子",
+    "done": "已解锁{name}"
+  },
+  "levelUp": {
+    "title": "你的植物长大了！",
+    "text": "{name}已进入{stage}阶段"
   }
 }

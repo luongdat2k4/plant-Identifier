@@ -8,7 +8,8 @@
   },
   "common": {
     "back": "Terug",
-    "toGarden": "Terug naar tuin"
+    "toGarden": "Terug naar tuin",
+    "ok": "OK"
   },
   "spot": {
     "sun": "Zonnige plek",
@@ -18,12 +19,7 @@
     "rarity": "Zeldzaamheid",
     "spot": "Voorkeur",
     "bestStage": "Beste stadium",
-    "mastered": "VOLTOOID",
-    "unseen": {
-      "title": "Soort nog niet ontmoet",
-      "text": "Maak meer foto's voor de kans om nieuwe soorten te ontmoeten.",
-      "back": "Terug naar collectie"
-    }
+    "mastered": "VOLTOOID"
   },
   "article": {
     "info": "Over deze soort",
@@ -72,10 +68,9 @@
     "seedError": "Er ging iets mis bij het trekken van een zaadje. Probeer het opnieuw.",
     "plantedSpecies": "{name} geplant",
     "seedSaved": "Zaadje opgeslagen in je zakje",
-    "notSeen": "Nog niet ontmoet. Maak meer foto's!",
     "about": "Sproutly · UI-voorbeeld v2",
-    "rewardSeed": "Je hebt een {name}-zaadje ontvangen",
-    "rewardNone": "Momenteel geen video beschikbaar, probeer het later opnieuw"
+    "rewardNone": "Momenteel geen video beschikbaar, probeer het later opnieuw",
+    "coinsReward": "Je hebt +{n} zaden ontvangen"
   },
   "confirm": {
     "discardSeed": "Dit zaadje weggooien?",
@@ -155,13 +150,11 @@
   "seeds": {
     "title": "Zaadzakje",
     "subtitle": "Zaadjes die wachten om geplant te worden",
-    "count": "{n}/{max} zaadjes",
     "gardenFull": "Je tuin is vol ({pots}/{slots} potten). Verwijder een plant om een nieuw zaadje te planten.",
     "emptyTitle": "Je zaadzakje is leeg",
     "emptyText": "Maak een foto om een nieuw zaadje te krijgen.",
     "goScan": "Maak een foto",
-    "bagFull": "Het zakje is vol. Het oudste zaadje wordt vervangen als je een nieuw krijgt.",
-    "watchForSeed": "Bekijk een video voor 1 extra zaadje (nog {n} vandaag)"
+    "bagFull": "Het zakje is vol. Het oudste zaadje wordt vervangen als je een nieuw krijgt."
   },
   "pot": {
     "unknown": "Onbekende plant",
@@ -240,10 +233,81 @@
   "collection": {
     "title": "Collectie",
     "subtitle": "Soorten die je hebt ontmoet",
-    "unseenAlt": "Onbekende soort"
+    "unseenAlt": "Onbekende soort",
+    "progress": "Voortgang collectie",
+    "progressCount": "{n}/{total} soorten · {p}%"
   },
   "ads": {
     "label": "Advertentie",
     "close": "Advertentie sluiten"
+  },
+  "home": {
+    "seeds": "Zaden",
+    "missions": "Missies",
+    "collection": "Collectie",
+    "missionCard": "Dagelijkse missies",
+    "missionHint": "Voltooi ze voor +{n} zaden",
+    "missionReady": "Je beloning wacht op je!"
+  },
+  "coins": {
+    "plus": "+{n} zaden"
+  },
+  "missions": {
+    "title": "Dagelijkse missies",
+    "subtitle": "Voltooi alle missies om de beloning te verdienen",
+    "progress": "{done}/{total} klaar",
+    "water": "Geef planten {n} keer water",
+    "scan": "Fotografeer {n} keer een plant",
+    "feed": "Geef een plant {n} keer voeding",
+    "go": "Ga",
+    "reward": "Beloning voor voltooien",
+    "claim": "Ophalen",
+    "claimed": "Vandaag opgehaald, kom morgen terug",
+    "left": "Nog {n} missies",
+    "note": "Missie {done}/{target}",
+    "doneTitle": "Missies voltooid!",
+    "doneText": "Je hebt vandaag alle missies voltooid.",
+    "careHint": "Telt alleen mee als een plant echt water of voeding nodig heeft"
+  },
+  "shop": {
+    "tabStore": "Winkel",
+    "tabMine": "Mijn zaden",
+    "heroTitle": "Krijg meer zaden",
+    "heroText": "Open een pakket voor nieuwe zaden voor je tuin",
+    "basic": {
+      "title": "Basispakket",
+      "text": "Krijg 1 willekeurig zaad"
+    },
+    "plus": {
+      "title": "Pluspakket",
+      "text": "Krijg 3 zaden, minstens één ongewoon"
+    },
+    "special": {
+      "title": "Speciaal pakket",
+      "text": "Krijg 5 zaden, minstens één zeldzaam"
+    },
+    "watch": "Kijk",
+    "videosLeft": "Nog {n} video's vandaag",
+    "noVideo": "Geen video",
+    "quotaDone": "Klaar voor vandaag",
+    "notEnough": "Niet genoeg zaden",
+    "noRoom": "Je tas heeft nog maar {n} vrije plekken",
+    "earnHint": "Doe dagelijkse missies om meer zaden te verdienen",
+    "gotTitle": "Je hebt zaden gekregen!",
+    "gotText": "Je hebt {n} nieuwe zaden ontvangen"
+  },
+  "unlock": {
+    "title": "Ontgrendel met zaden",
+    "cost": "Kost {n} zaden",
+    "have": "Je hebt {n}",
+    "button": "Ontgrendelen",
+    "locked": "Vergrendeld",
+    "more": "Krijg meer zaden",
+    "watch": "Bekijk een advertentie voor +{n} zaden",
+    "done": "{name} ontgrendeld"
+  },
+  "levelUp": {
+    "title": "Je plant is gegroeid!",
+    "text": "{name} heeft de fase {stage} bereikt"
   }
 }

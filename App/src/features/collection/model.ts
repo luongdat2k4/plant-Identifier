@@ -36,10 +36,18 @@ export function recordProgress(speciesId: string, stage: Stage) {
   if (stage === 'bloom') found.mastered = true
 }
 
-/** Weighted roll by rarity; species not yet seen are twice as likely. */
-export function rollSpecies(): Species {
-  const weights = allSpecies.map(s => RARITY_META[s.rarity].weight * (discoveryOf(s.id) ? 1 : 2))
+const RARITY_ORDER: readonly Rarity[] = ['common', 'uncommon', 'rare']
+
+/** Weighted roll by rarity; species not yet seen are twice as likely. `atLeast` limits the roll to that rarity or rarer. */
+export function rollSpecies(atLeast: Rarity = 'common'): Species {
+  const pool = allSpecies.filter(s => RARITY_ORDER.indexOf(s.rarity) >= RARITY_ORDER.indexOf(atLeast))
+  const from = pool.length ? pool : allSpecies
+  const weights = from.map(s => RARITY_META[s.rarity].weight * (discoveryOf(s.id) ? 1 : 2))
   let pick = Math.random() * weights.reduce((sum, w) => sum + w, 0)
-  for (let i = 0; i < allSpecies.length; i++) { pick -= weights[i]; if (pick <= 0) return allSpecies[i] }
-  return allSpecies[allSpecies.length - 1]
+  for (let i = 0; i < from.length; i++) { pick -= weights[i]; if (pick <= 0) return from[i] }
+  return from[from.length - 1]
 }
+
+// Unlocking a species in the collection with coins, as an alternative to meeting it through a scan.
+export const UNLOCK_COST: Record<Rarity, number> = { common: 10, uncommon: 15, rare: 20 }
+export const unlockCost = (species: Species) => UNLOCK_COST[species.rarity]

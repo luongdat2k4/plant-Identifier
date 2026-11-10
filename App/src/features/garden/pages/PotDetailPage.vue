@@ -10,6 +10,7 @@ import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
 import { useScrollFade } from '../../../shared/composables/useScrollFade'
 import { useToast } from '../../../shared/composables/useToast'
 import StatBar from '../components/StatBar.vue'
+import { withMission } from '../../missions/model'
 const route = useRoute()
 const { go, back } = useAppNavigation()
 useScrollFade()
@@ -27,8 +28,8 @@ const progress = computed(() => {
   return Math.round(((pot.value.growthDays - from) / (to - from)) * 100)
 })
 const unlocked = computed(() => stageIndex(stage.value))
-function water() { if (pot.value) { waterPot(pot.value.id); notify(t('toast.wateredPlain')) } }
-function feed() { if (pot.value) { feedPot(pot.value.id); notify(t('toast.fedPlain')) } }
+function water() { if (pot.value) notify(withMission(t('toast.wateredPlain'), waterPot(pot.value.id) ? 'water' : null)) }
+function feed() { if (pot.value) notify(withMission(t('toast.fedPlain'), feedPot(pot.value.id) ? 'feed' : null)) }
 function changeSpot(spot: Spot) { if (pot.value) setSpot(pot.value.id, spot) }
 function uproot() {
   if (!pot.value || !confirm(t('confirm.uproot', { name: potName(pot.value) }))) return

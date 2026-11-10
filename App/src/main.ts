@@ -13,6 +13,7 @@ import './shared/styles/theme.css'
 import './shared/styles/bell.css'
 import './shared/styles/article.css'
 import './shared/styles/onboarding.css'
+import './shared/styles/progress.css'
 import './shared/styles/fonts.css'
 // Solar icons (CC BY 4.0, https://github.com/480-Design/Solar-Icon-Set)
 // are bundled so the interface also renders them without network access.

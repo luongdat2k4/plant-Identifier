@@ -8,7 +8,8 @@
   },
   "common": {
     "back": "Quay lại",
-    "toGarden": "Về vườn"
+    "toGarden": "Về vườn",
+    "ok": "OK"
   },
   "spot": {
     "sun": "Chỗ nắng",
@@ -18,12 +19,7 @@
     "rarity": "Độ hiếm",
     "spot": "Ưa thích",
     "bestStage": "Tiến độ cao nhất",
-    "mastered": "ĐÃ THUẦN",
-    "unseen": {
-      "title": "Chưa gặp loài này",
-      "text": "Chụp thêm ảnh để có cơ hội gặp loài mới.",
-      "back": "Về bộ sưu tập"
-    }
+    "mastered": "ĐÃ THUẦN"
   },
   "article": {
     "info": "Thông tin loài",
@@ -72,10 +68,9 @@
     "seedError": "Có lỗi khi gieo hạt, hãy thử lại",
     "plantedSpecies": "Đã trồng {name}",
     "seedSaved": "Đã cất hạt vào túi",
-    "notSeen": "Chưa gặp loài này. Hãy chụp thêm ảnh!",
     "about": "Sproutly · bản thử giao diện v2",
-    "rewardSeed": "Bạn nhận được hạt {name}",
-    "rewardNone": "Chưa có video phù hợp, hãy thử lại sau"
+    "rewardNone": "Chưa có video phù hợp, hãy thử lại sau",
+    "coinsReward": "Bạn nhận được +{n} hạt giống"
   },
   "confirm": {
     "discardSeed": "Bỏ hạt giống này?",
@@ -155,13 +150,11 @@
   "seeds": {
     "title": "Túi hạt",
     "subtitle": "Hạt giống chờ trồng",
-    "count": "{n}/{max} hạt",
     "gardenFull": "Vườn đã đầy ({pots}/{slots} chậu). Hãy nhổ bớt một cây để trồng hạt mới.",
     "emptyTitle": "Túi hạt đang trống",
     "emptyText": "Chụp một bức ảnh để nhận hạt giống mới.",
     "goScan": "Đi chụp ảnh",
-    "bagFull": "Túi đã đầy. Hạt cũ nhất sẽ bị thay khi bạn nhận hạt mới.",
-    "watchForSeed": "Xem video nhận thêm 1 hạt ({n} lượt còn lại hôm nay)"
+    "bagFull": "Túi đã đầy. Hạt cũ nhất sẽ bị thay khi bạn nhận hạt mới."
   },
   "pot": {
     "unknown": "Cây lạ",
@@ -240,10 +233,81 @@
   "collection": {
     "title": "Bộ sưu tập",
     "subtitle": "Loài cây bạn đã gặp",
-    "unseenAlt": "Loài chưa gặp"
+    "unseenAlt": "Loài chưa gặp",
+    "progress": "Tiến trình bộ sưu tập",
+    "progressCount": "{n}/{total} loài · {p}%"
   },
   "ads": {
     "label": "Quảng cáo",
     "close": "Đóng quảng cáo"
+  },
+  "home": {
+    "seeds": "Hạt giống",
+    "missions": "Nhiệm vụ",
+    "collection": "Bộ sưu tập",
+    "missionCard": "Nhiệm vụ hằng ngày",
+    "missionHint": "Hoàn thành để nhận +{n} hạt giống",
+    "missionReady": "Phần thưởng đang chờ bạn!"
+  },
+  "coins": {
+    "plus": "+{n} hạt giống"
+  },
+  "missions": {
+    "title": "Nhiệm vụ hằng ngày",
+    "subtitle": "Hoàn thành tất cả nhiệm vụ để nhận phần thưởng",
+    "progress": "{done}/{total} hoàn thành",
+    "water": "Tưới cây {n} lần",
+    "scan": "Chụp ảnh cây {n} lần",
+    "feed": "Bón phân {n} lần",
+    "go": "Làm ngay",
+    "reward": "Phần thưởng hoàn thành",
+    "claim": "Nhận thưởng",
+    "claimed": "Đã nhận hôm nay, quay lại vào ngày mai nhé",
+    "left": "Còn {n} nhiệm vụ",
+    "note": "Nhiệm vụ {done}/{target}",
+    "doneTitle": "Hoàn thành nhiệm vụ!",
+    "doneText": "Bạn đã hoàn thành mọi nhiệm vụ hôm nay.",
+    "careHint": "Chỉ tính khi cây thật sự cần nước hoặc phân bón"
+  },
+  "shop": {
+    "tabStore": "Cửa hàng",
+    "tabMine": "Hạt của tôi",
+    "heroTitle": "Nhận thêm hạt giống",
+    "heroText": "Mở gói để có hạt mới cho khu vườn của bạn",
+    "basic": {
+      "title": "Gói hạt cơ bản",
+      "text": "Nhận 1 hạt giống ngẫu nhiên"
+    },
+    "plus": {
+      "title": "Gói hạt nâng cao",
+      "text": "Nhận 3 hạt giống, chắc chắn có 1 cây ít gặp"
+    },
+    "special": {
+      "title": "Gói hạt đặc biệt",
+      "text": "Nhận 5 hạt giống, chắc chắn có 1 cây hiếm"
+    },
+    "watch": "Xem video",
+    "videosLeft": "Còn {n} lượt xem video hôm nay",
+    "noVideo": "Chưa có video",
+    "quotaDone": "Hết lượt hôm nay",
+    "notEnough": "Chưa đủ hạt giống",
+    "noRoom": "Túi hạt chỉ còn {n} chỗ trống",
+    "earnHint": "Làm nhiệm vụ hằng ngày để nhận thêm hạt giống",
+    "gotTitle": "Nhận được hạt giống!",
+    "gotText": "Bạn đã nhận {n} hạt giống mới"
+  },
+  "unlock": {
+    "title": "Mở khóa bằng hạt giống",
+    "cost": "Cần {n} hạt giống",
+    "have": "Bạn đang có {n}",
+    "button": "Mở khóa",
+    "locked": "Chưa mở khóa",
+    "more": "Nhận thêm hạt giống",
+    "watch": "Xem quảng cáo nhận +{n} hạt giống",
+    "done": "Đã mở khóa {name}"
+  },
+  "levelUp": {
+    "title": "Cây đã phát triển!",
+    "text": "{name} đã lên giai đoạn {stage}"
   }
 }

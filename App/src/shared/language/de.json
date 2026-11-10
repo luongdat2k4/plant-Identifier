@@ -8,7 +8,8 @@
   },
   "common": {
     "back": "Zurück",
-    "toGarden": "Zurück zum Garten"
+    "toGarden": "Zurück zum Garten",
+    "ok": "OK"
   },
   "spot": {
     "sun": "Sonniger Platz",
@@ -18,12 +19,7 @@
     "rarity": "Seltenheit",
     "spot": "Bevorzugt",
     "bestStage": "Beste Phase",
-    "mastered": "MEISTERT",
-    "unseen": {
-      "title": "Art noch nicht entdeckt",
-      "text": "Mach mehr Fotos, um neue Arten zu entdecken.",
-      "back": "Zurück zur Sammlung"
-    }
+    "mastered": "MEISTERT"
   },
   "article": {
     "info": "Über diese Art",
@@ -72,10 +68,9 @@
     "seedError": "Beim Auswürfeln des Samens ist etwas schiefgelaufen. Versuch es erneut.",
     "plantedSpecies": "{name} gepflanzt",
     "seedSaved": "Samen in deinem Beutel gespeichert",
-    "notSeen": "Noch nicht entdeckt. Mach mehr Fotos!",
     "about": "Sproutly · UI-Vorschau v2",
-    "rewardSeed": "Du hast einen Samen von {name} erhalten",
-    "rewardNone": "Gerade ist kein Video verfügbar, versuch es später erneut"
+    "rewardNone": "Gerade ist kein Video verfügbar, versuch es später erneut",
+    "coinsReward": "Du hast +{n} Samen erhalten"
   },
   "confirm": {
     "discardSeed": "Diesen Samen verwerfen?",
@@ -155,13 +150,11 @@
   "seeds": {
     "title": "Samenbeutel",
     "subtitle": "Samen, die aufs Pflanzen warten",
-    "count": "{n}/{max} Samen",
     "gardenFull": "Dein Garten ist voll ({pots}/{slots} Töpfe). Entferne eine Pflanze, um einen neuen Samen zu pflanzen.",
     "emptyTitle": "Dein Samenbeutel ist leer",
     "emptyText": "Mach ein Foto, um einen neuen Samen zu bekommen.",
     "goScan": "Foto machen",
-    "bagFull": "Der Beutel ist voll. Der älteste Samen wird ersetzt, wenn du einen neuen bekommst.",
-    "watchForSeed": "Sieh dir ein Video für 1 Extra-Samen an (noch {n} heute)"
+    "bagFull": "Der Beutel ist voll. Der älteste Samen wird ersetzt, wenn du einen neuen bekommst."
   },
   "pot": {
     "unknown": "Unbekannte Pflanze",
@@ -240,10 +233,81 @@
   "collection": {
     "title": "Sammlung",
     "subtitle": "Arten, die du entdeckt hast",
-    "unseenAlt": "Unentdeckte Art"
+    "unseenAlt": "Unentdeckte Art",
+    "progress": "Sammlungsfortschritt",
+    "progressCount": "{n}/{total} Arten · {p}%"
   },
   "ads": {
     "label": "Anzeige",
     "close": "Anzeige schließen"
+  },
+  "home": {
+    "seeds": "Samen",
+    "missions": "Missionen",
+    "collection": "Sammlung",
+    "missionCard": "Tägliche Missionen",
+    "missionHint": "Schließe sie ab für +{n} Samen",
+    "missionReady": "Deine Belohnung wartet!"
+  },
+  "coins": {
+    "plus": "+{n} Samen"
+  },
+  "missions": {
+    "title": "Tägliche Missionen",
+    "subtitle": "Schließe alle Missionen ab, um die Belohnung zu erhalten",
+    "progress": "{done}/{total} erledigt",
+    "water": "Pflanzen {n}-mal gießen",
+    "scan": "{n}-mal eine Pflanze fotografieren",
+    "feed": "{n}-mal eine Pflanze düngen",
+    "go": "Los",
+    "reward": "Abschlussbelohnung",
+    "claim": "Abholen",
+    "claimed": "Heute abgeholt, komm morgen wieder",
+    "left": "Noch {n} Missionen",
+    "note": "Mission {done}/{target}",
+    "doneTitle": "Missionen abgeschlossen!",
+    "doneText": "Du hast heute alle Missionen erledigt.",
+    "careHint": "Zählt nur, wenn eine Pflanze wirklich Wasser oder Nahrung braucht"
+  },
+  "shop": {
+    "tabStore": "Shop",
+    "tabMine": "Meine Samen",
+    "heroTitle": "Hol dir mehr Samen",
+    "heroText": "Öffne ein Paket für neue Samen für deinen Garten",
+    "basic": {
+      "title": "Basispaket",
+      "text": "Erhalte 1 zufälligen Samen"
+    },
+    "plus": {
+      "title": "Plus-Paket",
+      "text": "Erhalte 3 Samen, mindestens einer ungewöhnlich"
+    },
+    "special": {
+      "title": "Spezialpaket",
+      "text": "Erhalte 5 Samen, mindestens einer selten"
+    },
+    "watch": "Ansehen",
+    "videosLeft": "Noch {n} Videos heute",
+    "noVideo": "Kein Video",
+    "quotaDone": "Für heute erledigt",
+    "notEnough": "Nicht genug Samen",
+    "noRoom": "Dein Beutel hat nur noch {n} freie Plätze",
+    "earnHint": "Erledige tägliche Missionen, um mehr Samen zu verdienen",
+    "gotTitle": "Du hast Samen erhalten!",
+    "gotText": "Du hast {n} neue Samen erhalten"
+  },
+  "unlock": {
+    "title": "Mit Samen freischalten",
+    "cost": "Kostet {n} Samen",
+    "have": "Du hast {n}",
+    "button": "Freischalten",
+    "locked": "Gesperrt",
+    "more": "Mehr Samen holen",
+    "watch": "Sieh dir eine Anzeige an für +{n} Samen",
+    "done": "{name} freigeschaltet"
+  },
+  "levelUp": {
+    "title": "Deine Pflanze ist gewachsen!",
+    "text": "{name} hat die Stufe {stage} erreicht"
   }
 }

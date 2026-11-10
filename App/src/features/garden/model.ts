@@ -1,7 +1,9 @@
 import { state } from '../../shared/store'
 import { newId } from '../../shared/utils/newId'
 import { t } from '../../shared/i18n'
-import { getSpecies, recordProgress, stageForDays, STAGES, STAGE_META, type Stage } from '../collection/model'
+import { getSpecies, recordProgress, stageForDays, stageIndex, STAGES, STAGE_META, type Stage } from '../collection/model'
+import { addCoins } from '../../shared/coins'
+import { bumpMission } from '../missions/model'
 
 export type Spot = 'sun' | 'shade'
 export type Status = 'happy' | 'needs-care' | 'wilting'
@@ -18,6 +20,8 @@ export interface Pot {
   wiltingSince?: string
   lastUpdated: string
   createdAt: string
+  /** Highest stage already rewarded (+coins). Pots from before rewards existed start at the stage they had then. */
+  rewardedStage?: Stage
 }
 
 const WATER_PER_HOUR = 100 / 96
@@ -61,6 +65,7 @@ export function potName(pot: Pot): string { return pot.nickname?.trim() || getSp
 
 /** Applies elapsed real time to one pot. Returns false when the pot has died. */
 export function tickPot(pot: Pot, now: Date = new Date()): boolean {
+  pot.rewardedStage ??= stageOf(pot) // growth from here on is rewarded, growth before rewards existed is not
   const species = getSpecies(pot.speciesId)
   const hours = Math.max(0, (now.getTime() - new Date(pot.lastUpdated).getTime()) / 3600000)
   if (species) {
@@ -96,13 +101,34 @@ export function tickAll(now: Date = new Date()): string[] {
 
 export function findPot(id: string): Pot | undefined { return state.value.pots.find(p => p.id === id) }
 function afterCare(pot: Pot) { if (statusOf(pot) !== 'wilting') delete pot.wiltingSince }
-export function waterPot(id: string) {
-  const pot = findPot(id); if (!pot) return
-  tickPot(pot); pot.water = 100; afterCare(pot)
+/** Waters a pot. Returns true when it counted towards today's mission: only a pot that actually needed water counts. */
+export function waterPot(id: string): boolean {
+  const pot = findPot(id); if (!pot) return false
+  tickPot(pot); const needed = pot.water < 99; pot.water = 100; afterCare(pot)
+  return needed && bumpMission('water')
 }
-export function feedPot(id: string) {
-  const pot = findPot(id); if (!pot) return
-  tickPot(pot); pot.nutrition = 100; afterCare(pot)
+/** Feeds a pot. Returns true when it counted towards today's mission: only a pot that actually needed food counts. */
+export function feedPot(id: string): boolean {
+  const pot = findPot(id); if (!pot) return false
+  tickPot(pot); const needed = pot.nutrition < 99; pot.nutrition = 100; afterCare(pot)
+  return needed && bumpMission('feed')
+}
+
+// A pot reaching a new stage earns coins once per stage; the popup that hands them out is in the app shell.
+export const LEVEL_UP_REWARD = 2
+/** The stage the pot reached but has not been rewarded for yet, or null. */
+export function levelUpOf(pot: Pot): Stage | null {
+  const now = stageOf(pot)
+  return stageIndex(now) > stageIndex(pot.rewardedStage ?? now) ? now : null
+}
+export function pendingLevelUp(): Pot | undefined { return state.value.pots.find(pot => levelUpOf(pot)) }
+/** Marks the pot's current stage as rewarded and adds the coins. Returns how many coins were given. */
+export function claimLevelUp(pot: Pot): number {
+  const now = stageOf(pot)
+  const steps = Math.max(0, stageIndex(now) - stageIndex(pot.rewardedStage ?? now))
+  pot.rewardedStage = now
+  addCoins(steps * LEVEL_UP_REWARD)
+  return steps * LEVEL_UP_REWARD
 }
 export function setSpot(id: string, spot: Spot) {
   const pot = findPot(id); if (!pot) return
@@ -125,6 +151,7 @@ export function plantSeed(seedId: string): Pot | null {
   const pot: Pot = {
     id: newId(), speciesId: species.id, spot: species.preferredSpot,
     water: 100, nutrition: 100, growthDays: 0, lastGrowthDay: dayKey(now), lastUpdated: now.toISOString(), createdAt: now.toISOString(),
+    rewardedStage: 'seed',
   }
   state.value.seeds = state.value.seeds.filter(s => s.id !== seedId)
   state.value.pots.push(pot)

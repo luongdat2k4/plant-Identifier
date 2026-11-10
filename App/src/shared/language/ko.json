@@ -8,7 +8,8 @@
   },
   "common": {
     "back": "뒤로",
-    "toGarden": "정원으로 돌아가기"
+    "toGarden": "정원으로 돌아가기",
+    "ok": "확인"
   },
   "spot": {
     "sun": "양지",
@@ -18,12 +19,7 @@
     "rarity": "희귀도",
     "spot": "선호 장소",
     "bestStage": "최고 단계",
-    "mastered": "마스터",
-    "unseen": {
-      "title": "아직 만나지 못한 종",
-      "text": "사진을 더 찍으면 새로운 종을 만날 기회가 있어요.",
-      "back": "컬렉션으로 돌아가기"
-    }
+    "mastered": "마스터"
   },
   "article": {
     "info": "이 종에 대하여",
@@ -72,10 +68,9 @@
     "seedError": "씨앗을 뽑는 중 문제가 생겼어요. 다시 시도하세요.",
     "plantedSpecies": "{name}을(를) 심었어요",
     "seedSaved": "씨앗을 주머니에 저장했어요",
-    "notSeen": "아직 만나지 못했어요. 사진을 더 찍어 보세요!",
     "about": "Sproutly · UI 미리보기 v2",
-    "rewardSeed": "{name} 씨앗을 받았어요",
-    "rewardNone": "지금은 볼 수 있는 동영상이 없어요. 나중에 다시 시도하세요"
+    "rewardNone": "지금은 볼 수 있는 동영상이 없어요. 나중에 다시 시도하세요",
+    "coinsReward": "+{n} 씨앗을 받았어요"
   },
   "confirm": {
     "discardSeed": "이 씨앗을 버릴까요?",
@@ -155,13 +150,11 @@
   "seeds": {
     "title": "씨앗 주머니",
     "subtitle": "심기를 기다리는 씨앗",
-    "count": "씨앗 {n}/{max}개",
     "gardenFull": "정원이 가득 찼어요 ({pots}/{slots}개 화분). 새 씨앗을 심으려면 식물 하나를 빼 주세요.",
     "emptyTitle": "씨앗 주머니가 비었어요",
     "emptyText": "사진을 찍어 새 씨앗을 얻으세요.",
     "goScan": "사진 찍으러 가기",
-    "bagFull": "주머니가 가득 찼어요. 새 씨앗을 얻으면 가장 오래된 씨앗이 교체돼요.",
-    "watchForSeed": "동영상을 보고 씨앗 1개 더 받기 (오늘 {n}회 남음)"
+    "bagFull": "주머니가 가득 찼어요. 새 씨앗을 얻으면 가장 오래된 씨앗이 교체돼요."
   },
   "pot": {
     "unknown": "알 수 없는 식물",
@@ -240,10 +233,81 @@
   "collection": {
     "title": "컬렉션",
     "subtitle": "만난 종",
-    "unseenAlt": "아직 못 만난 종"
+    "unseenAlt": "아직 못 만난 종",
+    "progress": "컬렉션 진행도",
+    "progressCount": "{n}/{total}종 · {p}%"
   },
   "ads": {
     "label": "광고",
     "close": "광고 닫기"
+  },
+  "home": {
+    "seeds": "씨앗",
+    "missions": "미션",
+    "collection": "컬렉션",
+    "missionCard": "일일 미션",
+    "missionHint": "완료하면 +{n} 씨앗",
+    "missionReady": "보상이 기다리고 있어요!"
+  },
+  "coins": {
+    "plus": "+{n} 씨앗"
+  },
+  "missions": {
+    "title": "일일 미션",
+    "subtitle": "모든 미션을 완료하고 보상을 받으세요",
+    "progress": "{done}/{total} 완료",
+    "water": "식물에 {n}번 물 주기",
+    "scan": "식물 {n}번 촬영하기",
+    "feed": "식물에 {n}번 비료 주기",
+    "go": "가기",
+    "reward": "완료 보상",
+    "claim": "받기",
+    "claimed": "오늘은 이미 받았어요. 내일 또 오세요",
+    "left": "미션 {n}개 남음",
+    "note": "미션 {done}/{target}",
+    "doneTitle": "미션 완료!",
+    "doneText": "오늘의 미션을 모두 완료했어요.",
+    "careHint": "식물이 실제로 물이나 영양분이 필요할 때만 인정돼요"
+  },
+  "shop": {
+    "tabStore": "상점",
+    "tabMine": "내 씨앗",
+    "heroTitle": "씨앗 더 얻기",
+    "heroText": "팩을 열어 정원에 심을 새 씨앗을 얻으세요",
+    "basic": {
+      "title": "기본 팩",
+      "text": "무작위 씨앗 1개 획득"
+    },
+    "plus": {
+      "title": "플러스 팩",
+      "text": "씨앗 3개 획득, 최소 1개는 흔하지 않은 등급"
+    },
+    "special": {
+      "title": "스페셜 팩",
+      "text": "씨앗 5개 획득, 최소 1개는 희귀 등급"
+    },
+    "watch": "보기",
+    "videosLeft": "오늘 영상 {n}회 남음",
+    "noVideo": "영상 없음",
+    "quotaDone": "오늘은 끝났어요",
+    "notEnough": "씨앗이 부족해요",
+    "noRoom": "가방에 빈 칸이 {n}개뿐이에요",
+    "earnHint": "일일 미션을 하고 씨앗을 더 모으세요",
+    "gotTitle": "씨앗을 얻었어요!",
+    "gotText": "새 씨앗 {n}개를 받았어요"
+  },
+  "unlock": {
+    "title": "씨앗으로 잠금 해제",
+    "cost": "씨앗 {n}개 필요",
+    "have": "보유 {n}개",
+    "button": "잠금 해제",
+    "locked": "잠김",
+    "more": "씨앗 더 얻기",
+    "watch": "광고 보고 +{n} 씨앗",
+    "done": "{name} 잠금 해제됨"
+  },
+  "levelUp": {
+    "title": "식물이 자랐어요!",
+    "text": "{name}이(가) {stage} 단계에 도달했어요"
   }
 }

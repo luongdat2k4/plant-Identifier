@@ -11,7 +11,11 @@ import PotCard from '../components/PotCard.vue'
 import SeedRow from '../../../shared/components/SeedRow.vue'
 import InFeedAd from '../../ads/components/InFeedAd.vue'
 import { useDocScroll } from '../../../shared/composables/pageScroll'
+import { useRouter } from 'vue-router'
+import { allSpecies } from '../../collection/model'
+import { MISSION_REWARD, MISSIONS, missionsDone, missionRewardClaimed, missionRewardReady, withMission } from '../../missions/model'
 const { go } = useAppNavigation()
+const router = useRouter()
 useDocScroll()
 const { notify } = useToast()
 const filter = ref<'all' | 'care' | 'happy'>('all')
@@ -20,9 +24,12 @@ const pots = computed(() => state.value.pots)
 const shown = computed(() => pots.value.filter(p => filter.value === 'all' || (filter.value === 'happy') === (statusOf(p) === 'happy')))
 const waitingSeeds = computed(() => state.value.seeds.slice(0, 3))
 function care(pot: Pot, kind: 'water' | 'feed') {
-  if (kind === 'water') waterPot(pot.id); else feedPot(pot.id)
-  notify(kind === 'water' ? t('toast.watered', { name: potName(pot) }) : t('toast.fed', { name: potName(pot) }))
+  const counted = kind === 'water' ? waterPot(pot.id) : feedPot(pot.id)
+  const message = kind === 'water' ? t('toast.watered', { name: potName(pot) }) : t('toast.fed', { name: potName(pot) })
+  notify(withMission(message, counted ? kind : null))
 }
+const done = computed(() => missionsDone())
+const collected = computed(() => state.value.discoveries.length)
 function plant(id: string) {
   const pot = plantSeed(id)
   if (!pot) return notify(t('toast.noFreePot'))
@@ -36,6 +43,32 @@ function plant(id: string) {
     <NotificationBell/>
   </header>
   <main class="content" data-ad-scroll-region>
+    <nav class="quick-tiles">
+      <button @click="go('seeds')">
+        <Icon icon="fluent-emoji-flat:seedling" width="30"/><b>{{ t('home.seeds') }}</b>
+        <small><Icon icon="fluent-emoji-flat:chestnut" width="14"/> {{ state.coins }}</small>
+      </button>
+      <button @click="go('missions')">
+        <Icon icon="fluent-emoji-flat:clipboard" width="30"/><b>{{ t('home.missions') }}</b>
+        <small>{{ done }}/{{ MISSIONS.length }}</small>
+        <i v-if="missionRewardReady()" class="tile-dot"></i>
+      </button>
+      <button @click="go('collection')">
+        <Icon icon="fluent-emoji-flat:herb" width="30"/><b>{{ t('home.collection') }}</b>
+        <small>{{ collected }}/{{ allSpecies.length }}</small>
+      </button>
+    </nav>
+
+    <button v-if="!missionRewardClaimed()" class="mission-card" :class="{ ready: missionRewardReady() }" @click="go('missions')">
+      <Icon icon="fluent-emoji-flat:clipboard" width="34"/>
+      <div>
+        <b>{{ t('home.missionCard') }}</b>
+        <span>{{ missionRewardReady() ? t('home.missionReady') : t('home.missionHint', { n: String(MISSION_REWARD) }) }}</span>
+        <div class="stat-bar-track"><div class="stat-bar-fill growth" :style="{ width: `${(done / MISSIONS.length) * 100}%` }"></div></div>
+      </div>
+      <em>{{ done }}/{{ MISSIONS.length }}</em>
+    </button>
+
     <div class="pill-tabs" role="tablist">
       <button v-for="item in filters" :key="item.key" :class="{ active: filter === item.key }" @click="filter = item.key">{{ item.label }}</button>
     </div>
@@ -51,7 +84,7 @@ function plant(id: string) {
       <span>{{ pots.length ? t('garden.tryOther') : t('garden.firstSeed') }}</span>
     </div>
 
-    <div class="block-head"><h2>{{ t('garden.waitingSeeds') }}</h2><button class="pill-tag" @click="go('seeds')">{{ t('garden.viewAll') }}</button></div>
+    <div class="block-head"><h2>{{ t('garden.waitingSeeds') }}</h2><button class="pill-tag" @click="router.push({ name: 'seeds', query: { tab: 'mine' } })">{{ t('garden.viewAll') }}</button></div>
     <div v-if="waitingSeeds.length" class="list-stack">
       <SeedRow v-for="seed in waitingSeeds" :key="seed.id" :seed="seed" :can-plant="hasFreeSlot()" @plant="plant(seed.id)"/>
     </div>

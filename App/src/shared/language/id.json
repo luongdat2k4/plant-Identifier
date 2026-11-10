@@ -8,7 +8,8 @@
   },
   "common": {
     "back": "Kembali",
-    "toGarden": "Kembali ke kebun"
+    "toGarden": "Kembali ke kebun",
+    "ok": "OK"
   },
   "spot": {
     "sun": "Tempat cerah",
@@ -18,12 +19,7 @@
     "rarity": "Kelangkaan",
     "spot": "Menyukai",
     "bestStage": "Tahap terbaik",
-    "mastered": "TUNTAS",
-    "unseen": {
-      "title": "Spesies belum ditemukan",
-      "text": "Ambil lebih banyak foto untuk berkesempatan bertemu spesies baru.",
-      "back": "Kembali ke koleksi"
-    }
+    "mastered": "TUNTAS"
   },
   "article": {
     "info": "Tentang spesies ini",
@@ -72,10 +68,9 @@
     "seedError": "Terjadi kesalahan saat mengacak biji. Coba lagi.",
     "plantedSpecies": "{name} ditanam",
     "seedSaved": "Biji disimpan di kantong",
-    "notSeen": "Belum ditemukan. Ambil lebih banyak foto!",
     "about": "Sproutly · Pratinjau UI v2",
-    "rewardSeed": "Anda mendapat biji {name}",
-    "rewardNone": "Tidak ada video saat ini, coba lagi nanti"
+    "rewardNone": "Tidak ada video saat ini, coba lagi nanti",
+    "coinsReward": "Kamu menerima +{n} biji"
   },
   "confirm": {
     "discardSeed": "Buang biji ini?",
@@ -155,13 +150,11 @@
   "seeds": {
     "title": "Kantong biji",
     "subtitle": "Biji yang menunggu ditanam",
-    "count": "{n}/{max} biji",
     "gardenFull": "Kebun Anda penuh ({pots}/{slots} pot). Cabut satu tanaman untuk menanam biji baru.",
     "emptyTitle": "Kantong biji Anda kosong",
     "emptyText": "Ambil foto untuk mendapatkan biji baru.",
     "goScan": "Ambil foto",
-    "bagFull": "Kantong penuh. Biji terlama akan diganti saat Anda mendapat biji baru.",
-    "watchForSeed": "Tonton video untuk 1 biji tambahan (sisa {n} hari ini)"
+    "bagFull": "Kantong penuh. Biji terlama akan diganti saat Anda mendapat biji baru."
   },
   "pot": {
     "unknown": "Tanaman tidak dikenal",
@@ -240,10 +233,81 @@
   "collection": {
     "title": "Koleksi",
     "subtitle": "Spesies yang pernah Anda temui",
-    "unseenAlt": "Spesies belum ditemukan"
+    "unseenAlt": "Spesies belum ditemukan",
+    "progress": "Progres koleksi",
+    "progressCount": "{n}/{total} spesies · {p}%"
   },
   "ads": {
     "label": "Iklan",
     "close": "Tutup iklan"
+  },
+  "home": {
+    "seeds": "Biji",
+    "missions": "Misi",
+    "collection": "Koleksi",
+    "missionCard": "Misi harian",
+    "missionHint": "Selesaikan untuk +{n} biji",
+    "missionReady": "Hadiahmu sudah menunggu!"
+  },
+  "coins": {
+    "plus": "+{n} biji"
+  },
+  "missions": {
+    "title": "Misi harian",
+    "subtitle": "Selesaikan semua misi untuk mendapat hadiah",
+    "progress": "{done}/{total} selesai",
+    "water": "Siram tanaman {n} kali",
+    "scan": "Foto tanaman {n} kali",
+    "feed": "Beri pupuk tanaman {n} kali",
+    "go": "Mulai",
+    "reward": "Hadiah penyelesaian",
+    "claim": "Klaim",
+    "claimed": "Sudah diklaim hari ini, kembali besok ya",
+    "left": "Tinggal {n} misi lagi",
+    "note": "Misi {done}/{target}",
+    "doneTitle": "Misi selesai!",
+    "doneText": "Kamu menyelesaikan semua misi hari ini.",
+    "careHint": "Hanya dihitung saat tanaman benar-benar butuh air atau makanan"
+  },
+  "shop": {
+    "tabStore": "Toko",
+    "tabMine": "Biji saya",
+    "heroTitle": "Dapatkan lebih banyak biji",
+    "heroText": "Buka paket untuk mendapat biji baru bagi kebunmu",
+    "basic": {
+      "title": "Paket dasar",
+      "text": "Dapatkan 1 biji acak"
+    },
+    "plus": {
+      "title": "Paket plus",
+      "text": "Dapatkan 3 biji, minimal satu tidak umum"
+    },
+    "special": {
+      "title": "Paket spesial",
+      "text": "Dapatkan 5 biji, minimal satu langka"
+    },
+    "watch": "Tonton",
+    "videosLeft": "Sisa {n} video hari ini",
+    "noVideo": "Tidak ada video",
+    "quotaDone": "Selesai untuk hari ini",
+    "notEnough": "Biji tidak cukup",
+    "noRoom": "Tasmu hanya punya {n} slot kosong",
+    "earnHint": "Selesaikan misi harian untuk mendapat lebih banyak biji",
+    "gotTitle": "Kamu dapat biji!",
+    "gotText": "Kamu menerima {n} biji baru"
+  },
+  "unlock": {
+    "title": "Buka dengan biji",
+    "cost": "Butuh {n} biji",
+    "have": "Kamu punya {n}",
+    "button": "Buka",
+    "locked": "Terkunci",
+    "more": "Dapatkan lebih banyak biji",
+    "watch": "Tonton iklan untuk +{n} biji",
+    "done": "{name} terbuka"
+  },
+  "levelUp": {
+    "title": "Tanamanmu tumbuh!",
+    "text": "{name} mencapai tahap {stage}"
   }
 }

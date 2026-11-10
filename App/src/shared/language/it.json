@@ -8,7 +8,8 @@
   },
   "common": {
     "back": "Indietro",
-    "toGarden": "Torna al giardino"
+    "toGarden": "Torna al giardino",
+    "ok": "OK"
   },
   "spot": {
     "sun": "Posto soleggiato",
@@ -18,12 +19,7 @@
     "rarity": "Rarità",
     "spot": "Preferisce",
     "bestStage": "Fase migliore",
-    "mastered": "COMPLETATA",
-    "unseen": {
-      "title": "Specie non ancora incontrata",
-      "text": "Scatta altre foto per avere la possibilità di incontrare nuove specie.",
-      "back": "Torna alla collezione"
-    }
+    "mastered": "COMPLETATA"
   },
   "article": {
     "info": "Su questa specie",
@@ -72,10 +68,9 @@
     "seedError": "Qualcosa è andato storto nell'estrazione del seme. Riprova.",
     "plantedSpecies": "{name} piantata",
     "seedSaved": "Seme salvato nel sacchetto",
-    "notSeen": "Non ancora incontrata. Scatta altre foto!",
     "about": "Sproutly · Anteprima UI v2",
-    "rewardSeed": "Hai ricevuto un seme di {name}",
-    "rewardNone": "Nessun video disponibile al momento, riprova più tardi"
+    "rewardNone": "Nessun video disponibile al momento, riprova più tardi",
+    "coinsReward": "Hai ricevuto +{n} semi"
   },
   "confirm": {
     "discardSeed": "Scartare questo seme?",
@@ -155,13 +150,11 @@
   "seeds": {
     "title": "Sacchetto dei semi",
     "subtitle": "Semi in attesa di essere piantati",
-    "count": "{n}/{max} semi",
     "gardenFull": "Il tuo giardino è pieno ({pots}/{slots} vasi). Rimuovi una pianta per piantare un nuovo seme.",
     "emptyTitle": "Il sacchetto dei semi è vuoto",
     "emptyText": "Scatta una foto per ottenere un nuovo seme.",
     "goScan": "Scatta una foto",
-    "bagFull": "Il sacchetto è pieno. Il seme più vecchio viene sostituito quando ne ottieni uno nuovo.",
-    "watchForSeed": "Guarda un video per 1 seme extra (ne restano {n} oggi)"
+    "bagFull": "Il sacchetto è pieno. Il seme più vecchio viene sostituito quando ne ottieni uno nuovo."
   },
   "pot": {
     "unknown": "Pianta sconosciuta",
@@ -240,10 +233,81 @@
   "collection": {
     "title": "Collezione",
     "subtitle": "Specie che hai incontrato",
-    "unseenAlt": "Specie non incontrata"
+    "unseenAlt": "Specie non incontrata",
+    "progress": "Progresso della collezione",
+    "progressCount": "{n}/{total} specie · {p}%"
   },
   "ads": {
     "label": "Annuncio",
     "close": "Chiudi annuncio"
+  },
+  "home": {
+    "seeds": "Semi",
+    "missions": "Missioni",
+    "collection": "Collezione",
+    "missionCard": "Missioni giornaliere",
+    "missionHint": "Completale per +{n} semi",
+    "missionReady": "La tua ricompensa ti aspetta!"
+  },
+  "coins": {
+    "plus": "+{n} semi"
+  },
+  "missions": {
+    "title": "Missioni giornaliere",
+    "subtitle": "Completa tutte le missioni per ottenere la ricompensa",
+    "progress": "{done}/{total} completate",
+    "water": "Annaffia le piante {n} volte",
+    "scan": "Fotografa una pianta {n} volta",
+    "feed": "Concima una pianta {n} volta",
+    "go": "Vai",
+    "reward": "Ricompensa di completamento",
+    "claim": "Riscatta",
+    "claimed": "Riscattata oggi, torna domani",
+    "left": "Mancano {n} missioni",
+    "note": "Missione {done}/{target}",
+    "doneTitle": "Missioni completate!",
+    "doneText": "Hai completato tutte le missioni di oggi.",
+    "careHint": "Conta solo quando una pianta ha davvero bisogno di acqua o nutrimento"
+  },
+  "shop": {
+    "tabStore": "Negozio",
+    "tabMine": "I miei semi",
+    "heroTitle": "Ottieni più semi",
+    "heroText": "Apri un pacchetto per nuovi semi per il tuo giardino",
+    "basic": {
+      "title": "Pacchetto base",
+      "text": "Ottieni 1 seme casuale"
+    },
+    "plus": {
+      "title": "Pacchetto plus",
+      "text": "Ottieni 3 semi, almeno uno non comune"
+    },
+    "special": {
+      "title": "Pacchetto speciale",
+      "text": "Ottieni 5 semi, almeno uno raro"
+    },
+    "watch": "Guarda",
+    "videosLeft": "Ancora {n} video oggi",
+    "noVideo": "Nessun video",
+    "quotaDone": "Finito per oggi",
+    "notEnough": "Semi insufficienti",
+    "noRoom": "La tua borsa ha solo {n} posti liberi",
+    "earnHint": "Fai le missioni giornaliere per guadagnare più semi",
+    "gotTitle": "Hai ottenuto dei semi!",
+    "gotText": "Hai ricevuto {n} nuovi semi"
+  },
+  "unlock": {
+    "title": "Sblocca con i semi",
+    "cost": "Costa {n} semi",
+    "have": "Ne hai {n}",
+    "button": "Sblocca",
+    "locked": "Bloccata",
+    "more": "Ottieni più semi",
+    "watch": "Guarda un annuncio per +{n} semi",
+    "done": "{name} sbloccata"
+  },
+  "levelUp": {
+    "title": "La tua pianta è cresciuta!",
+    "text": "{name} ha raggiunto la fase {stage}"
   }
 }

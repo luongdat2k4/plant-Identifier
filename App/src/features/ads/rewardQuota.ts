@@ -1,16 +1,22 @@
 import { ref } from 'vue'
 
-// Rewarded seeds are capped per day. The count is a per-device convenience, so a failing storage just means no cap.
-const DAILY_LIMIT = 3
-const key = () => `plantin-reward-${new Date().toISOString().slice(0, 10)}`
+// Rewarded videos are capped per day and per kind of reward. The counts are a per-device convenience, so a failing
+// storage just means no cap.
+export type RewardKind = 'seed' | 'coins'
+const DAILY_LIMIT: Record<RewardKind, number> = { seed: 3, coins: 5 }
+const key = (kind: RewardKind) => `plantin-reward-${kind}-${new Date().toISOString().slice(0, 10)}`
 
-function read(): number {
-  try { return Number(localStorage.getItem(key())) || 0 } catch { return 0 }
+function read(kind: RewardKind): number {
+  try { return Number(localStorage.getItem(key(kind))) || 0 } catch { return 0 }
 }
-const used = ref(read())
+// Bumped on every count so templates that read rewardsLeft() update.
+const version = ref(0)
 
-export const rewardsLeft = () => Math.max(0, DAILY_LIMIT - (used.value = read()))
-export function countReward() {
-  used.value = read() + 1
-  try { localStorage.setItem(key(), String(used.value)) } catch { /* storage unavailable */ }
+export function rewardsLeft(kind: RewardKind): number {
+  void version.value
+  return Math.max(0, DAILY_LIMIT[kind] - read(kind))
+}
+export function countReward(kind: RewardKind) {
+  try { localStorage.setItem(key(kind), String(read(kind) + 1)) } catch { /* storage unavailable */ }
+  version.value++
 }

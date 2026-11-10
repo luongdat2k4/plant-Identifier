@@ -12,6 +12,7 @@ import { rollSeed, type Seed } from '../model'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
 import { useToast } from '../../../shared/composables/useToast'
 import { showInterstitial } from '../../ads/adRuntime'
+import { bumpMission } from '../../missions/model'
 import { readImage } from '../../../shared/utils/readImage'
 const { go } = useAppNavigation()
 const { notify } = useToast()
@@ -119,7 +120,7 @@ function scan(image: string) {
   step.value = 1
   stepTimers = [.3, .6, .85].map((at, i) => setTimeout(() => { step.value = i + 2 }, SCAN_MS * at))
   finish = setTimeout(() => {
-    try { result.value = rollSeed(); phase.value = 'result' }
+    try { result.value = rollSeed(); bumpMission('scan'); phase.value = 'result' }
     catch { notify(t('toast.seedError')); again() }
   }, SCAN_MS)
 }

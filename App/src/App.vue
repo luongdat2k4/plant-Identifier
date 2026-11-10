@@ -4,11 +4,13 @@ import { computed, onMounted, onUnmounted, watch } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
 import BottomNav from './shared/components/BottomNav.vue'
 import { useToast } from './shared/composables/useToast'
-import { tickAll } from './features/garden/model'
+import { claimLevelUp, levelUpOf, LEVEL_UP_REWARD, pendingLevelUp, potName, tickAll } from './features/garden/model'
+import { getSpecies, stageIndex, STAGE_META } from './features/collection/model'
+import RewardModal from './shared/components/RewardModal.vue'
 import { setStatusBar } from './shared/utils/statusBar'
 import BannerAd from './features/ads/components/BannerAd.vue'
 import { hasRuntimeData } from './shared/store'
-import { adsPossible, adsSuppressed, bannerHeight, countAction, fullScreenShowing } from './features/ads/adRuntime'
+import { adsPossible, adsSuppressed, bannerHeight, countAction, fullScreenShowing, showInterstitial } from './features/ads/adRuntime'
 const route = useRoute()
 const { toast, notify } = useToast()
 const isCamera = computed(() => ['scan', 'welcome', 'language', 'begin'].includes(String(route.name)))
@@ -17,6 +19,22 @@ const showNav = computed(() => ['garden', 'collection', 'seeds', 'menu'].include
 const showBanner = computed(() => adsPossible && !adsSuppressed.value && !fullScreenShowing.value &&
   (['garden', 'collection', 'seeds', 'menu', 'menu-language', 'language', 'welcome', 'pot', 'species'].includes(String(route.name)) ||
     (route.name === 'begin' && hasRuntimeData())))
+
+// A pot that reached a new stage: shown on the garden and pot screens, rewarded once per stage.
+const levelPot = computed(() => (['garden', 'pot'].includes(String(route.name)) && !fullScreenShowing.value ? pendingLevelUp() : undefined))
+const levelInfo = computed(() => {
+  const pot = levelPot.value
+  const stage = pot && levelUpOf(pot)
+  const species = pot && getSpecies(pot.speciesId)
+  if (!pot || !stage || !species) return null
+  const steps = stageIndex(stage) - stageIndex(pot.rewardedStage ?? stage)
+  return { name: potName(pot), stage: STAGE_META[stage].label, image: species.image, coins: steps * LEVEL_UP_REWARD }
+})
+function claimLevel() {
+  if (!levelPot.value) return
+  claimLevelUp(levelPot.value)
+  void showInterstitial('level_up')
+}
 
 watch(() => route.fullPath, () => { if (route.meta.bar) setStatusBar(String(route.meta.bar)) }, { immediate: true })
 
@@ -51,5 +69,6 @@ onUnmounted(() => { clearInterval(timer); document.removeEventListener('visibili
     <BottomNav v-if="showNav" />
     <div v-if="adsPossible" v-show="showBanner" class="banner-dock" :style="{ height: `${bannerHeight}px` }"><BannerAd :visible="showBanner"/></div>
     <div v-if="toast" class="toast" role="status">{{ toast }}</div>
+    <RewardModal v-if="levelInfo" :title="t('levelUp.title')" :text="t('levelUp.text', { name: levelInfo.name, stage: levelInfo.stage })" :images="[levelInfo.image]" :coins="levelInfo.coins" @ok="claimLevel"/>
   </div>
 </template>

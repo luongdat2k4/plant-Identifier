@@ -6,12 +6,10 @@ import { Icon } from '@iconify/vue'
 import { state } from '../../../shared/store'
 import { allSpecies, discoveryOf, RARITY_META, type Rarity } from '../model'
 import { useAppNavigation } from '../../../shared/composables/useAppNavigation'
-import { useToast } from '../../../shared/composables/useToast'
 import InFeedAd from '../../ads/components/InFeedAd.vue'
 import { useDocScroll } from '../../../shared/composables/pageScroll'
 const { go } = useAppNavigation()
 useDocScroll()
-const { notify } = useToast()
 const filter = ref<Rarity | 'all'>('all')
 const filters = computed<{ key: Rarity | 'all'; label: string }[]>(() => [
   { key: 'all', label: t('filter.all') },
@@ -27,11 +25,10 @@ const shown = computed(() => allSpecies
 const AD_AFTER = 8
 const rows = computed(() => [shown.value.slice(0, AD_AFTER), shown.value.slice(AD_AFTER)])
 const seenCount = computed(() => state.value.discoveries.length)
+const percent = computed(() => Math.round((seenCount.value / Math.max(1, allSpecies.length)) * 100))
 const masteredCount = computed(() => state.value.discoveries.filter(d => d.mastered).length)
-function open(id: string) {
-  if (discoveryOf(id)) go('species', id)
-  else notify(t('toast.notSeen'))
-}
+// A locked species opens its page too, where it can be unlocked with seeds.
+function open(id: string) { go('species', id) }
 </script>
 
 <template>
@@ -40,10 +37,11 @@ function open(id: string) {
     <NotificationBell/>
   </header>
   <main class="content" data-ad-scroll-region>
-    <div class="collection-summary">
-      <div><b>{{ seenCount }}<small>/{{ allSpecies.length }}</small></b><span>{{ t('stats.seen') }}</span></div>
-      <div><b>{{ masteredCount }}<small>/{{ allSpecies.length }}</small></b><span>{{ t('stats.mastered') }}</span></div>
-    </div>
+    <section class="collect-progress">
+      <div class="collect-head"><b>{{ t('collection.progress') }}</b><span>{{ t('collection.progressCount', { n: String(seenCount), total: String(allSpecies.length), p: String(percent) }) }}</span></div>
+      <div class="stat-bar-track"><div class="stat-bar-fill growth" :style="{ width: `${percent}%` }"></div></div>
+      <small><Icon icon="solar:medal-ribbon-bold" width="14"/> {{ t('stats.mastered') }}: {{ masteredCount }}/{{ allSpecies.length }}</small>
+    </section>
     <div class="pill-tabs">
       <button v-for="item in filters" :key="item.key" :class="{ active: filter === item.key }" @click="filter = item.key">{{ item.label }}</button>
     </div>
@@ -55,6 +53,7 @@ function open(id: string) {
           <img :src="item.thumb" :alt="discoveryOf(item.id) ? item.name : t('collection.unseenAlt')"/>
           <span v-if="discoveryOf(item.id)?.mastered" class="mastered-badge"><Icon icon="solar:medal-ribbon-bold" width="14"/> {{ t('stats.mastered') }}</span>
           <Icon v-if="!discoveryOf(item.id)" class="lock-icon" icon="solar:lock-linear" width="26"/>
+          <Icon v-else class="seen-badge" icon="solar:check-circle-bold" width="22"/>
         </div>
         <b>{{ discoveryOf(item.id) ? item.name : '???' }}</b>
         <span class="rarity" :class="item.rarity">{{ RARITY_META[item.rarity].label }}</span>

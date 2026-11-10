@@ -1,0 +1,98 @@
+/* Missions, seed center, collection progress, unlock and reward popups. */
+
+/* coin balance */
+.coin-pill{display:inline-flex;align-items:center;gap:5px;height:34px;padding:0 12px 0 8px;border-radius:20px;background:#fff7e3;color:#8a5a12;font-size:14px;font-weight:800;box-shadow:0 2px 10px #8a5a1214}
+
+/* home: quick tiles and the mission card */
+.quick-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:2px 0 12px}
+.quick-tiles button{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 6px 10px;border:0;border-radius:20px;background:#fff;box-shadow:var(--card-shadow);color:var(--ink)}
+.quick-tiles b{font-size:13px}
+.quick-tiles small{display:inline-flex;align-items:center;gap:3px;font-size:11.5px;font-weight:700;color:var(--muted)}
+.tile-dot{position:absolute;top:9px;right:12px;width:10px;height:10px;border-radius:50%;background:#ef5350;box-shadow:0 0 0 2px #fff}
+.mission-card{display:flex;align-items:center;gap:12px;width:100%;margin:0 0 14px;padding:12px 14px;border:1.5px solid #f3dc9b;border-radius:20px;background:linear-gradient(120deg,#fffaf0,#fff3d6);text-align:left;color:var(--ink)}
+.mission-card>div{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.mission-card b{font-size:14px}
+.mission-card span{font-size:12px;color:#8a6b2f}
+.mission-card .stat-bar-track{margin-top:4px;height:6px}
+.mission-card em{font-style:normal;font-weight:800;font-size:14px;color:#8a5a12}
+.mission-card.ready{border-color:#f0b429;animation:mission-glow 1.8s ease-in-out infinite}
+@keyframes mission-glow{50%{box-shadow:0 0 0 4px #f0b42940}}
+
+/* missions page */
+.mission-hero{display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 16px;border-radius:24px;background:linear-gradient(160deg,#f6fbf2,#e6f3df);text-align:center}
+.mission-hero p{margin:0;font-size:13px;color:var(--muted)}
+.mission-hero>b{font-size:14px;color:var(--green-deep)}
+.mission-steps{display:flex;align-items:center;width:100%;max-width:300px;margin:6px 0 2px}
+.mission-steps .step{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid #d4e3cd;color:#fff}
+.mission-steps .step.on{background:var(--green);border-color:var(--green)}
+.mission-steps .step.gift{width:44px;height:44px;border-color:#f3dc9b;background:#fffaf0}
+.mission-steps .step.gift.on{background:#fff3d6;border-color:#f0b429}
+.mission-steps .line{flex:1;height:4px;background:#d4e3cd}
+.mission-steps .line.on{background:var(--green)}
+.mission-list{list-style:none;margin:14px 0 6px;padding:0;display:grid;gap:10px}
+.mission-list li{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:20px;background:#fff;box-shadow:var(--card-shadow)}
+.mission-ic{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:#e6f3df;color:var(--green-deep)}
+.mission-ic.water{background:#e2f1fa;color:#2b88b8}
+.mission-ic.scan{background:#efe9fb;color:#7a55c7}
+.mission-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
+.mission-body b{font-size:14px}
+.mission-body small{font-size:11.5px;font-weight:700;color:var(--muted)}
+.mission-body .stat-bar-track{height:6px}
+.mission-go{flex:none;display:grid;place-items:center;width:38px;height:38px;border:0;border-radius:50%;background:var(--green);color:#fff}
+.mission-check{flex:none;color:var(--green)}
+.mission-list li.done{background:#f4faf1}
+.mission-reward{display:flex;align-items:center;gap:12px;margin-top:14px;padding:14px;border-radius:22px;background:linear-gradient(120deg,#fffaf0,#fff0cc);border:1.5px solid #f3dc9b}
+.mission-reward>div{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.mission-reward b{font-size:14px}
+.mission-reward .reward-amount{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:800;color:#8a5a12}
+.mission-reward .dark-button{flex:none;min-height:42px;padding:8px 16px;font-size:13px}
+.mission-reward small{flex:none;max-width:120px;font-size:11.5px;color:#8a6b2f;text-align:right}
+.mission-reward.ready{animation:mission-glow 1.8s ease-in-out infinite}
+
+/* seed center */
+.shop-hero{display:flex;align-items:center;gap:14px;margin:4px 0 12px;padding:14px 16px;border-radius:22px;background:linear-gradient(140deg,#f6fbf2,#e3f1dc)}
+.shop-hero>div{display:flex;flex-direction:column;gap:3px}
+.shop-hero b{font-size:16px}
+.shop-hero span{font-size:12.5px;color:var(--muted)}
+.pack-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.pack-row{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:20px;background:#fff;box-shadow:var(--card-shadow)}
+.pack-row.special{background:linear-gradient(120deg,#fff,#fff6e1)}
+.pack-ic{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:#f2f8ee}
+.pack-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.pack-body b{font-size:14px}
+.pack-body span{font-size:12px;line-height:1.35;color:var(--muted)}
+.pack-buy{flex:none;display:inline-flex;align-items:center;gap:5px;min-height:38px;padding:0 14px;border:0;border-radius:20px;background:#fff3d6;color:#8a5a12;font-size:14px;font-weight:800}
+.pack-buy.video{background:var(--green);color:#fff;font-size:12.5px}
+.pack-buy:disabled{opacity:.45}
+.shop-earn{display:flex;align-items:center;gap:10px;width:100%;margin-top:12px;padding:12px 14px;border:1.5px dashed #cfe0c6;border-radius:18px;background:#fbfdf9;color:var(--green-deep);font-size:13px;font-weight:700;text-align:left}
+.shop-earn span{flex:1}
+
+/* collection progress and the unlocked check */
+.collect-progress{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;padding:14px 16px;border-radius:22px;background:#fff;box-shadow:var(--card-shadow)}
+.collect-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.collect-head b{font-size:15px}
+.collect-head span{font-size:12.5px;font-weight:700;color:var(--green-deep)}
+.collect-progress small{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--muted)}
+.species-image .seen-badge{position:absolute;top:8px;right:8px;color:var(--green);background:#fff;border-radius:50%}
+
+/* locked species */
+.locked-tag{display:inline-flex;align-items:center;gap:5px;margin:2px 0 10px;padding:4px 10px;border-radius:20px;background:#eef2ee;color:var(--muted);font-size:12px;font-weight:700}
+.locked-lead{margin:0 0 16px;font-size:14px;line-height:1.6;color:#4d5d52}
+.unlock-card{display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:22px;background:linear-gradient(140deg,#f6fbf2,#e6f3df)}
+.unlock-card h3{display:flex;align-items:center;gap:8px;margin:0;font-size:16px}
+.unlock-card p{margin:0;font-size:13px;color:var(--muted)}
+.unlock-more{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.unlock-more>b{font-size:14px}
+
+/* reward popup */
+.reward-scrim{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:24px;background:#0f1d1480;animation:reward-fade .2s ease-out}
+.reward-card{position:relative;width:min(340px,100%);display:flex;flex-direction:column;align-items:center;gap:12px;padding:44px 20px 20px;border-radius:28px;background:linear-gradient(180deg,#fffdf6,#fff);box-shadow:0 20px 50px #0f1d1440;text-align:center;animation:reward-pop .28s cubic-bezier(.2,1.4,.4,1)}
+.reward-ribbon{position:absolute;top:-16px;left:50%;transform:translateX(-50%);max-width:92%;padding:9px 22px;border-radius:14px;background:linear-gradient(180deg,#f0b429,#de9410);color:#fff;font-size:15px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-shadow:0 8px 18px #de941050}
+.reward-images{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.reward-images img{width:58px;height:58px;border-radius:16px;object-fit:cover;background:#eef4ea;box-shadow:0 4px 12px #1c3b2118}
+.reward-images.single img{width:150px;height:150px;border-radius:24px}
+.reward-text{margin:0;font-size:14px;line-height:1.5;color:#4d5d52}
+.reward-coins{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:20px;background:#fff3d6;color:#8a5a12;font-size:15px;font-weight:800}
+@keyframes reward-fade{from{opacity:0}}
+@keyframes reward-pop{from{opacity:0;transform:scale(.85)}}
+@media(prefers-reduced-motion:reduce){.reward-scrim,.reward-card,.mission-card.ready,.mission-reward.ready{animation:none}}

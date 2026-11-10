@@ -8,7 +8,8 @@
   },
   "common": {
     "back": "戻る",
-    "toGarden": "庭に戻る"
+    "toGarden": "庭に戻る",
+    "ok": "OK"
   },
   "spot": {
     "sun": "日なた",
@@ -18,12 +19,7 @@
     "rarity": "レア度",
     "spot": "好む場所",
     "bestStage": "最高ステージ",
-    "mastered": "コンプリート",
-    "unseen": {
-      "title": "まだ出会っていない種",
-      "text": "もっと写真を撮ると、新しい種に出会えるチャンスがあります。",
-      "back": "コレクションに戻る"
-    }
+    "mastered": "コンプリート"
   },
   "article": {
     "info": "この種について",
@@ -72,10 +68,9 @@
     "seedError": "種の抽選中に問題が発生しました。もう一度お試しください。",
     "plantedSpecies": "{name}を植えました",
     "seedSaved": "種を種袋に保存しました",
-    "notSeen": "まだ出会っていません。もっと写真を撮りましょう!",
     "about": "Sproutly · UIプレビュー v2",
-    "rewardSeed": "{name}の種を受け取りました",
-    "rewardNone": "現在利用できる動画がありません。後でもう一度お試しください"
+    "rewardNone": "現在利用できる動画がありません。後でもう一度お試しください",
+    "coinsReward": "+{n} タネを受け取りました"
   },
   "confirm": {
     "discardSeed": "この種を捨てますか?",
@@ -155,13 +150,11 @@
   "seeds": {
     "title": "種袋",
     "subtitle": "植えるのを待つ種",
-    "count": "{n}/{max}個",
     "gardenFull": "庭がいっぱいです({pots}/{slots}鉢)。新しい種を植えるには植物を1つ取り除いてください。",
     "emptyTitle": "種袋は空です",
     "emptyText": "写真を撮って新しい種を手に入れましょう。",
     "goScan": "写真を撮りに行く",
-    "bagFull": "袋がいっぱいです。新しい種を手に入れると、いちばん古い種が入れ替わります。",
-    "watchForSeed": "動画を見て種をもう1個もらう(本日あと{n}回)"
+    "bagFull": "袋がいっぱいです。新しい種を手に入れると、いちばん古い種が入れ替わります。"
   },
   "pot": {
     "unknown": "不明な植物",
@@ -240,10 +233,81 @@
   "collection": {
     "title": "コレクション",
     "subtitle": "出会った種",
-    "unseenAlt": "未発見の種"
+    "unseenAlt": "未発見の種",
+    "progress": "コレクションの進行状況",
+    "progressCount": "{n}/{total} 種 · {p}%"
   },
   "ads": {
     "label": "広告",
     "close": "広告を閉じる"
+  },
+  "home": {
+    "seeds": "タネ",
+    "missions": "ミッション",
+    "collection": "コレクション",
+    "missionCard": "デイリーミッション",
+    "missionHint": "達成すると +{n} タネ",
+    "missionReady": "ごほうびが待っています！"
+  },
+  "coins": {
+    "plus": "+{n} タネ"
+  },
+  "missions": {
+    "title": "デイリーミッション",
+    "subtitle": "すべてのミッションを達成してごほうびをゲット",
+    "progress": "{done}/{total} 達成",
+    "water": "植物に{n}回水をやる",
+    "scan": "植物を{n}回撮影する",
+    "feed": "植物に{n}回肥料をやる",
+    "go": "行く",
+    "reward": "達成ごほうび",
+    "claim": "受け取る",
+    "claimed": "今日は受け取り済み。また明日来てね",
+    "left": "あと{n}個のミッション",
+    "note": "ミッション {done}/{target}",
+    "doneTitle": "ミッション達成！",
+    "doneText": "今日のミッションをすべて達成しました。",
+    "careHint": "植物が本当に水や肥料を必要としているときだけカウントされます"
+  },
+  "shop": {
+    "tabStore": "ショップ",
+    "tabMine": "マイタネ",
+    "heroTitle": "タネをもっと手に入れよう",
+    "heroText": "パックを開けて、庭に新しいタネを迎えよう",
+    "basic": {
+      "title": "ベーシックパック",
+      "text": "ランダムなタネを1個ゲット"
+    },
+    "plus": {
+      "title": "プラスパック",
+      "text": "タネを3個ゲット、1個以上はめずらしい種類"
+    },
+    "special": {
+      "title": "スペシャルパック",
+      "text": "タネを5個ゲット、1個以上はレア"
+    },
+    "watch": "見る",
+    "videosLeft": "今日はあと{n}本の動画",
+    "noVideo": "動画なし",
+    "quotaDone": "今日はここまで",
+    "notEnough": "タネが足りません",
+    "noRoom": "バッグの空きは{n}個だけです",
+    "earnHint": "デイリーミッションでタネを貯めよう",
+    "gotTitle": "タネをゲット！",
+    "gotText": "新しいタネを{n}個受け取りました"
+  },
+  "unlock": {
+    "title": "タネでアンロック",
+    "cost": "{n} タネが必要",
+    "have": "所持数 {n}",
+    "button": "アンロック",
+    "locked": "ロック中",
+    "more": "タネをもっと手に入れる",
+    "watch": "広告を見て +{n} タネ",
+    "done": "{name}をアンロックしました"
+  },
+  "levelUp": {
+    "title": "植物が成長しました！",
+    "text": "{name}が{stage}の段階になりました"
   }
 }

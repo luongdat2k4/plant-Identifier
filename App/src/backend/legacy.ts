@@ -35,6 +35,8 @@ export function readLegacyState(): State | null {
     const state: State = {
       potSlots: Number(saved.potSlots) || 6,
       notifications: saved.notifications !== false,
+      coins: 0,
+      missions: { day: '', water: 0, feed: 0, scan: 0 },
       pots: keep(saved.pots), seeds: keep(saved.seeds),
       discoveries: (saved.discoveries ?? []).map(known).filter((item): item is NonNullable<typeof item> => item !== null),
     }

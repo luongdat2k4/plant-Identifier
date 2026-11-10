@@ -5,8 +5,22 @@ import type { Seed } from '../features/scan/model'
 import { saveState } from '../backend/runtime'
 import { hasOnboarded } from './utils/onboarding'
 
-export interface State { pots: Pot[]; seeds: Seed[]; discoveries: Discovery[]; potSlots: number; notifications: boolean }
-function emptyState(): State { return { pots: [], seeds: [], discoveries: [], potSlots: 6, notifications: true } }
+/** Today's daily missions (counts reset when `day` is not today) and the last day their reward was claimed. */
+export interface Missions { day: string; water: number; feed: number; scan: number; claimedDay?: string }
+
+export interface State {
+  pots: Pot[]
+  seeds: Seed[]
+  discoveries: Discovery[]
+  potSlots: number
+  notifications: boolean
+  /** "Seeds" as the in-app currency: buys seed packs and unlocks species. */
+  coins: number
+  missions: Missions
+}
+function emptyState(): State {
+  return { pots: [], seeds: [], discoveries: [], potSlots: 6, notifications: true, coins: 0, missions: { day: '', water: 0, feed: 0, scan: 0 } }
+}
 
 // Filled from runtime.db by initBackend() before the app mounts; every change is written back to it.
 export const state = ref<State>(emptyState())
