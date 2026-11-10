@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace = "com.plantin.recreated"
+    namespace = "com.zl.sproutly.ai"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.plantin.recreated"
+        applicationId "com.zl.sproutly.ai"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -1,4 +1,4 @@
-package com.plantin.recreated;
+package com.zl.sproutly.ai;
 
 import android.os.Bundle;
 import android.webkit.WebView;
