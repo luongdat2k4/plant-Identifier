@@ -3,11 +3,11 @@ import { StatusBar, Style } from '@capacitor/status-bar'
 
 /** Colours of the phone status bar for each kind of view; they match the page header underneath. */
 export const BAR = {
-  page: '#f1faf3',
-  hero: '#dcebdf',
+  page: '#e6f3e8',
+  hero: '#cde2d2',
   white: '#ffffff',
-  scanAsk: '#bfe2c6',
-  intro: '#e3f3e6',
+  scanAsk: '#a9d3b2',
+  intro: '#d4eada',
   camera: '#000000',
 } as const
 

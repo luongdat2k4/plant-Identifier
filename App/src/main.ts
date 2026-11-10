@@ -15,6 +15,7 @@ import './shared/styles/article.css'
 import './shared/styles/onboarding.css'
 import './shared/styles/progress.css'
 import './shared/styles/fonts.css'
+import './shared/styles/tone.css'
 // Solar icons (CC BY 4.0, https://github.com/480-Design/Solar-Icon-Set)
 // are bundled so the interface also renders them without network access.
 addCollection(solarIcons)

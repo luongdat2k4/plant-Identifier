@@ -1,0 +1,20 @@
+/* Deeper overall tone: a richer green, darker secondary text and backgrounds a step more saturated.
+   Loaded last so it settles the palette for every screen; cards stay white for contrast. */
+:root{--green:#4f9e34;--green-deep:#367a20;--green-soft:#d3eac8;--tint:#cde2d2;--ink:#12201a;--muted:#62756a;--card-shadow:0 6px 20px #2a553614}
+:root,body{background:#dceddf}
+.app-shell{background:linear-gradient(160deg,#e6f3e8 0%,#d4eada 55%,#c6e1cc 100%)}
+.home-head{background:#e6f3e8}
+
+/* buttons and accents that used the old light green directly */
+.dark-button,.round-btn,.page-header button,.hero-bar .round-btn{box-shadow:0 8px 18px #4f9e3440}
+.ob-next{background:linear-gradient(145deg,#5fb83c,#3a8a22);box-shadow:0 10px 22px #3a8a2255}
+
+/* first-run, launch and camera backdrops */
+.ob-art{background:linear-gradient(180deg,#d4eada 0%,#b4d9bc 100%)}
+.cam{background:linear-gradient(180deg,#a9d3b2 0%,#74b382 100%)}
+
+/* progress screens */
+.mission-hero,.shop-hero,.unlock-card{background:linear-gradient(150deg,#eaf5e4,#d3eac8)}
+.mission-list li.done{background:#ecf6e7}
+.collect-head span{color:var(--green-deep)}
+.bottom-nav button.scan-btn,.bottom-nav button.scan-btn.active{background:linear-gradient(145deg,#5fb83c,#3a8a22);box-shadow:0 8px 18px #3a8a2266}
