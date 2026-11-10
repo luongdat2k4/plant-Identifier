@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
-  "catalogVersion": "2026-11-04.3",
-  "generatedAt": "2026-11-04T09:14:09.439Z",
+  "catalogVersion": "2026-11-10.3",
+  "generatedAt": "2026-11-10T07:38:38.928Z",
   "dbFiles": [
     {
       "name": "catalog/catalog.db",
@@ -31,10 +31,11 @@
         "pot",
         "discovery",
         "notice_read",
-        "care_log"
+        "care_log",
+        "daily_mission"
       ],
-      "sha256": "289793b72015904b1454ec13902493c36cb53b3471e6b5e0728e611f84206f85",
-      "sizeBytes": 49152
+      "sha256": "0a0cc66dd5caba451987ac930c26de997721a0fa32a1a71a317b4df2e27d1a25",
+      "sizeBytes": 57344
     }
   ],
   "tableIndex": {
@@ -54,6 +55,7 @@
     "pot": "runtime-template.db",
     "discovery": "runtime-template.db",
     "notice_read": "runtime-template.db",
-    "care_log": "runtime-template.db"
+    "care_log": "runtime-template.db",
+    "daily_mission": "runtime-template.db"
   }
 }
