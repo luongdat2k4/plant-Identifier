@@ -266,8 +266,7 @@
     "left": "{n} missions to go",
     "note": "Mission {done}/{target}",
     "doneTitle": "Missions complete!",
-    "doneText": "You finished every mission today.",
-    "careHint": "Counts only when a plant really needs water or food"
+    "doneText": "You finished every mission today."
   },
   "shop": {
     "tabStore": "Shop",

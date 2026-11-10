@@ -266,8 +266,7 @@
     "left": "Faltan {n} misiones",
     "note": "Misión {done}/{target}",
     "doneTitle": "¡Misiones completadas!",
-    "doneText": "Has completado todas las misiones de hoy.",
-    "careHint": "Solo cuenta cuando una planta realmente necesita agua o alimento"
+    "doneText": "Has completado todas las misiones de hoy."
   },
   "shop": {
     "tabStore": "Tienda",

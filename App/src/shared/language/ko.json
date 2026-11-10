@@ -266,8 +266,7 @@
     "left": "미션 {n}개 남음",
     "note": "미션 {done}/{target}",
     "doneTitle": "미션 완료!",
-    "doneText": "오늘의 미션을 모두 완료했어요.",
-    "careHint": "식물이 실제로 물이나 영양분이 필요할 때만 인정돼요"
+    "doneText": "오늘의 미션을 모두 완료했어요."
   },
   "shop": {
     "tabStore": "상점",

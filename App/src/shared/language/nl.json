@@ -266,8 +266,7 @@
     "left": "Nog {n} missies",
     "note": "Missie {done}/{target}",
     "doneTitle": "Missies voltooid!",
-    "doneText": "Je hebt vandaag alle missies voltooid.",
-    "careHint": "Telt alleen mee als een plant echt water of voeding nodig heeft"
+    "doneText": "Je hebt vandaag alle missies voltooid."
   },
   "shop": {
     "tabStore": "Winkel",

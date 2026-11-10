@@ -266,8 +266,7 @@
     "left": "{n} görev kaldı",
     "note": "Görev {done}/{target}",
     "doneTitle": "Görevler tamamlandı!",
-    "doneText": "Bugünkü tüm görevleri bitirdin.",
-    "careHint": "Yalnızca bitkinin gerçekten suya veya besine ihtiyacı olduğunda sayılır"
+    "doneText": "Bugünkü tüm görevleri bitirdin."
   },
   "shop": {
     "tabStore": "Mağaza",

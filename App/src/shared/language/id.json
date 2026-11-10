@@ -266,8 +266,7 @@
     "left": "Tinggal {n} misi lagi",
     "note": "Misi {done}/{target}",
     "doneTitle": "Misi selesai!",
-    "doneText": "Kamu menyelesaikan semua misi hari ini.",
-    "careHint": "Hanya dihitung saat tanaman benar-benar butuh air atau makanan"
+    "doneText": "Kamu menyelesaikan semua misi hari ini."
   },
   "shop": {
     "tabStore": "Toko",

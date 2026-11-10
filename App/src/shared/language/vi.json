@@ -266,8 +266,7 @@
     "left": "Còn {n} nhiệm vụ",
     "note": "Nhiệm vụ {done}/{target}",
     "doneTitle": "Hoàn thành nhiệm vụ!",
-    "doneText": "Bạn đã hoàn thành mọi nhiệm vụ hôm nay.",
-    "careHint": "Chỉ tính khi cây thật sự cần nước hoặc phân bón"
+    "doneText": "Bạn đã hoàn thành mọi nhiệm vụ hôm nay."
   },
   "shop": {
     "tabStore": "Cửa hàng",

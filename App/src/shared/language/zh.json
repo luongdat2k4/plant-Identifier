@@ -266,8 +266,7 @@
     "left": "还剩 {n} 个任务",
     "note": "任务 {done}/{target}",
     "doneTitle": "任务完成！",
-    "doneText": "你已完成今天的所有任务。",
-    "careHint": "仅在植物确实需要水或肥料时才会计入"
+    "doneText": "你已完成今天的所有任务。"
   },
   "shop": {
     "tabStore": "商店",

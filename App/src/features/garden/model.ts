@@ -101,17 +101,17 @@ export function tickAll(now: Date = new Date()): string[] {
 
 export function findPot(id: string): Pot | undefined { return state.value.pots.find(p => p.id === id) }
 function afterCare(pot: Pot) { if (statusOf(pot) !== 'wilting') delete pot.wiltingSince }
-/** Waters a pot. Returns true when it counted towards today's mission: only a pot that actually needed water counts. */
+/** Waters a pot. Every tap counts towards today's mission (the mission itself stops at its target). */
 export function waterPot(id: string): boolean {
   const pot = findPot(id); if (!pot) return false
-  tickPot(pot); const needed = pot.water < 99; pot.water = 100; afterCare(pot)
-  return needed && bumpMission('water')
+  tickPot(pot); pot.water = 100; afterCare(pot)
+  return bumpMission('water')
 }
-/** Feeds a pot. Returns true when it counted towards today's mission: only a pot that actually needed food counts. */
+/** Feeds a pot. Every tap counts towards today's mission (the mission itself stops at its target). */
 export function feedPot(id: string): boolean {
   const pot = findPot(id); if (!pot) return false
-  tickPot(pot); const needed = pot.nutrition < 99; pot.nutrition = 100; afterCare(pot)
-  return needed && bumpMission('feed')
+  tickPot(pot); pot.nutrition = 100; afterCare(pot)
+  return bumpMission('feed')
 }
 
 // A pot reaching a new stage earns coins once per stage; the popup that hands them out is in the app shell.

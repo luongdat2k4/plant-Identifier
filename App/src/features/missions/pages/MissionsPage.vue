@@ -55,7 +55,6 @@ function claim() { if (claimMissionReward()) celebrate.value = true }
         <button v-else class="mission-go" :aria-label="t('missions.go')" @click="go(m.to)"><Icon icon="solar:arrow-right-linear" width="20"/></button>
       </li>
     </ul>
-    <p class="scan-note">{{ t('missions.careHint') }}</p>
 
     <section class="mission-reward" :class="{ ready: done === MISSIONS.length && !claimed }">
       <img class="mission-reward-art" :src="MISSION_ART.gift" alt=""/>

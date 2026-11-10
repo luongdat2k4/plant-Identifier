@@ -266,8 +266,7 @@
     "left": "Encore {n} missions",
     "note": "Mission {done}/{target}",
     "doneTitle": "Missions terminées !",
-    "doneText": "Vous avez terminé toutes les missions du jour.",
-    "careHint": "Ne compte que si une plante a vraiment besoin d'eau ou d'engrais"
+    "doneText": "Vous avez terminé toutes les missions du jour."
   },
   "shop": {
     "tabStore": "Boutique",
