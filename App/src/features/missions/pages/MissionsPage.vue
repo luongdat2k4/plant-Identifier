@@ -27,7 +27,6 @@ function claim() { if (claimMissionReward()) celebrate.value = true }
   </header>
   <main class="content mission-page">
     <section class="mission-hero">
-      <i class="leaf l1"></i><i class="leaf l2"></i>
       <img class="mission-hero-art" :src="MISSION_ART.board" alt=""/>
       <h1 class="mission-plaque">{{ t('missions.title') }}</h1>
       <p>{{ t('missions.subtitle') }}</p>

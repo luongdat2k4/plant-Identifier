@@ -17,9 +17,6 @@
 /* page */
 .mission-head .home-greeting{flex:1}
 .mission-hero{position:relative;overflow:hidden;gap:10px;padding:20px 16px 18px;border-radius:28px;background:linear-gradient(170deg,#9fd77f 0%,#5fb83c 55%,#3f9428 100%);box-shadow:0 12px 26px #2f7a1f40}
-.mission-hero .leaf{position:absolute;width:90px;height:90px;border-radius:0 70% 0 70%;background:#ffffff22;pointer-events:none}
-.mission-hero .leaf.l1{left:-28px;top:-18px;transform:rotate(-20deg)}
-.mission-hero .leaf.l2{right:-30px;top:40px;transform:rotate(30deg)}
 .mission-hero-art{position:relative;width:74px;height:74px;filter:drop-shadow(0 8px 12px #1f4d1755)}
 .mission-plaque{position:relative;margin:0;padding:9px 22px;border-radius:18px;background:#fff;color:#1f4d17;font-size:20px;font-weight:800;letter-spacing:-.3px;box-shadow:0 6px 0 #d9efcb,0 10px 20px #1f4d1730}
 .mission-hero p{position:relative;max-width:260px;margin:0;font-size:13px;line-height:1.45;color:#f2fbe9}
@@ -56,3 +53,15 @@
 /* the reward card keeps its title on one line: the button takes its own row */
 .mission-reward{display:grid;grid-template-columns:62px minmax(0,1fr);align-items:center}
 .mission-reward .dark-button,.mission-reward small{grid-column:1/-1;width:100%;max-width:none;text-align:center}
+
+/* hero: a calm light tone instead of the saturated green, no decoration */
+.mission-hero{background:linear-gradient(170deg,#ffffff 0%,#eef6ea 100%);border:1.5px solid #d6e8cd;box-shadow:0 10px 24px #2a553614}
+.mission-hero-art{filter:drop-shadow(0 6px 10px #2a553626)}
+.mission-plaque{background:linear-gradient(145deg,#5fb83c,#3a8a22);color:#fff;box-shadow:0 6px 0 #2f7a1c,0 10px 20px #2f7a1c40}
+.mission-hero p{color:#4d6153}
+.mission-steps .step{border-color:#c9dcc0;background:#fff}
+.mission-steps .step.on{border-color:#3a8a22;background:#3a8a22;color:#fff}
+.mission-steps .line{background:#d7e6cf}
+.mission-steps .line.on{background:#3a8a22}
+.mission-gift img{filter:drop-shadow(0 6px 8px #c9325c33)}
+.mission-gift b{background:#3a8a22;color:#fff}
