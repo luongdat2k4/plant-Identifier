@@ -42,25 +42,41 @@ let lastFullScreenAt = 0
 let interstitialLoaded = false
 let showing = false
 
+// The full-screen "App Open" ad unit: Google's test unit with test ads, else the configured one.
+function openAppUnitId(): string | undefined {
+  const platform = Capacitor.getPlatform() === 'ios' ? 'ios' : 'android'
+  return adsConfig.settings?.testAds === true
+    ? (platform === 'ios' ? 'ca-app-pub-3940256099942544/5575463023' : 'ca-app-pub-3940256099942544/9257395921')
+    : adsConfig.keys?.admob?.[platform]?.openApp
+}
+
+/** Starts loading the App Open ad as soon as the SDK is ready, so it is usually waiting when /begin opens. */
+export function preloadAppOpen(): void {
+  const adUnitId = openAppUnitId()
+  if (!adsPossible || !adUnitId) return
+  void initializeAds().then(() => ALFAdMob.loadOpenAppAd({ adUnitId })).catch(() => { /* no fill: /begin tries again */ })
+}
+
 export async function tryAppOpenOnLaunch(signal: AbortSignal): Promise<void> {
   if (appOpenAttempted || !Capacitor.isNativePlatform() || document.hidden || signal.aborted) return
   appOpenAttempted = true
   // One deadline covers SDK initialization, loading, readiness and listener setup.
   // A late load may finish in the cache, but must never show over the next screen.
-  const deadline = Date.now() + 3000
+  const deadline = Date.now() + 10_000
   const withinDeadline = <T>(operation: Promise<T>) => waitFor(operation, Math.max(0, deadline - Date.now()), signal)
   let listener: Awaited<ReturnType<typeof ALFAdMob.addListener>> | undefined
   let ownsFullScreen = false
   try {
     await withinDeadline(initializeAds())
     if (!adsAvailable.value || await withinDeadline(ALF.Instance.Ads.IsAdsRemoved())) return
-    const platform = Capacitor.getPlatform() === 'ios' ? 'ios' : 'android'
-    const adUnitId = adsConfig.settings?.testAds === true
-      ? (platform === 'ios' ? 'ca-app-pub-3940256099942544/5575463023' : 'ca-app-pub-3940256099942544/9257395921')
-      : adsConfig.keys?.admob?.[platform]?.openApp
+    const adUnitId = openAppUnitId()
     if (!adUnitId) return
-    await withinDeadline(ALFAdMob.loadOpenAppAd({ adUnitId }))
-    const { ready } = await withinDeadline(ALFAdMob.isOpenAppAdReady({ adUnitId }))
+    // An ad preloaded at startup is shown at once; otherwise load one now, within what is left of the deadline.
+    let { ready } = await withinDeadline(ALFAdMob.isOpenAppAdReady({ adUnitId }))
+    if (!ready) {
+      await withinDeadline(ALFAdMob.loadOpenAppAd({ adUnitId }))
+      ready = (await withinDeadline(ALFAdMob.isOpenAppAdReady({ adUnitId }))).ready
+    }
     if (!ready) return
     let closed!: () => void
     const dismissed = new Promise<void>(resolve => { closed = resolve })
