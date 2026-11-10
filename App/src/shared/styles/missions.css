@@ -1,0 +1,58 @@
+/* Daily missions: home card and the missions page, in a deeper palette (green hero, warm reward). */
+
+/* home card */
+.mission-card{gap:12px;padding:12px 12px 12px 10px;border:2px solid #efc14a;border-radius:22px;background:linear-gradient(115deg,#fff7dc 0%,#ffeab0 100%);box-shadow:0 8px 20px #c9902a26}
+.mission-card b{font-size:15px;color:#1f4d17}
+.mission-card>div>span{color:#7a5a1a;font-size:12.5px;line-height:1.35}
+.mission-card-art{position:relative;flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:#fffdf3;box-shadow:inset 0 0 0 1.5px #f3d78a}
+.mission-card-art img{width:40px;height:40px}
+.mission-card-art i{position:absolute;top:2px;right:2px;width:11px;height:11px;border-radius:50%;background:#e53935;box-shadow:0 0 0 2px #fff7dc}
+.mission-card-bar{display:flex;align-items:center;gap:8px;margin-top:5px}
+.mission-card-bar .stat-bar-track{flex:1;height:7px;margin:0;background:#f3dfa8}
+.mission-card-bar .stat-bar-fill{background:linear-gradient(90deg,#5fb83c,#3a8a22)}
+.mission-card-bar em{font-style:normal;font-size:12px;font-weight:800;color:#7a5a1a}
+.mission-card .mission-card-go{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#3a8a22;color:#fff;box-shadow:0 4px 10px #3a8a2255}
+.quick-tiles img{width:30px;height:30px}
+
+/* page */
+.mission-head .home-greeting{flex:1}
+.mission-hero{position:relative;overflow:hidden;gap:10px;padding:20px 16px 18px;border-radius:28px;background:linear-gradient(170deg,#9fd77f 0%,#5fb83c 55%,#3f9428 100%);box-shadow:0 12px 26px #2f7a1f40}
+.mission-hero .leaf{position:absolute;width:90px;height:90px;border-radius:0 70% 0 70%;background:#ffffff22;pointer-events:none}
+.mission-hero .leaf.l1{left:-28px;top:-18px;transform:rotate(-20deg)}
+.mission-hero .leaf.l2{right:-30px;top:40px;transform:rotate(30deg)}
+.mission-hero-art{position:relative;width:74px;height:74px;filter:drop-shadow(0 8px 12px #1f4d1755)}
+.mission-plaque{position:relative;margin:0;padding:9px 22px;border-radius:18px;background:#fff;color:#1f4d17;font-size:20px;font-weight:800;letter-spacing:-.3px;box-shadow:0 6px 0 #d9efcb,0 10px 20px #1f4d1730}
+.mission-hero p{position:relative;max-width:260px;margin:0;font-size:13px;line-height:1.45;color:#f2fbe9}
+.mission-track{position:relative;display:flex;align-items:center;gap:6px;width:100%;margin-top:4px}
+.mission-track .mission-steps{flex:1;margin:0;max-width:none}
+.mission-steps .step{width:26px;height:26px;border:3px solid #ffffffb3;background:#ffffff40}
+.mission-steps .step.on{border-color:#fff;background:#fff;color:#3f9428}
+.mission-steps .line{height:5px;border-radius:3px;background:#ffffff59}
+.mission-steps .line.on{background:#fff}
+.mission-gift{flex:none;display:flex;flex-direction:column;align-items:center;gap:1px}
+.mission-gift img{width:46px;height:46px;filter:drop-shadow(0 6px 8px #1f4d1755)}
+.mission-gift b{padding:1px 8px;border-radius:10px;background:#fff;color:#1f4d17;font-size:11.5px}
+.mission-gift.on img{animation:gift-bob 1.6s ease-in-out infinite}
+@keyframes gift-bob{50%{transform:translateY(-4px)}}
+
+.mission-list li{gap:12px;padding:12px;border-radius:22px;background:#fff;box-shadow:0 6px 18px #2a553618}
+.mission-art{flex:none;width:50px;height:50px}
+.mission-body b{font-size:15px;color:#1f3a1a}
+.mission-row-bar{display:flex;align-items:center;gap:8px}
+.mission-row-bar .stat-bar-track{flex:1;height:8px;margin:0;background:#e3ebe5}
+.mission-row-bar .stat-bar-fill{background:linear-gradient(90deg,#5fb83c,#3a8a22)}
+.mission-row-bar small{flex:none;font-size:12px;font-weight:800;color:#5a6b60}
+.mission-go{width:40px;height:40px;background:linear-gradient(145deg,#5fb83c,#3a8a22);box-shadow:0 5px 12px #3a8a2255}
+.mission-check{color:#3a8a22}
+.mission-list li.done{background:#f0f8ea;box-shadow:inset 0 0 0 1.5px #c4e3b2}
+
+.mission-reward{gap:12px;padding:14px 14px 14px 10px;border:2px solid #efc14a;border-radius:24px;background:linear-gradient(115deg,#fff7dc 0%,#ffe39a 100%);box-shadow:0 10px 24px #c9902a33}
+.mission-reward-art{flex:none;width:62px;height:62px;filter:drop-shadow(0 6px 8px #c9325c33)}
+.mission-reward b{font-size:15px;color:#1f4d17}
+.mission-reward .reward-amount{align-self:flex-start;padding:4px 10px;border-radius:14px;background:#fff;color:#7a4f0c;box-shadow:0 2px 8px #c9902a26}
+.mission-reward .dark-button:disabled{opacity:.55}
+.mission-reward small{color:#7a5a1a}
+@media(prefers-reduced-motion:reduce){.mission-gift.on img{animation:none}}
+/* the reward card keeps its title on one line: the button takes its own row */
+.mission-reward{display:grid;grid-template-columns:62px minmax(0,1fr);align-items:center}
+.mission-reward .dark-button,.mission-reward small{grid-column:1/-1;width:100%;max-width:none;text-align:center}

@@ -143,7 +143,7 @@ Cần kiểm tra trên máy thật: ad bám đúng hàng khi cuộn, mép cắt 
 
 | Tính năng | Màn | Quảng cáo |
 |---|---|---|
-| Nhiệm vụ hằng ngày | Thẻ trên Vườn, `/missions` | Không có (theo bảng yêu cầu). Popup nhận thưởng không kèm Interstitial. |
+| Nhiệm vụ hằng ngày | Thẻ trên Vườn, `/missions` | Banner dưới cùng ở `/missions` (bổ sung 10/11/2026). Popup nhận thưởng không kèm Interstitial. |
 | Trung tâm hạt giống | `/seeds` (tab Cửa hàng / Hạt của tôi) | Banner dưới cùng như mọi tab. Gói hạt cơ bản trả bằng **Rewarded** (tối đa 3 lần/ngày). Bấm OK ở popup "Nhận được hạt giống!" thì xét một **Interstitial** (`seed_pack`). |
 | Bộ sưu tập, mở khóa cây | `/collection`, `/species/:id` khi chưa mở khóa | Banner dưới cùng. Màn cây chưa mở khóa có **Rewarded** "+3 hạt giống" (tối đa 5 lần/ngày). Không có Interstitial. |
 | Chăm sóc cây, lên cấp | Vườn, `/pots/:id` | Banner dưới cùng. Bấm OK ở popup "Cây đã phát triển!" thì xét một **Interstitial** (`level_up`). |

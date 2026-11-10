@@ -13,7 +13,7 @@ import InFeedAd from '../../ads/components/InFeedAd.vue'
 import { useDocScroll } from '../../../shared/composables/pageScroll'
 import { useRouter } from 'vue-router'
 import { allSpecies } from '../../collection/model'
-import { MISSION_REWARD, MISSIONS, missionsDone, missionRewardClaimed, missionRewardReady, withMission } from '../../missions/model'
+import { MISSION_ART, MISSION_REWARD, MISSIONS, missionsDone, missionRewardClaimed, missionRewardReady, withMission } from '../../missions/model'
 const { go } = useAppNavigation()
 const router = useRouter()
 useDocScroll()
@@ -49,7 +49,7 @@ function plant(id: string) {
         <small><Icon icon="fluent-emoji-flat:chestnut" width="14"/> {{ state.coins }}</small>
       </button>
       <button @click="go('missions')">
-        <Icon icon="fluent-emoji-flat:clipboard" width="30"/><b>{{ t('home.missions') }}</b>
+        <img :src="MISSION_ART.board" alt="" width="30" height="30"/><b>{{ t('home.missions') }}</b>
         <small>{{ done }}/{{ MISSIONS.length }}</small>
         <i v-if="missionRewardReady()" class="tile-dot"></i>
       </button>
@@ -60,13 +60,13 @@ function plant(id: string) {
     </nav>
 
     <button v-if="!missionRewardClaimed()" class="mission-card" :class="{ ready: missionRewardReady() }" @click="go('missions')">
-      <Icon icon="fluent-emoji-flat:clipboard" width="34"/>
+      <span class="mission-card-art"><img :src="MISSION_ART.board" alt=""/><i v-if="done < MISSIONS.length || missionRewardReady()"></i></span>
       <div>
         <b>{{ t('home.missionCard') }}</b>
         <span>{{ missionRewardReady() ? t('home.missionReady') : t('home.missionHint', { n: String(MISSION_REWARD) }) }}</span>
-        <div class="stat-bar-track"><div class="stat-bar-fill growth" :style="{ width: `${(done / MISSIONS.length) * 100}%` }"></div></div>
+        <div class="mission-card-bar"><div class="stat-bar-track"><div class="stat-bar-fill" :style="{ width: `${(done / MISSIONS.length) * 100}%` }"></div></div><em>{{ done }}/{{ MISSIONS.length }}</em></div>
       </div>
-      <em>{{ done }}/{{ MISSIONS.length }}</em>
+      <span class="mission-card-go"><Icon icon="solar:alt-arrow-right-linear" width="18"/></span>
     </button>
 
     <div class="pill-tabs" role="tablist">

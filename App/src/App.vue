@@ -17,7 +17,7 @@ const isCamera = computed(() => ['scan', 'welcome', 'language', 'begin'].include
 const showNav = computed(() => ['garden', 'collection', 'seeds', 'menu'].includes(String(route.name)))
 // One banner for the tab screens and the first-run screens (language, welcome) and the launch screen of a returning user; never on camera or pot detail.
 const showBanner = computed(() => adsPossible && !adsSuppressed.value && !fullScreenShowing.value &&
-  (['garden', 'collection', 'seeds', 'menu', 'menu-language', 'language', 'welcome', 'pot', 'species'].includes(String(route.name)) ||
+  (['garden', 'collection', 'seeds', 'menu', 'menu-language', 'language', 'welcome', 'pot', 'species', 'missions'].includes(String(route.name)) ||
     (route.name === 'begin' && hasRuntimeData())))
 
 // A pot that reached a new stage: shown on the garden and pot screens, rewarded once per stage.

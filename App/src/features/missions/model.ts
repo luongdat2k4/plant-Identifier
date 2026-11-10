@@ -5,11 +5,12 @@ import { dayKey } from '../garden/model'
 
 // Daily missions: three small goals that reset every day. Finishing all of them unlocks one reward per day.
 export type MissionId = 'water' | 'scan' | 'feed'
-export const MISSIONS: readonly { id: MissionId; target: number; icon: string; to: 'garden' | 'scan' }[] = [
-  { id: 'water', target: 2, icon: 'solar:waterdrop-bold', to: 'garden' },
-  { id: 'scan', target: 1, icon: 'solar:camera-bold', to: 'scan' },
-  { id: 'feed', target: 1, icon: 'solar:leaf-bold', to: 'garden' },
+export const MISSIONS: readonly { id: MissionId; target: number; art: string; to: 'garden' | 'scan' }[] = [
+  { id: 'water', target: 2, art: '/assets/icons/mission-water.svg', to: 'garden' },
+  { id: 'scan', target: 1, art: '/assets/icons/mission-camera.svg', to: 'scan' },
+  { id: 'feed', target: 1, art: '/assets/icons/mission-feed.svg', to: 'garden' },
 ]
+export const MISSION_ART = { board: '/assets/icons/mission-board.svg', gift: '/assets/icons/mission-gift.svg' }
 export const MISSION_REWARD = 3
 
 const isToday = () => state.value.missions.day === dayKey()
