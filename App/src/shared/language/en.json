@@ -70,7 +70,8 @@
     "seedSaved": "Seed saved to your bag",
     "about": "Sproutly · UI preview v2",
     "rewardNone": "No video available right now, try again later",
-    "coinsReward": "You received +{n} seeds"
+    "coinsReward": "You received +{n} seeds",
+    "stillWilting": "Still wilting, keep caring so it can grow"
   },
   "confirm": {
     "discardSeed": "Discard this seed?",
@@ -167,12 +168,12 @@
     "spotWrong": "This plant prefers a {spot}; in the wrong spot it gets thirsty a bit faster.",
     "nickname": "Nickname",
     "growth": "Growth",
-    "growthDays": "{days} days of good care",
-    "untilNext": "{days} more days to reach {stage}. A wilted plant pauses growing but keeps its progress.",
     "bloomed": "The plant has bloomed; this species is mastered in your collection.",
     "uproot": "Remove plant, back to seed bag",
     "notFoundTitle": "Plant not found",
-    "notFoundText": "This plant may have gone dormant and returned to your seed bag."
+    "notFoundText": "This plant may have gone dormant and returned to your seed bag.",
+    "stageGp": "{done}/{total} GP",
+    "untilNextGp": "{n} GP more to reach {stage}. A wilted plant pauses growing but keeps its progress."
   },
   "scan": {
     "step1": "Photo captured",
@@ -307,6 +308,7 @@
   },
   "levelUp": {
     "title": "Your plant grew!",
-    "text": "{name} reached the {stage} stage"
+    "text": "{name} reached the {stage} stage",
+    "noCoins": "Today's seed rewards for growing are used up, come back tomorrow"
   }
 }

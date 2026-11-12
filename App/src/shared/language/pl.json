@@ -70,7 +70,8 @@
     "seedSaved": "Nasiono zapisane w woreczku",
     "about": "Sproutly · Podgląd UI v2",
     "rewardNone": "Brak dostępnego filmu, spróbuj ponownie później",
-    "coinsReward": "Otrzymano +{n} nasion"
+    "coinsReward": "Otrzymano +{n} nasion",
+    "stillWilting": "Wciąż zwiędła, dbaj o nią dalej, by rosła"
   },
   "confirm": {
     "discardSeed": "Wyrzucić to nasiono?",
@@ -167,12 +168,12 @@
     "spotWrong": "Ta roślina preferuje: {spot}. W złym miejscu odrobinę szybciej robi się spragniona.",
     "nickname": "Przezwisko",
     "growth": "Wzrost",
-    "growthDays": "Dni dobrej opieki: {days}",
-    "untilNext": "Jeszcze {days} dni do etapu: {stage}. Zwiędnięta roślina wstrzymuje wzrost, ale zachowuje postęp.",
     "bloomed": "Roślina zakwitła; ten gatunek jest opanowany w Twojej kolekcji.",
     "uproot": "Usuń roślinę, wróć do woreczka z nasionami",
     "notFoundTitle": "Nie znaleziono rośliny",
-    "notFoundText": "Ta roślina mogła przejść w stan uśpienia i wrócić do woreczka z nasionami."
+    "notFoundText": "Ta roślina mogła przejść w stan uśpienia i wrócić do woreczka z nasionami.",
+    "stageGp": "{done}/{total} GP",
+    "untilNextGp": "Jeszcze {n} GP do etapu {stage}. Zwiędła roślina przestaje rosnąć, ale zachowuje postęp."
   },
   "scan": {
     "step1": "Zdjęcie zrobione",
@@ -307,6 +308,7 @@
   },
   "levelUp": {
     "title": "Twoja roślina urosła!",
-    "text": "{name} osiągnęła etap: {stage}"
+    "text": "{name} osiągnęła etap: {stage}",
+    "noCoins": "Nagrody w nasionach za wzrost na dziś się skończyły, wróć jutro"
   }
 }

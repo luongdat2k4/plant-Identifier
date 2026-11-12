@@ -280,8 +280,13 @@ Tối đa 20 hạt. **Không lưu ảnh chụp**, ảnh chỉ kích hoạt quay 
 | `spot` | text | `sun` hoặc `shade` |
 | `water` | real | 0–100 |
 | `nutrition` | real | 0–100 |
-| `growth_days` | int | Giai đoạn tính từ số này, không lưu |
+| `growth_days` | int | Số ngày khỏe đã qua (mỗi ngày +10 GP). Chỉ còn để quy đổi chậu cũ và làm lịch sử |
 | `last_growth_day` | date | `YYYY-MM-DD` |
+| `growth_points` | real? | GP cộng dồn, giai đoạn tính từ số này. NULL: chậu cũ, app quy đổi từ `growth_days` |
+| `tap_day` | date? | Ngày của `tap_points` / `tap_bonus` |
+| `tap_points` | real | GP đã nhận từ tưới/bón trong `tap_day` (chỉ để ghi lại, không có trần) |
+| `tap_bonus` | real | Không còn dùng (từng là trần nâng thêm nhờ video), giữ cho hàng đọc/ghi đủ cột |
+| `rewarded_stage` | text? | Giai đoạn đã trao thưởng lên cấp |
 | `wilting_since` | datetime? | Quá 7 ngày thì cây chết, trả về túi hạt |
 | `last_updated` | datetime | Mốc tính hao hụt theo thời gian thực |
 | `created_at` | datetime | |

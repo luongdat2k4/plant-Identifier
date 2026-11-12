@@ -70,7 +70,8 @@
     "seedSaved": "Tohum çantana kaydedildi",
     "about": "Sproutly · Arayüz önizlemesi v2",
     "rewardNone": "Şu an video yok, daha sonra tekrar dene",
-    "coinsReward": "+{n} tohum aldın"
+    "coinsReward": "+{n} tohum aldın",
+    "stillWilting": "Hâlâ solgun, büyümesi için bakmaya devam et"
   },
   "confirm": {
     "discardSeed": "Bu tohum atılsın mı?",
@@ -167,12 +168,12 @@
     "spotWrong": "Bu bitki şunu tercih eder: {spot}. Yanlış yerde biraz daha çabuk susar.",
     "nickname": "Takma ad",
     "growth": "Büyüme",
-    "growthDays": "{days} gün iyi bakım",
-    "untilNext": "{stage} aşamasına {days} gün daha var. Solmuş bitki büyümeyi durdurur ama ilerlemesini korur.",
     "bloomed": "Bitki çiçek açtı; bu tür koleksiyonunda ustalaşıldı.",
     "uproot": "Bitkiyi çıkar, tohum çantasına dön",
     "notFoundTitle": "Bitki bulunamadı",
-    "notFoundText": "Bu bitki uyku moduna girip tohum çantana dönmüş olabilir."
+    "notFoundText": "Bu bitki uyku moduna girip tohum çantana dönmüş olabilir.",
+    "stageGp": "{done}/{total} GP",
+    "untilNextGp": "{stage} aşamasına {n} GP kaldı. Solmuş bitki büyümeyi durdurur ama ilerlemesini korur."
   },
   "scan": {
     "step1": "Fotoğraf çekildi",
@@ -307,6 +308,7 @@
   },
   "levelUp": {
     "title": "Bitkin büyüdü!",
-    "text": "{name} {stage} aşamasına ulaştı"
+    "text": "{name} {stage} aşamasına ulaştı",
+    "noCoins": "Bugünün büyüme tohumu ödülleri bitti, yarın tekrar gel"
   }
 }

@@ -1,5 +1,6 @@
 import type { State } from '../shared/store'
 import { getSpecies } from './catalog'
+import { pointsFromDays } from '../features/garden/growth'
 
 // One-time import of the old localStorage save (key `plantin-recreated-v2`, from before the SQLite backend).
 // The old build used Vietnamese ids; the catalog now uses English keys, so every species id is translated.
@@ -37,7 +38,9 @@ export function readLegacyState(): State | null {
       notifications: saved.notifications !== false,
       coins: 0,
       missions: { day: '', water: 0, feed: 0, scan: 0 },
-      pots: keep(saved.pots), seeds: keep(saved.seeds),
+      levelUps: { day: '', count: 0 },
+      pots: keep(saved.pots).map(pot => ({ ...pot, growthPoints: pointsFromDays(Number(pot.growthDays) || 0), tapPoints: 0, tapBonus: 0 })),
+      seeds: keep(saved.seeds),
       discoveries: (saved.discoveries ?? []).map(known).filter((item): item is NonNullable<typeof item> => item !== null),
     }
     return state.pots.length || state.seeds.length || state.discoveries.length ? state : null

@@ -70,7 +70,8 @@
     "seedSaved": "种子已存入种子袋",
     "about": "Sproutly · 界面预览 v2",
     "rewardNone": "暂时没有可用的视频，请稍后再试",
-    "coinsReward": "你获得了 +{n} 种子"
+    "coinsReward": "你获得了 +{n} 种子",
+    "stillWilting": "仍在枯萎，继续照料它才能长大"
   },
   "confirm": {
     "discardSeed": "丢弃这颗种子吗？",
@@ -167,12 +168,12 @@
     "spotWrong": "这株植物偏好{spot}；放错位置会更快口渴。",
     "nickname": "昵称",
     "growth": "生长",
-    "growthDays": "已悉心照料 {days} 天",
-    "untilNext": "还需 {days} 天到达{stage}。枯萎的植物会暂停生长，但会保留进度。",
     "bloomed": "植物已开花；该物种已在你的图鉴中精通。",
     "uproot": "移除植物，放回种子袋",
     "notFoundTitle": "未找到植物",
-    "notFoundText": "这株植物可能已进入休眠，回到了你的种子袋。"
+    "notFoundText": "这株植物可能已进入休眠，回到了你的种子袋。",
+    "stageGp": "{done}/{total} GP",
+    "untilNextGp": "还差 {n} GP 到达{stage}。枯萎的植物会暂停生长，但不会失去进度。"
   },
   "scan": {
     "step1": "照片已拍摄",
@@ -307,6 +308,7 @@
   },
   "levelUp": {
     "title": "你的植物长大了！",
-    "text": "{name}已进入{stage}阶段"
+    "text": "{name}已进入{stage}阶段",
+    "noCoins": "今天的成长种子奖励已领完，明天再来"
   }
 }

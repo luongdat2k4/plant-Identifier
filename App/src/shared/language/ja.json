@@ -70,7 +70,8 @@
     "seedSaved": "種を種袋に保存しました",
     "about": "Sproutly · UIプレビュー v2",
     "rewardNone": "現在利用できる動画がありません。後でもう一度お試しください",
-    "coinsReward": "+{n} タネを受け取りました"
+    "coinsReward": "+{n} タネを受け取りました",
+    "stillWilting": "まだしおれています。育つようにお世話を続けましょう"
   },
   "confirm": {
     "discardSeed": "この種を捨てますか?",
@@ -167,12 +168,12 @@
     "spotWrong": "この植物の好みは「{spot}」です。合わない場所では少し早くのどが渇きます。",
     "nickname": "ニックネーム",
     "growth": "成長",
-    "growthDays": "良いお世話{days}日分",
-    "untilNext": "{stage}まであと{days}日。しおれた植物は成長が止まりますが、進行状況は保たれます。",
     "bloomed": "植物が開花しました。この種はコレクションでコンプリートです。",
     "uproot": "植物を取り除いて種袋に戻す",
     "notFoundTitle": "植物が見つかりません",
-    "notFoundText": "この植物は休眠して種袋に戻った可能性があります。"
+    "notFoundText": "この植物は休眠して種袋に戻った可能性があります。",
+    "stageGp": "{done}/{total} GP",
+    "untilNextGp": "{stage}まであと{n} GP。しおれた植物は成長が止まりますが、進み具合は失われません。"
   },
   "scan": {
     "step1": "写真を撮影しました",
@@ -307,6 +308,7 @@
   },
   "levelUp": {
     "title": "植物が成長しました！",
-    "text": "{name}が{stage}の段階になりました"
+    "text": "{name}が{stage}の段階になりました",
+    "noCoins": "今日の成長ごほうびのタネは終わりです。また明日"
   }
 }

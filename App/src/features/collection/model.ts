@@ -13,11 +13,6 @@ export interface Discovery {
 }
 
 export function stageIndex(stage: Stage): number { return STAGES.indexOf(stage) }
-export function stageForDays(days: number): Stage {
-  let result: Stage = 'seed'
-  for (const stage of STAGES) if (days >= STAGE_META[stage].minDays) result = stage
-  return result
-}
 export function discoveryOf(speciesId: string): Discovery | undefined {
   return state.value.discoveries.find(d => d.speciesId === speciesId)
 }

@@ -70,7 +70,8 @@
     "seedSaved": "Semilla guardada en tu bolsa",
     "about": "Sproutly · Vista previa de la interfaz v2",
     "rewardNone": "No hay vídeos disponibles ahora, inténtalo más tarde",
-    "coinsReward": "Has recibido +{n} semillas"
+    "coinsReward": "Has recibido +{n} semillas",
+    "stillWilting": "Sigue marchita, cuídala más para que crezca"
   },
   "confirm": {
     "discardSeed": "¿Descartar esta semilla?",
@@ -167,12 +168,12 @@
     "spotWrong": "Esta planta prefiere un {spot}; en un sitio equivocado le da sed un poco más rápido.",
     "nickname": "Apodo",
     "growth": "Crecimiento",
-    "growthDays": "{days} días de buenos cuidados",
-    "untilNext": "Faltan {days} días para llegar a {stage}. Una planta marchita pausa su crecimiento pero conserva su progreso.",
     "bloomed": "La planta ha florecido; esta especie está dominada en tu colección.",
     "uproot": "Quitar planta, volver a la bolsa de semillas",
     "notFoundTitle": "Planta no encontrada",
-    "notFoundText": "Es posible que esta planta haya entrado en letargo y vuelto a tu bolsa de semillas."
+    "notFoundText": "Es posible que esta planta haya entrado en letargo y vuelto a tu bolsa de semillas.",
+    "stageGp": "{done}/{total} GP",
+    "untilNextGp": "Faltan {n} GP para llegar a {stage}. Una planta marchita deja de crecer, pero conserva su progreso."
   },
   "scan": {
     "step1": "Foto capturada",
@@ -307,6 +308,7 @@
   },
   "levelUp": {
     "title": "¡Tu planta ha crecido!",
-    "text": "{name} ha llegado a la etapa {stage}"
+    "text": "{name} ha llegado a la etapa {stage}",
+    "noCoins": "Hoy ya no quedan semillas de premio por crecer, vuelve mañana"
   }
 }

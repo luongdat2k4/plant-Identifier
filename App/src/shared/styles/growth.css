@@ -1,0 +1,30 @@
+/* Pot detail: the plant badge that grows with every care tap. A ring shows the GP inside the current stage,
+   the stage emoji scales up through the stage, bounces on every tap, and drops or grains fall into it. */
+.grow-badge{position:absolute;z-index:1;left:calc(29% - 52px);top:208px;width:104px;height:104px;border-radius:50%;
+  display:grid;place-items:center;background:conic-gradient(var(--green) var(--share),#ffffffb3 0);
+  box-shadow:0 10px 26px #1c3b2133;transition:background .35s ease}
+.grow-badge::before{content:"";position:absolute;inset:7px;border-radius:50%;background:#f4faf0}
+.grow-badge.wilting{filter:saturate(.35)}
+.grow-plant{position:relative;font-size:52px;line-height:1;transform:scale(var(--grow));transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.grow-plant.bump{animation:grow-bump .45s ease}
+@keyframes grow-bump{0%{translate:0 0;rotate:0deg}30%{translate:0 -6px;rotate:-7deg}60%{translate:0 1px;rotate:5deg}100%{translate:0 0;rotate:0deg}}
+
+.grow-float{position:absolute;left:50%;top:-6px;pointer-events:none;white-space:nowrap;font-size:15px;font-weight:800;
+  color:var(--green-deep);text-shadow:0 1px 0 white,0 0 6px white;animation:grow-float 1s ease-out forwards}
+.grow-float.water{color:#2f86b5}
+.grow-float.none{color:var(--muted);font-size:12px}
+@keyframes grow-float{0%{opacity:0;transform:translate(-50%,8px) scale(.8)}20%{opacity:1;transform:translate(-50%,0) scale(1.1)}100%{opacity:0;transform:translate(-50%,-46px) scale(1)}}
+
+.grow-drops{position:absolute;inset:0;pointer-events:none}
+.grow-drops b{position:absolute;top:-34px;width:8px;height:11px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;opacity:0;animation:grow-drop .7s ease-in forwards}
+.grow-drops.water b{background:#4aa8d8}
+.grow-drops.feed b{background:#9a6b3c;width:7px;height:7px;border-radius:50%}
+.grow-drops.none b{display:none}
+.grow-drops b:nth-child(1){left:34px}
+.grow-drops b:nth-child(2){left:50px;animation-delay:.08s}
+.grow-drops b:nth-child(3){left:66px;animation-delay:.16s}
+@keyframes grow-drop{0%{opacity:0;transform:translateY(0)}25%{opacity:1}100%{opacity:0;transform:translateY(64px)}}
+
+.care-tap:active{transform:scale(.96)}
+
+@media (prefers-reduced-motion:reduce){.grow-plant.bump,.grow-drops b{animation:none}.grow-float{animation-duration:.01s}}

@@ -70,7 +70,8 @@
     "seedSaved": "Graine enregistrée dans votre sac",
     "about": "Sproutly · Aperçu de l'interface v2",
     "rewardNone": "Aucune vidéo disponible pour le moment, réessayez plus tard",
-    "coinsReward": "Vous avez reçu +{n} graines"
+    "coinsReward": "Vous avez reçu +{n} graines",
+    "stillWilting": "Encore fanée, continue de la soigner pour qu'elle grandisse"
   },
   "confirm": {
     "discardSeed": "Jeter cette graine ?",
@@ -167,12 +168,12 @@
     "spotWrong": "Cette plante préfère un {spot} ; au mauvais endroit, elle a soif un peu plus vite.",
     "nickname": "Surnom",
     "growth": "Croissance",
-    "growthDays": "{days} jours de bons soins",
-    "untilNext": "Encore {days} jours pour atteindre {stage}. Une plante fanée met sa croissance en pause mais garde sa progression.",
     "bloomed": "La plante a fleuri ; cette espèce est maîtrisée dans votre collection.",
     "uproot": "Retirer la plante, retour au sac de graines",
     "notFoundTitle": "Plante introuvable",
-    "notFoundText": "Cette plante est peut-être entrée en dormance et retournée dans votre sac de graines."
+    "notFoundText": "Cette plante est peut-être entrée en dormance et retournée dans votre sac de graines.",
+    "stageGp": "{done}/{total} GP",
+    "untilNextGp": "Encore {n} GP pour atteindre {stage}. Une plante fanée arrête de grandir mais garde sa progression."
   },
   "scan": {
     "step1": "Photo capturée",
@@ -307,6 +308,7 @@
   },
   "levelUp": {
     "title": "Votre plante a grandi !",
-    "text": "{name} a atteint le stade {stage}"
+    "text": "{name} a atteint le stade {stage}",
+    "noCoins": "Plus de graines en récompense de croissance aujourd'hui, reviens demain"
   }
 }

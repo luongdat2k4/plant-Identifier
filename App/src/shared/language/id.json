@@ -70,7 +70,8 @@
     "seedSaved": "Biji disimpan di kantong",
     "about": "Sproutly · Pratinjau UI v2",
     "rewardNone": "Tidak ada video saat ini, coba lagi nanti",
-    "coinsReward": "Kamu menerima +{n} biji"
+    "coinsReward": "Kamu menerima +{n} biji",
+    "stillWilting": "Masih layu, terus rawat agar bisa tumbuh"
   },
   "confirm": {
     "discardSeed": "Buang biji ini?",
@@ -167,12 +168,12 @@
     "spotWrong": "Tanaman ini lebih menyukai: {spot}. Di tempat yang salah, ia lebih cepat haus.",
     "nickname": "Nama panggilan",
     "growth": "Pertumbuhan",
-    "growthDays": "{days} hari perawatan baik",
-    "untilNext": "{days} hari lagi untuk mencapai {stage}. Tanaman yang layu berhenti tumbuh sementara tetapi kemajuannya tetap tersimpan.",
     "bloomed": "Tanaman sudah berbunga; spesies ini tuntas di koleksi Anda.",
     "uproot": "Cabut tanaman, kembali ke kantong biji",
     "notFoundTitle": "Tanaman tidak ditemukan",
-    "notFoundText": "Tanaman ini mungkin sudah dorman dan kembali ke kantong biji."
+    "notFoundText": "Tanaman ini mungkin sudah dorman dan kembali ke kantong biji.",
+    "stageGp": "{done}/{total} GP",
+    "untilNextGp": "{n} GP lagi untuk mencapai {stage}. Tanaman layu berhenti tumbuh, tetapi kemajuannya tetap tersimpan."
   },
   "scan": {
     "step1": "Foto diambil",
@@ -307,6 +308,7 @@
   },
   "levelUp": {
     "title": "Tanamanmu tumbuh!",
-    "text": "{name} mencapai tahap {stage}"
+    "text": "{name} mencapai tahap {stage}",
+    "noCoins": "Hadiah biji untuk tumbuh hari ini sudah habis, kembali besok"
   }
 }

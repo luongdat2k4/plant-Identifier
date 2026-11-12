@@ -3,6 +3,7 @@ import type { Missions, State } from '../shared/store'
 import type { Pot, Spot } from '../features/garden/model'
 import type { Discovery } from '../features/collection/model'
 import { STAGES, type Stage } from './catalog'
+import { pointsFromDays } from '../features/garden/growth'
 
 // Reads and writes runtime.db (settings, seed, pot, discovery, daily_mission). Rows reference catalog rows by `key` only.
 // The tables are tiny (a handful of pots, at most 20 seeds, at most one discovery per species), so a save
@@ -14,7 +15,7 @@ const MISSION_IDS = ['water', 'feed', 'scan'] as const
 
 export function loadState(): State {
   const db = runtimeDb()
-  const settings = one(db, 'SELECT pot_slots, notifications, coins, mission_claimed_day FROM settings WHERE id = 1')
+  const settings = one(db, 'SELECT pot_slots, notifications, coins, mission_claimed_day, level_up_day, level_up_count FROM settings WHERE id = 1')
   const missions: Missions = { day: '', water: 0, feed: 0, scan: 0, claimedDay: text(settings?.mission_claimed_day) }
   for (const row of all(db, 'SELECT mission, day, progress FROM daily_mission')) {
     const id = String(row.mission) as (typeof MISSION_IDS)[number]
@@ -27,6 +28,7 @@ export function loadState(): State {
     notifications: settings ? Number(settings.notifications) === 1 : true,
     coins: settings ? Number(settings.coins) || 0 : 0,
     missions,
+    levelUps: { day: text(settings?.level_up_day) ?? '', count: Number(settings?.level_up_count) || 0 },
     seeds: all(db, 'SELECT id, species_id, created_at FROM seed ORDER BY rowid').map(row => ({
       id: String(row.id), speciesId: String(row.species_id), createdAt: String(row.created_at),
     })),
@@ -36,6 +38,8 @@ export function loadState(): State {
       lastGrowthDay: String(row.last_growth_day), wiltingSince: text(row.wilting_since),
       lastUpdated: String(row.last_updated), createdAt: String(row.created_at),
       rewardedStage: stage(row.rewarded_stage),
+      growthPoints: row.growth_points === null || row.growth_points === undefined ? pointsFromDays(Number(row.growth_days)) : Number(row.growth_points),
+      tapDay: text(row.tap_day), tapPoints: Number(row.tap_points) || 0, tapBonus: Number(row.tap_bonus) || 0,
     })),
     discoveries: all(db, 'SELECT * FROM discovery ORDER BY rowid').map((row): Discovery => ({
       speciesId: String(row.species_id), firstSeenAt: String(row.first_seen_at),
@@ -46,18 +50,21 @@ export function loadState(): State {
 
 export function saveState(state: State) {
   transaction(() => {
-    run(`INSERT INTO settings (id, pot_slots, notifications, coins, mission_claimed_day) VALUES (1, ?, ?, ?, ?)
+    run(`INSERT INTO settings (id, pot_slots, notifications, coins, mission_claimed_day, level_up_day, level_up_count) VALUES (1, ?, ?, ?, ?, ?, ?)
          ON CONFLICT(id) DO UPDATE SET pot_slots = excluded.pot_slots, notifications = excluded.notifications,
-           coins = excluded.coins, mission_claimed_day = excluded.mission_claimed_day`,
-    [state.potSlots, state.notifications ? 1 : 0, state.coins, state.missions.claimedDay ?? null])
+           coins = excluded.coins, mission_claimed_day = excluded.mission_claimed_day,
+           level_up_day = excluded.level_up_day, level_up_count = excluded.level_up_count`,
+    [state.potSlots, state.notifications ? 1 : 0, state.coins, state.missions.claimedDay ?? null, state.levelUps.day || null, state.levelUps.count])
     run('DELETE FROM seed')
     for (const seed of state.seeds) run('INSERT INTO seed (id, species_id, created_at) VALUES (?, ?, ?)', [seed.id, seed.speciesId, seed.createdAt])
     run('DELETE FROM pot')
     for (const pot of state.pots) {
-      run(`INSERT INTO pot (id, species_id, nickname, spot, water, nutrition, growth_days, last_growth_day, wilting_since, last_updated, created_at, rewarded_stage)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      run(`INSERT INTO pot (id, species_id, nickname, spot, water, nutrition, growth_days, last_growth_day, wilting_since, last_updated, created_at, rewarded_stage,
+             growth_points, tap_day, tap_points, tap_bonus)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [pot.id, pot.speciesId, pot.nickname ?? null, pot.spot, pot.water, pot.nutrition, pot.growthDays,
-        pot.lastGrowthDay, pot.wiltingSince ?? null, pot.lastUpdated, pot.createdAt, pot.rewardedStage ?? null])
+        pot.lastGrowthDay, pot.wiltingSince ?? null, pot.lastUpdated, pot.createdAt, pot.rewardedStage ?? null,
+        pot.growthPoints, pot.tapDay ?? null, pot.tapPoints, pot.tapBonus])
     }
     run('DELETE FROM discovery')
     for (const found of state.discoveries) {

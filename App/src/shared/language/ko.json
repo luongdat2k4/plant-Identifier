@@ -70,7 +70,8 @@
     "seedSaved": "씨앗을 주머니에 저장했어요",
     "about": "Sproutly · UI 미리보기 v2",
     "rewardNone": "지금은 볼 수 있는 동영상이 없어요. 나중에 다시 시도하세요",
-    "coinsReward": "+{n} 씨앗을 받았어요"
+    "coinsReward": "+{n} 씨앗을 받았어요",
+    "stillWilting": "아직 시들어 있어요. 자라도록 계속 돌봐 주세요"
   },
   "confirm": {
     "discardSeed": "이 씨앗을 버릴까요?",
@@ -167,12 +168,12 @@
     "spotWrong": "이 식물은 {spot}을(를) 좋아해요. 맞지 않는 장소에서는 목이 조금 더 빨리 말라요.",
     "nickname": "별명",
     "growth": "성장",
-    "growthDays": "잘 돌본 {days}일",
-    "untilNext": "{stage}까지 {days}일 남았어요. 시든 식물은 성장이 멈추지만 진행 상황은 유지돼요.",
     "bloomed": "식물이 꽃을 피웠어요. 이 종은 컬렉션에서 마스터했어요.",
     "uproot": "식물 빼기, 씨앗 주머니로 돌려보내기",
     "notFoundTitle": "식물을 찾을 수 없어요",
-    "notFoundText": "이 식물은 휴면에 들어가 씨앗 주머니로 돌아갔을 수 있어요."
+    "notFoundText": "이 식물은 휴면에 들어가 씨앗 주머니로 돌아갔을 수 있어요.",
+    "stageGp": "{done}/{total} GP",
+    "untilNextGp": "{stage}까지 {n} GP 남았어요. 시든 식물은 성장을 멈추지만 진행도는 그대로예요."
   },
   "scan": {
     "step1": "사진 촬영 완료",
@@ -307,6 +308,7 @@
   },
   "levelUp": {
     "title": "식물이 자랐어요!",
-    "text": "{name}이(가) {stage} 단계에 도달했어요"
+    "text": "{name}이(가) {stage} 단계에 도달했어요",
+    "noCoins": "오늘 성장 씨앗 보상을 모두 받았어요. 내일 다시 오세요"
   }
 }

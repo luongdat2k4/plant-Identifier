@@ -70,7 +70,8 @@
     "seedSaved": "Seme salvato nel sacchetto",
     "about": "Sproutly · Anteprima UI v2",
     "rewardNone": "Nessun video disponibile al momento, riprova più tardi",
-    "coinsReward": "Hai ricevuto +{n} semi"
+    "coinsReward": "Hai ricevuto +{n} semi",
+    "stillWilting": "Ancora appassita, continua a curarla perché cresca"
   },
   "confirm": {
     "discardSeed": "Scartare questo seme?",
@@ -167,12 +168,12 @@
     "spotWrong": "Questa pianta preferisce: {spot}. Nel posto sbagliato ha sete un po' più in fretta.",
     "nickname": "Soprannome",
     "growth": "Crescita",
-    "growthDays": "{days} giorni di buone cure",
-    "untilNext": "Ancora {days} giorni per raggiungere {stage}. Una pianta appassita smette di crescere ma conserva i progressi.",
     "bloomed": "La pianta è fiorita; questa specie è completata nella tua collezione.",
     "uproot": "Rimuovi pianta, torna al sacchetto dei semi",
     "notFoundTitle": "Pianta non trovata",
-    "notFoundText": "Questa pianta potrebbe essere andata in dormienza ed essere tornata nel sacchetto dei semi."
+    "notFoundText": "Questa pianta potrebbe essere andata in dormienza ed essere tornata nel sacchetto dei semi.",
+    "stageGp": "{done}/{total} GP",
+    "untilNextGp": "Mancano {n} GP per arrivare a {stage}. Una pianta appassita smette di crescere ma conserva i progressi."
   },
   "scan": {
     "step1": "Foto acquisita",
@@ -307,6 +308,7 @@
   },
   "levelUp": {
     "title": "La tua pianta è cresciuta!",
-    "text": "{name} ha raggiunto la fase {stage}"
+    "text": "{name} ha raggiunto la fase {stage}",
+    "noCoins": "Per oggi i semi premio della crescita sono finiti, torna domani"
   }
 }

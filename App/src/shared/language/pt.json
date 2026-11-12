@@ -70,7 +70,8 @@
     "seedSaved": "Semente guardada no seu saquinho",
     "about": "Sproutly · Prévia da interface v2",
     "rewardNone": "Nenhum vídeo disponível agora, tente novamente mais tarde",
-    "coinsReward": "Você recebeu +{n} sementes"
+    "coinsReward": "Você recebeu +{n} sementes",
+    "stillWilting": "Ainda murcha, continue cuidando para ela crescer"
   },
   "confirm": {
     "discardSeed": "Descartar esta semente?",
@@ -167,12 +168,12 @@
     "spotWrong": "Esta planta prefere um {spot}; no lugar errado, ela fica com sede um pouco mais rápido.",
     "nickname": "Apelido",
     "growth": "Crescimento",
-    "growthDays": "{days} dias de bons cuidados",
-    "untilNext": "Faltam {days} dias para chegar a {stage}. Uma planta murcha pausa o crescimento, mas mantém o progresso.",
     "bloomed": "A planta floresceu; esta espécie está dominada na sua coleção.",
     "uproot": "Remover planta, voltar ao saquinho",
     "notFoundTitle": "Planta não encontrada",
-    "notFoundText": "Esta planta pode ter entrado em dormência e voltado ao seu saquinho de sementes."
+    "notFoundText": "Esta planta pode ter entrado em dormência e voltado ao seu saquinho de sementes.",
+    "stageGp": "{done}/{total} GP",
+    "untilNextGp": "Faltam {n} GP para chegar a {stage}. Uma planta murcha para de crescer, mas mantém o progresso."
   },
   "scan": {
     "step1": "Foto capturada",
@@ -307,6 +308,7 @@
   },
   "levelUp": {
     "title": "Sua planta cresceu!",
-    "text": "{name} chegou à fase {stage}"
+    "text": "{name} chegou à fase {stage}",
+    "noCoins": "As sementes de recompensa por crescer acabaram hoje, volte amanhã"
   }
 }

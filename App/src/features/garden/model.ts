@@ -1,7 +1,8 @@
 import { state } from '../../shared/store'
 import { newId } from '../../shared/utils/newId'
 import { t } from '../../shared/i18n'
-import { getSpecies, recordProgress, stageForDays, stageIndex, STAGES, STAGE_META, type Stage } from '../collection/model'
+import { getSpecies, recordProgress, stageIndex, STAGES, type Stage } from '../collection/model'
+import { STAGE_GP, stageForPoints } from './growth'
 import { addCoins } from '../../shared/coins'
 import { bumpMission } from '../missions/model'
 
@@ -15,8 +16,17 @@ export interface Pot {
   spot: Spot
   water: number
   nutrition: number
+  /** Healthy days so far (kept for history; growth itself is measured in growthPoints). */
   growthDays: number
   lastGrowthDay: string
+  /** Growth points (GP) so far; the stage follows from them. */
+  growthPoints: number
+  /** Day of tapPoints; another day starts again from 0. */
+  tapDay?: string
+  /** GP earned from water and feed taps on tapDay (a record only: taps have no daily cap). */
+  tapPoints: number
+  /** Unused since the daily tap cap was removed; kept so the runtime row round-trips. */
+  tapBonus: number
   wiltingSince?: string
   lastUpdated: string
   createdAt: string
@@ -31,6 +41,15 @@ export const HAPPY_AT = 40
 const WILT_BELOW = 15
 const DEATH_AFTER_DAYS = 7
 const MAX_GROWTH_CATCHUP = 3
+/** GP a healthy day adds on its own. */
+export const DAILY_GP = 10
+/** What one tap pours in and the GP it gives: full while the stat is below 100%, half once it is full. */
+const CARE = {
+  water: { amount: 25, gp: 1 },
+  nutrition: { amount: 35, gp: 2 },
+} as const
+const FULL_TANK_SHARE = 0.5
+const FULL_AT = 99.5
 const DAY = 86400000
 
 const clamp = (value: number) => Math.max(0, Math.min(100, value))
@@ -52,11 +71,25 @@ export const STATUS_META: Record<Status, { readonly label: string; readonly hint
   wilting: { get label() { return t('status.wilting.label') }, get hint() { return t('status.wilting.hint') } },
 }
 export function neededCare(pot: Pot): 'water' | 'nutrition' { return pot.water <= pot.nutrition ? 'water' : 'nutrition' }
-export function stageOf(pot: Pot): Stage { return stageForDays(pot.growthDays) }
-export function nextStage(pot: Pot): { stage: Stage; daysLeft: number } | null {
+export function stageOf(pot: Pot): Stage { return stageForPoints(pot.growthPoints) }
+export function nextStage(pot: Pot): { stage: Stage; pointsLeft: number } | null {
   const next = STAGES[STAGES.indexOf(stageOf(pot)) + 1]
-  return next ? { stage: next, daysLeft: STAGE_META[next].minDays - pot.growthDays } : null
+  return next ? { stage: next, pointsLeft: Math.ceil(STAGE_GP[next] - pot.growthPoints) } : null
 }
+/** GP inside the current stage: how far along it the pot is and how many it needs in total (0 once in bloom). */
+export function stageProgress(pot: Pot): { done: number; total: number; share: number } {
+  const stage = stageOf(pot)
+  const next = STAGES[STAGES.indexOf(stage) + 1]
+  if (!next) return { done: 0, total: 0, share: 1 }
+  const total = STAGE_GP[next] - STAGE_GP[stage]
+  const done = Math.max(0, pot.growthPoints - STAGE_GP[stage])
+  return { done, total, share: Math.min(1, done / total) }
+}
+function resetTapDay(pot: Pot, today: string = dayKey()) {
+  if (pot.tapDay === today) return
+  pot.tapDay = today; pot.tapPoints = 0; pot.tapBonus = 0
+}
+
 export function daysUntilDeath(pot: Pot, now: Date = new Date()): number | null {
   if (!pot.wiltingSince) return null
   return Math.max(0, Math.ceil((new Date(pot.wiltingSince).getTime() + DEATH_AFTER_DAYS * DAY - now.getTime()) / DAY))
@@ -82,7 +115,10 @@ export function tickPot(pot: Pot, now: Date = new Date()): boolean {
   }
   delete pot.wiltingSince
   const elapsed = daysBetween(pot.lastGrowthDay, today)
-  if (elapsed > 0) { pot.growthDays += Math.min(elapsed, MAX_GROWTH_CATCHUP); pot.lastGrowthDay = today }
+  if (elapsed > 0) {
+    const days = Math.min(elapsed, MAX_GROWTH_CATCHUP)
+    pot.growthDays += days; pot.growthPoints += days * DAILY_GP; pot.lastGrowthDay = today
+  }
   recordProgress(pot.speciesId, stageOf(pot))
   return true
 }
@@ -100,22 +136,46 @@ export function tickAll(now: Date = new Date()): string[] {
 }
 
 export function findPot(id: string): Pot | undefined { return state.value.pots.find(p => p.id === id) }
-function afterCare(pot: Pot) { if (statusOf(pot) !== 'wilting') delete pot.wiltingSince }
-/** Waters a pot. Every tap counts towards today's mission (the mission itself stops at its target). */
-export function waterPot(id: string): boolean {
-  const pot = findPot(id); if (!pot) return false
-  tickPot(pot); pot.water = 100; afterCare(pot)
-  return bumpMission('water')
-}
-/** Feeds a pot. Every tap counts towards today's mission (the mission itself stops at its target). */
-export function feedPot(id: string): boolean {
-  const pot = findPot(id); if (!pot) return false
-  tickPot(pot); pot.nutrition = 100; afterCare(pot)
-  return bumpMission('feed')
-}
+/** What one care tap did: the GP it gave (0 while wilting) and whether it moved a mission. */
+export interface CareResult { gp: number; mission: boolean }
 
-// A pot reaching a new stage earns coins once per stage; the popup that hands them out is in the app shell.
+function care(id: string, stat: 'water' | 'nutrition'): CareResult | null {
+  const pot = findPot(id); if (!pot) return null
+  tickPot(pot)
+  const rule = CARE[stat]
+  // Full as the player sees it (the bar rounds to 100%); a few minutes of drain must not make a spam tap count as full value.
+  const wasFull = pot[stat] >= FULL_AT
+  pot[stat] = clamp(pot[stat] + rule.amount)
+  if (statusOf(pot) !== 'wilting') delete pot.wiltingSince
+  const mission = bumpMission(stat === 'water' ? 'water' : 'feed')
+  // A pot that is still wilting after the tap does not grow.
+  if (statusOf(pot) === 'wilting') return { gp: 0, mission }
+  resetTapDay(pot)
+  const gp = rule.gp * (wasFull ? FULL_TANK_SHARE : 1)
+  pot.tapPoints += gp
+  pot.growthPoints += gp
+  recordProgress(pot.speciesId, stageOf(pot))
+  return { gp, mission }
+}
+/** Waters a pot: +25% water and some GP. Every tap counts towards today's mission (the mission itself stops at its target). */
+export function waterPot(id: string): CareResult | null { return care(id, 'water') }
+/** Feeds a pot: +35% nutrition and some GP. Every tap counts towards today's mission. */
+export function feedPot(id: string): CareResult | null { return care(id, 'nutrition') }
+
+// A pot reaching a new stage earns coins once per stage, at most LEVEL_UP_DAILY times a day across all pots;
+// the popup that hands them out is in the app shell.
 export const LEVEL_UP_REWARD = 2
+export const LEVEL_UP_DAILY = 3
+function levelUpsLeft(): number {
+  const ups = state.value.levelUps
+  return ups.day === dayKey() ? Math.max(0, LEVEL_UP_DAILY - ups.count) : LEVEL_UP_DAILY
+}
+/** Coins the pending level-up of this pot would give now (0 once today's limit is used up). */
+export function levelUpCoins(pot: Pot): number {
+  const now = stageOf(pot)
+  const steps = Math.max(0, stageIndex(now) - stageIndex(pot.rewardedStage ?? now))
+  return Math.min(steps, levelUpsLeft()) * LEVEL_UP_REWARD
+}
 /** The stage the pot reached but has not been rewarded for yet, or null. */
 export function levelUpOf(pot: Pot): Stage | null {
   const now = stageOf(pot)
@@ -125,10 +185,15 @@ export function pendingLevelUp(): Pot | undefined { return state.value.pots.find
 /** Marks the pot's current stage as rewarded and adds the coins. Returns how many coins were given. */
 export function claimLevelUp(pot: Pot): number {
   const now = stageOf(pot)
-  const steps = Math.max(0, stageIndex(now) - stageIndex(pot.rewardedStage ?? now))
+  const coins = levelUpCoins(pot)
   pot.rewardedStage = now
-  addCoins(steps * LEVEL_UP_REWARD)
-  return steps * LEVEL_UP_REWARD
+  if (coins > 0) {
+    const ups = state.value.levelUps
+    if (ups.day !== dayKey()) { ups.day = dayKey(); ups.count = 0 }
+    ups.count += coins / LEVEL_UP_REWARD
+    addCoins(coins)
+  }
+  return coins
 }
 export function setSpot(id: string, spot: Spot) {
   const pot = findPot(id); if (!pot) return
@@ -150,7 +215,7 @@ export function plantSeed(seedId: string): Pot | null {
   const now = new Date()
   const pot: Pot = {
     id: newId(), speciesId: species.id, spot: species.preferredSpot,
-    water: 100, nutrition: 100, growthDays: 0, lastGrowthDay: dayKey(now), lastUpdated: now.toISOString(), createdAt: now.toISOString(),
+    water: 100, nutrition: 100, growthDays: 0, lastGrowthDay: dayKey(now), growthPoints: 0, tapPoints: 0, tapBonus: 0, lastUpdated: now.toISOString(), createdAt: now.toISOString(),
     rewardedStage: 'seed',
   }
   state.value.seeds = state.value.seeds.filter(s => s.id !== seedId)

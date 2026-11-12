@@ -8,6 +8,9 @@ import { hasOnboarded } from './utils/onboarding'
 /** Today's daily missions (counts reset when `day` is not today) and the last day their reward was claimed. */
 export interface Missions { day: string; water: number; feed: number; scan: number; claimedDay?: string }
 
+/** Level-up rewards handed out today (capped per day across all pots). */
+export interface LevelUps { day: string; count: number }
+
 export interface State {
   pots: Pot[]
   seeds: Seed[]
@@ -17,9 +20,10 @@ export interface State {
   /** "Seeds" as the in-app currency: buys seed packs and unlocks species. */
   coins: number
   missions: Missions
+  levelUps: LevelUps
 }
 function emptyState(): State {
-  return { pots: [], seeds: [], discoveries: [], potSlots: 6, notifications: true, coins: 0, missions: { day: '', water: 0, feed: 0, scan: 0 } }
+  return { pots: [], seeds: [], discoveries: [], potSlots: 6, notifications: true, coins: 0, missions: { day: '', water: 0, feed: 0, scan: 0 }, levelUps: { day: '', count: 0 } }
 }
 
 // Filled from runtime.db by initBackend() before the app mounts; every change is written back to it.

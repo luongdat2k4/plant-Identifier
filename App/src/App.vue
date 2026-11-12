@@ -4,8 +4,8 @@ import { computed, onMounted, onUnmounted, watch } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
 import BottomNav from './shared/components/BottomNav.vue'
 import { useToast } from './shared/composables/useToast'
-import { claimLevelUp, levelUpOf, LEVEL_UP_REWARD, pendingLevelUp, potName, tickAll } from './features/garden/model'
-import { getSpecies, stageIndex, STAGE_META } from './features/collection/model'
+import { claimLevelUp, levelUpCoins, levelUpOf, pendingLevelUp, potName, tickAll } from './features/garden/model'
+import { getSpecies, STAGE_META } from './features/collection/model'
 import RewardModal from './shared/components/RewardModal.vue'
 import { setStatusBar } from './shared/utils/statusBar'
 import BannerAd from './features/ads/components/BannerAd.vue'
@@ -27,8 +27,7 @@ const levelInfo = computed(() => {
   const stage = pot && levelUpOf(pot)
   const species = pot && getSpecies(pot.speciesId)
   if (!pot || !stage || !species) return null
-  const steps = stageIndex(stage) - stageIndex(pot.rewardedStage ?? stage)
-  return { name: potName(pot), stage: STAGE_META[stage].label, image: species.image, coins: steps * LEVEL_UP_REWARD }
+  return { name: potName(pot), stage: STAGE_META[stage].label, image: species.image, coins: levelUpCoins(pot) }
 })
 function claimLevel() {
   if (!levelPot.value) return
@@ -43,12 +42,12 @@ function refreshPots() {
   if (died.length) notify(t('toast.hibernated', { names: died.join(', ') }))
 }
 // Every 2-3 taps on a control an interstitial may show. Never on the camera, the first-run screens, the language page,
-// the scan button or the rewarded-seed button, and never while another ad is up.
+// the scan button, the rewarded-video buttons or the water/feed buttons (those are meant to be tapped fast), and never while another ad is up.
 const NO_TAP_ADS = ['scan', 'begin', 'welcome', 'language', 'menu-language']
 function onTap(event: MouseEvent) {
   if (NO_TAP_ADS.includes(String(route.name)) || fullScreenShowing.value || adsSuppressed.value) return
   const control = (event.target as Element | null)?.closest('button, a[href], [role="button"]')
-  if (!control || control.closest('.scan-btn, .seed-reward, .banner-dock')) return
+  if (!control || control.closest('.scan-btn, .seed-reward, .banner-dock, .care-tap')) return
   countAction()
 }
 function onVisible() { if (!document.hidden) refreshPots() }
@@ -69,6 +68,6 @@ onUnmounted(() => { clearInterval(timer); document.removeEventListener('visibili
     <BottomNav v-if="showNav" />
     <div v-if="adsPossible" v-show="showBanner" class="banner-dock" :style="{ height: `${bannerHeight}px` }"><BannerAd :visible="showBanner"/></div>
     <div v-if="toast" class="toast" role="status">{{ toast }}</div>
-    <RewardModal v-if="levelInfo" :title="t('levelUp.title')" :text="t('levelUp.text', { name: levelInfo.name, stage: levelInfo.stage })" :images="[levelInfo.image]" :coins="levelInfo.coins" @ok="claimLevel"/>
+    <RewardModal v-if="levelInfo" :title="t('levelUp.title')" :text="levelInfo.coins ? t('levelUp.text', { name: levelInfo.name, stage: levelInfo.stage }) : `${t('levelUp.text', { name: levelInfo.name, stage: levelInfo.stage })}. ${t('levelUp.noCoins')}`" :images="[levelInfo.image]" :coins="levelInfo.coins" @ok="claimLevel"/>
   </div>
 </template>

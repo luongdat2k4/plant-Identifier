@@ -70,7 +70,8 @@
     "seedSaved": "Đã cất hạt vào túi",
     "about": "Sproutly · bản thử giao diện v2",
     "rewardNone": "Chưa có video phù hợp, hãy thử lại sau",
-    "coinsReward": "Bạn nhận được +{n} hạt giống"
+    "coinsReward": "Bạn nhận được +{n} hạt giống",
+    "stillWilting": "Cây vẫn đang héo, chăm thêm để cây lớn lại"
   },
   "confirm": {
     "discardSeed": "Bỏ hạt giống này?",
@@ -167,12 +168,12 @@
     "spotWrong": "Cây thích {spot} hơn, đặt sai chỗ cây sẽ khát nhanh hơn một chút.",
     "nickname": "Tên riêng",
     "growth": "Tăng trưởng",
-    "growthDays": "{days} ngày chăm tốt",
-    "untilNext": "Còn {days} ngày nữa để lên {stage}. Cây héo sẽ tạm dừng lớn, nhưng không bị mất tiến độ.",
     "bloomed": "Cây đã ra hoa, loài này đã được thuần trong bộ sưu tập.",
     "uproot": "Nhổ cây, cất về túi hạt",
     "notFoundTitle": "Không tìm thấy cây",
-    "notFoundText": "Cây này có thể đã ngủ đông và quay về túi hạt giống."
+    "notFoundText": "Cây này có thể đã ngủ đông và quay về túi hạt giống.",
+    "stageGp": "{done}/{total} GP",
+    "untilNextGp": "Còn {n} GP nữa để lên {stage}. Cây héo sẽ tạm dừng lớn, nhưng không mất tiến độ."
   },
   "scan": {
     "step1": "Đã chụp ảnh",
@@ -307,6 +308,7 @@
   },
   "levelUp": {
     "title": "Cây đã phát triển!",
-    "text": "{name} đã lên giai đoạn {stage}"
+    "text": "{name} đã lên giai đoạn {stage}",
+    "noCoins": "Hôm nay đã hết thưởng hạt giống khi lên cấp, mai quay lại nhé"
   }
 }

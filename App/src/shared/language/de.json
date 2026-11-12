@@ -70,7 +70,8 @@
     "seedSaved": "Samen in deinem Beutel gespeichert",
     "about": "Sproutly · UI-Vorschau v2",
     "rewardNone": "Gerade ist kein Video verfügbar, versuch es später erneut",
-    "coinsReward": "Du hast +{n} Samen erhalten"
+    "coinsReward": "Du hast +{n} Samen erhalten",
+    "stillWilting": "Noch welk, pflege weiter, damit sie wächst"
   },
   "confirm": {
     "discardSeed": "Diesen Samen verwerfen?",
@@ -167,12 +168,12 @@
     "spotWrong": "Diese Pflanze bevorzugt einen {spot}; am falschen Platz wird sie etwas schneller durstig.",
     "nickname": "Spitzname",
     "growth": "Wachstum",
-    "growthDays": "{days} Tage gute Pflege",
-    "untilNext": "Noch {days} Tage bis {stage}. Eine welke Pflanze pausiert das Wachstum, behält aber ihren Fortschritt.",
     "bloomed": "Die Pflanze hat geblüht; diese Art ist in deiner Sammlung gemeistert.",
     "uproot": "Pflanze entfernen, zurück in den Samenbeutel",
     "notFoundTitle": "Pflanze nicht gefunden",
-    "notFoundText": "Diese Pflanze ist vielleicht in den Ruhezustand gegangen und in deinen Samenbeutel zurückgekehrt."
+    "notFoundText": "Diese Pflanze ist vielleicht in den Ruhezustand gegangen und in deinen Samenbeutel zurückgekehrt.",
+    "stageGp": "{done}/{total} GP",
+    "untilNextGp": "Noch {n} GP bis {stage}. Eine welke Pflanze wächst nicht weiter, behält aber ihren Fortschritt."
   },
   "scan": {
     "step1": "Foto aufgenommen",
@@ -307,6 +308,7 @@
   },
   "levelUp": {
     "title": "Deine Pflanze ist gewachsen!",
-    "text": "{name} hat die Stufe {stage} erreicht"
+    "text": "{name} hat die Stufe {stage} erreicht",
+    "noCoins": "Die Samen-Belohnungen fürs Wachsen sind heute aufgebraucht, komm morgen wieder"
   }
 }

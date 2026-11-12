@@ -151,25 +151,33 @@ Hồi phục: khi người dùng chăm làm `lowest >= 15` thì xóa `wiltingSin
 
 ## 6. Vòng đời và tăng trưởng
 
-- `growthDays` tăng **1 mỗi ngày dương lịch** mà cây ở trạng thái Happy hoặc Needs care vào ngày đó (tính khi mở app, ghi lại ngày cuối đã tính để không cộng trùng).
-- Cây héo thì **tạm dừng**, không bị lùi về giai đoạn trước. Người dùng không bao giờ mất tiến độ đã có.
-- Cây không tăng trưởng thêm cũng không tụt giai đoạn.
+Cây lớn theo **điểm lớn (GP, `growthPoints`)**, cho phép người chơi spam tưới/bón và thấy cây lớn ngay. Code: `App/src/features/garden/model.ts`, mốc ở `growth.ts`.
 
-| Giai đoạn | `growthDays` cần đạt | Mở khóa |
+- **Mỗi tap** tưới cộng 25% nước, bón cộng 35% dinh dưỡng (tối đa 100%). Nếu chỉ số đó đang dưới 99.5% thì tap được trọn GP (tưới +1, bón +2); nếu đã đầy thì chỉ được 1/2 (tưới +0.5, bón +1). Chăm đúng lúc lời hơn spam.
+- **Không có trần ngày:** spam bao nhiêu cũng cộng GP. `tapPoints` chỉ ghi lại GP từ tap trong `tapDay`; `tapBonus` không còn dùng.
+- **Theo thời gian:** mỗi ngày dương lịch cây không héo tự +10 GP (`growthDays` vẫn đếm số ngày này), bù tối đa 3 ngày khi bỏ app.
+- **Cây héo** (sau tap vẫn dưới 15%) không cộng GP, kể cả tap. Không bị lùi giai đoạn, không mất tiến độ.
+- Tap tưới/bón không tính vào bộ đếm quảng cáo xen kẽ theo tap (nút có class `care-tap`).
+
+| Giai đoạn | GP cộng dồn | Mở khóa |
 |---|---|---|
 | Seed (hạt) | 0 | Tên loài |
-| Sprout (mầm) | 1 | Mô tả |
-| Young (cây non) | 3 | Mẹo chăm sóc đầu tiên |
-| Mature (trưởng thành) | 7 | Toàn bộ mẹo chăm sóc |
-| Bloom (ra hoa) | 14 | Sự thật thú vị, `mastered = true` |
+| Sprout (mầm) | 8 | Mô tả |
+| Young (cây non) | 30 | Mẹo chăm sóc đầu tiên |
+| Mature (trưởng thành) | 65 | Toàn bộ mẹo chăm sóc |
+| Bloom (ra hoa) | 120 | Sự thật thú vị, `mastered = true` |
 
-Chỉ cần **khoảng hai tuần** để hoàn thành một cây. Mốc này có thể chỉnh sau khi thử thực tế.
+Spam khoảng 1 tap/giây thì từ hạt đến ra hoa mất khoảng 2–3 phút, chơi liền một lần được. Cột `stage.min_days` của catalog không còn dùng để lên giai đoạn, chỉ để quy đổi chậu cũ: chậu có `growth_points` NULL lấy GP bằng mốc của giai đoạn mà `growth_days` đã đạt.
+
+**Thưởng lên giai đoạn:** +2 hạt giống mỗi giai đoạn, mỗi giai đoạn của một chậu thưởng một lần, và **tối đa 3 lần mỗi ngày trên toàn bộ cây** (`settings.level_up_day` / `level_up_count`). Quá giới hạn thì popup vẫn hiện nhưng không có hạt giống.
+
+**Giao diện trang chậu:** vòng tròn quanh biểu tượng giai đoạn là tiến độ GP trong giai đoạn, biểu tượng to dần từ 70% tới 100% trong giai đoạn, mỗi tap có chữ "+GP" bay lên, giọt nước hoặc hạt phân rơi và cây rung nhẹ; cây có thể lên nhiều giai đoạn trong một lần chơi, còn thưởng hạt giống bị giới hạn 3 lần/ngày như trên.
 
 ## 7. Cây chết (nhẹ nhàng)
 
 Cây chết **không mất hoàn toàn**:
 
-- Chuyển thành một **hạt giống** cùng loài, cùng ảnh, quay về `Seed` để trồng lại từ đầu (`growthDays = 0`).
+- Chuyển thành một **hạt giống** cùng loài, cùng ảnh, quay về `Seed` để trồng lại từ đầu (`growthPoints = 0`).
 - `Discovery` đã có thì **giữ nguyên** (kể cả `mastered`). Cây chết không làm mất bộ sưu tập.
 - Hiện thông báo nhẹ: "Cây của bạn đã ngủ đông. Trồng lại hạt giống nhé."
 

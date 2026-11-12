@@ -70,7 +70,8 @@
     "seedSaved": "Zaadje opgeslagen in je zakje",
     "about": "Sproutly · UI-voorbeeld v2",
     "rewardNone": "Momenteel geen video beschikbaar, probeer het later opnieuw",
-    "coinsReward": "Je hebt +{n} zaden ontvangen"
+    "coinsReward": "Je hebt +{n} zaden ontvangen",
+    "stillWilting": "Nog verwelkt, blijf verzorgen zodat hij groeit"
   },
   "confirm": {
     "discardSeed": "Dit zaadje weggooien?",
@@ -167,12 +168,12 @@
     "spotWrong": "Deze plant heeft voorkeur voor: {spot}. Op de verkeerde plek krijgt hij iets sneller dorst.",
     "nickname": "Bijnaam",
     "growth": "Groei",
-    "growthDays": "{days} dagen goede zorg",
-    "untilNext": "Nog {days} dagen tot {stage}. Een verwelkte plant stopt met groeien, maar behoudt zijn voortgang.",
     "bloomed": "De plant bloeit; deze soort is voltooid in je collectie.",
     "uproot": "Plant verwijderen, terug naar zaadzakje",
     "notFoundTitle": "Plant niet gevonden",
-    "notFoundText": "Deze plant is misschien in rust gegaan en terug naar je zaadzakje gegaan."
+    "notFoundText": "Deze plant is misschien in rust gegaan en terug naar je zaadzakje gegaan.",
+    "stageGp": "{done}/{total} GP",
+    "untilNextGp": "Nog {n} GP tot {stage}. Een verwelkte plant groeit niet verder, maar houdt zijn voortgang."
   },
   "scan": {
     "step1": "Foto gemaakt",
@@ -307,6 +308,7 @@
   },
   "levelUp": {
     "title": "Je plant is gegroeid!",
-    "text": "{name} heeft de fase {stage} bereikt"
+    "text": "{name} heeft de fase {stage} bereikt",
+    "noCoins": "De zaadbeloningen voor groei zijn op voor vandaag, kom morgen terug"
   }
 }

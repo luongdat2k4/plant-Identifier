@@ -24,9 +24,11 @@ const pots = computed(() => state.value.pots)
 const shown = computed(() => pots.value.filter(p => filter.value === 'all' || (filter.value === 'happy') === (statusOf(p) === 'happy')))
 const waitingSeeds = computed(() => state.value.seeds.slice(0, 3))
 function care(pot: Pot, kind: 'water' | 'feed') {
-  const counted = kind === 'water' ? waterPot(pot.id) : feedPot(pot.id)
+  const result = kind === 'water' ? waterPot(pot.id) : feedPot(pot.id)
+  if (!result) return
   const message = kind === 'water' ? t('toast.watered', { name: potName(pot) }) : t('toast.fed', { name: potName(pot) })
-  notify(withMission(message, counted ? kind : null))
+  const gp = result.gp > 0 ? ` · +${Math.floor(result.gp * 4) / 4} GP` : ''
+  notify(withMission(message + gp, result.mission ? kind : null))
 }
 const done = computed(() => missionsDone())
 const collected = computed(() => state.value.discoveries.length)

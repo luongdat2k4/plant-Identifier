@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
-  "catalogVersion": "2026-11-10.3",
-  "generatedAt": "2026-11-10T07:38:38.928Z",
+  "catalogVersion": "2026-11-12.2",
+  "generatedAt": "2026-11-12T08:23:21.526Z",
   "dbFiles": [
     {
       "name": "catalog/catalog.db",
@@ -34,7 +34,7 @@
         "care_log",
         "daily_mission"
       ],
-      "sha256": "0a0cc66dd5caba451987ac930c26de997721a0fa32a1a71a317b4df2e27d1a25",
+      "sha256": "d92724bd1ed3597146879aa2e5b935932bdfbd8693e100a93e2282fcf903ec63",
       "sizeBytes": 57344
     }
   ],
